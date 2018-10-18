@@ -1,0 +1,69 @@
+
+## <!-- CheckoutQuestion.vm -->
+## ## Added div.question - NV
+
+##     <label for="question-$velocityCount">
+##       #set ($qdetail = $question.questiondetails.get(0)) 
+##       #set ($answer = $question.getAnswer($qdetail.qdetailid))
+##         #if($question.qdescription.substring(0,1) == '*') ## Remove *CAG, if present.
+##             $question.qdescription.substring($question.qdescription.indexOf(' '))
+##         #else
+##             $question.qdescription
+##         #end
+##      </label>
+##  ##   <input  name="$question.getName($qdetail.qdetailid)" value="$!answer.content" maxlength="28"></input>
+    
+    
+## ## below is the code for a dropdown select box for a script question with class defined to use the Select2 plugin
+
+##  <select name="$question.getName()" class="scriptQuestDD">
+##  #foreach($qdetail in $question.questiondetails)
+##  <script>
+##      console.log('option')
+##  </script>
+##  #if($qdetail.optdesc != "null")
+##      <option value=$qdetail.qdetailid #if ( $answer && $qdetail.qdetailid==$answer.qdetailid) selected #end>$qdetail.optdesc</option>
+##  #end
+##  #end
+##  </select>
+
+##  <script type="text/javascript">
+##  $( document ).ready(function() {
+##      $('.scriptQuestDD').select2();
+##      });
+##  </script>
+
+
+
+<!-- CheckoutQuestion.vm -->
+## Added div.question - NV
+
+    <label for="question-$velocityCount">
+      #set ($qdetail = $question.questiondetails.get(0)) 
+      #set ($answer = $question.getAnswer($qdetail.qdetailid))
+        #if($question.qdescription.substring(0,1) == '*') ## Remove *CAG, if present.
+            $question.qdescription.substring($question.qdescription.indexOf(' '))
+        #else
+            $question.qdescription
+        #end
+     </label>
+    ## <input  name="$question.getName($qdetail.qdetailid)" value="$!answer.content" maxlength="28"></input>
+    <select name="$question.getName($qdetail.qdetailid)" class="scriptQuestDD2" onChange="document.getElementById('region').value=this.value">
+      <option disabled value="Please"#if($!answer.content != "Yes" && $!answer.content != "No") selected#end>Required-Please Select...</option>
+      <option value="East"#if($!answer.content == "East") selected#end>East</option>
+      <option value="West"#if($!answer.content == "West") selected#end>West</option>
+      <option value="Central"#if($!answer.content == "Central") selected#end>Central</option
+    
+   </select>
+   
+##   <input  type="hidden" id="customerInput4PO" name="customerInput" value="$!checkoutViewDTO.customerInput" maxlength="28" ></input>
+   
+    <input  id="region" hidden="true" name="$question.getName($qdetail.qdetailid)" value="$!answer.content" maxlength="28"></input>
+   
+   
+   
+  <script type="text/javascript">
+$( document ).ready(function() {
+    $('.scriptQuestDD2').select2();
+    });
+</script>
