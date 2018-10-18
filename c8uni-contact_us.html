@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+
+#########################################################################
+
+#if (!$pageTileDictionaryDTO)
+  #if ($_commandName)
+    #springBind( "${_commandName}.pageTileDictionaryDTO" )
+    #set ($pageTileDictionaryDTO = ${status.value})
+  #end
+#end
+
+#########################################################################
+
+<html id="contact">
+<head>
+  <title>#if($!pagetitle) $pagetitle  #else #springMessage("navContact") - $!{htmlSiteName} #end</title>
+  #parse('libMarkupHead.vm')
+  #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+</head>
+<body>
+    #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+    <div id="container">
+        #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+        
+    <div id="content" role="main" class="clearfix">
+      #parse('libPartContactUsHeaderCode.vm')
+          <div class="sidebar">
+            #parse("libpartRecentlyViewedCategories.vm")
+          </div>
+
+
+      <!-- START content for contact us -->
+      <div class="page clearfix">
+      #set($tmp= $vendorInfoDTO.getItem(0))
+      #set($vendor= $pageTile.getItemObject($vendorInfoDTO, $tmp, "v"))
+
+      <div class="contact-data">
+
+		## #parse("libPartContactUsCenter.vm")
+
+		<!--  Start contactus-center.vm --><!--  Start contactus-center.vm --><!--  Start contactus-center.vm  -->
+		<div>
+			#set($tmp= $vendorInfoDTO.getItem(0))
+			#set($vendor= $pageTile.getItemObject($vendorInfoDTO, $tmp, "v"))
+			<div class="companyInfo">
+				<h1>Contact Us</h1>
+
+                <!-- <p>
+                    <strong>Wendy Thorne</strong><br/>
+                    <span class="contact-title">Relationship Manager</span><br/>
+                    <a href="mailto:wthorne@geiger.com">wthorne@geiger.com</a><br/>
+                    207-755-2155
+
+                    <span class="contact-description">Contact Wendy regarding any custom order information or with questions about specific products on the eStore.</span>
+                </p>    
+                <p>
+                    <strong>Customer Service</strong><br/>
+                    $!htmlCSRPhone<br/>
+                    <span class="contact-description">Contact our team of customer service representatives for general questions, to check the status of your order and other order inquires. Hours: 8:00 a.m. - 8:00 p.m. EST. Monday - Friday.</span>
+                </p> -->
+
+				<p>
+					If you have questions or need assistance placing your order, our knowledgeable and friendly Customer Service team is here to help! Reps are available Monday – Friday from 8 a.m. to 8 	p.m. EST. Call toll-free at <a href="tel:844-342-5765">844-342-5765</a> or email <a href="mailto:cs@geiger.com">cs@geiger.com</a>.
+				</p>
+				<p>
+					If you have questions regarding a custom order, please contact your Relationship Manager, Wendy Thorne, at <a href="mailto:wthorne@geiger.com">wthorne@geiger.com</a> or <a href="tel:207-755-2155">207-755-2155</a>.
+				</p>
+
+				<div class="warning" id="messagesOutput" style="display: none;"></div>
+				<div class="warning" id="errorsOutPut" style="display: none;"></div>
+			</div>
+		</div>
+		<!--  End contactus-center.vm  --><!--  End contactus-center.vm --><!--  End contactus-center.vm -->
+
+		<p>
+			If you have suggestions for products that should be included in the online store, let us know by clicking the link and
+			<span id="show_contact_form">filling out the Suggestion Card</span>.
+		</p>
+
+		<form id="suggestion_form" class="suggestion_form">
+			<h2>Suggestion Card</h2>
+			<div class="suggestion_form_content">
+				<label for="eName">Name:</label>
+				<input type="text" class="suggestion_form__textbox nonempty" id="eName" name="eName" maxlength="255" placeholder="Enter your name..." />
+				<label for="eEmail">Email:</label>
+				<input type="email" class="suggestion_form__textbox" id="eEmail" name="eEmail" maxlength="255" placeholder="Enter your email..." />
+				<label for="eBranchLoc">Branch Location:</label>
+				<input type="text" class="suggestion_form__textbox nonempty" id="eBranchLoc" name="eBranchLoc" maxlength="255" placeholder="Enter your branch location..." />
+				<p class="antispam">
+					<input type="text" class="suggestion_form__textbox" id="url" name="url" />
+				</p>
+				<label for="eBusiness">Which business are you a part of?</label>
+				<select class="suggestion_form__dropdown" id="eBusiness" name="eBusiness">
+					<option value="Univar" selected>Univar</option>
+					<option value="ChemPoint">ChemPoint</option>
+					<option value="MiniBulk">MiniBulk</option>
+					<option value="ChemCare">ChemCare</option>
+					<option value="MagnaBlend">MagnaBlend</option>
+				</select>
+				<label for="eSuggestion">Suggestion:</label>
+				<textarea class="suggestion_form__textarea nonempty" id="eSuggestion" name="eSuggestion" placeholder="Enter your suggestion..."></textarea>
+				<button class="suggestion_form__button suggestion_form__button--submit">Submit</button>
+				<button class="suggestion_form__button suggestion_form__button--cancel">Cancel</button>
+			</div>
+			<div class="suggestion_form_loading" style="display: none; position: absolute;"></div>
+			<div class="suggestion_form_message" style="display: none; position: absolute;">
+				<span class="suggestion_form_message_box"></span>
+			</div>
+			<script type="text/javascript">
+
+				jQuery(document).ready( function() {
+
+					// Add IE8 support for the String.trim() function.
+					if(typeof String.prototype.trim !== 'function') {
+					  String.prototype.trim = function() {
+					    return this.replace(/^\s+|\s+$/g, ''); 
+					  }
+					}
+
+					var contentArea = jQuery(".suggestion_form_content");
+					var loadingArea = jQuery(".suggestion_form_loading");
+					var messageArea = jQuery(".suggestion_form_message");
+					var messageBox = jQuery(".suggestion_form_message_box");
+
+					// Create the loading image.
+					var loadingImg = jQuery("<img src=\"store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/loading-new.gif\" alt=\"Loading\" />");
+					loadingArea.append(loadingImg);
+
+					// Setup validator.
+					var validator = new ggValidator("validator1");
+					validator.addRuleset("#eName", "minlen=1", "Please enter a name.");
+					validator.addRuleset("#eEmail", "email", "Please enter a valid email.");
+					validator.addRuleset("#eBranchLoc", "minlen=1", "Please enter a branch location.");
+					validator.addRuleset("#eSuggestion", "minlen=1", "Please enter a suggestion.");
+
+
+					// Closes the "Suggestion Idea" form.
+					var closeWindow = function() {
+						jQuery('#suggestion_form').trigger('reveal:close');
+					}
+
+
+					// Function to reset form.
+					var resetForm = function () {
+						validator.clearTooltips();
+						jQuery("#suggestion_form")[0].reset();
+					}
+
+
+					// Function to hide all suggestion form states.
+					var hideAllSections = function () {
+						contentArea.hide();
+						loadingArea.hide();
+						messageArea.hide();
+					}
+
+
+					// Shows the message area with a given message.
+					var showMessage = function(msg) {
+						hideAllSections();
+						messageBox.html(msg);
+						messageArea.fadeIn();
+					}
+
+
+					// Shows an error message.
+					var showError = function(msg) {	
+						messageBox.html("");
+						showMessage(msg);
+						messageBox.append("<br/><button class=\"suggestion_form__button suggestion_form__button--cancel\">Okay</button>");
+					}
+
+
+					// Click event - Open suggestion form
+					jQuery("#show_contact_form").on("click", function(event) {
+						event.preventDefault();
+						hideAllSections();
+						contentArea.show();
+			            jQuery('#suggestion_form').reveal({ // The item which will be opened with reveal
+						    animation: 'fadeAndPop', // fade, fadeAndPop, none
+						    animationspeed: 400, // how fast animtions are
+						    closeonbackgroundclick: false, // if you click background will modal close?
+						    closeOnEsc: false, // if you click background will modal close?
+						    dismissmodalclass: 'close' // the class of a button or element that will close an open modal
+						});
+						//to do: make sure form content is showing and "thank you graphic" is hidden
+						jQuery("#eName").focus();
+						return false;
+					});
+
+
+					// Click event - Submit
+					jQuery(".suggestion_form__button--submit").on("click", function(event) {
+						event.preventDefault();
+						if (validator.validate() === true) {
+							var postAjax = jQuery.post("store/$vendorSettingsDTO.vendorId/assets/contactform/contactengine.php", jQuery("#suggestion_form").serialize());
+							hideAllSections();
+							loadingArea.show();
+							postAjax.done(function(data) {
+								console.log("response: " + data.toString().trim());
+								if (data.toString().trim() === "OKAY") {
+									showMessage("Thank you for your suggestion!");
+									resetForm();
+									setTimeout(closeWindow, 3000);
+								} else {
+									showError("An error occurred while sending suggestion.");
+								}
+							});
+							postAjax.fail(function() {
+								console.log("fail");
+								showError("Error while sending suggestion.");
+								//resetForm();
+							});
+							postAjax.always(function() {
+
+							});
+						}
+					});
+
+
+					// Button to cancel form
+					jQuery(".suggestion_form__button--cancel").on("click", function(event) {
+						event.preventDefault();
+						closeWindow();
+					});
+
+				});
+			</script>
+		</form>
+		<div class="reveal-modal-bg"></div>
+
+		## END #parse("libPartContactUsCenter.vm")
+
+      </div>
+
+    </div> <!-- end page-->
+    </div><!-- end content  -->
+  #parse("libPartContactUsJs.vm")
+      
+        #if($!$footerPosition == "INSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    </div> <!--//#container -->
+    #if($!$footerPosition == "OUTSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    
+  #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+  #parse("libMarkupFoot.vm")
+  </body>
+</html>

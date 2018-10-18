@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+
+#########################################################################
+
+#if (!$pageTileDictionaryDTO)
+  #if ($_commandName)
+    #springBind( "${_commandName}.pageTileDictionaryDTO" )
+    #set ($pageTileDictionaryDTO = ${status.value})
+  #end
+#end
+
+#########################################################################
+
+<html id="contact">
+<head>
+  <title>#if($!pagetitle) $pagetitle  #else #springMessage("vm.myaccount.title") $!{htmlSiteName} #end</title>
+  #parse('libMarkupHead.vm')
+  #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+</head>
+<body>
+    #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+    <div id="container">
+        #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+        
+    <div id="content" role="main" class="clearfix">
+      #parse('libPartContactUsHeaderCode.vm')
+          <div class="sidebar">
+            #parse("libpartRecentlyViewedCategories.vm")
+          </div>
+
+
+      <!-- START content for contact us -->
+      <div class="page clearfix">
+      #set($tmp= $vendorInfoDTO.getItem(0))
+      #set($vendor= $pageTile.getItemObject($vendorInfoDTO, $tmp, "v"))
+
+      <div class="contact-data">
+      
+		## #parse("libPartContactUsCenter.vm")
+		<div><!--  Start contactus-center.vm --><!--  Start contactus-center.vm --><!--  Start contactus-center.vm  -->
+        #set($tmp= $vendorInfoDTO.getItem(0))
+        #set($vendor= $pageTile.getItemObject($vendorInfoDTO, $tmp, "v"))
+        <div class="companyInfo">
+        	<h1>Contact Us</h1>
+          
+        <!-- <p>To contact Geiger about a $!htmlSiteName order or for general information, please contact Customer Service Toll-Free at $!htmlCSRPhone.</p>
+        <p>Our Mailing address is:<br/><br/>
+        <strong>$!htmlSiteName</strong><br/>
+        Geiger Catalog Merchandising<br/>
+        70 Mt. Hope Ave.<br/>
+        P.O. Box 1609<br/>
+        Lewiston, ME 04240</p> -->
+
+        <p>
+          If you have questions or need assistance placing your order, our knowledgeable and friendly Customer Service team is here to help! Reps are available Monday – Friday from 8 a.m. to 8 p.m. EST. Call toll-free at <a href="tel:855-654-5289">855-654-5289</a> or email <a href="mailto:cs@geiger.com">cs@geiger.com</a>.
+        </p>
+
+        ## <p><strong>$!htmlRepName</strong><br/>
+        ## <a href="mailto:$!htmlRepEmail">$!htmlRepEmail</a><br/>
+        ## $!htmlRepPhone</p>
+        
+        #if ($!googleMapURL!= "")		
+        	<p>
+        		Driving Directions and Map: <a href="$!googleMapURL" target="_blank">click here</a> 
+        	</p>
+        #end
+        	<br>
+        	<div class="warning" id="messagesOutput" style="display: none;"></div>
+        	<div class="warning" id="errorsOutPut" style="display: none;"></div>
+        </div>
+        <!--  End contactus-center.vm  --><!--  End contactus-center.vm --><!--  End contactus-center.vm --></div>
+		
+      </div>
+
+    </div> <!-- end page-->
+    </div><!-- end content  -->
+  #parse("libPartContactUsJs.vm")
+      
+        #if($!$footerPosition == "INSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    </div> <!--//#container -->
+    #if($!$footerPosition == "OUTSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    
+  #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+  #parse("libMarkupFoot.vm")
+  </body>
+</html>

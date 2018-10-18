@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+#parse('libGlobalConfig.vm')
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+
+#########################################################################
+
+#if (!$pageTileDictionaryDTO)
+  #if ($_commandName)
+    #springBind( "${_commandName}.pageTileDictionaryDTO" )
+    #set ($pageTileDictionaryDTO = ${status.value})
+  #end
+#end
+
+#########################################################################
+
+<html id="contact">
+<head>
+  <title>#if($!pagetitle) $pagetitle  #else #springMessage("navContact") - $!{htmlSiteName} #end</title>
+  #parse('libMarkupHead.vm')
+  #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+</head>
+<body>
+    #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+    <div id="container">
+        #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+        
+    <div id="content" role="main" class="clearfix">
+      #parse('libPartContactUsHeaderCode.vm')
+          <div class="sidebar">
+            #parse("libpartRecentlyViewedCategories.vm")
+          </div>
+
+
+      <!-- START content for contact us -->
+      <div class="page clearfix">
+      #set($tmp= $vendorInfoDTO.getItem(0))
+      #set($vendor= $pageTile.getItemObject($vendorInfoDTO, $tmp, "v"))
+
+      <div class="contactForm" style="display:none">
+        <div class="warning" id="messagesOutput" style="display: none;"></div>
+        <div class="warning" id="errorsOutPut" style="display: none;"></div>
+        <h2>#springMessage("vm.contact_us.msg")!</h2>
+        <form name="contactUs" id="ContactUs" method="post" action="contactus.html">
+          <input name="vid" value="${vid}" type="hidden" />
+          <input name="contactUs.vendorId" value="${vid}" type="hidden" />  
+          <input name="contactUs.emailName" value="ContactUsReducedEmail" type="hidden" />
+          <div class="contact_box_content">
+            <div class="f-row">
+              <label for="Name">#springMessage("vm.contact_us.name"):</label>
+              <div class="f-field">
+                <input size="20" name="contactUs.name" id="Name"  class="defaultText" value="#springMessage("vm.contact_us.EnterYourName")" onfocus="if(this.value == '#springMessage("vm.contact_us.EnterYourName")') {this.value = ''; this.style.color = '#000';this.style.fontStyle = 'inherit';}" onBlur="if (this.value == '') {this.value = '#springMessage("vm.contact_us.EnterYourName")'; this.style.color = '#a1a1a1'; this.style.fontStyle = 'italic';}" type="text" />
+              </div>
+            </div>
+            <div class="f-row">
+              <label for="Email">#springMessage("vm.contact_us.email"):</label> 
+              <div class="f-field">
+                <input size="20" name="contactUs.email" id="Email" class="defaultText" value="#springMessage("vm.contact_us.EnterYourEmail")" onfocus="if(this.value == '#springMessage("vm.contact_us.EnterYourEmail")') {this.value = ''; this.style.color = '#000'; this.style.fontStyle = 'inherit';}" onBlur="if (this.value == '') {this.value = '#springMessage("vm.contact_us.EnterYourEmail")'; this.style.color = '#a1a1a1'; this.style.fontStyle = 'italic';}" type="text" />
+              </div>
+            </div>
+            <div class="f-row">
+              <label for="Department">#springMessage("vm.contact_us.department"):</label>         
+              <div class="f-field">
+                <select name="contactUs.department" id="Department" onchange="if(this.value != '#springMessage("vm.contact_us.select")') {this.style.color = '#000'; this.style.fontStyle = 'inherit';}" onclick="if(this.value == '#springMessage("vm.contact_us.select")') {this.style.color = '#a1a1a1'; this.style.fontStyle = 'italic';}">
+                  <option>#springMessage("vm.contact_us.select")</option>
+                  <option value="Sales Questions">#springMessage("vm.contact_us.sales")</option>
+                  <option value="Quote Requests">#springMessage("vm.contact_us.quote")</option>
+                  <option value="Billing Issues">#springMessage("vm.contact_us.billing")</option>
+                  <option value="Other">#springMessage("vm.contact_us.other")</option>
+                </select>                                               
+              </div>
+            </div>
+            <div class="f-row">
+              <label for="Question">#springMessage("vm.contact_us.question"):</label>
+              <div class="f-field contactUs">
+                <textarea rows="5" cols="50" name="contactUs.question" class="defaultText" id="Question" value="#springMessage("vm.contact_us.EnterYourMessage")" onfocus="if(this.value == '#springMessage("vm.contact_us.EnterYourMessage")') {this.value = ''; this.style.color = '#000'; this.style.fontStyle = 'inherit';}" onBlur="if(this.value == '') {this.value = '#springMessage("vm.contact_us.EnterYourMessage")'; this.style.color = '#a1a1a1';this.style.fontStyle = 'italic';}">#springMessage("vm.contact_us.EnterYourMessage")</textarea>
+              </div>
+            </div>
+            <div class="f-buttons">
+              <input class="btnclass btn btn-primary" type="button" value="#springMessage('vm.contact_us.sendemail')" onclick="checkInput(); return false;" />
+            </div>
+          </div>          <!-- end contact_box_content -->
+        </form>
+      </div><!-- end contact_box -->  
+      <div class="contact-data">
+	##	#parse("libPartContactUsCenter.vm")
+#set($tmp= $vendorInfoDTO.getItem(0))
+#set($vendor= $pageTile.getItemObject($vendorInfoDTO, $tmp, "v"))
+<div class="companyInfo">
+	<h1>Contact Us</h1>
+        <!-- <p><span>Wendy Thorne</span><br />
+        <span>Relationship Manager</span><br />
+        <a href="mailto:wthorne@geiger.com">wthorne@geiger.com</a><br /> 
+            207-755-2155<br /> 
+            Contact Wendy regarding any custom order information or with questions about specific products on the eStore.</p>
+        <p>Customer Service: $!htmlCSRPhone<br />
+          Contact our team of customer service representatives for general questions, to check the status of your order and other order inquires. Hours: 8:00 a.m. - 6:00 p.m. EST. Monday - Friday.
+        </p> -->
+
+        <p>
+          If you have questions or need assistance placing your order, our knowledgeable and friendly Customer Service team is here to help! Reps are available Monday – Friday from 8 a.m. to 8 p.m. EST. Call toll-free at <a href="tel:800-831-3536">800-831-3536</a> or email <a href="mailto:cs@geiger.com">cs@geiger.com</a>.
+        </p>
+
+        <p>
+          If you have questions regarding a custom order, please contact your Relationship Manager, Wendy Thorne, at <a href="mailto:wthorne@geiger.com">wthorne@geiger.com</a> or <a href="tel:207-755-2155">207-755-2155</a>.
+        </p>
+
+  </div>
+</div>
+
+    </div> <!-- end page-->
+    </div><!-- end content  -->
+  #parse("libPartContactUsJs.vm")
+      
+        #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end
+        #if($!$footerPosition == "INSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    </div> <!--//#container -->
+    #if($!$footerPosition == "OUTSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    
+  #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+  #parse("libMarkupFoot.vm")
+  </body>
+</html>

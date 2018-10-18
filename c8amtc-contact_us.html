@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+
+#########################################################################
+
+#if (!$pageTileDictionaryDTO)
+  #if ($_commandName)
+    #springBind( "${_commandName}.pageTileDictionaryDTO" )
+    #set ($pageTileDictionaryDTO = ${status.value})
+  #end
+#end
+
+#########################################################################
+
+<html id="contact">
+<head>
+  <title>#if($pagetitle) $pagetitle  #else Contact Us - $!{htmlSiteName} #end</title>
+  #parse('libMarkupHead.vm')
+  #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+</head>
+<body>
+    #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+    <div id="container">
+        #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+        
+    <div id="content" role="main" class="clearfix">
+    ##   #parse('libPartContactUsHeaderCode.vm')
+        ##   <div class="sidebar">
+        ##     #parse("libpartRecentlyViewedCategories.vm")
+        ##   </div>
+
+
+      <!-- START content for contact us -->
+      <div class="page clearfix">
+      #set($tmp= $vendorInfoDTO.getItem(0))
+      #set($vendor= $pageTile.getItemObject($vendorInfoDTO, $tmp, "v"))
+
+      <div class="contact-data">
+        <div><!--  Start contactus-center.vm --><!--  Start contactus-center.vm --><!--  Start contactus-center.vm  -->
+        #set($tmp= $vendorInfoDTO.getItem(0))
+        #set($vendor= $pageTile.getItemObject($vendorInfoDTO, $tmp, "v"))
+        <div class="companyInfo">
+        	<h1>Contact Us</h1>
+        ## 	<h2>Stephanie Hobbs</h2>
+        ## 	<h3>Key Account Manager - 207-755-2944</h3>
+        ## 	<a href="shobbs@geiger.com">shobbs@geiger.com</a>
+        ## 	<p>Contact Stephanie regarding any customer order information or with questions about specific products on the store.</p>
+            <!-- <h2>Wendy Thorne</h2> 
+            
+            <h3>Key Account Manager - 207-755-2155</h3> 
+            
+            <a href="mailto: wthorne@geiger.com">wthorne@geiger.com</a> 
+            <p>Contact Wendy regarding any customer order information or with questions about specific products on the store.</p>         
+        	<h2>Customer Service</h2>
+        	<h3>${htmlCSRPhone}</h3>
+        	<p>Contact our team of customer service representatives for general questions, to check the status of your order and other order inquiries. Hours: 8:00 a.m. - 6:00 p.m. EST. Monday - Friday</p> -->
+
+          <p>
+            If you have questions or need assistance placing your order, our knowledgeable and friendly Customer Service team is here to help! Reps are available Monday – Friday from 8 a.m. to 8 p.m. EST. Call toll-free at <a href="tel:855-758-7158">855-758-7158</a> or email <a href="mailto:cs@geiger.com">cs@geiger.com</a>.</p>
+          <p>
+            If you have questions regarding a custom order, please contact your Relationship Manager, Wendy Thorne, at <a href="mailto:wthorne@geiger.com">wthorne@geiger.com</a> or <a href="tel:207-755-2155">207-755-2155</a>.
+          </p>
+      	
+        	
+        	
+        </div>
+        <!--  End contactus-center.vm  --><!--  End contactus-center.vm --><!--  End contactus-center.vm --></div>
+      </div>
+
+    </div> <!-- end page-->
+    </div><!-- end content  -->
+##   #parse("libPartContactUsJs.vm")
+      
+        #if($!$footerPosition == "INSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    </div> <!--//#container -->
+    #if($!$footerPosition == "OUTSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    
+  #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+  #parse("libMarkupFoot.vm")
+  </body>
+</html>
