@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+
+<html id="pageFAQ">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else #springMessage("navOrdering") $!{htmlSiteName} #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+  </head>
+  <body>
+    #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+    <div id="container">
+        #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+        
+      <div id="content" role="main" class="clearfix">
+    #parse('libPartContactUsHeaderCode.vm')
+          <div class="sidebar">
+            #parse("libpartRecentlyViewedCategories.vm")
+          </div>
+        <div class="page">
+          <h1>Frequently Asked Questions</h1>
+          #parse("libPartFAQContent1.vm")
+##put a velocity comment infront of sections that should not show. 
+${faqCustService}
+${faqReturns}
+${faqOrderCCOnly}
+##${faqOrderInvAuthOnly}
+##${faqOrderCCInv}
+##${faqOrderBudget}
+${faqWhenRecieveUPS}
+##${faqWhenRecieveFedEx}
+##${faqShipPPD}
+##${faqShipActual}
+${faqShipPPDandActual}
+##${faqShip3PB}
+${faqTaxes}
+##${faqCoupons}
+##${faqGC}
+##${faqPromo}
+${faqForgotPassword}
+${faqChangePW}
+${faqShipMult}
+${faqUpdateAcctInfo}
+${faqonDemand}
+${faqSuppBrowsers}
+
+        </div><!--//.page-->
+      </div> <!--//#content -->
+    
+        #if($!$footerPosition == "INSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    </div> <!--//#container -->
+    #if($!$footerPosition == "OUTSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+  </body>
+</html>

@@ -1,0 +1,87 @@
+
+## Site Configuration Variables. These variables control the display of elements on the site as well as the text reused on the site. 
+
+##To Be Added: 
+## $displayAllowance ## Values: Allowance, budget, Points, blank
+
+
+## Include global variables and logic from the Template Library
+#parse('libGlobalConfig.vm')
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMacros.vm") ## Local site macros
+
+##Varaibles that contain wording to be used on the site
+#set($htmlSiteName =           'ITW Food Equipment Group Promo Shop')
+#set($htmlCompanyName =        'ITW Food Equipment Group')
+#set($htmlRepName =            'Jenifer Williams')
+#set($htmlRepEmail =           'jlwilliams@geiger.com')
+#set($htmlRepWebsite =         '')              ## Used in Custom Orders
+#set($htmlRepPhone =           '1-937-448-6573')
+#set($htmlRepPhotoURL =        '')              ## Used like: <img src="$!{htmlRepPhotoURL}">
+#set($htmlRepPronoun =         'She')           ## He/She/They
+#set($htmlCSRPhone =           '1-866-533-9524')
+#set($MyAccountNavName =       'My Account')
+#set($billingAddressHeader =   "My Address")    ## Used in My Account and Checkout
+#set($UsernameLabel =          "Email")         ## Used in the login form
+
+
+
+##Category IDs, these are used in the links to these pages. 
+#set($cidContact =             '205584')          ## Contact Us Category ID
+#set($cidOrdering =            '205586')          ## FAQ Category ID
+#set($cidCustom =              '205643')        ## Custom Orders  Category ID
+#set($cidTerms =               '205612')          ## Terms of Service / Privacy Policy Category ID
+#set($cidMenu1 =               '205588')        ## Top-level Product Categories Category ID
+
+
+##Varaibles to control the display of functionality  on the site. 
+#set($allowRegistration =      'YES')
+#set($defaultOrderType =       '')              ## If set, this will hide the order type question on the basket and default the value to the value of this variable. Values: P = Personal, B = Business, blank = Ask / display radio options
+#set($requireLogin =           "NO")			## YES: Requires the user to login and will only allow guests to access templates within $requireLoginAccessibleTemplates
+#set($requireLoginAccessibleTemplates = ["logincustomer.vm", "forgot_password_login.vm"])	## A list of templates that are accessible to guests on a required-login site. These must be all lowercase and contain no spaces.
+
+#set($isPointStore =           'FALSE')         ## Default: 'FALSE' Changes all pricing on site from dollars to points when equal to TRUE.
+
+#set($displayMiniCart =        'YES')           ## Mini Cart found in libLayoutHeader1.vm by default. Values: YES, NO
+#set($displaySalesRepInfo =    'NO')           ## This is the sales rep info that displays on the homepage.  Values: YES, NO
+#set($displayWishlist =        'YES')           ## This controls weather the wishlist is displayed on category pages, item pages, and a link to it in the header.  Values: YES, NO
+#set($displayWishlistOnCatPg = 'NO')            ## This controls weather the add to wishklist button is displayed on category pages Values: YES, NO
+#set($displayCouponCode =      'NO')            ## This controls the display of the gift certificate/coupon input fields. The Default = NO. Values: YES, No
+#set($displayOfferCode =       'NO')            ## This controls the display of the offer code/promo code input fields. The Default = NO. Values: YES, No                                                                       
+#set($googleAnalyticsCode =    'YES')            ## If set to YES, the Google Analytics code will show. By default, all C8 code will use the same analytics and will have a filter on the profile to make the profile  only show this site. Value: YES, NO
+#set($AnalyticsID =            'UA-4242293-47') ## This is the Google Analytics Account ID - This will change depending on the analytics account this site's "view" is created under. 
+
+#set($displayByPriceCategoryFacet = 'NO')       ## This is a default C8 feature that shows faceted navigation by price. 
+										        ## We cannot control the price facets. Lets keep this to NO unless needed. 
+#set($displaySaveCart =        'NO')            ## This controls the display of the save cart feature. This feature needs to be more thoroughly tested before use. Default = NO
+#set($displayEmailQuote =      'NO')            ## Keep this NO for now unless asked for. The current functionality is a mix of email quote and order approval, but is not fully baked. 
+
+
+#set($displayLoginPopup =      'NO')            ## Login pop-up for migrated sites, when customer data is migrated from an older platform and passwords are reset.
+
+## Header and Footer customization:
+#set($displayCustomHeaderContent = 'YES')        ## Used to determine if the header (logo header, nav , etc) should come from the master library, or a local template. Values: YES, NO
+#set($displayCustomFooterContent = 'NO')        ## Used to determine if the footer should come from the master library, or a local template. Values: YES, NO
+#set($headerPosition =        'INSIDE')         ## Display header either 'INSIDE' or 'OUTSIDE' the main content div.
+#set($footerPosition =        'INSIDE')         ## Display footer either 'INSIDE' or 'OUTSIDE' the main content div.
+
+## Actual shipping (S&H)
+#set($displayCustomActualShippingText = 'YES')  ## Default: 'YES'.  Displays custom text instead of $0.00 if Shipping Cost = 0
+#set($actualShippingDropdownText = '')          ## Default: blank.  Text to display in the dropdown instead of the price (if price = $0.00)
+ #set($actualShippingInfoText = '<div id="shipInfotxt"><p>Shipping charges will be invoiced separately from ITWFEG Transportation.</p>
+ <p>All orders ship from the US and shipping charges will be applied. For orders invoicing on open account or shipping internationally, charges will appear as -0- below, however actual charges will be billed. International fees (export, duties, taxes) will be added where applicable.</p>
+ <p>To obtain a shipping estimate prior to placing your order, contact Geiger Customer Service via email at <a href="mailto:cs@geiger.com">cs@geiger.com</a>. Include your shipping address, items and quantities you would like to order.</p></div>')   ## Text to display to inform users what S&H/Actual Shipping means, when shipping price is $0.00
+
+## OPTIONAL SETTINGS - UNCOMMENT IF NEEDED
+## #set($commerceshop_item_dropshipmsg = 'Write your custom message here.') ## Changes the dropship message for on-demand items (displays in item_template.vm)
+
+## #set($curbstonePaymentTabShowPONumber = true)				## Display the PO script question under the second column in the PLP payment tab.
+## #set($curbstonePaymentTabShowScriptQuestions = true)			## Display script questions under the second column in PLP payment tab. Excludes PO Number script question.
+## #set($curbstonePaymentTabShowAsBudgetColumnTwo = true)		## Only render the columnTwo section as well as an additional budget script. colmunOne is omitted.
+## #set($hidePaymentScriptQuestionsBottomSection = true)		## Doesn't render the script questions in the bottom section.
+
+#set($dynamicItemImagesCIDsAndSKUs = [
+    [ 
+        [ "205641" , "249887" ],
+        "color"
+    ]
+])

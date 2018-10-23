@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+
+#########################################################################
+#set($itemRow = $singleItemDTO.getItem(0))
+#set($item = $pageTile.getItemObject($singleItemDTO, $itemRow , "i"))
+#set($price = $item.itemPrice)
+#set($mainItemPrice = $item.itemPrice)
+#set($printitemid = $pageTile.getItemObject($singleItemDTO, $itemRow , "itemid"))
+
+#if(!$pageTileDictionaryDTO)
+  #if($_commandName)
+    #springBind( "${_commandName}.pageTileDictionaryDTO")
+    #set ($pageTileDictionaryDTO = ${status.value})
+  #end
+#end
+
+#if($pageTileDictionaryDTO)
+  #set($childItemsHomeDTO=$pageTileDictionaryDTO.getPageTile("childItemsHomeDTO"))
+  #set($catDropMenuDTO=$pageTileDictionaryDTO.getPageTile("catDropMenuDTO"))
+#end
+
+#set($metadescription= $item.metadescription)
+#set($keywords= $item.keywords)
+#set($pagetitle= $item.pagetitle)
+#########################################################################
+
+<html id="pageItem">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else $!{item.title} - $!{htmlSiteName} #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+    #parse('libitempgjavascript.vm')
+
+	#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/dynamic_item_images.vm")
+	#renderDynamicItemImagesScript()
+
+  </head>
+  <body>
+    #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+    <div id="container">
+        #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+        
+        <div id="content" role="main">
+            
+            #parse('libpartitempgcontent.vm')
+        </div> <!--//#content -->
+        #if($!$footerPosition == "INSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    </div> <!--//#container -->
+    #if($!$footerPosition == "OUTSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    #parse("libpartitempgjsbottom.vm")
+    <script>
+      jQuery(document).ready(function(){
+        var indexOnPage = new Hashtable();
+        var count = 0;
+        var innerCount  = 0;
+        var i; 
+        var j;
+        
+        jQuery('.addToCartDummy').hide();
+        jQuery('.addToCartBtn').show();
+
+        indexOnPage.put(0,0);
+
+        jQuery("#remove-item-${item.itemid}").click(function() {
+          indexOnPage.remove(0);
+          jQuery("#js-item-price-${item.itemid}").remove(); 
+          jQuery("#js-item-code-${item.itemid}").remove(); 
+          jQuery("[id^=basketItems\\[0\\]]").each(function(){
+            jQuery(this).remove();
+          });
+          jQuery("#add-another-item").remove();
+          jQuery("#remove-item-${item.itemid}").hide();
+          if (1== indexOnPage.size()){
+            if(0 == indexOnPage.keys()[0]){
+              jQuery("#remove-item-${item.itemid}").hide();                                                                
+            } else {
+              jQuery("#remove-item-${item.itemid}-"+ indexOnPage.keys()[0]).hide();                                                                
+            }       
+          } 
+         showActiveDetails(indexOnPage.keys()[indexOnPage.size()-1], count);
+        });
+
+        jQuery('#js-item-qtybox-${item.itemid}').change(function() {
+          hideShowCalendar(0);
+        });
+
+ ##       jQuery("[name^=attribute]").change(function(){
+ ##         hideShowCalendar(0);
+ ##       });
+
+        hideShowCalendar(0);
+
+        var attributes = jQuery('#js-item-attributes-${item.itemid} > fieldset');
+        if (attributes.html().trim() == ""){
+          jQuery('#addAnother').hide();
+        }
+
+        /*
+         * Toggle Customization
+        */
+        jQuery('#customize').click(function(){
+          jQuery(this).attr('checked') ? jQuery('.custom-input').slideDown() : jQuery('.custom-input').hide();
+        });
+
+
+        jQuery("#add-another-item").click(function(){
+          showActiveDetails(0, count);
+       });
+
+        jQuery("#remove-item-$item.itemid").hide();
+        
+        ##TODO: Cry
+        jQuery("#--addAnother").click(function(){
+          innerCount = innerCount + 1;
+          count = count + 1;
+          var estimateCalendar = jQuery('<div id="estimateCalendar-'+count+'">');
+          indexOnPage.put(count, count);
+          
+          // Appends large image for sku selection (based on attribute options)
+          jQuery("#itemCodeList").append('<span id="js-item-code-${item.itemid}-'+count+'">$item.code</span>');                                        
+          jQuery("#itemForm").append('<div id="js-item-hiddenfields-${item.itemid}-'+count+'"></div>');
+          jQuery("#itemListTable").append('<div class="add-another-item" id="add-another-'+count+'"><table><tr>'+
+            '<td class="col1">'+
+            '<div id="js-item-attributes-${item.itemid}-'+count+'" class="item-attr-section"></div>'+
+            '</td>'+
+            '<td class="col2">'+
+            '<label for="qty_'+count+'">#springMessage("vm.itemTemplate.quantity"):</label> <input class="qty-input" type="text" id="js-item-qtybox-${item.itemid}-'+count+'" maxlength="3" disabled />'+
+            '</td>'+
+            '<td class="col3">'+
+            '<div id="js-item-inventory-${item.itemid}-'+count+'"></div> <div id="js-item-minorderqty-${item.itemid}-'+count+'"></div>'+
+            '</td>'+
+            '<td class="col4">'+
+            '<div id="remove-item-${item.itemid}-'+count+'" style="float: right; display: block;" class="removeLink"><a href="javascript:void(0)" >remove</a></div>' + 
+            '</td>'+
+            '</tr></table>'+
+            '</div>');
+          jQuery("#itemPrice").append('<strong class="integer"><span class="currency" id="js-item-price-${item.itemid}-'+count+'"></span>');
+         var anotherLineObj = jQuery('#add-another-'+count);
+          estimateCalendar.addClass('estimate-calendar');
+          anotherLineObj.append(estimateCalendar);
+          showActiveDetails(count, innerCount);
+        ##itempage.itemElements = itempage.collectItemOnPage("");
+        ##itempage.itemElements[count].show();
+            itempage.showItem(${item.itemid},count,'');
+
+          
+          hideShowCalendar(count);
+          jQuery('#js-item-qtybox-${item.itemid}-'+innerCount ).change(function(){
+            hideShowCalendar(innerCount);
+          });
+
+ ##         jQuery("[name^=attribute]").change(function(){
+##            hideShowCalendar(innerCount);
+##          });
+          
+         jQuery("#add-another-" + count).click(function() {
+            var internalCount = this.id.split("-")[2];
+            showActiveDetails(internalCount , count );
+          });
+
+          if (indexOnPage.size() > 1) {
+            jQuery("#remove-item-${item.itemid}").show();
+            for (var idx=0; idx<indexOnPage.size(); idx++) {
+              jQuery("#remove-item-${item.itemid}-"+ indexOnPage.keys()[idx]).show();
+            }
+          }
+          
+          // MagicZoomPlus.refresh() ?
+          
+          jQuery("#remove-item-${item.itemid}-"+count).click(function(){
+          var internalCount = parseInt(this.id.split("-")[3]);
+            indexOnPage.remove(internalCount );
+            jQuery("#js-item-price-${item.itemid}-"+internalCount ).remove();              
+            jQuery("#js-item-code-${item.itemid}-"+internalCount ).remove();              
+            jQuery("#js-item-hiddenfields-${item.itemid}-"+innerCount).remove();
+            jQuery("#js-item-hiddenfields-${item.itemid}-"+internalCount).remove();
+            jQuery("#add-another-" + internalCount ).remove(); 
+            if(1== indexOnPage.size()){
+              if(0 == indexOnPage.keys()[0]){
+                jQuery("#remove-item-${item.itemid}").hide();                                                                
+              } else {
+                jQuery("#remove-item-${item.itemid}-"+ indexOnPage.keys()[0]).hide();                                                                
+              }
+            } 
+
+            showActiveDetails(indexOnPage.keys()[indexOnPage.size()-1], count);
+          });
+        });
+      });
+    
+// *** Rollover *********************************
+// **********************************************
+// change image to selected color option.
+// ----------------------------------------------
+jQuery(function(){
+    jQuery('<img/>')[0].src = 'store/20130831827/images/loading-image.gif';
+    
+    var attr_selectors = jQuery("select[id^=attribute]"); // Grab all the attribute-relevant <select> elements
+    window.itemOptions = { 'item' : '', 'imprint' : '', 'combo' : '' }; // Globally stored options for item vs. imprint options.
+    window.opIndex = ['item','imprint','combo'];
+    window.defaultItemOption = '';
+
+    // Get base item code.  If it has a color option listed, set that as default.
+    window.itemBaseCode = jQuery("[id^=js-item-code]").text();
+    // Strip out everything that is not the base 9-digit code
+    window.itemBaseCode = window.itemBaseCode.substr(0,12);
+
+    // Test each <select> element on the page.
+    for(var i=0; i < attr_selectors.length; i++) {
+        // Check for the word "color" in the select's label
+        var selectLabel = jQuery(".item-attr-section label span").eq(i).text();
+        if(/logo|imprint/i.test(selectLabel)) {
+            // Check which kind of select this is -- item color, imprint color, or both.
+            var thisLabel;
+            if(/imprint|logo/i.test(selectLabel)) thisLabel = 'combo';
+            else thisLabel = /imprint|logo/i.test(selectLabel) ? 'imprint' : 'item';
+
+            jQuery(".item-attr-section select").eq(i).bind('keyup change', (function(thisLabel, attlen, index){
+                return function () {
+                    // only run if the "Please select" option isn't selected
+                    if(typeof jQuery('option:selected',this).attr('title') !== 'undefined') {
+                        img = jQuery('#imageWindow img, .MagicThumb-expanded img');
+                        img.attr("src","store/20130831827/images/loading-image.gif"); // Loading animation
+                        var selectedOption = jQuery("option:selected", this).attr('title') || jQuery("option:eq(1)", this).attr('title');
+                        if(thisLabel == 'combo') {
+                            window.itemOptions.combo = selectedOption;
+                        }
+                        else {
+                            window.itemOptions[thisLabel] = selectedOption;
+                            if(attlen > 1 && selectedOption !== '') {
+                                ix = Number(!index);
+                                otherOption = jQuery("option:selected", jQuery("select[id^=attribute]").eq(ix)).attr('title');
+                                if(otherOption === undefined) {
+                                    otherOption = jQuery("option:eq(1)", jQuery("select[id^=attribute]").eq(ix)).attr('title');
+                                }
+                                window.itemOptions[window.opIndex[ix]] = otherOption;
+                            }
+                            window.itemOptions.combo = window.itemOptions.item + window.itemOptions.imprint;
+                        }
+
+                        // Change image to match color selection.
+                        img.attr( "src", "store/${vendorSettingsDTO.vendorId}/assets/items/largeimages/pi_"+window.itemBaseCode+window.itemOptions.combo+"_l.JPG"
+                        ).error(function(){
+                            img.attr( "src", "store/${vendorSettingsDTO.vendorId}/assets/items/largeimages/pi_"+window.itemBaseCode+"_l.JPG");
+                          //   ).error(function(){
+                           //     jQuery("#imageWindow img").attr( "src", "store/${vendorSettingsDTO.vendorId}/assets/items/largeimages/noimage.jpg");
+                           //  });
+                        });
+                    }
+                }
+            })(thisLabel, attr_selectors.length, i)
+            ).change(); // Run the function on page load in case options are already checked.
+        }
+    }
+});
+// *** End Rollover code. ***********************
+
+
+    </script>
+
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+  </body>
+</html>

@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+<html id="pageHome">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else $!{htmlSiteName} - Welcome #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+
+  </head>
+  <body>
+    #if(${headerPosition} == "OUTSIDE") #displayHeader(${displayCustomHeaderContent}) #end
+    <div id="container">
+        #if(${headerPosition} == "INSIDE") #displayHeader(${displayCustomHeaderContent}) #end
+        
+      <div id="content" role="main">
+        ## <img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Hobart_Spring.jpg" style="margin-top:15px">
+        #parse("libContentHome1.vm")
+        <div id="homeNote"><p>IF YOU SEE AN ITEM THAT YOU WANT, BUT WOULD LIKE A DIFFERENT COLOR OR DIFFERENT LOGO THAN IS SHOWN, PLEASE GO TO CUSTOM ORDERS TO SEND AN EMAIL REQUEST TO JENNY WILLIAMS</p></div>
+        <div class="clearBoth">&nbsp;</div>
+        <div class="clearfix">#parse("libpartFeaturedItems.vm")</div>
+<div class="clearBoth">&nbsp;</div>
+      </div> <!--//#content -->
+      
+        #if(${footerPosition} == "INSIDE") #displayFooter(${displayCustomFooterContent}) #end
+    </div> <!--//#container -->
+    #if(${footerPosition} == "OUTSIDE") #displayFooter(${displayCustomFooterContent}) #end
+    
+    <script src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/js/jquery.jcarousellite.min.js"></script>
+    <script>
+    jQuery(document).ready(function(){
+      jQuery('#featured_carousel_new').jCarouselLite({
+        btnNext: "#featured_carousel_new_right",
+        btnPrev: "#featured_carousel_new_left",
+        visible: 4
+      });
+    });
+    </script>
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+
+  </body>
+</html>
