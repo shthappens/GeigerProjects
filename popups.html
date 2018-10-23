@@ -1,0 +1,75 @@
+
+################################
+## Site Configuration Variables
+
+
+### Custom Modal Pop-ups ###
+## This uses the given structure:
+## {
+## 	"templateName.vm": {                                  ## The name of the template to apply this pop-up to.
+## 		"title":                  "Test Title",           ## Title of the pop-up
+## 		"message":                "<p>Message.</p>",      ## Message of the pop-up
+## 		"class":                  "simplemodal-data",     ## Class attribute of surrounding pop-up DIV tag.
+## 		"style":                  "text-align: center;",  ## Style attribute of surrounding pop-up DIV tag.
+## 		"id":                     "",                     ## ID attribute of surrounding pop-up DIV tag.
+##		"startsDate":             "12/06/2017",           ## Date to begin showing pop-up. Leave blank/exclude if not needed.
+##		"expiresDate":            "01/07/2018",           ## Date to end showing pop-up. Leave blank/exclude if not needed.
+## 		"minutesBetweenDisplay":  1,                      ## Minimum number of minutes between pop-up display.
+## 		"displayToGuests":        true,                   ## True: doesn't require a login to display pop-up.
+## 		"oncePerLogin":           false                   ## True: will only display once per login.
+## 	},
+##  ...
+## }
+## 
+
+#set($customModalPopups = {
+	"logincustomer.vm": {
+		"title":                  "This site is in Development!",
+		"message":                "<p>This site is currently in development. Please note that any errors on the site will be fixed before final release of the site.</p>",
+		"class":                  "simplemodal-data",
+		"style":                  "padding:20px; width:400px;",
+		"id":                     "developement-modal",
+		"startsDate":             "",
+		"expiresDate":            "",
+		"minutesBetweenDisplay":  3600,
+		"displayToGuests":        true,
+		"oncePerLogin":           false
+	},
+	"basket.vm": {
+		"title":                  "Do you want to include a Thank You card?",
+		"message":                "<p><a href='https://www.google.com' target='_window'>Click here to add a Thank You card.</a></p>",
+		"class":                  "simplemodal-data",
+		"style":                  "padding:20px; width:400px;",
+		"id":                     "developement-modal",
+		"startsDate":             "",
+		"expiresDate":            "",
+		"minutesBetweenDisplay":  0,
+		"displayToGuests":        false,
+		"oncePerLogin":           false
+	},
+	"home_store.vm": {
+		"title":                  "this is a test ",
+		"message":                "<p><a href='https://www.google.com' target='_window'>Click here to add a Thank You card.</a></p>",
+		"class":                  "simplemodal-data",
+		"style":                  "padding:20px; width:400px;",
+		"id":                     "developement-modal",
+		"startsDate":             "",
+		"expiresDate":            "",
+		"minutesBetweenDisplay":  0,
+		"displayToGuests":        true,
+		"oncePerLogin":           false
+	}	
+})
+
+
+## Migration modal.
+## "logincustomer.vm": {
+## 	"title":                  "Welcome to the updated ${htmlSiteName}!",
+## 	"message":                "<p>If this is your first time logging into the newly updated website, your password has been changed. Please use the Forgot Password link to reset your password.</p><p>You may need to check your spam/junk folder to retrieve the email containing your temporary password.</p><p>If you need additional assistance, you may call customer service at ${htmlCSRPhone} or email <a href='mailto:cs@geiger.com'>cs@geiger.com</a>.</p>",
+## 	"class":                  "simplemodal-data",
+## 	"style":                  "padding:20px; width:400px;",
+## 	"id":                     "developement-modal",
+## 	"minutesBetweenDisplay":  3600,
+## 	"displayToGuests":        true,
+## 	"oncePerLogin":           false
+## }
