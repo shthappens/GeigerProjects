@@ -45,7 +45,7 @@
         #if($welcomeMatDTO)
           #if(${welcomeMatDTO.loggedIn}) 
             <li class="welcomemsg">
-              <strong>Welcome ${welcomeMatDTO.firstName}!</strong>
+              <p>Welcome, ${welcomeMatDTO.firstName}</p>
             </li>
               #if($pageTileDictionaryDTO.templateName == "checkout_completed.vm")
                 <li>
@@ -121,7 +121,7 @@
       <input type="hidden" name="vid" value="$vendorSettingsDTO.vendorId">
       <div>
         <!--<input type="text" name="key" value="$key" id="key" placeholder="Product Search...">-->
-        <input type="text" name="keyword" id="key" placeholder="Product Search...">
+        <input type="text" name="keyword" id="key" placeholder="Search Products">
         <input type="button" id="searchBtn" class="btn small" value="" onclick="checkKey(); jQuery('#key').val(jQuery('#key').val().toUpperCase()); document.forms['searchForm'].submit();">
       </div>
     </form>

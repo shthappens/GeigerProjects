@@ -28,8 +28,15 @@
 
 /************ CSS Reset *************/
 
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
 html{
-    color:#000;background:#FFF;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -60,7 +67,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 body {
     line-height: 1;
     color: black;
-    background: white;
 }
 
 ol, ul, li {
@@ -113,10 +119,10 @@ strong{
 
 body{
     color:#444444;
-    font-family: proxima-nova, sans-serif;
+    font-family:    Arial,"Helvetica Neue",Helvetica,sans-serif;
     font-size: 14px;
     line-height: 18px;
-/*    height: 926px;*/
+    background: url(../images/headerBKG.jpg) top center repeat-x;
 }
 
 #container{
@@ -129,50 +135,69 @@ p{
 }
 
 p .pageItem{
-    font-size: 14px !important;
+      font-size: 14px !important;
     line-height: 18px !important;  
 }
 
+#footer p{
+    margin-bottom: 0px;
+}
+
 a{ 
-    color:#005196;
+    color:#4c4c4c;
+    text-decoration: underline;
+}
+
+#footer{
+    font-size: 12px;
+    background: #044362;
+    position: relative;
+}
+
+#footer a{
+    color:#fff;
+    text-decoration: none;
+}
+
+.nav a{
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+    line-height: 48px;
+    /*!  */
 }
 
 div#DDmenu a{
-    font-size: 15px;
+    font-size: 14px;
     line-height: 28px;
     display: block;
-    text-transform: none;
+    color: #666;
 }
 
-.utilNav {
-    width: 1024px;
+div#DDmenu a:hover{
 }
 
-.utilNav .mini-cart, .utilNav .mini-cart a{
-    color:#666;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.utilNav p {
-    color: #ffffff;
-}
-
-.material-icons {
-    margin-top: -4px;
-    margin-right: 5px;
+.mini-cart a{
+    color:#FFF;
 }
 
 h1{ 
     font-weight: bold;
     font-size: 26px;
-    font-style: italic;
+    /*!  */
     padding: 0;
     margin: 0px 0px 15px 0px;
     line-height: 30px;
 }
 
 #pageHome h1{
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    line-height: 40px;
+    font-weight: normal;
+    text-shadow: 2px 2px #000;
+    margin-bottom: 6px;
 }
 
 #pageCategory h1{
@@ -184,6 +209,15 @@ h2{
     color:#424242;
     font-weight:bold;
     margin-bottom: 15px;
+}
+
+#pageHome h2{
+    color: #595959;
+    font-weight: normal;
+}
+
+#pageHome .clearfix{
+    margin-top: 15px;
 }
 
 h3{ }
@@ -235,18 +269,19 @@ label, .label {
     margin-bottom: 10px;
 }
 
-
 #recentlyViewed li {
-    padding:4px 2px 4px 10px
+    padding: 4px 2px 0px 0px;
 }
 
-.subcat-title a,#recentlyViewed a {
-    padding:3px 2px 3px 33px;
-    display:block;
-    color:#555;
-    background:url("../images/arrow-menu.png") 2px 1px no-repeat;
-    text-decoration:none;
-    font-size:12px
+.subcat-title a, #recentlyViewed a {
+    padding: 3px 2px 3px 33px;
+    display: block;
+    color: #555;
+    background: url(../images/arrow-menu.png) 2px 1px no-repeat;
+    text-decoration: none;
+    font-size: 12px;
+    height: 18px;
+
 }
 
 .subcat-title a:hover,#recentlyViewed a:hover {
@@ -266,61 +301,64 @@ label, .label {
 Place style here that define the global stturctre. Wrapper divs, one coloumn, two column definitions, etc*/
 
 html{
-    background-color: #FFF;
+    /*!  */
 }
 
 body{
-    /*background: url("../images/bckgrad.jpg") repeat-x top left #FFF;*/
-    background: linear-gradient(to bottom, #707272 40px, #e6e6e6 40px);
 }
 
 #container{
-    margin: 0 auto;
     position: relative;
     text-align: left;
-    width: 1024px;
-    background-color: #FFFFFF;
-    /*height: 926px;*/
-     min-height: 650px; 
-    /*-moz-box-shadow: 0 2px 8px #000;
-    -webkit-box-shadow: 0 2px 8px #000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-    -webkit-border-bottom-right-radius: 8px;
-    -webkit-border-bottom-left-radius: 8px;
-    -moz-border-radius-bottomright: 8px;
-    -moz-border-radius-bottomleft: 8px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;*/
+    width: 1020px;
+}
+
+#pageHome #container{
 }
 
 #content{
-/*    background: url("../images/navSlashes.jpg") repeat-x scroll left top #FFF;*/
-/*  padding: 20px;*/
-}
-
-#pageHome #content {
-/*    padding: 0px !important;*/
-    margin-top: 28px;
-    margin-bottom: 29px;
+    /*!  */
+    z-index: 1;
+    clear: both;
+    padding: 15px 20px;
 }
 
 #header{
-/*    background: url("../images/headerbckgrnd.jpg") repeat-x scroll left top #FFF;*/
-    width: 1024px;
+    width: 1020px;
     height: 140px;
+    margin: 0 auto;
 }
 
 #header .wrapper{
-/*    float: right;*/
-    width: 1024px;
-    height: 40px;
-/*    text-align: right;*/
-/*    margin: 8px 20px 0 0 !important;*/
-    position: absolute;
-    z-index: 40;
-    background-color: #707272;
-/*    margin-left: calc(-100vw / 2 + 1024px / 2);
-    margin-right: calc(-100vw / 2 + 1024px / 2);*/
+    float: right;
+    width: 700px;
+    text-align: right;
+    margin-top: 15px;
+}
+
+#header .wrapper a{
+    color: #808080;
+    border-right: 2px solid;
+    padding-right: 8px;
+    text-decoration: none;
+}
+
+#header .wrapper a.last-child{
+    border: none;
+}
+
+#footer .wrapper{
+    height: 25px;
+     /* For IE8 and earlier */
+    padding:15px 15px;
+    width: 1020px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+#footer .wrapper p{
+    /*!  */
+    float: left;
 }
 
 .repInfo {
@@ -356,7 +394,7 @@ body{
 .columnTwo{
     /*border: 1px solid #00F;*/
     width: 450px;
-    margin-left: 10px;
+    margin-left: 50px;
 }
 
 .warning2{
@@ -372,29 +410,16 @@ body{
 * navigation, header, footer, etc */
 
 #header .logo a{
-/*    background: url("../images/itwLogo.jpg") no-repeat scroll left top transparent;*/
-/*    display: block;
-    height: 86px;
-    margin: 42px 0px 0px 2px;
-    width: 779px;*/
+    background: url("../images/Charter_Schools_logo_update.jpg") no-repeat scroll left top transparent;
+    display: block;
     float: left;
-    position: absolute;
-    z-index: 88;
-    margin-top: 65px;
-    margin-left: 26px;
+    height: 110px;
+    margin: 15px 0px 0px 20px;
+    width: 272px;
 }
 
 #header .logo span {
     display: none;
-}
-
-.hobServLogo {
-    display:block;
-    width: 75px;
-    height: 30px;
-    position: absolute;
-    margin: 50px 0 0 466px;
-    z-index: 98;
 }
 
 #js-popup-message.popup, #deliverypopup{
@@ -421,90 +446,85 @@ body{
 
 /****Main Navigation****/
 
-#menu{
-/*    z-index:100;
-    height: 66px;
-    background: url("../images/navgrad.jpg") repeat-x scroll left top #CCC;
-    border-top: 2px solid #CCC;
-    padding-left: 3px;*/
-    display: flex;
+#menuWrapper{
+    background: #002e57;
+    height: 48px;
+    margin-bottom: 15px;
 }
 
-#menu a {
-    color: #910028;
-    font-weight: bold;
-    margin-top: 5px;
-    margin-left: auto;
-    margin-right: auto;
+#pageHome #menuWrapper{
+    margin-bottom: 0px;
+}
+
+#menu{
+    z-index:100;
+    height: 48px;
+    margin-bottom: 15px;
+    /*! background: #002e57; */
+    width: 1020px;
+    margin: 0 auto;
 }
 
 .nav{
-/*    margin: 0;
-    width: 1024px;
-    -moz-box-shadow: 0 4px 4px rgba(0,0,0,0.2);
-    -webkit-box-shadow: 0 4px 4px rgba(0,0,0,0.2);
-    box-shadow: 0px 4px 4px rgba(0,0,0,0.2);
-    position: relative;
-    height: 65px;*/
-    margin-left: 25px;
-    margin-top: 110px;
+    width: 720px;
+    height: 48px;
+    float: left;
 }
 
 .nav li{
-    /*float:left;*/
-    /*padding: 0 29px;  changed from 31 to 14*/
-    /*text-align: center;*/
-/*    border-right: 2px solid #CCC;*/
-    display: inline-flex;
-    margin-right: 40px;
+    float:left;
 }
 
 .nav a{
-/*    padding: 20px 2px;*/
-    color: #666;
-    font-size: 14px;
-    text-decoration: none;
-/*    line-height: 65px;*/
-    text-transform: uppercase;
+    padding: 10px 25px;
 }
 
-.nav a:hover{
-    color: #000;
+.nav li:hover{
+    background-color: #009ce3;
 }
-
-.category-items li {
-    border: none !important;
-}
-
-.nav .menulast {
-    background: #910028;
-    height: 27px;
-    width: 134px;
-}
-
-/*.nav .menulast a {
-    color: #ffffff;
-}*/ 
-
-.nav .menulast a {
-    color: #ffffff !important;
-}
-
-/*.nav .menulast a:hover {
-    text-decoration: underline;
-}*/ 
 
 div#DDmenu{
-    display: none;
     position: absolute;
-    background-color: #FFF;
-    margin: 0 0 0 -35px; /*changed from 0 0 0 -32 to 0 0 0 -15*/
-    padding-bottom: 10px;
-    min-width: 230px;
-    border-top: 3px solid #005196;
-    border-bottom: 3px solid #005196;
+    background-color: transparent;
+    display: none;
     z-index: 100;
+    min-width: 211px;
+    margin-left: 16px;
 }
+
+#DDmenu ul:before{
+    content:"";
+    position: absolute;
+    left: 24px;
+    top: -8px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0px 13px 13px 13px;
+    border-color: transparent transparent #f8f8f8 transparent;
+    z-index:9999;
+}
+
+.category-items {
+    background: #f8f8f8;
+    margin-top: 4px;
+    border: 1px solid #d8d8d8;
+}
+
+/*#DDmenu ul:after{
+      content:"";
+    position: absolute;
+    right: 4px;
+    top: -22px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 17px 17px 17px;
+    border-color: transparent transparent #ffffff transparent;
+    z-index:9998;
+}*/
+
+
 
 li.productCategories:hover div#DDmenu{
     display: block;
@@ -512,92 +532,32 @@ li.productCategories:hover div#DDmenu{
 
 div#DDmenu li{
     float:none;
+    border-bottom: 1px solid #d8d8d8;
 }
 
 div#DDmenu li a{
-    padding: 3px 25px;
-    /*! min-width: 124px; */
-    color: #005196;
+    padding:5px 12px;
 }
 
 div#DDmenu li a:hover{
-    text-decoration: underline;
+    /*! text-decoration: underline; */
+    color: #fff;
 }
 
 /****Utility Nav****/
 
-#header .wrapper li{
+#header .wrapper .utilNav li{
     float: left;
-    margin-left: 35px;
-}
-
-.utilNav li{
-    /*margin: 0 10px;*/
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-left: 10px;
 }
 
 .utilNav ul{
     float: right;
-    display: inline-flex;
-    margin-right: 26px;
 }
 
-/****footer ****/
 
-#footer p{
-    margin-bottom: 0px;
-    width: 300px;
-    margin-top: -18px;
-}
 
-#footer{
-    font-size: 13px;
-}
-
-#footer a{
-    color: #ffffff;
-    text-decoration: none;
-}
-#footer a:hover{
-    color: #000;
-    text-decoration: underline;
-}
-#footer{
-/*    -webkit-border-bottom-right-radius: 8px;
-    -webkit-border-bottom-left-radius: 8px;
-    -moz-border-radius-bottomright: 8px;
-    -moz-border-radius-bottomleft: 8px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px*/;
-}
-
-#footer .wrapper{
-    color: #ffffff;
-    padding:15px 15px;
-    background-color: #707272;
-/*    -webkit-border-bottom-right-radius: 8px;
-    -webkit-border-bottom-left-radius: 8px;
-    -moz-border-radius-bottomright: 8px;
-    -moz-border-radius-bottomleft: 8px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;*/
-}
-
-#footer .itw-logos {
-    display: inline-flex;
-    justify-content: space-around;
-    padding-bottom: 20px;
-    align-items: center;
-}
-
-#footer .itw-logos img {
-/*s*/
-}
-
-#footer .wrapper p{
-    clear:both;
-}
+/****footer nav****/
 
 #footer ul li{
     display: inline;
@@ -606,101 +566,73 @@ div#DDmenu li a:hover{
 
 #footer ul{
     margin: 0 auto;
-    width: 1000px;
-    text-align: right;
+}
+
+.navWrapper{
+    
+    float: right;
+    width: 630px;
+}
+
+#footLeft{
+    width: 280px;
+    float: left;
+}
+
+#footRight{
+    float: right;
+margin-right: 20px !important;
 }
 
 /****Mini Cart****/
 
-.utilNav .mini-cart{
-    margin-top: 1px;
-    margin-bottom: 14px;
-    background-color: #FFF;
-/*    padding: 10px 10px 10px;*/
-  /*  padding-top: 11px;
-    padding-bottom: 1px*/;
-/*    padding-left: 10px;
-    padding-right: 10px;*/
-    display: inline-flex;
-    width: 208px;
-/*    border: 1px solid #000;
-    -webkit-border-bottom-right-radius: 4px;
-    -webkit-border-bottom-left-radius: 4px;
-    -moz-border-radius-bottomright: 4px;
-    -moz-border-radius-bottomleft: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-    -moz-box-shadow: 0 1px 3px #000;
-    -webkit-box-shadow: 0 1px 3px #000;
-    box-shadow: 0 1px 3px #000;*/
+.mini-cart{
+    background-color: #ff6f5c;
+    float: right;
+    padding: 7px 10px;
+    min-width: 140px;
+    text-transform: uppercase;
+    height: 34px;
 }
 
-.utilNav a {
-    color: #FFF;
-    text-decoration: none;
-}
-
-.utilNav a:hover {
-    text-decoration: underline;
-}
-
-.utilNav .mini-cart a {
-/*    background: url("../images/shoppingcart.jpg") no-repeat scroll left top transparent;*/
-    text-align: right;
-/*    width: 95px;*/
-    height: 18px;
-    display: block;
- /*   margin: 5px auto 0px;*/
-    color: #910028;
-    font-weight: bold;
-    line-height: 25px;
-    margin-left: 10px;
-}
-
-.summary {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    color: #910028;
+.mini-cart p{
+    margin-bottom: 0px;
 }
 
 /**** search ****/
 
 .search {
-/*    clear: right;
-    padding-top: 20px;*/
+    clear: right;
     float: right;
-    margin-top: 60px;
-    margin-right: 26px;
+    margin-top: 35px;
 }
 
 #searchForm div{
-    width: 208px;
-    background-color: #fff;;
+    width: 215px;
     border: 1px solid #aaaaaa;
-    height: 30px;
-/*    -moz-border-radius:4px;
-    -webkit-border-radius:4px;
-    border-radius:4px;*/
+    height: 27px;
 }
 
 #searchForm input#key{
-    border: none;
-    width: 165px;
-    margin-top: 5px;
-    float: right;
-    margin-right: 1px;
+border: none;
+width: 185px;
+float: left;
+padding-left: 4px;
+background: transparent;
+height: 26px;
+font-style: italic;
 }
 
 #searchForm input#searchBtn{
-/*    width: 20px;
-    height: 24px;*/
-    background: url("../images/btn_search.gif") 50% 50% #FFF no-repeat;
+    width: 20px;
+    height: 24px;
+    background: url("../images/header_search_icon.png") 50% 50% #FFF no-repeat;
     border: none;
     cursor: pointer;
     float: right;
-    margin-right: 7px;
-/*    text-indent:-20000px;*/
+    text-indent:-20000px;
+    margin-right: 5px;
+    margin-top: 1px;
 }
 
 /*********** Global - Reused Basic Elements: tables, HR, etc; *************/
@@ -724,12 +656,12 @@ table a:visited {
 
 table a:active,
 table a:hover {
-    color: #bd5a35;
+    color: #d9333d;
     text-decoration:underline;
 }
 
 table {
-    font-family:proxima-nova, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color:#666;
     font-size:12px;
     text-shadow: 1px 1px 0px #fff;
@@ -742,6 +674,7 @@ table {
     -moz-box-shadow: 0 1px 2px #d1d1d1;
     -webkit-box-shadow: 0 1px 2px #d1d1d1;
     box-shadow: 0 1px 2px #d1d1d1;
+    width: 96%;
 }
 
 table th {
@@ -844,90 +777,44 @@ tfoot tr td{
 
 .btn:hover{
     background-color: #fff;
-    text-decoration: underline;
+    text-decoration: none;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
     border-radius:3px;
 } 
 
 .btn-primary{
-    background-color: #005196;
-    border: 1px solid #777;
-    color: #FFF;
+    background-color: #d9333d;
+    border:1px solid #777;
+    color:#FFF;
     font-weight: bold;
     padding: 5px 10px;
     cursor: pointer;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
 }
 
 .btn-primary:hover{
     background-color: #CCCCCC;
-    text-decoration: underline;
+    text-decoration: none;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
     border-radius:3px;
+}
+
+.gift-btn {
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border: 1px solid !important;
+    background: #ededed;
 }
 
 /*********** Page Experience Specific Styles *************
 * Place site styles here for things that are specific to a certain page experience. */
 
 /****Home****/
-
-#homeNote {
-    width: 80%; /*changed from 715px to 80%*/
-    margin: 0 auto;
-    text-align: center;
-    box-shadow: 0px 0px 10px rgba(102, 153, 204, 1.0);
-    padding: 10px 10px;
-    height: 40px; /* changed from 36 to 40*/
-}
-
-#homeNote p {
-    color: red;
-    font-weight: 900;
-}
-
-.home-content {
-    /*background: url("../images/spotlight.jpg") no-repeat scroll left bottom transparent;*/
-/*    height: 303px;
-    margin-bottom: 20px;*/
-}
-
-.spotlight {
-    margin-top: 10px;
-}
-
-.welcome-message {
-/*    padding: 55px 0px 0 50px;*/
-    text-align: center;
-}
-
-.welcome-message h1{
-    font-style: normal;
-    color: #707272;
-    font-size: 30px;
-}
-
-.welcome-message p {
-    font-size: 14px;
-    color: #666666;
-/*    width: 630px;*/
-    line-height: 21px;
-    margin-right: 110px;
-    margin-left: 110px;
-}
-
-.featured-product-carousel h2 {
-    text-align: center;
-    background: #DDD;
-    line-height: 35px;
-    text-transform: uppercase;
-    -moz-box-shadow: 0 0px 8px rgba(0,0,0,0.4);
-    -webkit-box-shadow: 0 0px 8px rgba(0,0,0,0.4);
-    box-shadow: 0px 0px 8px rgba(0,0,0,0.4);
-}
 
 /*Featured Products Carousel*/
 
@@ -947,50 +834,67 @@ tfoot tr td{
 
 .featured-product-carousel .items-wrapper{
     float:left;
-    width: 825px;
-    height: 132px;
+    width:600px;
+    padding-left:10px;
+    height: 185px;
 }   
 
 .featured-product-carousel .prev{
     display:block;
-    width:20px;
-    height:50px;
-    margin: 40px 30px 0px 70px;
+    width:35px;
+    height:35px;
     float:left;
     background:url("../images/arrowLeft.png") no-repeat;
+    margin-top: 70px;
 }
 
 .featured-product-carousel .next{
     display:block;
-    width:20px;
-    height:50px;
-    margin: 40px 0px 0px 30px;
+    width:35px;
+    height:35px;
     float:left;
     background:url("../images/arrowRight.png") no-repeat;
+    margin-top: 70px;
 }       
 
 .featured-product-carousel .item{
-    width:135px;
-    height:125px;
+    width:180px;
+    height:170px;
     float:left;
     display:table-cell;
     vertical-align:middle;
-    margin: 0px 30px;
+    margin-right:5px;
 }
 
 .featured-product-carousel .item img{
-    max-height:125px;
-    max-width:125px;
+    max-height:170px;
+    max-width:170px;
 }
 
 .featured-product-carousel .item a{
     width:100%;
-    height:125px;
+    height:170px;
     display:table-cell;
     vertical-align:middle;
     text-align:center;
     border:1px solid #C3C3C3;
-}   
+}
+
+.featuredTitle{
+    background: url("../images/separator3.png") repeat-x bottom;
+    height: 35px;
+    width: 90%;
+    margin: 0px auto 20px;
+}
+
+.line-separator{
+
+    background-color: #ff6f60;
+    display: block;
+    width: 24px;
+    height: 7px;
+    margin-top: -3px;
+}
         
 /****FAQ ****/
 
@@ -1001,7 +905,7 @@ tfoot tr td{
     border-radius: 3px 3px 3px 3px;
     box-shadow: 0 1px 2px #D1D1D1;
     color: #666666;
-    font-family: proxima-nova, sans-serif;
+    font-family: Arial,Helvetica,sans-serif;
     font-size: 12px;
     margin: 0px;
     padding: 15px;
@@ -1019,10 +923,6 @@ tfoot tr td{
 
 /****Custom Orders****/
 
-#custMinOrder li {
-    list-style: disc;
-}
-
 /****Contact Us ****/
 
 .contactForm {
@@ -1037,7 +937,7 @@ tfoot tr td{
     border-radius: 3px 3px 3px 3px;
     box-shadow: 0 1px 2px #D1D1D1;
     color: #666666;
-    font-family: proxima-nova, sans-serif;
+    font-family: Arial,Helvetica,sans-serif;
     font-size: 12px;
     margin: 20px 0 20px 0;
     padding: 15px;
@@ -1048,7 +948,7 @@ tfoot tr td{
 /****Login****/
 
 .login form{
-    font-family:proxima-nova, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color:#666;
     font-size:12px;
     text-shadow: 1px 1px 0px #fff;
@@ -1082,7 +982,7 @@ a.forgotPassword{
 /****Register****/
 
 #registration form#registerForm{
-    font-family:proxima-nova, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color:#666;
     font-size:12px;
     text-shadow: 1px 1px 0px #fff;
@@ -1100,7 +1000,7 @@ a.forgotPassword{
 }
 
 #registration form#registerForm label{
-    width: 120px;
+    width: 100px;
     display: block;
     float: left;
 }
@@ -1125,7 +1025,7 @@ a.forgotPassword{
 }
 
 #pageMyAccount form.myAccountForm{
-    font-family:proxima-nova, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color:#666;
     font-size:12px;
     text-shadow: 1px 1px 0px #fff;
@@ -1167,17 +1067,6 @@ td.ar{
 /****My Wishlist****/
 
 /****Category and search results****/
-
-#apparelNote {
-    box-shadow: 0 0 10px rgba(102, 153, 204, 1);
-    height: 40px; /* changed from 36 to 40*/
-    margin: 0 auto;
-    padding: 10px;
-    text-align: center;
-    width: 80%; /*changed from 680px to 80%*/
-    text-transform: uppercase;
-    font-weight: 900;
-}
 
 #pageCategory .item, #pageSearchResults .item{
     float: left;
@@ -1261,8 +1150,9 @@ td.ar{
     margin-left: 10px;
 }
 
-a.view-all{
+a.view-all {
     margin-right: 10px;
+    margin-top: 3px;
 }
 
 .btn.wishlist{
@@ -1348,7 +1238,7 @@ input.qty-input{
 }
 
 .ui-tabs-panel{
-    font-family:proxima-nova, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color:#666;
     font-size:12px;
     background:#eaebec;
@@ -1357,7 +1247,7 @@ input.qty-input{
     -webkit-box-shadow: 0 1px 2px #d1d1d1;
     box-shadow: 0 1px 2px #d1d1d1;
     padding: 15px;
-    height:150px !important;
+    height: 100% !important;
 }
 
 .ui-corner-bottom{
@@ -1421,7 +1311,7 @@ background-image: none !important;
 
 .cart-table a.icon-trash{
     font-size: 16px;
-    background-color: #fff;
+    /*! background-color: #fff; */
     display: block;
     text-indent: -4000px;
 }
@@ -1445,7 +1335,7 @@ ul.radios-list li label{
 
 .co-breadcrumb{
   background-image: url("../images/bg/checkout_sprite.png");
-  background-position: 96% 0;
+  background-position: 103% 0;
   background-repeat: no-repeat;
   margin: 30px 0;
 }
@@ -1456,11 +1346,11 @@ ul.radios-list li label{
 }
 
 .co-breadcrumb.step2 {
-    background-position: 80% 0;
+    background-position: 85% 0;
 }
 
 .co-breadcrumb.step3{
-  background-position: 64% 0;
+  background-position: 68% 0;
 }
 
 .co-breadcrumb.step4{
@@ -1621,14 +1511,6 @@ float: right;
 
 /****Checkout ????????? Payment****/
 
-#shipInfotxt {
-    float: right;
-    width: 540px;
-    padding: 15px 15px 1px;
-    background: #DDDDDD;
-    margin: 5px 0 0 0;
-}
-
     .shipping-methods-section address span{
         font-weight:bold;
     }
@@ -1659,7 +1541,7 @@ float: right;
 }
 
 #pageCheckoutPayment .js-click{
-    color:#84010F;
+    color:#d9333d;
 }
 
 .tabs.clearfix > ul {
@@ -1667,7 +1549,7 @@ float: right;
 }
 
 .tabs .tab {
-    font-family:proxima-nova, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color:#666;
     font-size:12px;
     background:#FFFFFF;
@@ -1706,6 +1588,14 @@ float: right;
 #pageCheckoutPayment .actions, #pageCheckoutReview .actions{
     padding-top: 15px;
     clear: right;
+}
+
+#pageCheckoutPayment .csusaCustomMessage
+{
+ position: relative;
+    float: left;
+    margin-top: 20px;   
+    color: red;
 }
 
 .tabs {margin:10px 0;}
@@ -1802,7 +1692,7 @@ input#cvv{
     text-align: center;
     font-size: 19px;
     line-height: 20px;
-    font-family: proxima-nova, sans-serif;
+    font-family: arial;
     color: #FFF;
     text-shadow: 0px 0px 2px #000;
     box-shadow: 0px 1px 1px 0px #aaa;
@@ -1831,7 +1721,7 @@ input#cvv{
 /****Checkout ????????? Review****/
 
 .location{
-        font-family:proxima-nova, sans-serif;
+        font-family:Arial, Helvetica, sans-serif;
         color:#666;
         font-size:12px;
         text-shadow: 1px 1px 0px #fff;
@@ -1907,6 +1797,7 @@ input#cvv{
 .warningText{
     color: #FC9801;
     font-weight: bold;
+    font-size: 13px;
 }
 
 .message.success{
@@ -2070,3 +1961,50 @@ input#cvv{
 .icon-filter {background-position: -408px -144px;}
 .icon-briefcase {background-position: -432px -144px;}
 .icon-fullscreen {background-position: -456px -144px;}
+
+/******* Custom Coding Specific for Site ******/
+
+.summary{
+
+    float: right;
+    margin-left: 5px;
+}
+
+.spotlight{
+
+    width: 1020px;
+    margin-left: -20px;
+    margin-top: -15px;
+    background: url("../images/spotlight.jpg") no-repeat;
+    height: 400px;
+}
+
+
+.home-content{
+
+    background: #044362;
+    color: #fff;
+    width: 1020px;
+    margin-left: -19px;
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 17px;
+}
+
+.welcome-message{
+
+    background: url("../images/welcomeBKG.png");
+    width: 400px;
+    position: absolute;
+    top: 70px;
+    left: 410px;
+    padding: 5px;
+}
+
+#shipInfotxt {
+    float: right;
+    width: 540px;
+    padding: 15px 15px 1px;
+    background: #DDDDDD;
+    margin: 5px 0 0 0;
+}
