@@ -116,6 +116,7 @@ body{
     font-family: proxima-nova, sans-serif;
     font-size: 14px;
     line-height: 18px;
+/*    min-height: 650px;*/
 /*    height: 926px;*/
 }
 
@@ -281,7 +282,6 @@ body{
     width: 1024px;
     background-color: #FFFFFF;
     /*height: 926px;*/
-     min-height: 650px; 
     /*-moz-box-shadow: 0 2px 8px #000;
     -webkit-box-shadow: 0 2px 8px #000;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
@@ -296,6 +296,10 @@ body{
 #content{
 /*    background: url("../images/navSlashes.jpg") repeat-x scroll left top #FFF;*/
 /*  padding: 20px;*/
+    /*min-height: 650px;*/
+    margin-right: 25px;
+    margin-left: 26px;
+    min-height: 650px; 
 }
 
 #pageHome #content {
@@ -553,6 +557,7 @@ div#DDmenu li a:hover{
 
 #footer{
     font-size: 13px;
+    width: 1024px;
 }
 
 #footer a{
@@ -589,6 +594,7 @@ div#DDmenu li a:hover{
     justify-content: space-around;
     padding-bottom: 20px;
     align-items: center;
+    width: 100%;
 }
 
 #footer .itw-logos img {
@@ -606,7 +612,7 @@ div#DDmenu li a:hover{
 
 #footer ul{
     margin: 0 auto;
-    width: 1000px;
+/*    width: 1024px;*/
     text-align: right;
 }
 

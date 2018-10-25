@@ -12,12 +12,14 @@
     #if(${headerPosition} == "OUTSIDE") #displayHeader(${displayCustomHeaderContent}) #end
     <div id="container">
         #if(${headerPosition} == "INSIDE") #displayHeader(${displayCustomHeaderContent}) #end
-
+      
+      <div id="content" role="main">
+        
         <div class="spotlight">
           <img src="https://ggc8admin2.avetti.ca/preview/store/20160523750/assets/themes/kinto_en/images/hobart-spot.jpg">
         </div>
         
-      <div id="content" role="main">
+      <!-- <div id="content" role="main"> -->
         ## <img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Hobart_Spring.jpg" style="margin-top:15px">
         #parse("libContentHome1.vm")
         <!-- <div id="homeNote"><p>IF YOU SEE AN ITEM THAT YOU WANT BUT WOULD LIKE A DIFFERENT COLOR OR LOGO, PLEASE GO TO CUSTOM ORDERS TO SEND AN EMAIL TO JENNY WILLIAMS</p></div>
