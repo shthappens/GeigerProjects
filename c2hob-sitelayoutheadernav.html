@@ -34,7 +34,9 @@
             <a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=249887")"><div class="hobServLogo"></div></a>
         </div>
         <div class="logo">
-            <a href="store.html?vid=${vendorSettingsDTO.vendorId}"><span>$!htmlSiteName</span></a>
+            <a href="store.html?vid=${vendorSettingsDTO.vendorId}"><span>$!htmlSiteName</span>
+              <img src="https://ggc8admin2.avetti.ca/preview/store/20160523750/assets/themes/kinto_en/images/itw-logo.png">
+            </a>
         </div>
         
   <div class="wrapper">
@@ -125,11 +127,23 @@
     </form>
   </div><!-- //.search-->
 
-</div> <!--//#header -->
+
 
 <div id="menu">
     <ul class="nav">
-      <li><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId")">Home</a></li>
+      <!-- <li><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId")">Home</a></li> -->
+      <li class="productCategories"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$!cidMenu1")">Brands</a>
+        <div id="DDmenu">
+           <ul class="category-items">
+                #foreach($menu1item in $Menu1DTO.items)
+                  #set($category = $pageTile.getItemObject($Menu1DTO, $menu1item, "c"))
+                  <li class="#if($velocityCount == 1) first #elseif($velocityCount == $Menu1DTO.items.size()) last #end">
+                    <a href="$seourl.encodeURL("store.html?cid=$category.categoryid&vid=$vendorSettingsDTO.vendorId")">$category.description</a>
+                  </li>
+                #end
+            </ul>
+        </div>
+      </li>
       <li class="productCategories"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$!cidMenu1")">Product Categories</a>
         <div id="DDmenu">
            <ul class="category-items">
@@ -143,13 +157,15 @@
         </div>
       </li>
       ##<li class="menulast"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=205629")">Seasonal Markdowns</a></li>
-      <li><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=249887")">Hobart Service</a></li>
+      <!-- <li><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=249887")">Hobart Service</a></li> -->
       <li><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=205640")">Sale</a></li>
       <li><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$!cidOrdering")">FAQs</a></li> 
       <li><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$!cidContact")">Contact Us</a></li>
       #if($cidCustom != "")<li class="menulast"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$cidCustom")">#springMessage("navCustom")</a></li> #end
     </ul>
 </div>
+
+</div> <!--//#header -->
 
 <div class="liveChat">
     <!-- BoldChat Visitor Monitor HTML v5.00 (Website=*691 Hobart,Ruleset=My Invite Ruleset,Floating Chat=My Chat Button -->
