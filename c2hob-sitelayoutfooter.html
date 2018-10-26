@@ -1,0 +1,23 @@
+<div id="footer">
+    <ul class="itw-logos">
+      <li><img src="https://ggc8admin2.avetti.ca/preview/store/20160523750/assets/themes/kinto_en/images/hobart-logo.png"></li>
+      <li><img src="https://ggc8admin2.avetti.ca/preview/store/20160523750/assets/themes/kinto_en/images/somat-logo.png"></li>
+      <li><img src="https://ggc8admin2.avetti.ca/preview/store/20160523750/assets/themes/kinto_en/images/stero-logo.png"></li>
+      <li><img src="https://ggc8admin2.avetti.ca/preview/store/20160523750/assets/themes/kinto_en/images/traulsen-logo.png"></li>
+      <li><img src="https://ggc8admin2.avetti.ca/preview/store/20160523750/assets/themes/kinto_en/images/vulcan-logo.png"></li>
+      <li><img src="https://ggc8admin2.avetti.ca/preview/store/20160523750/assets/themes/kinto_en/images/baxter-logo.png"></li>
+      <li><img src="https://ggc8admin2.avetti.ca/preview/store/20160523750/assets/themes/kinto_en/images/berkel-logo.png"></li>
+    </ul>
+<!-- <div class="background-footer"> -->    
+<div class="wrapper">
+<ul>
+  <li><a href="https://${appSettingsDTO.getDomainAlias($vendorSettingsDTO.vendorId)}/${appSettingsDTO.AppName}/store.html?vid=$vendorSettingsDTO.vendorId">#springMessage("navHome")</a></li>
+  <li><a href="store.html?vid=20160523750">Rewards</a></li>
+  <li><a href="$seourl.encodeURL("myaccount.html?mode=billingaddress&vid=$vendorSettingsDTO.vendorId")">#springMessage("navAccount")</a></li>
+  <li><a href="$seourl.encodeURL("store.html?cid=${cidOrdering}&vid=$vendorSettingsDTO.vendorId")">#springMessage("navOrdering")</a></li>
+  <li><a href="$seourl.encodeURL("store.html?cid=${cidContact}&vid=$vendorSettingsDTO.vendorId")">#springMessage("navContact")</a></li>
+  <li><a href="$seourl.encodeURL("store.html?cid=${cidTerms}&vid=$vendorSettingsDTO.vendorId")">#springMessage("navTerms")</a></li>
+<p>&copy; $date.year $!htmlSiteName</p>
+</div><!-- /.wrapper-->
+<!-- </div> /.background-footer -->
+</div><!-- /#footer-->

@@ -9,12 +9,13 @@
 
   </head>
   <body>
+    
     #if(${headerPosition} == "OUTSIDE") #displayHeader(${displayCustomHeaderContent}) #end
     <div id="container">
         #if(${headerPosition} == "INSIDE") #displayHeader(${displayCustomHeaderContent}) #end
       
       <div id="content" role="main">
-        
+
         <div class="spotlight">
           <img src="https://ggc8admin2.avetti.ca/preview/store/20160523750/assets/themes/kinto_en/images/hobart-spot.jpg">
         </div>
@@ -25,14 +26,17 @@
         <!-- <div id="homeNote"><p>IF YOU SEE AN ITEM THAT YOU WANT BUT WOULD LIKE A DIFFERENT COLOR OR LOGO, PLEASE GO TO CUSTOM ORDERS TO SEND AN EMAIL TO JENNY WILLIAMS</p></div>
         <div class="clearBoth">&nbsp;</div>
         <div class="clearfix">#parse("libpartFeaturedItems.vm")</div> -->
-<div class="clearBoth">&nbsp;</div>
+
+      <div class="clearBoth">&nbsp;</div>
       </div> <!--//#content -->
-      
+
         #if(${footerPosition} == "INSIDE") #displayFooter(${displayCustomFooterContent}) #end
-    </div> <!--//#container -->
+    </div><!--//#container -->
+
     #if(${footerPosition} == "OUTSIDE") #displayFooter(${displayCustomFooterContent}) #end
     
     <script src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/js/jquery.jcarousellite.min.js"></script>
+
     <script>
     jQuery(document).ready(function(){
       jQuery('#featured_carousel_new').jCarouselLite({

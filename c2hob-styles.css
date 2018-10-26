@@ -272,8 +272,19 @@ html{
 
 body{
     /*background: url("../images/bckgrad.jpg") repeat-x top left #FFF;*/
-    background: linear-gradient(to bottom, #707272 40px, #e6e6e6 40px);
+/*    background: linear-gradient(to bottom, #707272 40px, #e6e6e6 40px); */
+    background: linear-gradient(to bottom, #707272, #707272 40px, #e6e6e6 40px);
+    /* background: linear-gradient(to bottom, #707272 40px, #e6e6e6 40px); */
+    /*background: linear-gradient(to bottom, #707272 40px, #e6e6e6 40px);*/
+    /* background: linear-gradient(to top, #707272 48px, #e6e6e6 48px ); */
+    /* background: linear-gradient(to bottom, #707272 40px, #e6e6e6 40px, #e6e6e6 100%); */
 }
+
+/*.background-footer {
+    width: 1500px;
+    color: red;
+}*/
+
 
 #container{
     margin: 0 auto;
@@ -579,8 +590,10 @@ div#DDmenu li a:hover{
 
 #footer .wrapper{
     color: #ffffff;
-    padding:15px 15px;
+    padding: 15px 15px;
     background-color: #707272;
+    width: 3000px;
+    margin-left: -506px;
 /*    -webkit-border-bottom-right-radius: 8px;
     -webkit-border-bottom-left-radius: 8px;
     -moz-border-radius-bottomright: 8px;
@@ -605,6 +618,10 @@ div#DDmenu li a:hover{
     clear:both;
 }
 
+#footer .wrapper ul {
+    margin-left: 507px;
+}
+
 #footer ul li{
     display: inline;
     padding:0px 10px;
@@ -612,8 +629,9 @@ div#DDmenu li a:hover{
 
 #footer ul{
     margin: 0 auto;
-/*    width: 1024px;*/
+    width: 992px;
     text-align: right;
+    margin-left: 0;
 }
 
 /****Mini Cart****/
@@ -899,10 +917,12 @@ tfoot tr td{
     /*background: url("../images/spotlight.jpg") no-repeat scroll left bottom transparent;*/
 /*    height: 303px;
     margin-bottom: 20px;*/
+    padding-top: 23px;
 }
 
 .spotlight {
-    margin-top: 10px;
+    margin-top: -17px;
+    margin-left: -26px;
 }
 
 .welcome-message {
