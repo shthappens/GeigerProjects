@@ -150,6 +150,7 @@ div#DDmenu a{
     line-height: 28px;
     display: block;
     text-transform: none;
+    margin: 0 0 0 22px; 
 }
 
 .utilNav {
@@ -483,13 +484,13 @@ body{
     /*text-align: center;*/
 /*    border-right: 2px solid #CCC;*/
     display: inline-flex;
-    margin-right: 22px;
+/*    margin-right: 22px;*/
 }
 
 .nav li:hover {
-    height: 27px;   
-    width: auto;   
-    background-color: #E6E6E6;
+    height: 30px;   
+/*    width: auto;   
+    background-color: #E6E6E6;*/
 }
 
 .nav a{
@@ -539,6 +540,7 @@ div#DDmenu{
     width: 192px;
     height: auto;
     box-shadow: 2px 3px 8px #888888;
+    overflow: hidden;
 }
 
 li.productCategories:hover div#DDmenu{
@@ -551,17 +553,19 @@ div#DDmenu li{
 }
 
 div#DDmenu li a{
-    padding: 3px 25px;
-    /*! min-width: 124px; */
+/*    padding: 3px 22px;*/
+    min-width: 192px; 
     color: #707272;
     font-weight: normal;
+    padding-left: 22px;
+    margin: 0;
 }
 
 div#DDmenu li a:hover{
     background-color: #910028;
     color: #ffffff;
-    height: 30px;
-    width: 192px;
+/*    height: 30px;
+    width: 192px;*/
 }
 
 /****Utility Nav****/
