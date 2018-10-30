@@ -132,7 +132,7 @@
 <div id="menu">
     <ul class="nav">
       <!-- <li><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId")">Home</a></li> -->
-      <li class="productCategories"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$!cidMenu1")">Brands</a>
+      <li class="productCategories"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$!cidMenu1")">Brands</a><i class="material-icons">keyboard_arrow_down</i>
         <div id="DDmenu">
            <ul class="category-items">
                 #foreach($menu1item in $Menu1DTO.items)
@@ -144,7 +144,7 @@
             </ul>
         </div>
       </li>
-      <li class="productCategories"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$!cidMenu1")">Product Categories</a>
+      <li class="productCategories"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$!cidMenu1")">Product Categories</a><i class="material-icons">keyboard_arrow_down</i>
         <div id="DDmenu">
            <ul class="category-items">
                 #foreach($menu1item in $Menu1DTO.items)

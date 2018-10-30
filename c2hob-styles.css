@@ -120,6 +120,13 @@ body{
 /*    height: 926px;*/
 }
 
+.background-bottom {
+    background: #707272;
+    height: 48px;
+    width: 100%;
+    margin; 0 auto;
+}
+
 #container{
     text-align: left;
 }
@@ -139,7 +146,7 @@ a{
 }
 
 div#DDmenu a{
-    font-size: 15px;
+    font-size: 14px;
     line-height: 28px;
     display: block;
     text-transform: none;
@@ -162,6 +169,11 @@ div#DDmenu a{
 .material-icons {
     margin-top: -4px;
     margin-right: 5px;
+}
+
+.nav .material-icons {
+    margin-top: 2px;
+    color: #910028;
 }
 
 h1{ 
@@ -316,7 +328,7 @@ body{
 #pageHome #content {
 /*    padding: 0px !important;*/
     margin-top: 28px;
-    margin-bottom: 29px;
+/*    margin-bottom: 29px;*/
 }
 
 #header{
@@ -449,8 +461,8 @@ body{
     color: #910028;
     font-weight: bold;
     margin-top: 5px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .nav{
@@ -471,7 +483,13 @@ body{
     /*text-align: center;*/
 /*    border-right: 2px solid #CCC;*/
     display: inline-flex;
-    margin-right: 40px;
+    margin-right: 22px;
+}
+
+.nav li:hover {
+    height: 27px;   
+    width: auto;   
+    background-color: #E6E6E6;
 }
 
 .nav a{
@@ -513,16 +531,19 @@ div#DDmenu{
     display: none;
     position: absolute;
     background-color: #FFF;
-    margin: 0 0 0 -35px; /*changed from 0 0 0 -32 to 0 0 0 -15*/
-    padding-bottom: 10px;
-    min-width: 230px;
-    border-top: 3px solid #005196;
-    border-bottom: 3px solid #005196;
+/*    margin: 0 0 0 -35px; changed from 0 0 0 -32 to 0 0 0 -15
+*/    padding-bottom: 10px;
+/*    border-top: 3px solid #005196;
+    border-bottom: 3px solid #005196;*/
     z-index: 100;
+    width: 192px;
+    height: auto;
+    box-shadow: 2px 3px 8px #888888;
 }
 
 li.productCategories:hover div#DDmenu{
     display: block;
+    margin-top: 35px;
 }
 
 div#DDmenu li{
@@ -532,11 +553,15 @@ div#DDmenu li{
 div#DDmenu li a{
     padding: 3px 25px;
     /*! min-width: 124px; */
-    color: #005196;
+    color: #707272;
+    font-weight: normal;
 }
 
 div#DDmenu li a:hover{
-    text-decoration: underline;
+    background-color: #910028;
+    color: #ffffff;
+    height: 30px;
+    width: 192px;
 }
 
 /****Utility Nav****/
@@ -569,6 +594,9 @@ div#DDmenu li a:hover{
 #footer{
     font-size: 13px;
     width: 1024px;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    padding-top: 29px;
 }
 
 #footer a{
@@ -592,8 +620,9 @@ div#DDmenu li a:hover{
     color: #ffffff;
     padding: 15px 15px;
     background-color: #707272;
-    width: 3000px;
-    margin-left: -506px;
+    position: absolute;
+/*    width: 3000px;
+    margin-left: -506px;*/
 /*    -webkit-border-bottom-right-radius: 8px;
     -webkit-border-bottom-left-radius: 8px;
     -moz-border-radius-bottomright: 8px;
@@ -619,7 +648,7 @@ div#DDmenu li a:hover{
 }
 
 #footer .wrapper ul {
-    margin-left: 507px;
+/*    margin-left: 507px;*/
 }
 
 #footer ul li{
@@ -665,7 +694,9 @@ div#DDmenu li a:hover{
 }
 
 .utilNav a:hover {
-    text-decoration: underline;
+    background-color: #858787; 
+/*    width: 98px;
+    height: 40px;*/
 }
 
 .utilNav .mini-cart a {
