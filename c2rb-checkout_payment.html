@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+#parse('libGlobalConfig.vm')
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+
+#########################################################################
+
+## Identify payment gateway codes that should not authorize or charge a credit card in C8
+#set( $pgcodenocc = ["NCC","GL","PP","IB","NOCHEX","UFS","DPS","ALIGNET","PCI2NONE","PCI2CC",""] )
+
+#########################################################################
+#macro ( showPriceOnCheckout $price)
+#if($isPointStore && $isPointStore=='TRUE')
+$regExp.currencyInteger($viewStoreCurrency.locale,  $price) #if ( $price==0) Point #else Points #end
+#else
+$number.format('currency', $price, $viewStoreCurrency.locale)
+#end
+#end
+
+#macro ( showPriceOnCheckout2 $price)
+#if($isPointStore && $isPointStore=='TRUE')
+$regExp.currencyInteger($viewStoreCurrency.locale,  $price) 
+#else
+$number.format('currency', $price, $viewStoreCurrency.locale)
+#end
+#end
+
+
+<html id="pageCheckoutPayment">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else #springMessage("navPayment") - $!{htmlSiteName} #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+    #parse('libpartcheckoutpaymentcssjs.vm ')
+    #parse('libpartpresetaddresseshead.vm')
+    
+
+  </head>
+  <body>
+    #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+    <div id="container">
+        #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+        
+        <div id="content" role="main">
+            #if($!{isPointStore}== 'TRUE')
+                #parse('libpartcheckoutpaymentcontentpoints.vm')
+            #else
+                #parse('libpartcheckoutpaymentcontent.vm')
+            #end
+            
+            <script>
+                ## /* Form Submit Validation - ES */
+                ## function validateForm() {
+                
+                ##     var thirdPartyNum=$("input[name^='freightAccountNumberMap[SHIPGROUP0]']");
+        
+                ##     var errortxt= "";
+
+                ##     ## var selectedOption=$("#SHIPTYP_0 option:selected").text().toUpperCase();
+                ##     ## console.log(selectedOption);
+                ##     ## if (selectedOption.indexOf('3RD PARTY')!==-1){
+                ##     ## }
+
+                ##     if(thirdPartyNum.length > 0 && thirdPartyNum.val().trim() == '') {
+                ##         errortxt = 'Please Enter in your Third Party Billing Number. \n';
+                        
+                ##     }
+            
+                ##     if(errortxt == '') {
+                ##       return true;
+                ##     }
+                ##     else {
+                ##         alert(errortxt);
+                ##         return false;
+                ##     }
+                ##  }
+                ## /* //Form Submit Validation - ES */
+                
+                /* Form Submit Validation - ES */
+                function validateForm() {
+                    var buyerType = jQuery('input[name^=736_0_8094]');
+                    var errortxt= "";
+
+                    if(buyerType.length > 0 && buyerType.val().trim() == '') {
+                    errortxt = 'Please select Buyer Type. \n';
+        
+                    }
+
+                    if(errortxt == '') {
+                    return true;
+                    }
+                    else {
+                    alert(errortxt);
+                    return false;
+                    }
+                }
+                /*  //Form Submit Validation - ES */
+
+                
+            </script>            
+           
+
+            
+        </div> <!--//#content -->
+      
+      #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end
+      #if($!$footerPosition == "INSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    </div> <!--//#container -->
+    #if($!$footerPosition == "OUTSIDE") #displayFooter($!$displayCustomFooterContent) #end
+
+    #parse("libpartcheckoutpaymentjsbottom.vm")
+    
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+  </body>
+</html>

@@ -85,15 +85,16 @@
                 </form>
             </li>    
         #end
+        
         <li class="mini-cart">
           <a href="$seourl.encodeURL("basket.html?vid=$vendorSettingsDTO.vendorId")">
-            <!-- #springMessage("navViewCart") -->
             <i class="material-icons" id="cart-icon">shopping_cart</i>
+            #if($!displayMiniCart == "YES")
+              <div class="summary"><a href="$seourl.encodeURL("basket.html?vid=$vendorSettingsDTO.vendorId")"></a></div> 
+            #end
           </a>
-          #if($!displayMiniCart == "YES")
-            <div class="summary"></div>
-          #end
         </li>
+
       </ul>
     </div> <!--//.utilNav -->
   </div> <!--//.wrapper -->

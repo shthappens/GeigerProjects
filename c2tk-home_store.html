@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+#parse('libGlobalConfig.vm')
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+<html id="pageHome">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else $!{htmlSiteName} - Welcome #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+
+  </head>
+  <body>
+    #if(${headerPosition} == "OUTSIDE") #displayHeader(${displayCustomHeaderContent}) #end
+    <div id="container">
+        #if(${headerPosition} == "INSIDE") #displayHeader(${displayCustomHeaderContent}) #end
+        
+      <div id="content" role="main">
+        
+            <div class="home-content">
+            
+          ##  <div id="homestarburst"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/ThermoKingStarburst.png"></div>
+              
+              <div class="welcome-message">
+              	<h2>Time is running out!<br/>
+				ACT NOW<br/> 
+				and place your orders.</h2><br/>
+              <a href="https://tk2019calendarprogram.brandingbygeiger.com/"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/ThermoKingStarburst.png"></a>	
+                <h1>Welcome to the<br/>
+                Brand Merchandise Store</h1>
+                ## <p>Please Select a Brand.</p>
+                
+    <div id="brandMenu">
+        <ul class="brandMenuNav">
+         <li class="productCategories"><p>See the Quick Ship category by </p>
+         <a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=563233")">clicking here.</a></li>
+        </ul>
+    </div>
+    
+              </div>
+            
+              #if($displaySalesRepInfo == "YES")
+                <div class="repInfo">
+                  #if(${htmlRepPhotoURL} != '')
+                    <img src="${htmlRepPhotoURL}" alt="$!{htmlRepName}">
+                  #end
+                  <p>
+                    Can't find what you're looking for?<br> Need a special product for your next event?<br>
+                    Contact $!{htmlRepName}, your $!{htmlSiteName} Special Order representative.
+                  </p>
+                  <p>
+                    <strong>$!{htmlRepName}</strong><br>
+                    $!{htmlRepPhone}<br>
+                    <a href="mailto:$!{htmlRepEmail}">$!{htmlRepEmail}</a>
+                  </p>
+                </div>
+              #end
+            
+            </div>
+            
+            <div class="tktruck"><a href="/storeitem.html?vid=20170804360&iid=114785"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/TK-Truck_Banner.jpg" alt="Thermo King Model Truck"></a></div>
+        
+        <!-- ***Featured Items *** -->
+
+                <div class="featured-product-carousel">
+                  <H2>Featured Products</H2>
+                  <div class="featuredwrap">
+                  <div class="items-wrapper" id="featured_carousel_new">
+                    <div class="listing">
+                      #set($itemCounter = 0)
+                      #foreach($temp in $StoreFeaturedItemsDTO.items)
+                        #set($items = $pageTile.getItemObject($StoreFeaturedItemsDTO, $temp, "i"))
+                        <div class="item">
+                            <div class="featureditemimage">
+                                <a href="$seourl.encodeURL("storeitem.html?vid=$vendorSettingsDTO.vendorId&iid=$items.itemid")">
+                                    #if($items.thumbnail && $items.thumbnail != "")
+                                        <img src="store$items.thumbnail" alt="$items.title"/>
+                                    #else
+                                        <img src="store/$vendorSettingsDTO.vendorId/assets/items/thumbnails/noimage.jpg" alt="$items.title"/>
+                                    #end 
+                                </a>
+                            </div>
+                            <div class="featureditemtitle">
+                                <a href="$seourl.encodeURL("storeitem.html?vid=$vendorSettingsDTO.vendorId&iid=$items.itemid")">
+                                    $items.title
+                                </a>
+                            </div>
+                            <div class="featItemPrice">
+                                $number.format("$#0.00", $items.itemPrice.getPrice())
+                            </div>
+                        </div>
+                      #end
+                    </div>
+                  </div>
+                  </div>
+                </div>
+            <div class="clearBoth">&nbsp;</div>
+
+        <!-- *** END Featured Items *** -->    
+
+
+        
+
+        <!-- ***Logo Categories *** -->
+  
+        ## <div class="logocategories">
+        ##   <ul class="catrow1">
+        ##     <li class="cat_IR"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=412982")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/IR-Logo.png" alt="Ingersoll Rand"></a></li>
+        ##     <li class="cat_trane"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=412667")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Trane-Logo.png" alt="Trane"></a></li>
+        ##     <li class="cat_clubcar"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=412846")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Club-Car-Logo.png" alt="Club Car"></a></li>
+        ##     <li class="cat_thermo"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=412829")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Thermo-King-Logo.png" alt="Thermo King"></a></li>
+        ##   </ul>
+        ##   <ul class="catrow2">
+        ##     <li class="cat_tranesup"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=412814")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Trane-Supply-Logo.png" alt="Trane Supply"></a></li>
+        ##     <li class="cat_ameristar"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=413077")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Ameristar-Logo.png" alt="Ameristar"></a></li>
+        ##     <li class="cat_nexia"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=412870")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Nexia-Logo.png" alt="Nexia"></a></li>
+        ##     <li class="cat_HP"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=413093")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Health-Progress-Logo.png" alt="Health Progress"></a></li>
+        ##   </ul>
+        ##   <ul class="catrow3">
+        ##     <li class="cat_AS"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=413098")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/American-Standard-Logo.png" alt="American Standard"></a></li>
+        ##     <li class="cat_ARO"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=412695")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/ARO-Logo.png" alt="ARO"></a></li>
+        ##     <li class="cat_zeks"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=412700")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Zeks-Logo.png" alt="Zeks"></a></li>
+        ##   </ul>
+        ## </div>
+
+        <!-- *** END Logo Categories *** -->
+            
+        </div> <!--//#content -->
+
+      #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end      
+      #if(${footerPosition} == "INSIDE") #displayFooter(${displayCustomFooterContent}) #end
+    </div> <!--//#container -->
+    #if(${footerPosition} == "OUTSIDE") #displayFooter(${displayCustomFooterContent}) #end
+    
+    <script src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/js/jquery.jcarousellite.min.js"></script>
+    <script>
+    </script>
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+
+  </body>
+</html>
