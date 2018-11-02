@@ -1,0 +1,35 @@
+
+<!-- CheckoutQuestion.vm -->
+## Added div.question - NV
+
+    <label for="question-$velocityCount">
+      #set ($qdetail = $question.questiondetails.get(0)) 
+      #set ($answer = $question.getAnswer($qdetail.qdetailid))
+        #if($question.qdescription.substring(0,1) == '*') ## Remove *CAG, if present.
+            $question.qdescription.substring($question.qdescription.indexOf(' '))
+        #else
+            $question.qdescription
+        #end
+     </label>
+     
+		#set ($answer = $question.getAnswer($qdetail.qdetailid)) 
+	    <textarea cols="60" rows="5" maxlength="250" name="$question.getName($qdetail.qdetailid)" id="specialInstructions" value="$!answer.content" wrap="PHYSICAL">$!answer.content</textarea>
+
+	    <input type='hidden' name='details.orderComment' id='ordercomment' value=''>
+    
+## below is the code for a dropdown select box for a script question with class defined to use the Select2 plugin
+
+## <select name="$question.getName()" class="scriptQuestDD">
+## #foreach($qdetail in $question.questiondetails)
+## #if($qdetail.optdesc != "null")
+##     <option value=$qdetail.qdetailid #if ( $answer && $qdetail.qdetailid==$answer.qdetailid) selected #end>$qdetail.optdesc</option>
+## #end
+## #end
+## </select>
+
+## <script type="text/javascript">
+
+## $( document ).ready(function() {
+##     $('.scriptQuestDD').select2();
+##     });
+## </script>
