@@ -1,0 +1,21 @@
+<!--===customization.vm===-->
+<div id="custom">
+	## <div class="q_label">
+	##	<h1> $question.qlabel</h1>
+    ## </div>
+	<div class="q_desc">
+	    <strong>$question.qdescription</strong>
+	</div>
+	<div id="warning"></div>
+
+#foreach($qdetail in $question.questiondetails)
+	<div>
+		#set ($answer = $question.getAnswer($qdetail.qdetailid)) 
+		##<textarea cols="60" rows="5" maxlength="250" name="$question.getName($qdetail.qdetailid)" value="$!answer.content" wrap="PHYSICAL" onblur="validateLine(this, $question.referenceObject.qty);">$!answer.content</textarea>
+	    <textarea cols="60" rows="5" maxlength="250" name="$question.getName($qdetail.qdetailid)" id="specialInstructions" value="$!answer.content" wrap="PHYSICAL">$!answer.content</textarea>
+
+	    <input type='hidden' name='details.orderComment' id='ordercomment' value=''>
+	    
+	</div>
+#end
+</div>
