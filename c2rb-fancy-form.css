@@ -63,7 +63,7 @@
 }
 
 .login h2{
-	font-size: 19px;
+    font-size: 19px;
 }
 
 #registerForm .btn-primary{
@@ -108,13 +108,13 @@
 }
 
 .login .btn:hover, #registerForm .btn:hover{
-	background: #eee;
+    background: #eee;
 }
 
 .login .btn{
-	padding: 15px 77px;
-	position: relative;
-	top: 13px;
+    padding: 15px 77px;
+    position: relative;
+    top: 13px;
 }
 
 #registerForm .btn:hover{
@@ -161,13 +161,14 @@ a.forgotPassword{
 
 #registerForm input{
     outline: 0;
-    background: #f2f2f2;
+    background: #6A468C;
     width: 100%;
     border: 0;
     margin: 0 0 15px;
     padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
+    color: #ffffff;
 }
 
 #registration form#registerForm label{
