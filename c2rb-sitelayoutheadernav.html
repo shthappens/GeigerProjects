@@ -184,6 +184,7 @@
     ##  10) take results and copy over all code in menu-hardcode.vm 
     ##  11) uncomment out  #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/menu-hardcode.vm") 
     ##  12) comment code block that begins with <!--BEGIN SUPERFISH --> and ends with <!--END SUPERFISH -->
+    ##  13) add jQuery to sitelayoutheadernav to remove top menu click functionality
         
     <div id="menu">
       #if($superFishMenu == 'true')
@@ -309,9 +310,16 @@
     
     </div>
     </div>
+    
+    <!-- script to remove link parent items in sf-menu -->
 
     <script>
         
-    
-
+        jQuery( document ).ready(function() {
+            jQuery(function() {
+                jQuery("a[href='RB/product-categories']").removeAttr("href");
+                jQuery( ".productCategories" ).css( "cursor", "default");
+            })
+        });
+        
     </script>
