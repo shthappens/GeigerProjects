@@ -179,7 +179,11 @@ a:hover {
     font-size: 19px;
     font-weight: bold;
     margin-left: 5px;
-    margin-top: 1px;
+    margin-top: 3px;
+}
+
+#launch {
+    color: #ffffff;
 }
 
 .footerImage {
@@ -348,13 +352,13 @@ Place style here that define the global stturctre. Wrapper divs, one coloumn, tw
 
 html{
     background: #898B8E;
-    background: linear-gradient(to bottom, #ffffff, #ffffff 160px, #898B8E 160px);
+    background: linear-gradient(to bottom, #ffffff, #ffffff 123px, #898B8E 123px);
     padding-bottom: 25%;
 }
 
 body{
 /*    background: #898B8E;*/
-    background: linear-gradient(to bottom, #ffffff, #ffffff 160px, #898B8E 160px);
+    background: linear-gradient(to bottom, #ffffff, #ffffff 123px, #898B8E 123px);
 }
 
 #container{
@@ -368,9 +372,12 @@ body{
 #content{
     z-index: 1;
     clear: both;
-    padding: 15px 20px;
     background: #ffffff;
     min-height: 650px;
+    padding-top: 25px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 40px;
 }
 
 #main-content{
@@ -391,7 +398,7 @@ body{
 
 #header{
     width: 100vw;
-    height: 160px;
+    height: 123px;
 /*    background: #ffffff;*/
 }
 
@@ -464,6 +471,7 @@ body{
     margin-left: 9px;
     margin-right: -9px;
     align-items: center;
+    padding-left: 10px;
 }
 
 #footer .wrapper p{
@@ -500,6 +508,7 @@ body{
 .page {
     float: left;
     margin-left: 15px;
+    margin-top: 20px;
     width: 744px;
 }
 
@@ -539,9 +548,8 @@ body{
     display: block;
     float: left;
     height: 110px;
-    margin: 15px 0px 0px 20px;
-    padding: 10px 8px 0px 0px;
     width: 142px;
+    margin-left: 20px;
 }
 
 #header .logo span {
@@ -549,7 +557,7 @@ body{
 }
 
 .logo {
-    margin-top: 54px;
+    margin-top: 42px;
     margin-left: -27px;
 }
 
@@ -598,6 +606,31 @@ body{
     margin: auto;
 }*/
 
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+  /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
 .navTop {
     display: inline;
     width: 621px;
@@ -606,7 +639,7 @@ body{
 .nav{
     /*margin: 0;*/
     height: 45px;
-    margin-top: 53px;
+    margin-top: 19px;
     float: right;
     display: flex;
 }
@@ -623,8 +656,12 @@ body{
     text-decoration: none;
 }
 
-.nav li:hover{
-    /*background-color: #b12936;*/
+.nav a:hover{
+    color: #765595;
+}
+
+.nav .menulast {
+    padding-right: 30px;
 }
 
 div#DDmenu{
@@ -666,20 +703,25 @@ div#DDmenu li a:hover{
 .utilNav li {
     display: inline;
     align-self: center;
+    margin-right: 25px;
 }
 
 .utilNav ul{
     float: right;
     display: flex;
-    width: 735px;
-    justify-content: space-between;
+/*    width: 735px;*/
     margin-top: -7px;
+/*    margin-right: -100px;*/
 }
 
 .utilNav a {
     color: #606060;
     margin-right: 10px;
     text-decoration: none;
+}
+
+.utilNav a:hover {
+    color: #333333;
 }
 
 .welcomemsg {
@@ -716,7 +758,7 @@ div#DDmenu li a:hover{
 
 .mini-cart{
     margin-top: -8px;
-    margin-right: 36px;
+    margin-right: 27px !important;
     background: #e6e6e6;
     height: 45px;
     width: 202px;
@@ -735,7 +777,7 @@ div#DDmenu li a:hover{
     /*margin: 5px 5px 0px 0px;*/
     color: #6a468c;
     margin-top: 3px;
-    margin-left: 20px;
+    margin-left: 15px;
     -moz-transform: skew(-16deg);
     -webkit-transform: skew(-16deg);
     transform: skew(-16deg);
@@ -1129,25 +1171,18 @@ tfoot tr td{
     height: 132px;
 }   
 
-.featured-product-carousel .prev{
+.featured-product-carousel .prev,
+.featured-product-carousel .next {
     display:block;
-    width:18px;
-    height:27px;
+    width:50px;
+    height:50px;
     float:left;
-    background:url("../images/arrow_left.png") no-repeat;
-    margin-top: auto;
-    margin-bottom: auto;
-}
+    top: 41px;
+    position: relative;
+    text-align: center;
 
-.featured-product-carousel .next{
-    display:block;
-    width:18px;
-    height:27px;
-    float:left;
-    background:url("../images/arrow_right.png") no-repeat;
-    margin-top: auto;
-    margin-bottom: auto;
-}       
+}
+      
 
 .featured-product-carousel .item{
     width:125px;
@@ -1172,8 +1207,18 @@ tfoot tr td{
     border:1px solid #E6E6E6;
     box-shadow: 0 1px 8px 0px rgba(0, 0, 0, 0.25);
 }
+
+#navigate {
+    font-size: 50px;
+    position: relative;
+    cursor: pointer;
+}
         
 /****FAQ ****/
+
+#content #pageFAQ {
+    padding-bottom: 60px;
+}
 
 #pageFAQ h2{
     cursor:pointer;
@@ -1493,6 +1538,11 @@ a.view-all{
 
 #pageItem .itemContent{
     margin-top: 15px;
+}
+
+.item-secondary p {
+    font-size: 13px;
+    line-height: 19px;
 }
 
 #pageItem .imageWindow{
