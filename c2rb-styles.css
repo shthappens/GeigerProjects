@@ -856,7 +856,7 @@ div#DDmenu li a:hover{
 #searchForm input#searchBtn{
     width: 27px;
     height: 27px;
-    background: url("../images/search.png") no-repeat;
+/*    background: url("../images/search.png") no-repeat;*/
     border: none;
     cursor: pointer;
     align-self: center;
@@ -864,6 +864,20 @@ div#DDmenu li a:hover{
     -moz-transform: skew(-16deg);
     -webkit-transform: skew(-16deg);
     transform: skew(-16deg);
+}
+
+#search-icon {
+    color: #ffffff;
+    font-size: 36px;
+    width: auto;
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    transform: skew(-16deg);
+}
+
+#search-icon:hover {
+    cursor: pointer;
 }
 
 /*********** Global - Reused Basic Elements: tables, HR, etc; *************/
@@ -1612,6 +1626,10 @@ input.qty-input{
 
 .add-another-item .col3 span{
     padding-bottom: 7px;    
+}
+
+.ui-datepicker-buttonpane {
+    display: inline-block;
 }
 
 .ui-tabs-panel{
@@ -3191,7 +3209,7 @@ div#DDmenu li a:hover{
 #searchForm input#searchBtn{
     width: 27px;
     height: 27px;
-    background: url("../images/search.png") no-repeat;
+/*    background: url("../images/search.png") no-repeat;*/
     border: none;
     cursor: pointer;
     align-self: center;
