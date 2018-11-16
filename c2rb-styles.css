@@ -479,6 +479,7 @@ body{
     clear:both;
     float: left;
     color: #999999;
+    padding-left: 10px;
 }
 
 #footer ul li a {
