@@ -140,11 +140,13 @@ a{
 }
 
 .logo {
-    float: left;
+    /*float: left;
     height: 85px;
     margin-top: 71px;
     width: 470px;
-    text-indent: -9999px;
+    text-indent: -9999px;*/
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 div#DDmenu a{
@@ -270,7 +272,7 @@ label, .label {
 Place style here that define the global stturctre. Wrapper divs, one coloumn, two column definitions, etc*/
 
 body{
-    background: url("../images/loginGrad.png") repeat-x scroll left top transparent;
+    background: linear-gradient(to bottom, #2B65B0, #2B65B0 40px, #ffffff 25px);
 }
 
 #container{
@@ -293,15 +295,24 @@ body{
 }
 
 #header{
-    background: url("../images/headerAssocImage.jpg") no-repeat scroll left bottom transparent;
+    /*background: url("../images/headerAssocImage.jpg") no-repeat scroll left bottom transparent;*/
     width: 928px;
     height: 180px;
+}
+
+.header-bottom {
+    display: inline-flex;
+    background-color: yellow;
+    width: 100%;
+    height: 135px;
 }
 
 #header .wrapper{
     float: right;
     text-align: right;
-    margin-top: 4px;
+    height: 40px;
+    width: 100%;
+    background-color: lightgreen;
 }
 
 .productCategories{
@@ -320,14 +331,23 @@ body{
 }
 
 #footer .wrapper{
-    background-color: #fff;
+/*    background-color: #fff;
     opacity:0.6;
-    filter:alpha(opacity=60); /* For IE8 and earlier */
-    padding:15px 15px;
+    filter:alpha(opacity=60);
+    padding:15px 15px*/;
 }
+
 #footer .wrapper p{
     clear:both;
     font-size: 12px;
+}
+
+.superWrapper {
+    background-color: #2B65B0;
+    width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    height: 50px;
 }
 
 .repInfo {
@@ -415,17 +435,19 @@ body{
 
 /****Main Navigation****/
 #menu{
-    z-index:100;
+/*    z-index:100;
     height: 38px;
     margin-bottom: 15px;
     background: url("../images/navGrad.png") repeat-x scroll left top transparent;
-    border: none;
+    border: none;*/
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .nav{
-    margin: 0;
+/*    margin: 0;
     width: 930px;
-    height: 38px;
+    height: 38px;*/
 }
 
 .nav li{
@@ -524,9 +546,11 @@ div#DDmenu li a:active{
 
 .search {
 
-    position: absolute;
+/*    position: absolute;
     right: 5px;
-    top: 185px;
+    top: 185px;*/
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #searchForm div{
