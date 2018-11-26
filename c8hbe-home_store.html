@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+<html id="pageHome">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else $!{htmlSiteName} - Welcome #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <div class="unsupportedBrowser">You are using an outdated browser. Please <a href="http://google.com/chrome/">upgrade your browser</a> to one that is supported.</div>
+    <![endif]-->
+    <div id="container">
+        #if($!$displayCustomHeaderContent == "YES")
+        	#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteLayoutHeaverNav.vm")
+        #else
+        	#parse("libLayoutHeader1.vm")
+        	#parse("libLayoutMenu1.vm")
+        #end
+      
+      <div id="content" role="main">
+        ## <div style="background-color:#FDF2B9;padding: 10px 20px;border: 1px solid #FBE04D;margin-bottom: 20px; text-align:center;" >
+        ##     ## We apologize for any errors or delayed response times you may be experiencing.  The site is experiencing higher than normal traffic volume.  If you are experiencing issues, please try visiting our site again soon.
+        ##     Thank you for shopping with Geiger! If there is a balance remaining on your coupon and you would like to make an additional purchase, please contact us directly at <a href="mailto:cs@geiger.com">CS@geiger.com</a>. As a reminder, all coupons and remaining balances will expire 6/30/2018.
+        ## </div>
+        <div class="home-content">
+            <div class="welcome-message">
+               <h2>Associate Apparel & Promotional Item Store </h2>
+                    <p>$!{htmlSiteName} offers associates an opportunity to purchase branded merchandise, including apparel and promotional items. Simply select a product category from the menu above and begin shopping.</p>
+                    <p>Associates can now purchase gift cards to use towards purchases at The Company Collection. Visit <a href="https://thevalueofyou.com">www.thevalueofyou.com</a> to redeem any earned points for a gift card you can use to buy branded swag on this site. In the Gift Cards section, search for The Company Collection.</p>
+                    <p>If you have questions, please contact Customer Service at $!{htmlCSRPhone}<br /> Monday through Friday from 7:00 a.m.–7:00 p.m. (Central) with questions.</p>
+            </div>
+       </div>
+        
+        <div class="clearfix">#parse("libpartFeaturedItems.vm")</div>
+<div class="clearBoth">&nbsp;</div>
+      </div> <!--//#content -->
+        #if($!$displayCustomFooterContent == "YES")
+	        #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteLayoutFooter.vm")
+        #else
+            #parse("libLayoutFooter1.vm")
+        #end
+    </div> <!--//#container -->
+    <script src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/js/jquery.jcarousellite.min.js"></script>
+    <script>
+    jQuery(document).ready(function(){
+      jQuery('#featured_carousel_new').jCarouselLite({
+        btnNext: "#featured_carousel_new_right",
+        btnPrev: "#featured_carousel_new_left",
+        visible: 4
+      });
+    });
+    </script>
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+
+  </body>
+</html>
