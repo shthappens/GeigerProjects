@@ -14,10 +14,10 @@
     <![endif]-->
     <div id="container">
         #if($!$displayCustomHeaderContent == "YES")
-        	#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteLayoutHeaverNav.vm")
+          #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteLayoutHeaverNav.vm")
         #else
-        	#parse("libLayoutHeader1.vm")
-        	#parse("libLayoutMenu1.vm")
+          #parse("libLayoutHeader1.vm")
+          #parse("libLayoutMenu1.vm")
         #end
       
       <div id="content" role="main">
@@ -35,14 +35,20 @@
        </div>
         
         <div class="clearfix">#parse("libpartFeaturedItems.vm")</div>
-<div class="clearBoth">&nbsp;</div>
+    
+    <div class="clearBoth">&nbsp;</div>
       </div> <!--//#content -->
-        #if($!$displayCustomFooterContent == "YES")
-	        #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteLayoutFooter.vm")
-        #else
-            #parse("libLayoutFooter1.vm")
-        #end
-    </div> <!--//#container -->
+        ## #if($!$displayCustomFooterContent == "YES")
+         ## #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteLayoutFooter.vm")
+        ## #else
+        ##     #parse("libLayoutFooter1.vm")
+        ## #end
+    
+    #if(${footerPosition} == "INSIDE") #displayFooter(${displayCustomFooterContent}) #end
+    </div><!--//#container -->
+
+    #if(${footerPosition} == "OUTSIDE") #displayFooter(${displayCustomFooterContent}) #end
+    
     <script src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/js/jquery.jcarousellite.min.js"></script>
     <script>
     jQuery(document).ready(function(){
