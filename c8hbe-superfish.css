@@ -153,8 +153,8 @@
  }
 .sf-menu li:hover,
 .sf-menu li.sfHover {
-	background: #CCCCCC;
-	color: #000000;
+	background-color: #2B65B0;
+	color: #2B65B0;
 	/* only transition out, not in */
 	-webkit-transition: none;
 	transition: none;

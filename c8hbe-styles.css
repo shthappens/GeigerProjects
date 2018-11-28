@@ -111,8 +111,15 @@ body{
 
 .welcome-message{
 /*    height: 245px;*/
-    padding: 50px 20px;
+/*    padding: 50px 20px;*/
     width: 640px;
+    height: auto;
+    padding-left: 45px;
+    border-left: 1px solid #cccccc;
+}
+
+.welcome-message p {
+    color: #555555;
 }
 
 p{ 
@@ -151,6 +158,7 @@ a{
     margin-top: auto;
     margin-bottom: auto;
     display: inline-flex;
+    margin-right: 44px;
 }
 
 div#DDmenu a{
@@ -201,16 +209,48 @@ div#DDmenu a{
     height: 40px;
 }
 
-.utilNav .mini-cart, .utilNav .mini-cart a{
+.utilNav .mini-cart .summary {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.utilNav .mini-cart .summary .def {
+    display: block;
+    padding-left: 7px;
+    font-size: 14px;
+/*    font-weight: normal !important;*/
+}
+
+.utilNav .mini-cart, {
+    color: #FFFFFF;
+}
+
+.utilNav .mini-cart a{
+    color: #FFFFFF;
+    display: inherit;
+}
+
+.utilNav .mini-cart a:hover {
+    text-decoration: none;
+    cursor: pointer;
     color: #FFFFFF;
 }
 
 .utilNav a {
     color: #FFFFFF;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .utilNav a:hover{
     text-decoration: underline;
+    color: #AED8EF;
+}
+
+.utilNav .welcomemsg a:hover{
+    text-decoration: none;
+    cursor: default;
+    color: #ffffff;
 }
 
 .saintCat a:hover {
@@ -302,6 +342,10 @@ body{
     min-height: 787px;
 }
 
+#pageHome #container {
+    min-height: auto;
+}
+
 #content{
     border: none;
     z-index: 1;
@@ -315,8 +359,29 @@ body{
 }
 
 .home-content{
+/*    background: url(../images/spot-home1.jpg);*/
+    display: inline-flex;
+    height: 185px;
+    width: 1024px;
+    margin-top: 38px;
+    margin-bottom: 38px;
+    margin-left: 45px;
+}
+
+#splash-content {
     background: url(../images/spot-home1.jpg);
     height: 511px;
+}
+
+#welcome-title {
+    width: 172px;
+    height: 33px;
+    padding-right: 45px;
+}
+
+#welcome-title h1 {
+    color: #2459A8;
+    font-size: 45px;
 }
 
 #header{
@@ -344,6 +409,10 @@ body{
 
 #header .wrapper-bottom a {
     color: #555555;
+}
+
+.productCategories {
+    display: inline-flex;
 }
 
 .productCategories:hover{
@@ -476,8 +545,21 @@ body{
     border: none;*/
     margin-top: auto;
     margin-bottom: auto;
-    width: 466px;
+    width: 684px;
     display: inline-flex;
+}
+
+#cart-icon {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 30px;
+    margin-left: 12px;
+}
+
+#arrow-down-icon {
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #555555;
 }
 
 .nav{
@@ -555,10 +637,20 @@ div#DDmenu li a:active{
     color: #000000;
 }
 /****Utility Nav****/
+
 #header .wrapper .utilNav li{
+    display: flex;
     float: left;
     margin-left: 10px;
+    margin-right: 26px;
+    height: 40px;
 }
+
+#header .wrapper .utilNav .mini-cart{
+    width: 170px;
+    margin-right: 0px;
+}
+
 .utilNav ul{
     float: right;
 }
@@ -590,23 +682,28 @@ div#DDmenu li a:active{
     margin-top: auto;
     margin-bottom: auto;
     display: inline-flex;
+    width: 185px;
+    height: 35px;
 }
 
 #searchForm div{
-    background-color: #fff;
-    width: 175px;
-    border: 1px solid #aaaaaa;
-    height: 24px;
+    background-color: #ffffff;
+    width: 185px;
+    border: 1px solid #555555;
+    border-radius: 5px;
+    height: 35px;
 }
 
 #searchForm input#key{
-border: none;
-width: 148px;
-float: left;
-padding-left: 2px;
+    border: none;
+    width: 70%;
+    float: left;
+    padding-left: 11px;
+    padding-top: 7px;
+    font-size: 14px;
 }
 
-#searchForm input#searchBtn{
+/*#searchForm input#searchBtn{
     width: 24px;
     height: 24px;
     background: url(../images/magnifier.png) no-repeat;
@@ -614,6 +711,11 @@ padding-left: 2px;
     cursor: pointer;
     float: right;
     text-indent: -9999px;
+}*/
+
+#search-icon {
+    color: #555555;
+    font-size: 35px;
 }
 
 /*********** Global - Reused Basic Elements: tables, HR, etc; *************/
@@ -773,6 +875,27 @@ tfoot tr td{
 * Place site styles here for things that are specific to a certain page experience. */
 
 /****Home****/
+
+#banner {
+    width: 100vw;
+    height: 325px;  
+    background-color: #EEEEEE;
+    display: inline-flex;
+}
+
+#banner1 {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: 37px;
+}
+
+#banner2 {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: 37px;
+}
 
 /*Featured Products Carousel*/
 
