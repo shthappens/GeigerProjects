@@ -339,7 +339,7 @@ body{
     position: relative;
     text-align: left;
     width: 1024px;
-    min-height: 787px;
+    min-height: 650px;
 }
 
 #pageHome #container {
@@ -368,9 +368,58 @@ body{
     margin-left: 45px;
 }
 
-#splash-content {
+#splash-content-category {
+    background: url(../images/spot-category.jpg);
+    background-size: cover;
+    height: 300px;
+}
+
+#splash-content-spot-cart {
+    background: url(../images/spot-cart.jpg);
+    background-size: cover;
+    height: 300px;
+}
+
+#splash-content-contact {
+    background: url(../images/spot-contact.jpg);
+    background-size: cover;
+    height: 300px;
+}
+
+#splash-content-custom {
+    background: url(../images/spot-custom.jpg);
+    background-size: cover;
+    height: 300px;
+}
+
+#splash-content-home {
     background: url(../images/spot-home1.jpg);
+    background-size: cover;
     height: 511px;
+}
+
+#splash-content-faq {
+    background: url(../images/spot-faq.jpg);
+    background-size: cover;
+    height: 300px;
+}
+
+#splash-content-item {
+    background: url(../images/spot-item.jpg);
+    background-size: cover;
+    height: 300px;
+}
+
+#splash-content-myaccount {
+    background: url(../images/spot-myaccount.jpg);
+    background-size: cover;
+    height: 300px;
+}
+
+#splash-content-search {
+    background: url(../images/spot-search.jpg);
+    background-size: cover;
+    height: 300px;
 }
 
 #welcome-title {
@@ -382,6 +431,7 @@ body{
 #welcome-title h1 {
     color: #2459A8;
     font-size: 45px;
+    font-style: normal;
 }
 
 #header{
@@ -409,6 +459,12 @@ body{
 
 #header .wrapper-bottom a {
     color: #555555;
+}
+
+#header .wrapper-bottom a:hover {
+    color: #2B65B0;
+    background-color: #ffffff;
+    text-decoration: underline;
 }
 
 .productCategories {
@@ -557,9 +613,10 @@ body{
 }
 
 #arrow-down-icon {
-    margin-top: auto;
-    margin-bottom: auto;
     color: #555555;
+    margin-top: 11px;
+/*    margin-left: -3px;*/
+    font-size: 19px;
 }
 
 .nav{
@@ -581,8 +638,9 @@ body{
 
 
 .nav a:hover{
-    background-color: #999999;
-    color: #000000;
+    background-color: #FFFFFF;
+    color: #002675;
+    text-decoration: underline;
 }
 
 .nav li a {
@@ -698,8 +756,8 @@ div#DDmenu li a:active{
     border: none;
     width: 70%;
     float: left;
-    padding-left: 11px;
-    padding-top: 7px;
+    margin-left: 10px;
+    margin-top: 7px;
     font-size: 14px;
 }
 

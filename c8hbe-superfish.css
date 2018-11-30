@@ -13,7 +13,7 @@
 	top: 100%;
 	left: 0;
 	z-index: 99;
-	left: -35px;
+	left: -24px;
 }
 .sf-menu > li {
 	float: left;
@@ -44,13 +44,13 @@
 	left: 100%;
 }
 
-.category-items a {
+/*.category-items a {
     width: 230px !important;
-}
+}*/
 
-.secondLevel.sub a {
+/*.secondLevel.sub a {
     width: 150px !important;
-}
+}*/
 
 /*** DEMO SKIN ***/
 
@@ -58,8 +58,10 @@
 
 }
 .sf-menu ul {
-	border-top: 1px solid #474747;
+/*	border-top: 1px solid #474747;*/
+	margin-top: 48px;
 }
+
 .sf-menu a {
 	
 	text-decoration: none;
@@ -69,31 +71,75 @@
 	color: #FFFFFF;
 }
 .sf-menu li {
-
 	white-space: nowrap; /* no need for Supersubs plugin */
 	*white-space: normal; /* ...unless you support IE7 (let it wrap) */
-	-webkit-transition: background .2s;
-	transition: background .2s;
+/*	-webkit-transition: background .2s;
+	transition: background .2s;*/
 }
 
-#menu .productCategories a{
+#menu .productCategories a {
+/*	width: 150px;*/
+/*	color: #FFFFFF;*/
+	font-size: 16px;
+	padding: 0;
+	display: flex;
+}
+
+#menu .productCategories a:first-child:after {
+	content: '\e313';
+    font-family: Material Icons;
+    font-size: 23px;
+    margin-right: 36px;
+    margin-top: 2px;
+}
+
+#menu .productCategories a:first-child:hover {
+	color: #2B65B0;
+	text-decoration: none;
+	background-color: #ffffff;
+	cursor: default;
+}
+
+#menu .productCategories a:first-child:hover:after {
+	content: '\e313';
+    font-family: Material Icons;
+    font-size: 23px;
+    margin-right: 36px;
+    margin-top: 2px;
+}
+
+#menu .productCategories a:active{
+	color: #2B65B0;
+}
+
+/* DROP DOWN STARTS HERE*/
+
+#menu .productCategories .category-items a{
 	width: 150px;
-	color: #000000;
-}
-#menu .productCategories span{
-	color: #555555;
-}
-#menu .productCategories span:hover{
-	color: #000000;
-}
-#menu .productCategories span:active{
-	color: #000000;
+	color: #FFFFFF;
+	font-size: 16px;
 }
 
-#menu .productCategories a:hover{
-	background-color: #999999;
-	color: #000000;
+#menu .productCategories .category-items a:hover{
+	color: #2B65B0;
+	text-decoration: none;
+	background-color: #ffffff;
+	cursor: default;
 }
+
+#menu .productCategories .category-items a:active{
+	color: #AED8EF;
+	text-decoration: underline;
+}
+
+#menu .productCategories .category-items a:hover{
+	background-color: #2B65B0;
+	color: #AED8EF;
+	text-decoration: underline;
+}
+
+
+
 
 #menu .productCategories .saintsCat a:hover{
 	background-color: #000 !important;
@@ -116,7 +162,7 @@
 	color: #000000;
 }
 #productCategories:hover{
-	color: #000000;
+	color: #2B65B0;
 }
 #productCategories:active{
 	color: #000000;
@@ -135,13 +181,14 @@
 }
 
 .sf-menu ul li {
-	background-color: #d7d7d8;
-	border-left: 1px solid #474747;
+	background-color: #2B65B0;
+/*	border-left: 1px solid #474747;
 	border-right: 1px solid #474747;
-	border-bottom: 1px solid #474747;
+	border-bottom: 1px solid #474747;*/
 	}
+
 .sf-menu ul li:hover {
-	background-color: #999999;
+	background-color: #2B65B0;
 
 	}
 .sf-menu ul ul li {
@@ -149,16 +196,17 @@
 
 .sf-menu li ul li a {
     font-size: 13px;
-    padding: 5px 30px 5px 10px !important;
+    padding: 5px 30px 5px 15px !important;
  }
-.sf-menu li:hover,
+
+
+/*.sf-menu li:hover,
 .sf-menu li.sfHover {
 	background-color: #2B65B0;
-	color: #2B65B0;
-	/* only transition out, not in */
+	 only transition out, not in 
 	-webkit-transition: none;
 	transition: none;
-}
+}*/
 
 /*** arrows (for all except IE7) **/
 .sf-arrows .sf-with-ul {
@@ -166,17 +214,17 @@
 }
 /* styling for both css and generated arrows */
 .sf-arrows .sf-with-ul:after {
-	content: '';
+/*	content: '';
 	position: absolute;
 	top: 50%;
 	right: 10px;
 	margin-top: -3px;
 	height: 0;
 	width: 0;
-	/* order of following 3 rules important for fallbacks to work */
+	 order of following 3 rules important for fallbacks to work 
 	border: 5px solid transparent;
-	border-top-color: #dFeEFF; /* edit this to suit design (no rgba in IE8) */
-	border-top-color: rgba(255,255,255,.5);
+	border-top-color: #dFeEFF;  edit this to suit design (no rgba in IE8) 
+	border-top-color: rgba(255,255,255,.5);*/
 }
 
 .sf-arrows .sf-with-ul:active{
