@@ -194,12 +194,46 @@ body{
 p{ 
     margin-bottom: 15px;
     color: #555555;
-
 }
+
+.companyInfo p {
+    line-height: 20px;
+}
+
+.desc p {
+    font-size: 14px;
+    line-height: 20px;
+}
+
 p .pageItem{
       font-size: 14px !important;
     line-height: 18px !important;  
 }
+
+#pageCategoryStatic #content h1 {
+    display: none;
+}
+
+#pageCategoryStatic p {
+    line-height: 20px;
+}
+
+#contact #content h1 {
+    display: none;
+}
+
+#pageMyAccount #content h1 {
+    display: none;
+}
+
+#pageSearchResults #content h1 {
+    display: none;
+}
+
+#pageLogin #content h1 {
+    display: none;
+}
+
 #footer p, #footer a {
 /*    margin-bottom: 0px;
     margin-top: 10px;*/
@@ -219,7 +253,11 @@ p .pageItem{
 
 a{ 
     color:#015ca5;
-    text-decoration: none;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #002675;
 }
 #footer{
     font-size: 12px;
@@ -379,8 +417,13 @@ h3{ }
 h4{ }
 h5{ }
 h6{ }
+
+.bCrumbs {
+    margin-bottom: 20px;
+}
+
 .bCrumbs, .bCrumbs a{
-    font-size: 12px;
+    font-size: 14px;
     color:#777;
 }
 .image .price-box{
@@ -421,6 +464,7 @@ label, .label {
     margin-top: 10px;
     text-transform: uppercase;
     color: #555555;
+    margin-bottom: 5px;
 }
 
 .sidebar a {
@@ -428,6 +472,7 @@ label, .label {
     font-size: 14px;
     margin: auto auto auto 0;
     display: inherit;
+    text-decoration: none;
 }
 
 .sidebar li a:before {
@@ -1193,7 +1238,7 @@ tfoot tr td{
     box-shadow: 0 1px 2px #D1D1D1;
     color: #666666;
     font-family: trade-gothic-next, sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     margin: 0px;
     padding: 15px;
     text-shadow: 1px 1px 0 #FFFFFF;
@@ -1204,6 +1249,10 @@ tfoot tr td{
 }
 #pageFAQ .section{
     padding: 10px;
+}
+
+.section p {
+    line-height: 20px;
 }
 
 /****Custom Orders****/
@@ -1383,6 +1432,7 @@ display:none;
 
 .filter {
     margin-bottom: 15px;
+    color: #555555;
 }
 
 
@@ -1478,6 +1528,7 @@ a.view-all{
 
 #pageItem .price {
     margin: 10px;
+    font-size: 21px;
 }
 
 #pageItem .actions{
