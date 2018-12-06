@@ -1,47 +1,47 @@
 /*** ESSENTIAL STYLES ***/
 .sf-menu, .sf-menu * {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 .sf-menu li {
-	position: relative;
+    position: relative;
 }
 .sf-menu ul {
-	position: absolute;
-	display: none;
-	top: 100%;
-	left: 0;
-	z-index: 99;
-	left: -24px;
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    z-index: 99;
+    left: -24px;
 }
 .sf-menu > li {
-	float: left;
+    float: left;
 }
 .sf-menu li:hover > ul,
 .sf-menu li.sfHover > ul {
-	display: block;
+    display: block;
 }
 .sf-menu .saintsCat li.sfHover > ul {
 
 }
 
 .sf-menu a {
-	display: block;
-	position: relative;
+    display: block;
+    position: relative;
 }
 
 .sf-menu a:hover{
-	color: #000000;
+    color: #000000;
 }
 
 .sf-menu a:active{
-	color: #000000;
+    color: #000000;
 }
 
 .sf-menu ul ul {
-	top: -1px;
-	left: 100%;
+    top: -1px;
+    left: 100%;
 }
 
 /*.category-items a {
@@ -58,139 +58,160 @@
 
 }
 .sf-menu ul {
-/*	border-top: 1px solid #474747;*/
-	margin-top: 48px;
+/*  border-top: 1px solid #474747;*/
+    margin-top: 49px;
 }
 
 .sf-menu a {
-	
-	text-decoration: none;
-	zoom: 1; /* IE7 */
+    
+    text-decoration: none;
+    zoom: 1; /* IE7 */
 }
 .sf-menu a {
-	color: #FFFFFF;
+    color: #FFFFFF;
 }
 .sf-menu li {
-	white-space: nowrap; /* no need for Supersubs plugin */
-	*white-space: normal; /* ...unless you support IE7 (let it wrap) */
-/*	-webkit-transition: background .2s;
-	transition: background .2s;*/
+    white-space: nowrap; /* no need for Supersubs plugin */
+    *white-space: normal; /* ...unless you support IE7 (let it wrap) */
+/*  -webkit-transition: background .2s;
+    transition: background .2s;*/
 }
+
+
+
 
 #menu .productCategories a {
-/*	width: 150px;*/
-/*	color: #FFFFFF;*/
-	font-size: 16px;
-	padding: 0;
-	display: flex;
+/*  width: 150px;*/
+/*  color: #FFFFFF;*/
+    font-size: 16px;
+    padding: 0;
+    display: flex;
+    display: inline-block;
+    margin-right: 20px;
 }
 
-#menu .productCategories a:first-child:after {
-	content: '\e313';
+#menu .productCategories a:after {
+    content: '\e313';
     font-family: Material Icons;
-    font-size: 23px;
-    margin-right: 36px;
+    font-size: 18px;
+    position: absolute;
     margin-top: 2px;
 }
 
-#menu .productCategories a:first-child:hover {
-	color: #2B65B0;
-	text-decoration: none;
-	background-color: #ffffff;
-	cursor: default;
+#menu .productCategories a:hover:after {
+/*    content: '\e313';
+    font-family: Material Icons;
+    font-size: 18px;
+    margin-right: 20px;
+    margin-top: 2px;*/
+    display: inline-block;
 }
 
-#menu .productCategories a:first-child:hover:after {
-	content: '\e313';
-    font-family: Material Icons;
-    font-size: 23px;
-    margin-right: 36px;
-    margin-top: 2px;
+#menu .productCategories a:hover {
+    color: #2B65B0;
+    text-decoration: underline;
+    background-color: #ffffff;
+    cursor: default;
 }
 
 #menu .productCategories a:active{
-	color: #2B65B0;
+    color: #2B65B0;
 }
+
+
 
 /* DROP DOWN STARTS HERE*/
 
-#menu .productCategories .category-items a{
-	width: 150px;
-	color: #FFFFFF;
-	font-size: 16px;
+#menu .productCategories .category-items {
+
 }
 
-#menu .productCategories .category-items a:hover{
-	color: #2B65B0;
-	text-decoration: none;
-	background-color: #ffffff;
-	cursor: default;
+#menu .productCategories .category-items .first a{
+    margin-top: 15px;
+    width: 115px;
+}
+
+#menu .productCategories .category-items .last a{
+    margin-bottom: 15px;
+    width: 115px;
+}
+
+#menu .productCategories .category-items a{
+    width: 115px;
+    color: #FFFFFF;
+    font-size: 16px;
+    margin-left: 8px;
+}
+
+#menu .productCategories .category-items a:after{
+    content: "";
 }
 
 #menu .productCategories .category-items a:active{
-	color: #AED8EF;
-	text-decoration: underline;
+    color: #AED8EF;
+    text-decoration: underline;
 }
 
 #menu .productCategories .category-items a:hover{
-	background-color: #2B65B0;
-	color: #AED8EF;
-	text-decoration: underline;
+    background-color: #2B65B0;
+    color: #AED8EF;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 
 
 
 #menu .productCategories .saintsCat a:hover{
-	background-color: #000 !important;
+    background-color: #000 !important;
 }
 
 .saintsCat a:hover {
-	background-color: #000 !important;
-	color: #FFF;
+    background-color: #000 !important;
+    color: #FFF;
 }
 #menu .productCategories .saintsCat li:hover{
-	background-color: #000 !important;
+    background-color: #000 !important;
 }
 
 .saintsCat li:hover {
-	background-color: #000 !important;
-	color: #FFF;
+    background-color: #000 !important;
+    color: #FFF;
 }
 
 #menu .productCategories a:active{
-	color: #000000;
+    color: #000000;
 }
 #productCategories:hover{
-	color: #2B65B0;
+    color: #2B65B0;
 }
 #productCategories:active{
-	color: #000000;
+    color: #000000;
 }
 #menu .category-items li:hover{
-	color: #000000;
+    color: #000000;
 }
 #menu .category-items li:active{
-	color: #000000;
+    color: #000000;
 }
 #menu .category-items ul:hover{
-	color: #000000;
+    color: #000000;
 }
 #menu .category-items ul:active{
-	color: #000000;
+    color: #000000;
 }
 
 .sf-menu ul li {
-	background-color: #2B65B0;
-/*	border-left: 1px solid #474747;
-	border-right: 1px solid #474747;
-	border-bottom: 1px solid #474747;*/
-	}
+    background-color: #2B65B0;
+/*  border-left: 1px solid #474747;
+    border-right: 1px solid #474747;
+    border-bottom: 1px solid #474747;*/
+    }
 
 .sf-menu ul li:hover {
-	background-color: #2B65B0;
+    background-color: #2B65B0;
 
-	}
+    }
 .sf-menu ul ul li {
 }
 
@@ -202,56 +223,56 @@
 
 /*.sf-menu li:hover,
 .sf-menu li.sfHover {
-	background-color: #2B65B0;
-	 only transition out, not in 
-	-webkit-transition: none;
-	transition: none;
+    background-color: #2B65B0;
+     only transition out, not in 
+    -webkit-transition: none;
+    transition: none;
 }*/
 
 /*** arrows (for all except IE7) **/
 .sf-arrows .sf-with-ul {
-	*padding-right: 1em; /* no CSS arrows for IE7 (lack pseudo-elements) */
+    *padding-right: 1em; /* no CSS arrows for IE7 (lack pseudo-elements) */
 }
 /* styling for both css and generated arrows */
 .sf-arrows .sf-with-ul:after {
-/*	content: '';
-	position: absolute;
-	top: 50%;
-	right: 10px;
-	margin-top: -3px;
-	height: 0;
-	width: 0;
-	 order of following 3 rules important for fallbacks to work 
-	border: 5px solid transparent;
-	border-top-color: #dFeEFF;  edit this to suit design (no rgba in IE8) 
-	border-top-color: rgba(255,255,255,.5);*/
+/*  content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -3px;
+    height: 0;
+    width: 0;
+     order of following 3 rules important for fallbacks to work 
+    border: 5px solid transparent;
+    border-top-color: #dFeEFF;  edit this to suit design (no rgba in IE8) 
+    border-top-color: rgba(255,255,255,.5);*/
 }
 
 .sf-arrows .sf-with-ul:active{
-	color: #000000;
-	background-color: #CCCCCC;
+    color: #000000;
+    background-color: #CCCCCC;
 }
 
 .sf-arrows .sf-with-ul:hover{
-	color: #000000;
-	background-color: #999999;
+    color: #000000;
+    background-color: #999999;
 }
 
 .sf-arrows > li > .sf-with-ul:focus:after,
 .sf-arrows > li:hover > .sf-with-ul:after,
 .sf-arrows > .sfHover > .sf-with-ul:after {
-	border-top-color: white; /* IE8 fallback colour */
+    border-top-color: white; /* IE8 fallback colour */
 }
 /* styling for right-facing arrows */
 .sf-arrows ul .sf-with-ul:after {
-	margin-top: -5px;
-	margin-right: -3px;
-	border-color: transparent;
-	border-left-color: #dFeEFF; /* edit this to suit design (no rgba in IE8) */
-	border-left-color: rgba(255,255,255,.5);
+    margin-top: -5px;
+    margin-right: -3px;
+    border-color: transparent;
+    border-left-color: #dFeEFF; /* edit this to suit design (no rgba in IE8) */
+    border-left-color: rgba(255,255,255,.5);
 }
 .sf-arrows ul li > .sf-with-ul:focus:after,
 .sf-arrows ul li:hover > .sf-with-ul:after,
 .sf-arrows ul .sfHover > .sf-with-ul:after {
-	border-left-color: white;
+    border-left-color: white;
 }
