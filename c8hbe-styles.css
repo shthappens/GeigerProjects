@@ -345,6 +345,7 @@ div#DDmenu a{
 
 .utilNav .mini-cart, {
     color: #FFFFFF;
+    text-decoration: none;
 }
 
 .utilNav .mini-cart a{
@@ -362,6 +363,7 @@ div#DDmenu a{
     color: #FFFFFF;
     margin-top: auto;
     margin-bottom: auto;
+    text-decoration: none;
 }
 
 .utilNav a:hover{
@@ -914,6 +916,11 @@ div#DDmenu li a:active{
     padding-right: 10px;
     padding-left: 10px;
 }
+
+#footer ul li a{
+    text-decoration: none;
+}
+
 #footer ul{
     margin-right: 0px;
     width: 400px;
