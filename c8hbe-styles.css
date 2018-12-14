@@ -234,6 +234,10 @@ p .pageItem{
     display: none;
 }
 
+#pageMyAccount #content {
+    margin-bottom: 35px;
+}
+
 #footer p, #footer a {
 /*    margin-bottom: 0px;
     margin-top: 10px;*/
@@ -1541,6 +1545,7 @@ a.view-all{
 #pageItem .actions{
     text-align: right;
 }
+
 .estimate-calendar {
     margin-top: 5px;
 }
