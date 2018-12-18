@@ -1351,27 +1351,24 @@
     /****Category and search results****/
 
     #apparelNote {
-    /*    box-shadow: 0 0 10px rgba(102, 153, 204, 1);*/
-        height: 38px; /* changed from 36 to 40*/
+        height: 111px;
         width: auto; 
-    /*  margin: 0;*/
-    /* padding: 10px;*/
         text-align: center;
-    /*    text-transform: uppercase;*/
-        font-weight: bold;
-        background-color: #e6e6e6;
-        font-size: 14px;
+        border: 2px solid #910028;
         color: #910028;
     }
 
     #apparelNote a {
-        text-decoration: none;
         color: #910028;
+        text-decoration: underline;
+        font-weight: bold;
+        font-size: 21px;
     }
 
     #apparelNote p {
         padding: 9px;
-        max-resolution: res;
+        font-size: 21px;
+        font-weight: normal;
     }
 
     #pageCategory .item, #pageSearchResults .item{
