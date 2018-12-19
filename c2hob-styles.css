@@ -30,6 +30,7 @@
 
     html{
         color:#000;background:#FFF;
+        min-height: 100vh;
     }
 
     html, body, div, span, applet, object, iframe,
@@ -117,8 +118,7 @@
         font-family: proxima-nova, sans-serif;
         font-size: 14px;
         line-height: 18px;
-    /*    min-height: 650px;*/
-    /*    height: 926px;*/
+        height: 100vh;
     }
 
     .address-title {
@@ -140,7 +140,8 @@
         background: #707272;
         height: 35px;
         width: 100%;
-        margin; 0 auto;
+        bottom: 0;
+        position: absolute;
     }
 
     #container{
@@ -342,7 +343,7 @@
     #content{
     /*    background: url("../images/navSlashes.jpg") repeat-x scroll left top #FFF;*/
     /*  padding: 20px;*/
-        min-height: 650px;
+        min-height: 100vh;
         margin-top: 10px;
         margin-right: 25px;
         margin-left: 26px;
@@ -654,8 +655,8 @@
         font-size: 13px;
         width: 1024px;
         background-color: #FFFFFF;
-        margin: 0 auto;
-        padding-top: 87px;
+        /* margin: 0 auto;
+        padding-top: 87px; */
     }
 
     #footer{
@@ -663,7 +664,9 @@
         width: 1024px;
         background-color: #FFFFFF;
         margin: 0 auto;
-        padding-top: 54px;
+        /* padding-top: 54px; */
+        position: absolute;
+        bottom: 0;
     }
 
     #footer a{
@@ -691,14 +694,14 @@
 
     #footer .wrapper{
         color: #ffffff;
-    /*    padding: 15px 15px;*/
         background-color: #707272;
-        position: absolute;
+        position: relative;
         display: flex;
         width: 974px;
         height: 35px;
         margin-right: 25px;
         margin-left: 25px;
+        z-index: 99;
     }
 
     #footer .itw-logos {
@@ -711,7 +714,7 @@
     /*    margin-right: 25px;
         margin-left: 25px;*/
     }
-
+ 
     #footer .itw-logos img {
     /*s*/
     }
