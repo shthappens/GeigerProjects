@@ -118,7 +118,7 @@
         font-family: proxima-nova, sans-serif;
         font-size: 14px;
         line-height: 18px;
-        height: 100vh;
+        min-height: 100vh;
     }
 
     .address-title {
@@ -141,7 +141,7 @@
         height: 35px;
         width: 100%;
         bottom: 0;
-        position: absolute;
+        position: relative;
     }
 
     #container{
@@ -159,7 +159,7 @@
     }
 
     a{ 
-        color:#005196;
+        color:#910028;
     }
 
     div#DDmenu a{
@@ -320,7 +320,7 @@
         text-align: left;
         width: 1024px;
         background-color: #FFFFFF;
-        height: 100%;
+        /* height: 100%; */
         /*-moz-box-shadow: 0 2px 8px #000;
         -webkit-box-shadow: 0 2px 8px #000;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
@@ -332,9 +332,9 @@
         border-bottom-left-radius: 8px;*/
     }
 
-    #pageHome #container {
+    /* #pageHome #container {
         height: auto;
-    }
+    } */
 
     #pageCheckoutAddresses #container {
 
@@ -343,7 +343,7 @@
     #content{
     /*    background: url("../images/navSlashes.jpg") repeat-x scroll left top #FFF;*/
     /*  padding: 20px;*/
-        min-height: 100vh;
+        min-height: auto;
         margin-top: 10px;
         margin-right: 25px;
         margin-left: 26px;
@@ -665,7 +665,7 @@
         background-color: #FFFFFF;
         margin: 0 auto;
         /* padding-top: 54px; */
-        position: absolute;
+        position: relative;
         bottom: 0;
     }
 
@@ -695,7 +695,7 @@
     #footer .wrapper{
         color: #ffffff;
         background-color: #707272;
-        position: relative;
+        position: absolute;
         display: flex;
         width: 974px;
         height: 35px;
