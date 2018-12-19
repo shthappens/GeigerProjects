@@ -342,12 +342,11 @@
     #content{
     /*    background: url("../images/navSlashes.jpg") repeat-x scroll left top #FFF;*/
     /*  padding: 20px;*/
-        /*min-height: 650px;*/
+        min-height: 650px;
         margin-top: 10px;
         margin-right: 25px;
         margin-left: 26px;
         margin-bottom: 100px;
-        min-height: 650px; 
     }
 
     #pageHome #content {
@@ -1352,10 +1351,16 @@
 
     #apparelNote {
         height: 111px;
-        width: auto; 
         text-align: center;
         border: 2px solid #910028;
         color: #910028;
+        width: 320px;
+        float: right;
+        position: relative;
+        right: 0;
+        margin-right: 62px;
+        z-index: 99;
+        margin-top: -230px;
     }
 
     #apparelNote a {
@@ -1369,6 +1374,10 @@
         padding: 9px;
         font-size: 21px;
         font-weight: normal;
+        line-height: 26px;
+        margin-left: 11px;
+        margin-right: 11px;
+        margin-top: 6px;
     }
 
     #pageCategory .item, #pageSearchResults .item{
