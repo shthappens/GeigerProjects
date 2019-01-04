@@ -151,7 +151,7 @@
 
     p .pageItem{
         font-size: 14px !important;
-        line-height: 18px !important;  
+        line-height: 18px !important;  t
     }
 
     a{ 
@@ -251,9 +251,9 @@
 
     .sidebar .title{
         font-weight: 600;
-        font-size: 13px;
+        font-size: 14px;
         margin-top: 10px;
-        text-transform: uppercase;
+        /* text-transform: uppercase; */
         color: #555;
         border-bottom: 1px solid #eee;
         padding-bottom: 5px;
@@ -279,7 +279,7 @@
         background-position:2px -48px;
         text-decoration:none;
         font-size:12px;
-        color:#00acd4;
+        /* color:#00acd4; */
     }
 
     .facettitle.blue {
@@ -356,7 +356,7 @@
     #header{
     /*    background: url("../images/headerbckgrnd.jpg") repeat-x scroll left top #FFF;*/
         width: 1024px;
-        height: 140px;
+        height: 137px;
     }
 
     #header .wrapper{
@@ -479,15 +479,6 @@
         display: flex;
     }
 
-    #menu a {
-        color: #910028;
-        font-weight: bold;
-        margin-top: auto;
-        margin-bottom: auto;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-
     .nav{
     /*    margin: 0;
         width: 1024px;
@@ -560,8 +551,8 @@
         height: auto;
         box-shadow: 2px 3px 8px #888888;
         overflow: hidden;
-        transition: 0.2s 0.5s;
-        margin-top: 41px;
+/*        transition: 0.2s 0.5s;
+*/        margin-top: 41px;
         z-index: 99;
     }
 
@@ -569,9 +560,32 @@
         max-width: 204px;
     }*/
 
+    #menulast {
+        background: #910028;
+        color: #ffffff;
+    }
+
+    #menulast a {
+        color: #ffffff;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    #menulast:hover {
+        background: #e6e6e6;
+        color: #910028;
+    }
+
+    #menulast a:hover {
+        color: #910028;
+    }
+
+    #menuWrapper {
+        margin-left: 25px;
+    }
 
     .productCategories {
-        max-width: 204px;
+        max-width: 196px;
     }
 
     li.productCategories:hover div#DDmenu{
@@ -581,8 +595,27 @@
         visibility: visible;
     }
 
-    .productCategories:hover {
+    a#firstItem {
+        padding-left: 10px;
+        color: #910028;
+        font-weight: bold;
+        text-transform: uppercase;
+        height: 16px;
+    }
+
+    #menuWrapper a.topItem {
+        color: #910028;
+        font-weight: bold;
+        text-transform: uppercase;
+        height: 16px;
+    }
+
+/*    .productCategories:hover {
         background-color: #e6e6e6;
+    }*/
+
+    .productCategories.sfHover{
+        background: #e6e6e6!important;
     }
 
     .nav li:hover {
@@ -1330,6 +1363,10 @@
         margin-top: 5px;
     }
 
+    #pageMyAccount .f-buttons {
+        margin-top: 5px;
+    }
+
     /****My Account My Address****/
 
     /****New Shipping Address****/
@@ -1349,17 +1386,19 @@
     /****Category and search results****/
 
     #apparelNote {
-        height: 111px;
+        /* height: 111px; */
+        height: auto;
         text-align: center;
         border: 2px solid #910028;
         color: #910028;
-        width: 320px;
+        /* width: 320px; */
+        width: auto;
         float: right;
         position: relative;
         right: 0;
-        margin-right: 62px;
+        /* margin-right: 62px; */
         z-index: 99;
-        margin-top: -230px;
+         margin-top: 10px; 
     }
 
     #apparelNote a {
@@ -1417,6 +1456,11 @@
 
     .filter {
         margin-bottom: 15px;
+        margin-left: 10px;
+    }
+
+    .subcat-container {
+        margin-left: 10px;
     }
 
     .item{
@@ -1484,6 +1528,7 @@
     a.view-all{
         margin-right: 10px;
         margin-top: auto;
+        margin-left: 10px;
         color: #910028;
         text-decoration: none;
     }
@@ -2174,6 +2219,7 @@
     .inline-datepicker {
         display: inline-block;
         margin-right: 7px;
+        margin-bottom: 10px;
     }
 
     button.ui-datepicker-current {
@@ -2237,6 +2283,7 @@
         display: flex;
         flex-direction: column-reverse;
         float: left;
+        width: 100%;
     }
 
     #pageItem .estimate-calendar a {
@@ -2248,11 +2295,11 @@
     }
 
     #pageItem .addToCartBtn_removed {
-        margin-top: 28px;
-    }
+/*        margin-top: 28px;
+*/    }
 
     #pageItem #itemForm > div {
-        margin-bottom: 5px;
+        margin-bottom: 12px;
     }
 
     #pageItem span a {
@@ -2261,8 +2308,8 @@
         text-decoration: none;
         font-size: 16px;
         font-weight: bold;
-        position: absolute;
-        display: flex;
+/*        position: absolute;
+        display: flex;*/
         right: 88px;
     }
 
