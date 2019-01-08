@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+
+#########################################################################
+#set($itemRow = $singleItemDTO.getItem(0))
+#set($item = $pageTile.getItemObject($singleItemDTO, $itemRow , "i"))
+#set($price = $item.itemPrice)
+#set($mainItemPrice = $item.itemPrice)
+#set($printitemid = $pageTile.getItemObject($singleItemDTO, $itemRow , "itemid"))
+
+#if(!$pageTileDictionaryDTO)
+  #if($_commandName)
+    #springBind( "${_commandName}.pageTileDictionaryDTO")
+    #set ($pageTileDictionaryDTO = ${status.value})
+  #end
+#end
+
+#if($pageTileDictionaryDTO)
+  #set($childItemsHomeDTO=$pageTileDictionaryDTO.getPageTile("childItemsHomeDTO"))
+  #set($catDropMenuDTO=$pageTileDictionaryDTO.getPageTile("catDropMenuDTO"))
+#end
+
+#set($metadescription= $item.metadescription)
+#set($keywords= $item.keywords)
+#set($pagetitle= $item.pagetitle)
+#########################################################################
+
+<html id="pageItem">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else $!{item.title} - $!{htmlSiteName} #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+
+   #parse('libitempgjavascript.vm')
+
+  </head>
+  <body>
+    #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+    <div id="container">
+        #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+        
+      <div id="content" role="main">
+             #parse('libpartitempgcontent.vm')
+      </div> <!--//#content -->
+        #if($!$footerPosition == "INSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    </div> <!--//#container -->
+    #if($!$footerPosition == "OUTSIDE") #displayFooter($!$displayCustomFooterContent) #end
+
+    #parse("libpartitempgjsbottom.vm")
+
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+    <script>
+        jQuery(document).ready(function(){
+        
+        $('#custom-line-0').attr("placeholder", "Street Address, City, State, Zip")
+        $('#custom-line-1').attr("placeholder", "Phone number (xxx) xxx-xxxx")
+        
+        });
+    </script>
+  </body>
+</html>

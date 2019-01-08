@@ -528,10 +528,9 @@
 
     .nav .menulast {
         background: #910028;
-        height: 27px;
+        /* height: 27px; */
         width: 135px;
     }
-
 
     .nav .menulast a:hover {
         color: #910028 !important;
@@ -563,6 +562,7 @@
     #menulast {
         background: #910028;
         color: #ffffff;
+        margin-left: 15px;
     }
 
     #menulast a {
@@ -582,10 +582,16 @@
 
     #menuWrapper {
         margin-left: 25px;
+        width: 625px;
+        display: flex;
     }
 
     .productCategories {
         max-width: 196px;
+    }
+
+    li.productCategories {
+        height: 32px;
     }
 
     li.productCategories:hover div#DDmenu{
@@ -600,23 +606,27 @@
         color: #910028;
         font-weight: bold;
         text-transform: uppercase;
-        height: 16px;
+        /* height: 16px; */
     }
 
-    #menuWrapper a.topItem {
+    #menuWrapper .topMenu a {
         color: #910028;
         font-weight: bold;
         text-transform: uppercase;
-        height: 16px;
+        /* height: 16px; */
+        padding-left: 8px;
+        padding-right: 8px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    #menuWrapper li.topMenu {
+        margin-left: 15px;
     }
 
 /*    .productCategories:hover {
         background-color: #e6e6e6;
     }*/
-
-    .productCategories.sfHover{
-        background: #e6e6e6!important;
-    }
 
     .nav li:hover {
         background-color: #e6e6e6;
@@ -1090,7 +1100,7 @@
     }
 
     .spotlight {
-        margin-top: -25px;
+        margin-top: -18px;
         margin-left: -26px;
     }
 
@@ -1386,17 +1396,14 @@
     /****Category and search results****/
 
     #apparelNote {
-        /* height: 111px; */
         height: auto;
         text-align: center;
         border: 2px solid #910028;
         color: #910028;
-        /* width: 320px; */
-        width: auto;
+        width: 99.5%;
         float: right;
         position: relative;
         right: 0;
-        /* margin-right: 62px; */
         z-index: 99;
          margin-top: 10px; 
     }
@@ -1405,17 +1412,15 @@
         color: #910028;
         text-decoration: underline;
         font-weight: bold;
-        font-size: 21px;
+        font-size: 16px;
     }
 
     #apparelNote p {
         padding: 9px;
-        font-size: 21px;
+        font-size: 16px;
         font-weight: normal;
         line-height: 26px;
-        margin-left: 11px;
-        margin-right: 11px;
-        margin-top: 6px;
+        margin: auto;
     }
 
     #pageCategory .item, #pageSearchResults .item{
