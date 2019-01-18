@@ -146,6 +146,7 @@
 
     p{ 
         margin-bottom: 15px;
+        color: #707272;
 
     }
 
@@ -222,8 +223,13 @@
 
     .bCrumbs, .bCrumbs a{
         font-size: 14px;
-        color:#777;
+        color:#707272;
         padding-top: 10px;
+        text-decoration: none;
+    }
+
+    .bCrumbs span {
+        color: #707272!important;
     }
 
     .image .price-box{
@@ -252,9 +258,9 @@
     .sidebar .title{
         font-weight: 600;
         font-size: 14px;
-        margin-top: 10px;
+        margin-top: 30px;
         /* text-transform: uppercase; */
-        color: #555;
+        color: #707272;
         border-bottom: 1px solid #eee;
         padding-bottom: 5px;
         margin-bottom: 10px;
@@ -262,7 +268,8 @@
 
 
     #recentlyViewed li {
-        padding:4px 2px 4px 10px
+        /* padding:4px 2px 4px 10px; */
+        padding-left: 10px;
     }
 
     .subcat-title a,#recentlyViewed a {
@@ -336,6 +343,10 @@
         padding-bottom: 100px;
     }
 
+    #pageSearchResults #container {
+        height: 100%;
+    }
+
     #content{
     /*    background: url("../images/navSlashes.jpg") repeat-x scroll left top #FFF;*/
     /*  padding: 20px;*/
@@ -357,6 +368,7 @@
     /*    background: url("../images/headerbckgrnd.jpg") repeat-x scroll left top #FFF;*/
         width: 1024px;
         height: 137px;
+        padding-bottom: 15px;
     }
 
     #header .wrapper{
@@ -533,7 +545,7 @@
     }
 
     .nav .menulast a:hover {
-        color: #910028 !important;
+        color: #ffffff!important;
     } 
 
     .nav .menulast a {
@@ -572,16 +584,16 @@
     }
 
     #menulast:hover {
-        background: #e6e6e6;
-        color: #910028;
+        background: #7B0022;
+        color: #ffffff ;
     }
 
     #menulast a:hover {
-        color: #910028;
+        color: #ffffff;
     }
 
     #menuWrapper {
-        margin-left: 25px;
+        margin-left: 14px;
         width: 625px;
         display: flex;
     }
@@ -622,6 +634,11 @@
 
     #menuWrapper li.topMenu {
         margin-left: 15px;
+        background-color: #fff;
+    }
+
+     #menuWrapper li.topMenu:hover {
+        background-color: #e6e6e6;
     }
 
 /*    .productCategories:hover {
@@ -633,10 +650,10 @@
         color: #910028;
     }
 
-    .nav .menulast li:hover {
+    /* .nav .menulast li:hover {
         background-color: #e6e6e6;
         color: #910028;
-    }
+    } */
 
     div#DDmenu li{
         float:none;
@@ -728,7 +745,7 @@
         -moz-border-radius-bottomright: 8px;
         -moz-border-radius-bottomleft: 8px;
         border-bottom-right-radius: 8px;
-        border-bottom-left-radius: 8px*/;
+        border-bottom-left-radius: 8px*/
     }
 
     #footer .wrapper{
@@ -763,6 +780,7 @@
         display: inline-flex;
         margin-top: auto;
         margin-bottom: auto;
+        color: #fff;
     }
 
     #footer .wrapper ul {
@@ -843,6 +861,10 @@
         margin-right: 10px;*/
         color: #910028;
         display: flex;
+    }
+
+    .summary span {
+        color: #910028;
     }
 
     .summary .def {
@@ -1223,7 +1245,7 @@
         border: 1px solid #CCCCCC;
         border-radius: 3px 3px 3px 3px;
         box-shadow: 0 1px 2px #D1D1D1;
-        color: #666666;
+        color: #707272;
         font-family: proxima-nova, sans-serif;
         font-size: 12px;
         margin: 0px;
@@ -1238,6 +1260,15 @@
 
     #pageFAQ .section{
         padding: 10px;
+        color: #707272;
+    }
+
+    #pageFAQ h1 {
+        margin: 15px 0px 5px 0px;
+    }
+
+    #pageFAQ p {
+        margin-bottom: 25px;
     }
 
     /****Custom Orders****/
@@ -1408,6 +1439,10 @@
          margin-top: 10px; 
     }
 
+    #apparelNote p {
+        color: #910028;
+    }
+
     #apparelNote a {
         color: #910028;
         text-decoration: underline;
@@ -1438,6 +1473,16 @@
         display:none;
     }
 
+    #pageCategory .container:hover, 
+    #pageSearchResults .container:hover {
+        text-decoration: underline;
+    }
+
+    #pageCategory .item_feedback_msg,
+    #pageSearchResults .item_feedback_msg {
+        display: none;
+    }
+
     .sortView{
         background-color: #eaebec;
         padding: 3px 5px;
@@ -1459,9 +1504,14 @@
         margin-bottom:15px;
     }
 
+    .active-filters strong {
+        color: #707272!important;
+    }
+
     .filter {
         margin-bottom: 15px;
         margin-left: 10px;
+        color: #707272;
     }
 
     .subcat-container {
@@ -1565,9 +1615,20 @@
         border:1px solid #ccc;
     }
 
+    #pageItem span {
+        color: #707272;
+    }
+
+    #imageWindow {
+        margin-bottom: 25px;
+    }
+
     #pageItem .price {
         margin: 10px;
-        color
+    }
+
+    #itemPrice span {
+        color: #910028;
     }
 
     #pageItem .actions{
@@ -1710,7 +1771,7 @@
     }
 
     .mini-cart strong {
-        color: #910028;
+        color: #910028!important;
         font-weight: bold;
     }
 
@@ -1720,7 +1781,7 @@
     }
 
     .mini-cart span {
-        color: #910028;
+        color: #910028!important;
         font-weight: normal;
     }
 
@@ -1796,11 +1857,15 @@
         text-decoration: none;
     }
 
+    #pageBasket b{
+        color: #707272;
+    }
+
     /**** Checkout General ****/
 
     .co-breadcrumb{
     background-image: url("../images/bg/checkout_sprite.png");
-    background-position: 96% 0;
+    background-position: 102% 0;
     background-repeat: no-repeat;
     margin: 30px 0;
     }
@@ -1811,11 +1876,11 @@
     }
 
     .co-breadcrumb.step2 {
-        background-position: 80% 0;
+        background-position: 85% 0;
     }
 
     .co-breadcrumb.step3{
-    background-position: 64% 0;
+    background-position: 68% 0;
     }
 
     .co-breadcrumb.step4{
@@ -2224,11 +2289,30 @@
     .inline-datepicker {
         display: inline-block;
         margin-right: 7px;
-        margin-bottom: 10px;
+        margin-bottom: 25px;
     }
 
     button.ui-datepicker-current {
         display: none;
+    }
+
+    i.icon-plus {
+        color: #707272;
+        margin-top: 2px;
+    }
+
+     {
+        content:'\e409';
+        font-family: Material Icons;    
+        font-size: 24px;
+        position: relative;
+        display: inline-flex;
+        padding-left: 95px; 
+        font-weight: normal;
+    }
+
+    i.icon-arrow-right {
+        margin-top: 2px;
     }
 
     .ui-datepicker-buttonpane {
@@ -2268,6 +2352,7 @@
         -o-webkit-box-shadow: none;
         webkit-box-shadow: none;
         padding-left: 0;
+        height: auto!important;
     }
 
     #pageItem table {

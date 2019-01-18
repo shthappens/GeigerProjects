@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+#parse('libGlobalConfig.vm')
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+
+#########################################################################
+
+#if (!$pageTileDictionaryDTO)
+  #if ($_commandName)
+    #springBind( "${_commandName}.pageTileDictionaryDTO" )
+    #set ($pageTileDictionaryDTO = ${status.value})
+  #end
+#end
+
+#########################################################################
+
+<html id="pageLogin">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else #springMessage("log_in") $!{htmlSiteName} #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+  </head>
+  <body>
+    #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+    <div id="container">
+        #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+        
+        <div id="content" role="main">
+            
+            #if(${fancyUserForms} == "YES")
+                #parse("libPageFancyLoginCust.vm")
+            #else
+                #parse("libPageLoginCust.vm")
+            #end
+  <script>
+    $( document ).ready(function() {
+            ## $("#pageLogin .btn a").attr("href", "http://www.google.com/")    
+            $(".btn").prop("href", "$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=561792")");
+            ## console.log($(".btn a"));
+            console.log("hey");
+     });
+     
+     // $( document ).ready(function() {
+     //        $(".forgotPassword").text("Forgot or Reset your password"); 
+     // });
+  </script>
+
+        
+   ## Uncomment for login popup.  Mainly for migrated sites; informs customers to use Forgot Password
+    ## #if(${displayLoginPopup} == "YES")
+    ##     #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteNewLoginPopup.vm")
+    ## #end
+     
+      </div> <!--//#content -->
+      
+      #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end      
+      #if($!$footerPosition == "INSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    </div> <!--//#container -->
+    #if($!$footerPosition == "OUTSIDE") #displayFooter($!$displayCustomFooterContent) #end
+
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+  </body>
+</html>

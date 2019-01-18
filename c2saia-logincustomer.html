@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+#parse('libGlobalConfig.vm')
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+
+#########################################################################
+
+#if (!$pageTileDictionaryDTO)
+  #if ($_commandName)
+    #springBind( "${_commandName}.pageTileDictionaryDTO" )
+    #set ($pageTileDictionaryDTO = ${status.value})
+  #end
+#end
+
+#########################################################################
+
+<html id="pageLogin">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else #springMessage("log_in") $!{htmlSiteName} #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+  </head>
+  <body>
+    #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+    <div id="container">
+        #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+        
+        <div id="content" role="main">
+            
+            #if(${fancyUserForms} == "YES")
+            ##   #parse("libPageFancyLoginCust.vm")
+              <link href="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/css/fancyForm.css" rel="stylesheet">
+
+            <h1>Customer Login</h1>
+            
+            <div class="loginbox clearfix">
+                <div class="login columnOne" >
+                    <form name="frm" method="POST" >
+                        <input type="hidden" name="mode" value="Log In">
+                        <input type="hidden" value="$!authenticationSubmitURL" name="Log In">
+                
+                        #springBind("loginViewDTO.doSubmit")
+                        <input type="hidden" id="hiddenlogin" name="$status.expression">
+                      
+                        #springBind( "loginViewDTO.*" )
+                        #foreach($error in $status.errorMessages) 
+                            <div class="error">$error</div>
+                        #end
+                        <h2>Returning Customers Log In Here</h2>
+                            <input name="login" id="loginInput" maxlength="50" tabindex="1" type="text" autofocus placeholder="$!UsernameLabel" />
+        
+                            <input name="password" id="passwordInput" maxlength="20" tabindex="2" type="password" placeholder="#springMessage("password")" />
+                            <a href="forgot_password.html?vid=${vendorSettingsDTO.vendorId}#if(${loginViewDTO.memberType})&mt=${loginViewDTO.memberType}#else&mt=1#end" class="forgotPassword">
+                                #springMessage('forgottenPassword')
+                            </a>
+                            
+                            <button type="submit" onclick="JavaScript:document.frm.hiddenlogin.value='Log In';document.frm.submit();" class="btn-primary">#springMessage("log_in")</button>
+                        
+                            #if($!allowRegistration == "YES")
+                                <h2>New Customers Start Here</h2>
+                                <p>Create your account to start shopping.</p>
+                                <a class="btn" href="register.html?vid=${vendorSettingsDTO.vendorId}&mt=1&redirecturl=myaccount.html%3Fmode%3Dbillingaddress%26vid%3D${vendorSettingsDTO.vendorId}">Create an account</a>
+                            #end
+                        
+                        
+                    </form>
+                </div>
+            </div>
+            #else
+                #parse("libPageLoginCust.vm")
+            #end
+            
+  <script>
+    $( document ).ready(function() {
+            ## $("#pageLogin .btn a").attr("href", "http://www.google.com/")    
+            $(".btn").prop("href", "$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=561792")");
+            ## console.log($(".btn a"));
+            console.log("hey");
+     });
+     
+    ##  $( document ).ready(function() {
+    ##         $(".forgotPassword").text("Forgot or Reset your password"); 
+    ##  });
+  </script>
+
+        
+   ## Uncomment for login popup.  Mainly for migrated sites; informs customers to use Forgot Password
+    ## #if(${displayLoginPopup} == "YES")
+    ##     #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteNewLoginPopup.vm")
+    ## #end
+     
+      </div> <!--//#content -->
+      
+      #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end      
+      #if($!$footerPosition == "INSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    </div> <!--//#container -->
+    #if($!$footerPosition == "OUTSIDE") #displayFooter($!$displayCustomFooterContent) #end
+
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+  </body>
+</html>

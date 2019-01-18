@@ -1,0 +1,36 @@
+
+
+<a href="$seourl.encodeURL("store.html?cid=$category.categoryid&vid=$vendorSettingsDTO.vendorId&cid=332027")">NEW PRODUCTS</a>
+
+<p>Check out our <a href='$seourl.encodeURL('store.html?cid=$category.categoryid&vid=$vendorSettingsDTO.vendorId&cid=332027')'>NEW PRODUCTS</a> category for the latest additions to our selections.</p>
+
+
+		"message":                "<p>Check out our <a href='$seourl.encodeURL('store.html?cid=$category.categoryid&vid=$vendorSettingsDTO.vendorId&cid=332027')'>NEW PRODUCTS</a> for the latest additions to our selections.</p>",
+
+
+		<a href="LMC/new-products">NEW PRODUCTS</a>
+
+		"11/17/2018",
+
+
+				"message":                "<div id='pop-up'><p>Check out our <div class='btn-primary' id='pop-btn'><a href='LMC/new-products'>NEW PRODUCTS</a></div><p>for the latest additions to our selections.</p></div>",
+
+
+
+
+margin-left: 35px;
+
+margin-top: 20px;
+
+width: 100%;
+
+height: 100px;
+
+
+#catmenu{
+    margin-left: 100px;
+    margin-top: 20px;
+    width: 900px;
+    height: 100px;
+    margin-left
+}

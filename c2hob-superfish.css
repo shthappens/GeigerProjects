@@ -14,7 +14,7 @@
 /*	left: 0;*/
 	z-index: 99;
 /*	margin-left: 14px;*/
-	margin-top: 13px;
+	margin-top: 28px;
 }
 .sf-menu > li {
 	float: left;
@@ -30,7 +30,7 @@
 	position: relative;
 }
 .sf-menu ul ul {
-	top: -13px;
+	top: -28px;
 	left: 100%;
 }
 
@@ -111,6 +111,10 @@
 	transition: none; */
 }
 
+.topMenu:hover, .topMenu li:hover {
+	background-color: #e6e6e6!important;
+}
+
 .sf-menu ul li a:hover,
 .sf-menu ul li a.sfHover {
     color: #fff;
@@ -153,9 +157,9 @@ a#firstItem:hover, a#firstItem.sfHover {
 	content: '\e313';
 	font-family: Material Icons;
 	font-size: 24px;
-	position: absolute;
+	position: relative;
 	display: inline-flex;
-	margin-left: 155px;
+	/* margin-left: 155px; */
 	font-weight: bold;
     /* padding-left: 8px;
     padding-right: 8px;
@@ -167,10 +171,10 @@ a#firstItem:hover, a#firstItem.sfHover {
     content:'\e409';
     font-family: Material Icons;	
     font-size: 24px;
-    position: absolute;
+    position: relative;
     display: inline-flex;
-    margin-left: 143px;
-    font-weight: normal;
+	padding-left: 95px; 
+	font-weight: normal;
 }
 
 .sf-arrows > li > .sf-with-ul:focus:after,
@@ -196,5 +200,5 @@ a#firstItem:hover, a#firstItem.sfHover {
 
 .sf-menu > li:hover > a {
 	color: #ffffff;
-	text-decoration: none;
+	text-decoration: 0s;
 }
