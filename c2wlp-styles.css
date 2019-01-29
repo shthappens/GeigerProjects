@@ -1256,6 +1256,14 @@ td.ar{
 .image{
     position:relative;
 }
+ 
+ #banner1, #banner2 {
+    padding-bottom: 15px;
+ }
+
+ #banner3, #banner4 {
+    padding-bottom: 25px;
+ }
 
 .item .image img{
     border:1px solid #ccc;
