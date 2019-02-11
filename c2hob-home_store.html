@@ -13,23 +13,51 @@
     #if(${headerPosition} == "OUTSIDE") #displayHeader(${displayCustomHeaderContent}) #end
     <div id="container">
         #if(${headerPosition} == "INSIDE") #displayHeader(${displayCustomHeaderContent}) #end
-      
+ 
       <div id="content" role="main">
 
         <div class="spotlight">
-          <img src="https://ggc8admin2.avetti.ca/preview/store/20160523750/assets/themes/kinto_en/images/hobart-spot.jpg">
+        ##   <img src="/store/20160523750/assets/themes/kinto_en/images/hobart-spot.jpg">
+            
+            <div id="spot1">
+                <div class="spot-nav">
+                    <div class="spot-on"></div>
+                	<div class="spot-off"></div>
+                	<div class="spot-off"></div>
+                </div>
+            </div>
+            <div id="spot2">
+                <div class="spot-nav">
+                	<div class="spot-off"></div>
+                	<div class="spot-on"></div>
+            	    <div class="spot-off"></div>
+            	</div>
+            </div>
+            <div id="spot3">
+                <div class="spot-nav">
+            	    <div class="spot-off"></div>
+                	<div class="spot-off"></div>
+                	<div class="spot-on"></div>
+                </div>
+            </div>
+          
         </div>
         
       <!-- <div id="content" role="main"> -->
-        ## <img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Hobart_Spring.jpg" style="margin-top:15px">
         #parse("libContentHome1.vm")
-        <!-- <div id="homeNote"><p>IF YOU SEE AN ITEM THAT YOU WANT BUT WOULD LIKE A DIFFERENT COLOR OR LOGO, PLEASE GO TO CUSTOM ORDERS TO SEND AN EMAIL TO JENNY WILLIAMS</p></div>
-        <div class="clearBoth">&nbsp;</div>
-        <div class="clearfix">#parse("libpartFeaturedItems.vm")</div> -->
+        
+        <div id="banner">
+            <div id="banner1">
+                <a href="HOB/apparel"><img src="/store/20160523750/assets/themes/kinto_en/images/banner1.jpg"></a>
+            </div>
+            <div id="banner2">
+                <a href="HOB/in-stock"><img src="/store/20160523750/assets/themes/kinto_en/images/banner2.jpg"></a>
+            </div>
+        </div>
 
       <div class="clearBoth">&nbsp;</div>
       </div> <!--//#content -->
-
+        #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end
         #if(${footerPosition} == "INSIDE") #displayFooter(${displayCustomFooterContent}) #end
     </div><!--//#container -->
 
@@ -37,15 +65,6 @@
     
     <script src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/js/jquery.jcarousellite.min.js"></script>
 
-    <script>
-    jQuery(document).ready(function(){
-      jQuery('#featured_carousel_new').jCarouselLite({
-        btnNext: "#featured_carousel_new_right",
-        btnPrev: "#featured_carousel_new_left",
-        visible: 4
-      });
-    });
-    </script>
     #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
     #parse("libMarkupFoot.vm")
 <!--     <div class="background-bottom">
