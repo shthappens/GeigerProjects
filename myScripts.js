@@ -71,6 +71,19 @@
         slideIndex++;
         if (slideIndex > x.length) {slideIndex = 1} 
         x[slideIndex-1].style.display = "inline-block"; 
-        setTimeout(carousel, 6000); 
+        setTimeout(carousel, 3000); 
     }
 </script>
+
+
+// 34D Cloudgenix
+
+    <script>
+        $(document).ready(function() {
+        
+            if($(".DSMessage").length > 0) {
+                $( "div.DSMessage" ).html( "This item is produced on-demand and takes longer to ship. Please allow 5 business days for production and 3 business days in transit. Please review the sizing chart (if applicable) before ordering as on-demand items may not be returned unless defective. See our FAQ's page for more information." );
+                $( "#estimateCalendar.estimate-calendar" ).hide();
+            }
+        })    
+    </script>
