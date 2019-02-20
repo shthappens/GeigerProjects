@@ -74,7 +74,7 @@ sub { vertical-align: text-bottom; }
 
 caption, th, td {
     text-align: left;
-    font-weight: normal;
+    font-weight: 300;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
@@ -92,17 +92,18 @@ address,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,text
     font:inherit;
 }
 h1,h2,h3,h4,h5,h6{
-    font-size:100%;font-weight:normal;
+    font-size:100%;
+    font-weight: 400;
 }
 
 strong{
-    font-weight: bold;
+    font-weight: 400;
 }
 
 
 /*********** Global - Typography: p, a, H1 H2, etc*************/
 body{
-    color:#444444;
+    color: #333;
     font-family: 'Lato', sans-serif;
     font-size: 14px;
     line-height: 18px;
@@ -113,8 +114,10 @@ body{
 
 p{ 
     margin-bottom: 15px;
-
+    font-weight: 300;
+    color: #333;
 }
+
 p .pageItem{
       font-size: 14px !important;
     line-height: 18px !important;  
@@ -124,8 +127,17 @@ p .pageItem{
 }
 
 a{ 
-    color: #08c;
+    color: #00A9E0;
 }
+
+a:hover{
+    color: #05C2FF;
+}
+
+.name a {
+    font-weight: 300;
+}
+
 #footer{
     font-size: 13px;
 }
@@ -133,6 +145,10 @@ a{
     color: #7f7f7f;
     text-decoration: none;
     font-size: 13px;
+}
+
+#footer a:hover {
+    text-decoration: underline;
 }
 .nav a{
     color: #fefefe;
@@ -163,8 +179,8 @@ div#DDmenu a{
     background: #f2f2f2;
 }
 
-.mini-cart:hover{
-   background:#7CB2CD; 
+.cartbutton a:hover {
+    color: #595959;
 }
 
 .mini-cart img{
@@ -177,16 +193,16 @@ div#DDmenu a{
 
 
 h1{ 
-    font-weight: bold;
+    font-weight: 400;
     font-size: 26px;
     padding: 0;
     margin: 0px 0px 15px 0px;
     line-height: 30px;
-    color: #006699;
+    color: #00A9E0;
 }
 #pageHome h1{
     text-align: center;
-    font-weight: bold;
+    font-weight: 400;
     color: #fefefe;
     font-size: 34px;
     line-height: 38px;
@@ -198,7 +214,7 @@ h1{
 h2{ 
     font-size:22px;
     color: #B1005D;
-    font-weight:bold;
+    font-weight:400;
     margin-bottom: 15px;
 }
 h3{ }
@@ -206,8 +222,8 @@ h4{ }
 h5{ }
 h6{ }
 .bCrumbs, .bCrumbs a{
-    font-size: 12px;
-    color:#777;
+    font-size: 14px;
+    color:#333;
 }
 .image .price-box{
     color:#fff;
@@ -218,38 +234,42 @@ h6{ }
     text-decoration: none;
 }
 .filter .title{
-    font-weight: bold;
+    font-weight: 400;
     
 }
 
 #pageItem .price {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 400;
     margin: 10px;
 }
 label, .label {
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .add-another-item label, .add-another-item .col3 span{
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 400;
 } 
 
 .sidebar .title{
-font-weight: bold;
-font-size: 20px;
+font-weight: 400;
+font-size: 14px;
 margin-top:10px;
+color: #333;
+text-transform: uppercase;
+padding-bottom: 8px;
+border-bottom: 1px solid #ededed;
 }
 
-#recentlyViewed li {
-    padding:4px 2px 4px 10px
+#recentlyViewed li.first {
+    padding-top: 7px;
 }
 
 .subcat-title a,#recentlyViewed a {
     padding:3px 2px 3px 33px;
     display:block;
-    color:#555;
+    color:#333;
     background:url(../images/arrow-menu.png) 2px 1px no-repeat;
     text-decoration:none;
     font-size:12px
@@ -265,7 +285,7 @@ margin-top:10px;
 
 .facettitle.blue {
     font-size:11px;
-    font-weight:600
+    font-weight:400
 }
 
 /*********** Global - Structure *************
@@ -283,16 +303,29 @@ body{
     position: relative;
     text-align: left;
     width: 1024px;
-    min-height: 787px;
+    min-height: 100%;
     background-color: #ffffff;
 }
 
-#content{
-   
+#pageHome #content {
     z-index: 1;
     clear: both;
-    /*! padding: 15px 20px; */
+    padding: 0; 
     height: 100%;
+    margin-bottom: 120px;
+}
+
+#pageLogin #content {
+    margin-bottom: 0;
+    min-height: 735px;
+}
+
+#content{
+    z-index: 1;
+    clear: both;
+    padding: 31px 18px 0 18px; 
+    min-height: 650px;
+    margin-bottom: 120px;
 }
 
 #header{
@@ -315,7 +348,7 @@ body{
     height: 40px;
     width: 1024px;
     background-color: #e5e5e5;
-    margin-top: 120px;
+    margin: auto;
 }
 
 #footer .wrapper{ /* For IE8 and earlier */
@@ -324,6 +357,7 @@ body{
     color: #7f7f7f;
     font-size: 13px;
     margin-top: 12px;
+    font-weight: 300;
 }
 
 #footer .wrapper p{
@@ -363,6 +397,7 @@ body{
     float: left;
     margin-left: 10px;
     width: 700px;
+    min-height: 485px;
 }
 .page.noFacet{
     width: 100%;   
@@ -387,7 +422,7 @@ body{
     background-color: #FADCDA;
     border: 1px solid #f00;
     padding: 5px 10px;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 /*********** Global Site Components *************
@@ -453,9 +488,15 @@ body{
     float: left;
     background-color: #b1005d;
     display: flex;
-    justify-content: space-evenly;
 }
 
+.nav-wrapper {
+    width: 630px;
+    display: inline-flex;
+    justify-content: space-evenly;
+    margin-left: auto;
+    margin-right: auto;
+}
 /*#navSearch{
     background: #75828C;
     float: right;
@@ -478,27 +519,44 @@ body{
     width: 630px;
     text-align: center;
 }
+
+.nav-wrapper li {
+    width: auto;
+}
 .nav a{
-    padding: 0px 10px;
+    /*padding: 0px 10px;*/
     display: block;
 }
+
+.nav-wrapper a {
+    font-size: 17px;
+    font-weight: 400;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
 .nav li:hover{
 /*    background-color: #333333;
     color: #fff;
     border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; -webkit-border-radius: 5px 5px 5px 5px;*/ 
 }
 
+.nav-wrapper li:hover{
+    background-color: #d0006d;
+}
+
 div#DDmenu{
     position: absolute;
-    background-color: #333333;
+    background-color: #ededed;
     display: none;
-    z-index: 100;
-    padding-bottom: 20px;
-    min-width: 254px;
-    border-radius: 0px 5px 5px 5px;    
-    -moz-border-radius: 0px 5px 5px 5px;    
-    -webkit-border-radius: 0px 5px 5px 5px;
+    z-index: 101;
+    padding-bottom: 8px;
+    min-width: 235px;
+    margin-top: 5px;
+    border-bottom: 4px solid #b1005d;
+    left: 288px;
 }
+
 li.productCategories:hover div#DDmenu{
     display: block;
 }
@@ -506,14 +564,19 @@ li.productCategories:hover div#DDmenu{
 
 div#DDmenu li{
     float:none;
+    text-align: left;
+    margin-left: 5px;
 }
 div#DDmenu li a{
     padding: 3px 12px;
-    color: #fff;
-    font-size: 16px;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 300;
 }
+
 div#DDmenu li a:hover{
-    background: #0082C3;
+    color: #b1005d;
+    background-color: #ededed;
 }
 
 /****Utility Nav****/
@@ -525,6 +588,9 @@ div#DDmenu li a:hover{
 
 .utilNav {
     display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 14px;
 }
 
 .utilNav ul a, 
@@ -539,8 +605,7 @@ div#DDmenu li a:hover{
 
 
 .utilNav ul a:hover{
-    background: #666666;
-
+    text-decoration: underline;
 }
 
 #header .wrapper .utilNav .mini-cart{
@@ -550,7 +615,7 @@ div#DDmenu li a:hover{
 .utilNav ul{
 /*    float: right;*/
     height: 100%;
-    width: 481px;
+    width: 100%;
 }
 
 /****Mini Cart****/
@@ -565,9 +630,10 @@ div#DDmenu li a:hover{
 }
 
 .summary{
-    font-size: 11px;
     margin-top: 0px;
-    margin-left: 24px;
+    display: flex;
+    font-size: 14px;
+    font-weight: 300;
 }
 
 /**** search ****/
@@ -578,21 +644,26 @@ div#DDmenu li a:hover{
     margin-left: 25px;     
 }
 #searchForm div{
-    font-size: 1.1em;
-    padding: 8px 5px;
-    border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; -webkit-border-radius: 5px 5px 5px 5px; 
-    width: 170px;
-    border: 1px solid #666;
-    height: 23px;
-    background: #fff;
+    font-size: 14px;
+    padding: 8px 10px;
+    border: 1px solid #E1E1E1;
+    border-radius: 5px 3px 3px 3px; 
+    -moz-border-radius: 3px 3px 3px 3px; 
+    -webkit-border-radius: 3px 3px 3px 3px;
+    /*background-color: #E1E1E1;*/
+    width: 196px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
 }
+
 #searchForm input#key{
 border: none;
 width: 144px;
 float: left;
 padding-left: 2px;
 margin-left: -2px;
-height: 30px;
+/*height: 30px;*/
 margin-top: -4px;
 }
 #searchForm input#searchBtn{
@@ -612,19 +683,30 @@ hr{
 
 .material-icons {
     color: #00a9e0;
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
+}
+
+#cart-icon {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 53px;
+}
+
+#cart-quantity {
+    margin-left: 10px;
+    margin-right: 5px;
 }
 
 /*example table style from http://www.premiumpixels.com/freebies/simple-little-table-psd/ 
 Feel free to change as needed*/
 table a:link {
-    font-weight: bold;
+    font-weight:400;
     text-decoration:none;
 }
 table a:visited {
     color: #999999;
-    font-weight:bold;
+    font-weight:400;
     text-decoration:none;
 }
 table a:active,
@@ -727,35 +809,35 @@ tfoot tr td{
 }
 
 .btn {
-    background-color: #E7E7E7;
-    border:1px solid #777;
-    color:#000;
-    padding: 5px 10px;
+    background-color: #ededed;
+    border:1px solid #bfbfbf;
+    color: #7f7f7f;
+    padding: 8px 24px;
     cursor: pointer;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
     border-radius:3px;
 }
 .btn:hover{
-    background-color: #fff;
+    background-color: #d8d8d8;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
     border-radius:3px;
 } 
 
 .btn-primary{
-    background-color: #006699;
-    border:1px solid #777;
+    background-color: #b1005d;
+    border:1px solid #980050;
     color:#FFF;
-    font-weight: bold;
-    padding: 5px 10px;
+    font-weight: 400;
+    padding: 8px 24px;
     cursor: pointer;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
     border-radius:3px;
 }
 .btn-primary:hover{
-    background-color: #CCCCCC;
+    background-color: #980050;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
     border-radius:3px;
@@ -768,7 +850,7 @@ tfoot tr td{
 
 .welcome-message{
     width: 430px;
-    top: 280px;
+    top: 254px;
     position: absolute;
     right: 86px;
     text-align: center;
@@ -776,7 +858,7 @@ tfoot tr td{
 
 .welcome-message p {
     color: #fefefe;
-    font-weight: normal;
+    font-weight: 300;
     font-size: 15px;
     line-height: 19px;
     text-shadow: -1px 1px 4px rgba(0,0,0,0.75);
@@ -784,7 +866,7 @@ tfoot tr td{
 
 #payroll-message {
     color: #b1005d;
-    font-weight: normal;
+    font-weight: 300;
 }
 
 /*Featured Products Carousel*/
@@ -799,7 +881,7 @@ tfoot tr td{
 
     .featured-product-carousel .title{
         margin: 0 0 0.35em 0;
-        font-weight: bold;
+        font-weight: 400;
         font-size: 18px;
         color: #000;
         height: 23px;
@@ -879,7 +961,7 @@ tfoot tr td{
 /****Contact Us ****/
 
 .companyInfo a {
-    font-weight: bold;
+    font-weight: 400;
     font-size: 18px;
 }
 .contactForm {
@@ -1094,6 +1176,11 @@ display:none;
 .sortControl {
     float: right;
     margin-left: 15px;
+    color: #575757;
+}
+
+#sortby {
+    color: #333333;
 }
 .pagination-new li{
     float: left;
@@ -1259,7 +1346,7 @@ tr.total td{
     border-top: 1px solid #e0e0e0;
 }
 ul.radios-list li label{
-    font-weight: normal;
+    font-weight: 300;
 }
 #pageBasket td{
     vertical-align: middle;
@@ -1278,7 +1365,7 @@ ul.radios-list li label{
   margin: 30px 0;
 }
 .co-breadcrumb li.active{
-    font-weight: bold;
+    font-weight: 400;
     color:#666;
 }
 
@@ -1307,13 +1394,13 @@ ul.radios-list li label{
   color: #000;
 }
 .co-breadcrumb li a{
-  font-weight: bold;
+  font-weight: 400;
 }
 .co-breadcrumb li.re {
   margin-left: 47px;
 }
 .co-breadcrumb li.yi {
-  margin-left: 38px;
+  margin-left: 2px;
 }
 .co-breadcrumb li.sp {
   margin-left: 76px;
@@ -1322,7 +1409,7 @@ ul.radios-list li label{
   margin-left: 64px;
 }
 .co-breadcrumb li.rv {
-  margin-left: 58px;
+  margin-left: 71px;
 }
 .co-breadcrumb li.ty {
   margin-left: 60px;
@@ -1359,7 +1446,7 @@ float: right;
         padding:8px 12px 8px 50px;
         line-height:1.2em;
         display:block;
-        font-weight: normal;
+        font-weight: 300;
 
         /* Prevent accidental click-drag on label which will select text and not activate radio
         -webkit-touch-callout: none;
@@ -1372,7 +1459,7 @@ float: right;
     .select-single label:hover {
         background-color:#F5F5F5;
     }
-    .select-single .name, .select-single .company {font-weight:bold;}
+    .select-single .name, .select-single .company {font-weight:400;}
 
     .select-single .active label, .select-single .active label:hover {background:#FFF;}
     
@@ -1412,13 +1499,13 @@ float: right;
     overflow:auto;  /* safe scroll for all browsers */
     overflow-x:hidden;  /* browser-supported hiding of horizontal scroll */
 }
-    #new-address-modal label {display:block;margin-top:10px; font-weight:bold;}
-    #new-address-modal label span {font-weight:normal; color:#999; padding:0 4px; font-size:11px}
+    #new-address-modal label {display:block;margin-top:10px; font-weight:400;}
+    #new-address-modal label span {font-weight:300; color:#999; padding:0 4px; font-size:11px}
     #new-address-modal .half {float:left;margin-right:20px}
     #new-address-modal input {display:block; margin:2px 0; width:220px}
     #new-address-modal .default {margin:10px 0;}
     #new-address-modal .default label, #new-address-modal .default input {display:inline;width:auto;}
-    #new-address-modal .default label {font-weight:normal;position:relative;top:2px;left:4px;}
+    #new-address-modal .default label {font-weight:300;position:relative;top:2px;left:4px;}
 
 /****Checkout ????????? Payment****/
 
@@ -1431,7 +1518,7 @@ float: right;
 }
 
     .shipping-methods-section address span{
-        font-weight:bold;
+        font-weight:400;
     }
     .shipping-methods-section{
         
@@ -1550,7 +1637,7 @@ float: right;
     .tabs .half{float:left;width:49%;}
     .tabs .section {line-height:2em;}
     .tabs .section label {line-height:1em;padding:0 0 1px;margin:12px 0 0;}
-    .tabs .section h4 {font-weight:bold;font-size:14px;border-bottom:1px solid #ADADAD;padding-bottom:1px;line-height:1.3em;margin:10px 0 6px}
+    .tabs .section h4 {font-weight:400;font-size:14px;border-bottom:1px solid #ADADAD;padding-bottom:1px;line-height:1.3em;margin:10px 0 6px}
     .tabs .chzn-container {margin-top:4px;}
     .tabs .chzn-select {width:405px;}
 
@@ -1603,12 +1690,16 @@ input#cvv{
     display: block;
 }
 
+#SHIPTYP_0 {
+    color: #333;
+}
+
 /****Checkout ????????? Review****/
 .location{
         font-family: 'Lato', sans-serif;
-        color:#666;
+        color:#333;
         font-size:12px;
-        text-shadow: 1px 1px 0px #fff;
+        /*text-shadow: 1px 1px 0px #fff;*/
         background:#eaebec;
         margin:20px;
         border:#ccc 1px solid;
@@ -1661,7 +1752,7 @@ input#cvv{
     margin: 0px 0px 10px 0px;
     color: #f00;
     text-shadow: none;
-    font-weight: bold;
+    font-weight: 400;
 }
 .warning{
     border: 1px solid #FC9801;
@@ -1670,13 +1761,13 @@ input#cvv{
     margin: 0px 0px 10px 0px;
     color: #FC9801;
     text-shadow: none;
-    font-weight: bold;
+    font-weight: 400;
 
 }
 
 .warningText{
     color: #FC9801;
-    font-weight: bold;
+    font-weight: 400;
 }
 .message.success{
     padding: 5px 10px;
@@ -1788,8 +1879,8 @@ input#cvv{
 .icon-remove-circle {background-position: -168px -96px;}
 .icon-ok-circle {background-position: -192px -96px;}
 .icon-ban-circle {background-position: -216px -96px;}
-.icon-arrow-left {background-position: -240px -96px;}
-.icon-arrow-right {background-position: -264px -96px;}
+.icon-arrow-left {background-position: -240px -94px;}
+.icon-arrow-right {background-position: -264px -94px;}
 .icon-arrow-up {background-position: -289px -96px;}
 .icon-arrow-down {background-position: -312px -96px;}
 .icon-share-alt {background-position: -336px -96px;}
@@ -1846,16 +1937,16 @@ input#cvv{
 }
 
 li.productCategories:hover{
-  border-radius: 5px 5px 0px 0px;
+/*  border-radius: 5px 5px 0px 0px;
   -moz-border-radius: 5px 5px 0px 0px;
-  -webkit-border-radius: 5px 5px 0px 0px;
+  -webkit-border-radius: 5px 5px 0px 0px;*/
 
 }
 
 div#DDmenu li.first a:hover{
-      border-radius: 0px 5px 0px 0px;
+/*      border-radius: 0px 5px 0px 0px;
   -moz-border-radius: 0px 5px 0px 0px;
-  -webkit-border-radius: 0px 5px 0px 0px;
+  -webkit-border-radius: 0px 5px 0px 0px;*/
 
 }
 
@@ -1863,6 +1954,54 @@ div#DDmenu li.first a:hover{
     float: right;
     width: 100%;
     margin-bottom: 34px;
+}
+
+#one.spot-image{
+    position: absolute;
+    z-index: 100;
+    margin-top: -392px;
+    margin-left: 60px;
+}
+
+#two.spot-image{
+    position: absolute;
+    z-index: 100;
+    margin-top: -402px;
+    margin-left: 111px;
+}
+
+#three.spot-image{
+    position: absolute;
+    z-index: 100;
+    margin-top: -380px;
+    margin-left: 219px;
+}
+
+.spot-nav {
+    position: absolute;
+    margin-top: -33px;
+    left: 483px;
+    display: flex;
+    width: 60px;
+    justify-content: space-between;
+}
+
+.spot-on {  
+    height: 13px;   
+    width: 13px;    
+    background-color: #910028;
+    display: inline-flex;
+    border-radius: 12px;
+    border: 1px solid #910028;
+}
+
+.spot-off { 
+    height: 13px;   
+    width: 13px;    
+    border: 1px 
+    solid #910028;  
+    display: inline-flex;
+    border-radius: 12px;
 }
 
 #pageHome .clearfix{
@@ -1874,34 +2013,35 @@ div#DDmenu li.first a:hover{
 
 .contact-sales {
     width: 849px;
-    height: 125px;
+    height: 100px;
     margin: auto;
     background-color: #f7f7f7;
     margin-top: 37px;
+    margin-bottom: 90px;
     text-align: center;
 }
 
 .contact-sales col1 {
     float: left;
     margin-left: 146px;
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 .contact-sales col2 {
     float: right;
     margin-right: 182px;
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 .contact-sales p, .contact-sales a {
     font-size: 16px;
     color: #333333;
-    line-height: 16px;
+    line-height: 9px;
     text-decoration: none;
 }
 
 #name {
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .values{
@@ -1917,11 +2057,11 @@ div#DDmenu li.first a:hover{
 
 #text-highlight {
     text-decoration: underline;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 #pageHome h3{
-    font-weight: bold;    
+    font-weight: 400;    
     font-size: 28px;    
     padding: 0;        
     line-height: 20px;    
@@ -1969,7 +2109,6 @@ color: #fff;
 }
 
 #loginMessage {
-    width: 566px;
     float: right;
     background: #B1005D;
     padding: 15px;
@@ -1978,6 +2117,9 @@ color: #fff;
     margin-top: 36px;
 }
 
+#loginMessage p {
+    color: #fff;
+}
 
 #passwordInput {
     width: 75%;

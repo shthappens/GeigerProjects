@@ -1,6 +1,22 @@
 
-
-
+//change primary button
+  // <script>
+    
+    jQuery( document ).ready(function() {
+    
+            #if($welcomeMatDTO)
+                #if(${welcomeMatDTO.loggedIn}) 
+                    jQuery(function() {
+                        jQuery(".addToCartBtn_removed.btn-primary:first").removeClass("btn-primary").addClass("btn");
+                    })    
+                #else
+                        
+                #end
+            #end
+        
+        });
+      
+  // </script>
 
   // Remove '( )' at the end of brand name in facets (Hobart)
 
@@ -25,7 +41,7 @@
 
 // hide "item is temporarily out of stock" for *325 Paul Davis BZ8325017
 
-        <script>
+        // <script>
             $( document ).ready(function() {
                 if (itemCodeList.innerText == 'BZ8325017');
                     ## $(".col3").css({"display": "none"});
@@ -34,7 +50,7 @@
                     ## $(".col3 span").css({"font-size": "0"});
             }); 
             
-        </script>
+        // </script>
 
         #if($item.code=="BZ8325017")
                       
@@ -53,11 +69,11 @@
                           $('#js-item-inventory-$item.itemid').hide();
                       }                        
                   }
-            </script>
+            // </script>
               
         #end
 
-<script>
+// <script>
     
     var slideIndex = 0;
     carousel();
@@ -73,12 +89,12 @@
         x[slideIndex-1].style.display = "inline-block"; 
         setTimeout(carousel, 3000); 
     }
-</script>
+// </script>
 
 
 // 34D Cloudgenix
 
-    <script>
+    // <script>
         $(document).ready(function() {
         
             if($(".DSMessage").length > 0) {
@@ -86,4 +102,33 @@
                 $( "#estimateCalendar.estimate-calendar" ).hide();
             }
         })    
-    </script>
+    // </script>
+
+
+//071/374 Spot image carousel
+
+    // <script>
+    
+    $( document ).ready( function() {
+
+        var slideIndex = 0;
+    
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("spot-image");
+            var y = document.getElementsByClassName("spot-nav");
+            for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none"; 
+            y[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > x.length) {slideIndex = 1} 
+            x[slideIndex-1].style.display = "inline";
+            y[slideIndex-1].style.display = "inline-flex";
+            setTimeout(carousel, 6000); 
+        }
+    })
+        
+    // </script>
