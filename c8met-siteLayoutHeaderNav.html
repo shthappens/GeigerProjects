@@ -27,21 +27,6 @@
   $hrefString
 #end
 
-#if($request.session.getAttribute("SessionCustomerDTO_${vendorSettingsDTO.vendorId}").getCustomerProperty('deactivated') == 'true')
-    <script>
-        swal({
-          title: "Account Deactivated",
-          text: "Your account has been deactivated. Please contact your payroll department to reactivate.",
-          icon: "warning",
-          dangerMode: true,
-          confirmButtonText: 'Logout',
-          closeOnClickOutside: false
-        }).then((logout) => {
-            window.location.href = 'https://${appSettingsDTO.getDomainAlias($vendorSettingsDTO.vendorId)}/${appSettingsDTO.AppName}/signout.html?vid=${vendorSettingsDTO.vendorId}&mt=1&redirecturl=${welcomeMatDTO.currentEncodePage}'
-        });
-    </script>
-#end
-
 ## Begin Layout
 <div id="header">
   <div class="wrapper">
@@ -79,12 +64,9 @@
         </li>
         #if($!{displayWishlist} == "YES")
           <li>
-            <a href="wishlist.html?action=add&vid=$vendorSettingsDTO.vendorId">Wish List</a>
+            <a href="wishlist.html?action=add&vid=$vendorSettingsDTO.vendorId">Wishlist</a>
           </li>
         #end
-        <li>
-            <a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$!cidContact")">Contact Us</a>
-        </li>
         #if(${welcomeMatDTO.loggedIn} && $BrowserFromPost)
             <li>
                 <form method="POST" action="$BrowserFromPost">
@@ -95,12 +77,11 @@
         #end
       </ul>
     </div> <!--//.utilNav -->
-
   </div> <!--//.wrapper -->
-  
+
 <div id="menu">
-    
-    <div class="search">
+
+  <div class="search">
       <form action="asearch.html" onsubmit="checkKey();" id="searchForm">
         #set($key="") 
         #set($brand_param="")
@@ -123,23 +104,18 @@
         <input type="hidden" name="vid" value="$vendorSettingsDTO.vendorId">
         <div>
           <!--<input type="text" name="key" value="$key" id="key" placeholder="Product Search...">-->
-          <input type="text" name="keyword" id="key" placeholder="Search Products">
-          
-          <i class="material-icons" id="search-icon" onclick="checkKey(); jQuery('#key').val(jQuery('#key').val().toUpperCase()); document.forms['searchForm'].submit();">search</i>
-          
-        ##   <input type="button" id="searchBtn" class="btn small" value="" onclick="checkKey(); jQuery('#key').val(jQuery('#key').val().toUpperCase()); document.forms['searchForm'].submit();">
-        
-            
+          <input type="text" name="keyword" id="key" placeholder="Product Search">
+          <input type="button" id="searchBtn" class="btn small" value="" onclick="checkKey(); jQuery('#key').val(jQuery('#key').val().toUpperCase()); document.forms['searchForm'].submit();">
         </div>
       </form>
     </div><!-- //.search-->
-    
+
     <div class="logo">
-      <a href="store.html?vid=${vendorSettingsDTO.vendorId}"></a>
+      <a href="store.html?vid=${vendorSettingsDTO.vendorId}"><span>$!htmlSiteName</span></a>
     </div>
-    
+
     <ul id="cart">
-        <li class="mini-cart">
+      <li class="mini-cart">
             #if($!displayMiniCart == "YES")
                 ## New mini-cart settings? Use the newer mini-cart structure. The quantity and total will be populated via the minibasketNew() function in common.js.
                    #if($minicartQuantitySelector && $minicartQuantitySelector != "" && $minicartTotalSelector && $minicartTotalSelector != "")
@@ -175,65 +151,61 @@
                     
         </li>
     </ul>
-    
+
 </div>
     
-  <div class="nav">
+<div class="nav">
     <div class="nav-wrapper">
-      <li><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId")">Home</a></li>
-      <li class="productCategories"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$!cidMenu1")">Product Categories</a>
-        <div id="DDmenu">
-           <ul class="category-items">
-                #foreach($menu1item in $Menu1DTO.items)
-                  #set($category = $pageTile.getItemObject($Menu1DTO, $menu1item, "c"))
-                  <li class="#if($velocityCount == 1) first #elseif($velocityCount == $Menu1DTO.items.size()) last #end">
-                    <a href="$seourl.encodeURL("store.html?cid=$category.categoryid&vid=$vendorSettingsDTO.vendorId")">$category.description</a>
-                  </li>
-                #end
-            </ul>
-        </div>
-      </li>
-      #if($cidCustom != "")<li><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$cidCustom")">#springMessage("navCustom")</a></li> #end
-       <li><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$!cidOrdering")">FAQs</a></li> 
-       <li><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$!cidContact")">Contact Us</a></li> 
+    <li><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId")">Home</a></li>
+    <li class="productCategories"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$!cidMenu1")">Product Categories</a>
+      <div id="DDmenu">
+    		 <ul class="category-items">
+          		#foreach($menu1item in $Menu1DTO.items)
+            		#set($category = $pageTile.getItemObject($Menu1DTO, $menu1item, "c"))
+             		<li class="#if($velocityCount == 1) first #elseif($velocityCount == $Menu1DTO.items.size()) last #end">
+             			<a href="$seourl.encodeURL("store.html?cid=$category.categoryid&vid=$vendorSettingsDTO.vendorId")">$category.description</a>
+             		</li>
+          		#end
+        	</ul>
+     	</div>
+    </li>
+     #if($cidCustom != "")<li><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$cidCustom")">#springMessage("navCustom")</a></li> #end
+      
+    <li>
+      <a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$!cidOrdering")">FAQs</a>
+    </li> 
+    <li>
+      <a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$!cidContact")">Contact Us</a>
+    </li>
     </div>
-  </div>
-
+</div>
+    
+    
 <div class="liveChat">
-    <!-- BoldChat Visitor Monitor HTML v5.00 (Website=*374 Methodist Employee,Ruleset=My Invite Ruleset,Floating Chat=My Chat Button -->
-    <script type="text/javascript">
-      window._bcvma = window._bcvma || [];
-      _bcvma.push(["setAccountID", "448279438470883650"]);
-      _bcvma.push(["setParameter", "WebsiteID", "445565840441910812"]);
-      _bcvma.push(["setParameter", "InvitationID", "445273867572763920"]);
-      _bcvma.push(["addFloat", {type: "chat", id: "445273867345707538"}]);
-      _bcvma.push(["pageViewed", document.location.href, document.referrer]);
-      var bcLoad = function(){
-        if(window.bcLoaded) return; window.bcLoaded = true;
+  <!-- BoldChat Visitor Monitor HTML v5.00 (Website=*071 Methodist,Ruleset=My Invite Ruleset,Floating Chat=My Chat Button -->
+  <script type="text/javascript">
+    window._bcvma = window._bcvma || [];
+    _bcvma.push(["setAccountID", "448279438470883650"]);
+    _bcvma.push(["setParameter", "WebsiteID", "445565836810647908"]);
+    _bcvma.push(["setParameter", "InvitationID", "445273867572763920"]);
+    _bcvma.push(["addFloat", {type: "chat", id: "445273867345707538"}]);
+    _bcvma.push(["pageViewed", document.location.href, document.referrer]);
+    var bcLoad = function(){
+      if(window.bcLoaded) return; window.bcLoaded = true;
         var vms = document.createElement("script"); vms.type = "text/javascript"; vms.async = true;
         vms.src = ('https:'==document.location.protocol?'https://':'http://') + "vmss.boldchat.com/aid/448279438470883650/bc.vms4/vms.js";
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(vms, s);
-      };
-      if(window.pageViewer && pageViewer.load) pageViewer.load();
-      else if(document.readyState=="complete") bcLoad();
-      else if(window.addEventListener) window.addEventListener('load', bcLoad, false);
-      else window.attachEvent('onload', bcLoad);
-    </script>
-    <noscript>
-    <a href="http://www.boldchat.com" title="Live Chat" target="_blank"><img alt="Live Chat" src="https://vms.boldchat.com/aid/448279438470883650/bc.vmi?&amp;wdid=445565840441910812" border="0" width="1" height="1" /></a>
-    </noscript>
-    <!-- /BoldChat Visitor Monitor HTML v5.00 -->
-</div>
-
-    <script>
-        
-        jQuery( document ).ready(function() {
-            jQuery(function() {
-                jQuery("a[href='METE/product-categories']").removeAttr("href");
-                jQuery( ".productCategories" ).css( "cursor", "default");
-            })
-        });
-        
-    </script>
+         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(vms, s);
+          };
+          if(window.pageViewer && pageViewer.load) pageViewer.load();
+          else if(document.readyState=="complete") bcLoad();
+          else if(window.addEventListener) window.addEventListener('load', bcLoad, false);
+          else window.attachEvent('onload', bcLoad);
+      </script>
+       <noscript>
+       <a href="http://www.boldchat.com" title="Live Chat" target="_blank"><img alt="Live Chat" src="https://vms.boldchat.com/aid/448279438470883650/bc.vmi?&amp;wdid=445565836810647908" border="0" width="1" height="1" /></a>
+        </noscript>
+      <!-- /BoldChat Visitor Monitor HTML v5.00 -->        
+  </div>
 
 </div> <!--//#header -->
+

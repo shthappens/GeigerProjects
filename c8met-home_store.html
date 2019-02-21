@@ -10,11 +10,12 @@
   </head>
   
   <body>
-    #if(${headerPosition} == "OUTSIDE") #displayHeader(${displayCustomHeaderContent}) #end
+    #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
     <div id="container">
-        #if(${headerPosition} == "INSIDE") #displayHeader(${displayCustomHeaderContent}) #end
+        #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
         
       <div id="content" role="main">
+      
         <div class="home-content">
       
         <div id="spotlight">
@@ -22,13 +23,13 @@
                 <img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/spot-bg.jpg">
             </div>
             <div class="spot-image" id="one">
-                <img src="store/20160805071/assets/themes/kinto_en/images/spot1-img.png">
+                <img src="store/20150318744/assets/themes/kinto_en/images/spot1-img.png">
             </div>
             <div class="spot-image" id="two">
-                <img src="store/20160805071/assets/themes/kinto_en/images/spot2-img.png">
+                <img src="store/20150318744/assets/themes/kinto_en/images/spot2-img.png">
             </div>
             <div class="spot-image" id="three">
-                <img src="store/20160805071/assets/themes/kinto_en/images/spot3-img.png">
+                <img src="store/20150318744/assets/themes/kinto_en/images/spot3-img.png">
             </div>
             <div class="spot-nav" id="one">
                 <div class="spot-on"></div>
@@ -46,20 +47,19 @@
                 <div class="spot-on"></div>
             </div>
         </div>
+        
         <div class="welcome-message">
-           <h1>Welcome to the $!{htmlSiteName}</h1>
-            <p id="payroll-message">This is a payroll deduction site and any purchases up to $100 will be deducted from your payroll.</p>
+            <h1>Welcome to the $!{htmlSiteName}</h1>
             <p>This online store allows you to order from a unique collection of merchandise chosen exclusively for $!htmlCompanyName.</p>
             <p>Simply choose a category from the menu above to begin shopping.</p>
             <p>A dedicated toll-free customer service line is available to address any of your questions. Customer Service representatives are available from 8:00 A.M. - 8:00 P.M. EST Monday through Friday at $!{htmlCSRPhone}.</p>
-        </div>
+         </div>
           
         <div class="values">
             <h3>Our Values</h3>
-            <p id="text-highlight">Service, Quality, Integrity, Teamwork, and Innovation</p>
-            <p>These core values are at the heart of everything we do, from treating patients to hiring new Associates.</p>
+            <p>Service, Quality, Integrity, Teamwork, and Innovation. These core values are at the heart of everything we do, from treating patients to hiring new Associates.</p>
         </div>
-            
+        
         <div class="contact-sales">
             <col1>
                 <p>Can't find what you are looking for?</p>
@@ -72,10 +72,19 @@
                 <p><a href="mailto:jshaw@geiger.com">jshaw@geiger.com</a></p>
             </col2>
         </div>
+        
+        <div class="employeeStore">
+            <a href="http://mlhemployeestore.com/" target="_blank" style="text-decoration: none;"> <div class="payrollLink">The Methodist Payroll Deduction site can be found by clicking here!</div></a>
+        </div>
 
-        <div class="clearBoth">&nbsp;</div>
-      </div> <!--//#content -->
+    <div class="clearBoth">&nbsp;</div>
+    
+    </div> <!--//#content -->
       
+        #if($!$footerPosition == "INSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    </div> <!--//#container -->
+    #if($!$footerPosition == "OUTSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    
     <script>
     
     $( document ).ready( function() {
@@ -99,17 +108,10 @@
             setTimeout(carousel, 6000); 
         }
     })
-        
+
     </script>
-      
-      #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end      
-      #if(${footerPosition} == "INSIDE") #displayFooter(${displayCustomFooterContent}) #end
-    </div> <!--//#container -->
-    #if(${footerPosition} == "OUTSIDE") #displayFooter(${displayCustomFooterContent}) #end
-    
     #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
     #parse("libMarkupFoot.vm")
-    
-   </body>
 
+  </body>
 </html>

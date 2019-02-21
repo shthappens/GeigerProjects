@@ -196,7 +196,7 @@ h1{
     font-weight: 400;
     font-size: 26px;
     padding: 0;
-    margin: 0px 0px 15px 0px;
+    margin: 0px 0px 5px 0px;
     line-height: 30px;
     color: #00A9E0;
 }
@@ -207,13 +207,17 @@ h1{
     font-size: 34px;
     line-height: 38px;
     text-shadow: -1px 1px 4px rgba(0, 0, 0, 0.75);
+    width: 396px;
+    margin-right: auto;
+    margin-left: auto;
 }
+
 #pageCategory h1{
     margin-top: 15px;
 }
 h2{ 
     font-size:22px;
-    color: #B1005D;
+    color: #333;
     font-weight:400;
     margin-bottom: 15px;
 }
@@ -382,9 +386,19 @@ body{
     margin-right: 25px;
 }
 
-.repInfo {
-    float: left;
-    padding-right: 15px;
+.employeeStore {
+    position: absolute;
+    height: 40px;
+    display: inline-flex;
+    margin-left: 25px;
+}
+
+
+.employeeStore a {
+    color: #b1005d;
+    font-size: 15px;
+    margin: auto;
+    text-decoration: none;
 }
 
 .sidebar {
@@ -664,7 +678,7 @@ float: left;
 padding-left: 2px;
 margin-left: -2px;
 /*height: 30px;*/
-margin-top: -4px;
+margin-top: -2px;
 }
 #searchForm input#searchBtn{
     width: 20px;
@@ -685,6 +699,13 @@ hr{
     color: #00a9e0;
     height: 25px;
     width: 25px;
+}
+
+#open-in-new {
+    color: #b1005d;
+    margin-top: auto;
+    height: 31px;
+    width: 30px;
 }
 
 #cart-icon {
@@ -711,7 +732,7 @@ table a:visited {
 }
 table a:active,
 table a:hover {
-    color: #bd5a35;
+    color: #05C2FF;
     text-decoration:underline;
 }
 table {
@@ -853,11 +874,15 @@ tfoot tr td{
 /****Home****/
 
 .welcome-message{
-    width: 430px;
-    top: 254px;
+    width: 410px;
+    top: 250px;
     position: absolute;
-    right: 86px;
+    right: 76px;
     text-align: center;
+    background-color: rgb(0,0,0,0.2);
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 12px;
 }
 
 .welcome-message p {
@@ -871,6 +896,11 @@ tfoot tr td{
 #payroll-message {
     color: #b1005d;
     font-weight: 300;
+}
+
+.desc p {
+    font-size: 13px;
+    line-height: 16px;
 }
 
 /*Featured Products Carousel*/
@@ -968,6 +998,11 @@ tfoot tr td{
     font-weight: 400;
     font-size: 18px;
 }
+
+#contact .companyInfo a {
+    font-size: 14px;
+}
+
 .contactForm {
     float: right;
     margin-left: 20px;
@@ -1222,7 +1257,8 @@ a.view-all{
 }
 
 #pageItem .price {
-    margin: 10px;
+    margin: 10px 10px 20px 10px;
+    font-size: 20px;
 }
 
 #pageItem .actions{
@@ -1770,7 +1806,7 @@ input#cvv{
 }
 
 .warningText{
-    color: #FC9801;
+    color: #b1005d;
     font-weight: 400;
 }
 .message.success{
@@ -2037,11 +2073,20 @@ div#DDmenu li.first a:hover{
     margin-top: 18px;
 }
 
-.contact-sales p, .contact-sales a {
+.contact-sales p {
     font-size: 16px;
     color: #333333;
     line-height: 9px;
     text-decoration: none;
+}
+
+.contact-sales a {
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.contact-sales a:hover{
+    text-decoration: underline;
 }
 
 #name {
@@ -2109,7 +2154,7 @@ color: #fff;
 }
 
 .loginbox {
-    float: left;
+/*    float: left;*/
 }
 
 #loginMessage {

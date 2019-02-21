@@ -1,4 +1,26 @@
 
+// Regal scripts
+//<script>
+        
+        jQuery( document ).ready(function() {
+            jQuery(function() {
+                jQuery("a[href='RB/product-categories']").removeAttr("href");
+                jQuery( ".productCategories" ).css( "cursor", "default");
+            })
+        });
+        
+    // </script>
+
+    // <script>
+        
+        jQuery( document ).ready(function() {
+            jQuery(function() {
+                jQuery("a[href='RB/product-categories/miscellaneous/regalmisctop']").attr('href','RB/regal/miscellaneous');
+            })
+        });
+        
+    // </script>
+
 //change primary button
   // <script>
     
