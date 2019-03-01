@@ -1989,7 +1989,7 @@ input#cvv{
     padding-bottom: 30px;
 }
 
-.free-shipping {
+#free-shipping {
     position: absolute;
     display: inline-flex;
     font-size: 16px;
@@ -1997,9 +1997,13 @@ input#cvv{
     margin-left: 25px;
 }
 
-.free-shipping h1 {
+#free-shipping h1 {
     font-size: 16px;
     background-color: white !important;
     color: rgba(0,86,150,0.75) !important;
     font-style: italic!important;
+    margin-top: 0;
+    padding: 0;
+    text-align: center;
+    width: auto;
 }
