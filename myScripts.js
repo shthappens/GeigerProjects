@@ -154,3 +154,10 @@
     })
         
     // </script>
+
+    //<script> 
+        // hide shipping address link
+    $( document ).ready(function() {
+        $("a[href='myaccount.html?mode=shippingaddress&vid=20171005504']").css({"display": "none"});
+    });
+    //</script>
