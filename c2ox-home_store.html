@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+#parse('libGlobalConfig.vm')
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+<html id="pageHome">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else $!{htmlSiteName} - Welcome #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+
+  </head>
+  <body>
+    #if(${headerPosition} == "OUTSIDE") #displayHeader(${displayCustomHeaderContent}) #end
+    <div id="container">
+        #if(${headerPosition} == "INSIDE") #displayHeader(${displayCustomHeaderContent}) #end
+        
+      <div id="content" role="main">
+        
+        
+        
+            <div class="home-content">
+            <div class="welcome-message">
+            
+          ##  <div id="promo-wrapper">
+          ##          <img id="promoIMG" src="store/$vendorSettingsDTO.vendorId/assets/themes/kinto_en/images/AS_EOY_Starburst.png">
+          ##  </div>
+
+                <h1>Welcome to the<br/>
+                Brand Merchandise Store</h1>
+                <p>Please select a Brand from the menu above.</p>
+                      <div id="brandMenu">
+        <ul class="brandMenuNav">
+         <li class="productCategories"><p>Or select a Quick Ship category by Brand by </p><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=731875")">clicking here.</a>
+             <div id="DDmenu">
+               <ul class="category-items">
+                     #foreach($menu4item in $Menu4DTO.items)
+                       #set($category = $pageTile.getItemObject($Menu4DTO, $menu4item, "c"))
+                       <li class="#if($velocityCount == 1) first #elseif($velocityCount == $Menu4DTO.items.size()) last #end">
+                        <a href="$seourl.encodeURL("store.html?cid=$category.categoryid&vid=$vendorSettingsDTO.vendorId")">$category.description</a>
+                       </li>
+                     #end
+                 </ul>
+             </div>
+        
+       </li>
+   </ul>
+    </div>
+              </div>
+            
+              #if($displaySalesRepInfo == "YES")
+                <div class="repInfo">
+                  #if(${htmlRepPhotoURL} != '')
+                    <img src="${htmlRepPhotoURL}" alt="$!{htmlRepName}">
+                  #end
+                  <p>
+                    Can't find what you're looking for?<br> Need a special product for your next event?<br>
+                    Contact $!{htmlRepName}, your $!{htmlSiteName} Special Order representative.
+                  </p>
+                  <p>
+                    <strong>$!{htmlRepName}</strong><br>
+                    $!{htmlRepPhone}<br>
+                    <a href="mailto:$!{htmlRepEmail}">$!{htmlRepEmail}</a>
+                  </p>
+                </div>
+              #end
+            
+            </div>
+
+        
+        <!-- ***Featured Items *** -->
+
+                <div class="featured-product-carousel">
+                  <H2>Featured Products</H2>
+                  <div class="featuredwrap">
+                  <div class="items-wrapper" id="featured_carousel_new">
+                    <div class="listing">
+                      #set($itemCounter = 0)
+                      #foreach($temp in $StoreFeaturedItemsDTO.items)
+                        #set($items = $pageTile.getItemObject($StoreFeaturedItemsDTO, $temp, "i"))
+                        <div class="item">
+                            <div class="featureditemimage">
+                                <a href="$seourl.encodeURL("storeitem.html?vid=$vendorSettingsDTO.vendorId&iid=$items.itemid")">
+                                    #if($items.thumbnail && $items.thumbnail != "")
+                                        <img src="store$items.thumbnail" alt="$items.title"/>
+                                    #else
+                                        <img src="store/$vendorSettingsDTO.vendorId/assets/items/thumbnails/noimage.jpg" alt="$items.title"/>
+                                    #end 
+                                </a>
+                            </div>
+                            <div class="featureditemtitle">
+                                <a href="$seourl.encodeURL("storeitem.html?vid=$vendorSettingsDTO.vendorId&iid=$items.itemid")">
+                                    $items.title
+                                </a>
+                            </div>
+                            <div class="featItemPrice">
+                                $number.format("$#0.00", $items.itemPrice.getPrice())
+                            </div>
+                        </div>
+                      #end
+                    </div>
+                  
+                  
+                  
+            
+            
+            </div>
+            </div>
+                </div>
+            <div class="clearBoth">&nbsp;</div>
+
+        <!-- *** END Featured Items *** -->    
+
+            
+        
+
+        <!-- ***Logo Categories *** -->
+  
+        ## <div class="logocategories">
+        ##   <ul class="catrow1">
+        ##     <li class="cat_IR"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=732018")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/IR-Logo.png" alt="Ingersoll Rand"></a></li>
+        ##     <li class="cat_trane"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=731852")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Trane-Logo.png" alt="Trane"></a></li>
+        ##     <li class="cat_clubcar"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=731687")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Club-Car-Logo.png" alt="Club Car"></a></li>
+        ##     <li class="cat_thermo"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=731730")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Thermo-King-Logo.png" alt="Thermo King"></a></li>
+        ##   </ul>
+        ##   <ul class="catrow2">
+        ##     <li class="cat_tranesup"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=731658")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Trane-Supply-Logo.png" alt="Trane Supply"></a></li>
+        ##     <li class="cat_ameristar"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=731754")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Ameristar-Logo.png" alt="Ameristar"></a></li>
+        ##     <li class="cat_nexia"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=731971")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Nexia-Logo.png" alt="Nexia"></a></li>
+        ##     <li class="cat_HP"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=731820")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Health-Progress-Logo.png" alt="Health Progress"></a></li>
+        ##   </ul>
+        ##   <ul class="catrow3">
+        ##     <li class="cat_AS"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=731815")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/American-Standard-Logo.png" alt="American Standard"></a></li>
+        ##     <li class="cat_ARO"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=731698")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/ARO-Logo.png" alt="ARO"></a></li>
+        ##     <li class="cat_zeks"><a href="$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=731692")"><img src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/Zeks-Logo.png" alt="Zeks"></a></li>
+        ##   </ul>
+        ## </div>
+
+        <!-- *** END Logo Categories *** -->
+            
+        </div> <!--//#content -->
+
+      <div id="modal-promoIMG" class="modal">
+      <div class="modal-content">
+        <img src="store/$vendorSettingsDTO.vendorId/assets/themes/kinto_en/images/American-Standard-End-of-Year-Promotion.jpg">
+      </div>
+    </div>
+    
+      #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end      
+      #if(${footerPosition} == "INSIDE") #displayFooter(${displayCustomFooterContent}) #end
+    </div> <!--//#container -->
+    #if(${footerPosition} == "OUTSIDE") #displayFooter(${displayCustomFooterContent}) #end
+    
+    <script src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/js/jquery.jcarousellite.min.js"></script>
+    <script>
+    </script>
+    
+    
+    <script>
+        jQuery(document).ready(function() {
+    
+             // modal ==========================================================
+            
+            // Get the modals
+           
+            var modalpromoIMG = document.getElementById('modal-promoIMG');
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+        
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modalpromoIMG) {
+                    modalpromoIMG.style.display = "none";
+                }
+            } 
+            
+            jQuery('#promoIMG').click(function() {
+                // When the user clicks on the button, open the modal
+                 modalpromoIMG.style.display = "block";
+            });
+
+        });
+    </script> 
+    
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+
+  </body>
+</html>
