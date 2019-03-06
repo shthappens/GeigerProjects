@@ -1024,7 +1024,7 @@ tfoot tr td{
     border: 1px solid #ececec;
     display: table-cell;
     float: left;
-    height: 248px;
+    height: 255px;
     vertical-align: middle;
     width: 200px;
 }
@@ -1065,12 +1065,12 @@ tfoot tr td{
     font-weight: bold;
     line-height: 15px;
     margin-top: 10px;
-    min-height: 33px;
+    /*min-height: 33px;*/
     text-decoration: none;
 }
 
 .featItemPrice {
-    color: #947550;
+    color: #FCB800;
     font-size: 13px;
     font-weight: bold;
     margin: 0 auto;
