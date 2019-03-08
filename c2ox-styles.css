@@ -1038,7 +1038,7 @@ tfoot tr td{
 
 .featured-product-carousel h2 {
     color: #000000;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: normal;
     margin: 20px 0;
     text-transform: uppercase;
@@ -1717,15 +1717,15 @@ float: right;
 #simplemodal-container {background-color:#FFF; border:1px solid #444; padding:12px;}
 
 #simplemodal-container a.modalCloseImg {
-	background:url("../images/x.png") no-repeat;
-	width:25px;
-	height:29px;
-	display:inline;
-	z-index:3200;
-	position:absolute;
-	top:-15px;
-	right:-18px;
-	cursor:pointer;
+    background:url("../images/x.png") no-repeat;
+    width:25px;
+    height:29px;
+    display:inline;
+    z-index:3200;
+    position:absolute;
+    top:-15px;
+    right:-18px;
+    cursor:pointer;
 }
 
 #new-address-modal {
