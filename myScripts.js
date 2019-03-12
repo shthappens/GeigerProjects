@@ -76,7 +76,7 @@
 
         #if($item.code=="BZ8325017")
                       
-            <script>
+            //<script>
                 $(document).ready(function(){
                       hideDSMessage();  
                       $( "select[name*='attribute']" ).change(function() {
@@ -160,4 +160,44 @@
     $( document ).ready(function() {
         $("a[href='myaccount.html?mode=shippingaddress&vid=20171005504']").css({"display": "none"});
     });
+
+    //42C and 42D change shipping option from USA to United States - UNABLE TO EFFECIVELY IMPLEMENT THIS UPDATE
+    //</script>
+        // myaccount.vm and billingaddress.vm
+        $( document ).ready(function() {
+            $('#country_id option[value="1"]').text('UNITED STATES');
+        });
+
+        //checkout_multibilladdress.vm
+        $('.chzn-single').click(function() {
+                $('.active-result').each(function() {
+                        if ($(this).text() == 'USA') {
+                                $(this).text('UNITED STATES')
+                        };
+                });
+        });
+
+        $('.chzn-single').click(function() {
+                $('.active-result data-option-array-index[value="226"]').text('UNITED STATES') 
+        });
+
+
+        //<script>
+            
+            $( document ).ready(function() {
+                console.log('hi');
+                $('.chzn-single chzn-default').click(function() {
+                    console.log('hi again');
+                    $('.active-result').each(function() {
+                        if ($(this).text() == 'USA') {
+                            $(this).text('UNITED STATES')
+                        };
+                    });
+                });
+            });
+            
+
+        //</script>
+
+
     //</script>
