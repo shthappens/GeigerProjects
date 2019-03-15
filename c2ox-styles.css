@@ -215,7 +215,7 @@ p .pageItem{
 }
 
 a{ 
-    color:#84010F;
+    color: #5B6770;
 }
 
 #footer{
@@ -334,7 +334,7 @@ label, .label {
     background-position:2px -48px;
     text-decoration:none;
     font-size:12px;
-    color:#00acd4;
+    /*color:#00acd4;*/
 }
 
 .facettitle.blue {
@@ -844,9 +844,9 @@ tfoot tr td{
 } 
 
 .btn-primary{
-    background-color: #005595;
-    border:1px solid #777;
-    color:#FFF;
+    background-color: #FCB600;
+    border: 1px solid #5B6770;
+    color: #5B6770;
     font-weight: bold;
     padding: 5px 10px;
     cursor: pointer;
@@ -1038,7 +1038,7 @@ tfoot tr td{
 
 .featured-product-carousel h2 {
     color: #000000;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: normal;
     margin: 20px 0;
     text-transform: uppercase;
