@@ -199,5 +199,42 @@
 
         //</script>
 
+        // form validator 159 - not deployed (needs additonal files to run properly)
+
+        $(function() {
+                $("form[id='itemForm']").validate({
+                    rules: {
+                        custom-line-0: "required"
+                    },
+                    messages: {
+                        custom-line-0: "Please enter your name and select your title."
+                    },
+                    submitHandler: function(form) {
+                        form.submit();
+                    }
+                });
+        });
+
+        // form validator adapted from item_customization.vm and applied on 159
+        function checkCustomization() {
+                                
+                var err = ""
+
+                if ( $('input[name="basketItems[0].customizationNote[0]"]').val() == "") {
+                      err += "Please enter name. "
+                }
+
+                if(     $('#custom-company').val() == "Choose a Title" ) {
+                           err += "Please select a title."
+                }
+
+                if (err == "") {
+                        //addToCartValidate();
+                        return true
+                }
+                alert(err)
+                return false;
+        }
+
 
     //</script>
