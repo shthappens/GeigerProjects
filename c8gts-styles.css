@@ -154,6 +154,7 @@ a{
     position: relative;
     background-color: #000;
     height: 75px;
+    padding-top: 6px;
 }
 
 #footer a{
@@ -190,6 +191,7 @@ h1{
 #pageHome h1{
     text-align: center;
     text-transform: uppercase;
+    margin-bottom: 12px;
 }
 
 #pageCategory h1{
@@ -350,15 +352,24 @@ body{
 
 #footer .wrapper{
     box-sizing: border-box;
-    height: 50px;
-    padding: 20px 15px;
-    margin: 0 auto;
+/*    height: 50px;
+    padding: 20px 15px;*/
+    margin: 11px auto;
     width: 1024px;
 }
 
 #footer .wrapper p{
     clear:both;
     float: left;
+    font-size: 14px;
+}
+
+#footer .wrapper a{
+    font-size: 14px;
+}
+
+#footer .wrapper a:hover {
+    color: #bf2026;
 }
 
 .repInfo {
@@ -414,13 +425,20 @@ body{
     display: block;
     float: left;
     height: 110px;
-    margin: 15px 0px 0px 20px;
+    margin: 19px 0px 0px 20px;
     padding: 10px 8px 0px 0px;
     width: 142px;
 }
 
 #header .logo span {
-    display: none;
+    color: #fefefe;
+    text-transform: uppercase;
+    font-size: 18px;
+    position: absolute;
+    margin-left: 114px;
+    margin-top: 10px;
+    margin-bottom: auto;
+    font-weight: 900;
 }
 
 #js-popup-message.popup, #deliverypopup{
@@ -459,6 +477,7 @@ body{
     width: 1024px;
     margin: 0 auto;
     display: flex;
+    text-transform: uppercase;
 }
 
 #nav-traction {
@@ -474,6 +493,10 @@ body{
     margin-left: auto;
 }
 
+.nav li a {
+    font-size: 14px;
+}
+
 .nav-left {
     width: auto;
     height: 45px;
@@ -482,18 +505,21 @@ body{
 
 .nav li{
     float:right;
+    font-weight: 500;
 }
 
 .nav-left li {
     float:left;
+    font-weight: 500;
 }
 
 .nav a, .nav-left a {
-    padding: 10px 20px;
+    padding: 10px 10px;
 }
 
-.nav li:hover, .nav-left li:hover{
-    background-color: #b12936;
+.nav li a:hover, .nav-left li a:hover{
+    /*background-color: #b12936;*/
+    color: #bf2026;
 }
 
 div#DDmenu{
@@ -535,14 +561,26 @@ div#DDmenu li a:hover{
 .utilNav {
     font-size: 12px;
     margin: auto 5px auto auto;
+    text-transform: uppercase;
 }
 
 .utilNav ul{
     float: right;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
 }
 
 .utilNav ul li a {
     color: #fff;
+}
+
+.utilNav ul li a:hover {
+    color: #c0c0c0;
+}
+
+.welcomemsg strong {
+    font-weight: 500;
 }
 
 
@@ -554,7 +592,7 @@ div#DDmenu li a:hover{
 }
 
 #footer ul{
-    width: 380px;
+    /*width: 380px;*/
     float: right;
 }
 
@@ -566,6 +604,12 @@ div#DDmenu li a:hover{
     margin-left: 19px;
     background-color: #bf2026;
     height: 35px;
+    border-radius: 20px;
+    width: 250px;
+}
+
+.mini-cart .cartbutton{
+    display: flex;
 }
 
 .mini-cart a {
@@ -578,14 +622,27 @@ div#DDmenu li a:hover{
 
 #cart-icon{
     float: left;
-    font-size: 28px;
-    margin: 5px 5px 5px 5px;
+    font-size: 22px;
+    /*margin: 5px 5px 5px 5px;*/
+    margin-left: 18px;
+    margin-top: 7px;
+    margin-right: 6px;
 }
 
 .summary{
-    float: right;
+    /*float: right;*/
     text-align: left;
-    margin-top: 8px;
+    margin-top: auto;
+}
+
+.summary strong {
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.summary span {
+    font-weight: 500;
+    font-size: 14px;
 }
 
 #cart-quantity, #cart-total{
@@ -601,13 +658,13 @@ div#DDmenu li a:hover{
 }
 
 #searchForm div{
-    border: 1px solid #aaaaaa;
+    /*border: 1px solid #aaaaaa;*/
     background-color: #fff;
-    width: 210px;
+    width: 225px;
     height: 35px;
     display: flex;
-    position: relative;   
-
+    position: relative;
+    border-radius: 20px;   
 }
 
 #searchForm input#key{
@@ -870,8 +927,17 @@ tfoot tr td{
 .spot-text-bar {
     background-color: #bf2026;
     height: 4px;
-    width: 105px;
+    width: 120px;
     margin-bottom: 36px;
+}
+
+.welcome-text-bar {
+    background-color: #bf2026;
+    height: 4px;
+    width: 95px;
+    margin-bottom: 17px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .spot-sub {
@@ -928,13 +994,13 @@ tfoot tr td{
 
 .featured-product-carousel .items-wrapper{
     float:left;
-    width:600px;
+    width:auto;
     padding-left:10px;
     height: 132px;
 }   
 
 .featured-product-carousel .prev{
-    display:block;
+    display:none;
 /*    width:23px;
     height:127px;
     float:left;*/
@@ -942,7 +1008,7 @@ tfoot tr td{
 }
 
 .featured-product-carousel .next{
-    display:block;
+    display:none;
 /*    width:23px;
     height:127px;
     float:left;*/
@@ -958,12 +1024,15 @@ tfoot tr td{
 }*/
 
 .featured-product-carousel .item{
-    width:135px;
-    height:125px;
+    width:200px;
+    height:200px;
     float:left;
     display:table-cell;
     vertical-align:middle;
-    margin-right:5px;
+    margin-right:15px;
+    margin-left: 15px;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
 }
 
 .featured-product-carousel .item img{
@@ -972,8 +1041,8 @@ tfoot tr td{
 }
 
 .featured-product-carousel .item a{
-    width:100%;
-    height:125px;
+    width:200px;
+    height:200px;
     display:table-cell;
     vertical-align:middle;
     text-align:center;
@@ -2139,12 +2208,12 @@ input#cvv{
     float: left;
     cursor: pointer;
     font-size: 30px !important;
-    color: #4F5559;
+    color: #bf2026;
     top: 4px;
     padding-left: 10px;    
 }
 
 .featuredwrap{
     display: flex;
-    justify-content: space-between;    
+    justify-content: space-around;    
 }
