@@ -1284,6 +1284,23 @@ td.ar{
     display:none;
 }
 
+#pageCategory .container, #pageSearchResults .container{
+    min-height: 275px;
+}
+
+#pageCategory .text, #pageSearchResults .text{
+    min-height: 72px;
+    line-height: 17px;
+}    
+
+#pageCategory .item {
+    padding-bottom: 30px;
+}
+
+#pageCategory .name{
+    text-align: left;
+}
+
 .sortView{
     background-color: #eaebec;
     padding: 3px 5px;
@@ -2054,6 +2071,7 @@ input#cvv{
     color: #FC9801;
     text-shadow: none;
     font-weight: bold;
+    position: relative;
 
 }
 
