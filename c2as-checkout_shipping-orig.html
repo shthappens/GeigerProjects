@@ -1,0 +1,477 @@
+c2as-checkout_shipping-orig.html
+
+
+<!DOCTYPE html>
+#parse('libGlobalConfig.vm')
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+
+#########################################################################
+
+## Identify payment gateway codes that should not authorize or charge a credit card in C8
+#set( $pgcodenocc = ["NCC","GL","PP","IB","NOCHEX","UFS","DPS","ALIGNET","PCI2NONE","PCI2CC",""] )
+
+#########################################################################
+#macro ( showPriceOnCheckout $price)
+#if($isPointStore && $isPointStore=='TRUE')
+$regExp.currencyInteger($viewStoreCurrency.locale,  $price) #if ( $price==0) Point #else Points #end
+#else
+$number.format('currency', $price, $viewStoreCurrency.locale)
+#end
+#end
+
+#macro ( showPriceOnCheckout2 $price)
+#if($isPointStore && $isPointStore=='TRUE')
+$regExp.currencyInteger($viewStoreCurrency.locale,  $price) 
+#else
+$number.format('currency', $price, $viewStoreCurrency.locale)
+#end
+#end
+
+
+<html id="pageCheckoutPayment">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else #springMessage("navPayment") - $!{htmlSiteName} #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+    #parse('libpartcheckoutpaymentcssjs.vm ')
+    #parse('libpartpresetaddresseshead.vm')
+    
+
+<script>
+
+    $( document ).ready(function() {
+        $('#698').css("display","none");
+        $("select[name^=694_0_7928]").on("change", function(e) {      
+            if (jQuery('select[name^=694_0_7928]').val().trim()=="YES")
+                $('#698').css("display","initial")
+            else
+                $('#698').css("display","none");
+        });
+    });
+
+    function validateForm() {
+
+        var forEvent = jQuery('select[name^=694_0_7928]');            // The script question input element.
+        var errortxt = '';
+
+	    if(forEvent.length > 0 && forEvent.val().trim() == 'Please') {
+	         errortxt = errortxt + 'Please let us know if these products are for an Event. \n';
+	    } else if (forEvent.val().trim() != 'NO') {
+            var eventDate = jQuery('input[name^=698_0_7975]');
+            if(eventDate.length > 0 && eventDate.val().trim() == '') {
+                errortxt += 'Please enter your Event Date. \n';
+            }	        
+            else{
+                // Does this have a response? Let's append an order header comment .
+                // This line will generate the hidden input element to add the script question response to the order header.
+                jQuery("form[name='frm']").append("<input type='hidden' name='details.orderComment' value='" + forEvent.val().trim().replace(/'/g, '\\\'') + "' />");
+                jQuery("form[name='frm']").append("<input type='hidden' name='details.orderComment' value='" + eventDate.val().trim().replace(/'/g, '\\\'') + "' />"); 
+            }            
+
+	    }
+
+        // No errors? Good to go!
+        if(errortxt == '') {
+            return true;
+        }
+        else {
+            alert(errortxt);
+            return false;
+        }
+
+    }
+</script>
+
+  </head>
+  <body>
+    #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+    <div id="container">
+        #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+        
+      <div id="content" role="main">
+      
+      <p style="font-weight:bold; text-align:center;">IF YOU WOULD LIKE TO ESTABLISH TERMS FOR INVOICING PLEASE <a href="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/files/AM_STAND_Credit_App.doc">CLICK HERE</a>.<br/> COMPLETE THE DOCUMENT AND RETURN VIA FAX TO 207.755.2182<p>
+    
+##     <div style="margin: 25px auto;width: 320px;">
+## 	<a class="btn-primary" href= "https://www.surveymonkey.com/r/ZBDLXS7" target= "_blank">Your Opinion Matters - Share It With Us!</a>
+## </div>
+     #if($!{isPointStore}== 'TRUE')
+      #parse('libpartcheckoutpaymentcontentpoints.vm')
+     
+    #else
+     ## #parse('libpartcheckoutpaymentcontent.vm')
+     
+     
+     ## BEGIN libpartcheckoutshippingcontent
+
+            <h1>#springMessage("navCustomerInfo")</h1>
+            
+                    #*================================
+                      Checkout Progress
+                    =================================*#
+                    <ul class="co-breadcrumb step1">
+                      <li class="yi active">Addresses</li>
+                      <li class="py">Payment</li>
+                      <li class="rv">Review</li>
+            <li class="ty">Order Confirmation</li>
+            
+                    </ul>
+            
+                    <div id="page-messages">
+                      <div class="errors"></div>
+                      <div class="success"></div>
+                    </div>
+            
+                    <form name="frm" action="shipping.html" method="POST">
+                      <input type="hidden" name="t">
+                      <input type="hidden" name="productidx" value="0">
+                      <input type="hidden" name="addressidx" value="0">
+                      <input type="hidden" name="shipaddressid" value="0">
+                      #if(!$currencyInUse)
+                        #foreach($cur in $storeCurrencies)
+                          #if($cur.def==1)
+                            <input type="hidden" name="c" value="$cur.id" />
+                          #end
+                        #end
+                      #else
+                        <input type="hidden" name="c" value="$currencyInUse" />
+                      #end
+                      <div class="address-title autoclear">
+                      <div class="address-options">
+                        #if($vendorSettingsDTO.radioAddress=='FALSE') 
+                          <a class="btn" href="yourinfo.html?vid=$vendorSettingsDTO.vendorId"><i class="icon-envelope"></i> #springMessage("vm.checkout_shipping.shiptosingleaddress")</a>
+                        #else
+                          <a class="btn" href="multibilltoaddr.html?vid=$vendorSettingsDTO.vendorId"><i class="icon-envelope"></i> #springMessage("vm.checkout_shipping.shiptosingleaddress")</a>
+                        #end
+            
+                        <button class="btn new-address" addr-type="2" model="0">
+                          <i class="icon-plus"></i>
+                          #springMessage("vm.checkout_shipping.newaddress")
+                        </button>
+            </div>
+                        <h2>#springMessage("vm.checkout_shipping.selectshippingaddress")</h2>
+            
+                      </div>
+            
+                      <table cellpadding="0" style="width:100%">
+                        <thead>
+                          <tr>
+                            <th class="first" scope="col">#springMessage("vm.checkout_shipping.proudct")</th>
+                            <th scope="col">#springMessage("vm.checkout_shipping.qty")</th>
+                            <th class="address last" scope="col">#springMessage("vm.checkout_shipping.address")</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                   
+                        #set($key =0)
+                        #foreach($product in $checkoutViewDTO.details.products)
+                          #set($num =0)
+                          #foreach($shipaddr in $product.shipAddress)            
+                            <tr>
+                              <td class="product first">
+                                <div class="title">$!product.title</div>
+                                <div class="attributes">
+                                   #if($product.attributesCollection)
+                                    #foreach($productAttrib in $product.attributesCollection)
+                                      #set($attype = $productAttrib.attype)
+                                      #set($attrNum  = $velocityCount - 1)
+                                      $productAttrib.dataName : $productAttrib.option.ddText <br>
+                                    #end
+                                  #end  
+                                </div>
+                              </td>
+                              <td class="quantity">
+                                $shipaddr.qty
+                                #if($shipaddr.qty!=1 && !$product.parentProduct)
+                                  <span class="splitQuantity" style="cursor:pointer" onclick="javascript:upAddress($key,$num,'split')">#springMessage("vm.checkout_shipping.split")</span>  
+                                #end
+                              </td>
+                              <td class="address last">
+                                #if($product.itemtype!=2  &&  !$product.parentProduct) 
+                                  #springBind( "checkoutViewDTO.shipTypes.currentType")
+                                  <select id="ADDRESS_${key}_${num}" name="ADDRESS_${key}_${num}" onChange="upAddress($key,$num,'add')" #if($product.itemtype==2) disabled #end>
+                                    <option value="-1" >#springMessage("vm.checkout_shipping.selectadd")</option>
+                                    #foreach($address in $customerAddressDTO )
+                                    ## added in countryID into option.  allows us to know what country address is located.     
+                                    ## added in provinceID into option.  allows us to know what state address is located. 
+                                     <option countryID="$address.Countryid" provinceID="$address.provinceid" value="$address.addressid" #if("$address.addressid"=="$shipaddr.shipaddressid") selected #end>
+                                        $address.firstname $address.lastname | $address.city | $address.address1
+                                      </option>
+                                    #end
+                                  </select>
+             
+                                  <a href="javascript:void(0);" addr-type="2" model="1" class="edit-address-link" addr-id="$shipaddr.shipaddressid">#springMessage("vm.checkout_shipping.edit")</a>
+                                #else
+                                  #springMessage("vm.checkout_shipping.seeabove")
+                                #end
+                              </td>
+                            </tr>           
+                            #set($num = $num+1)
+                            #end
+                            #set($key=$key+1)
+                          #end
+                        </tbody>
+                      </table>
+                    
+                    ## script analyzes how many split address shipping rows exist, checks each address to see if there is a non-US 
+                    ## address - if so, displays modal pop-up on international shipping
+                    <script>
+                        ## var tableRowsLength=$("tbody > tr").length;
+                    
+                        var countryID ="";
+                        var onlyUS="true";
+                        var notPRnotGuam="true";
+            
+                        ## old algorithm for searching countryIDs
+                        ## for (i = 0; i < (tableRowsLength); i++) { 
+                        ##     ## console.log(i+" this is the loop");
+                        ##     countryID = $('#ADDRESS_0_'+i).find(":selected").attr("countryid");
+                        ##     ## console.log(countryID);
+                        ##     if (countryID!=1)
+                        ##         onlyUS="false";
+                        ## }
+                        
+                        $( ".address" ).each(function( index ) {
+                            ## console.log($(this).find(":selected").attr("countryid"));
+                            ## console.log($(this).find(":selected").attr("provinceid"));
+                         
+                            if (($(this).find(":selected").attr("countryid")!=1) && ($(this).find(":selected").attr("countryid")!=undefined))
+                                onlyUS="false";
+                            if ( (($(this).find(":selected").attr("provinceid")==49) || ($(this).find(":selected").attr("provinceid")==17)) && ($(this).find(":selected").attr("provinceid")!=undefined))
+                                notPRnotGuam="false";                                
+                        });                      
+                        
+                        console.log(notPRnotGuam);
+                    
+                        if ((onlyUS=="false") || (notPRnotGuam=="false"))
+                        {
+                           $( function() {
+                                $( "#dialog-confirm" ).dialog({
+                                  closeOnEscape: false,
+                                  resizable: false,
+                                  height: "auto",
+                                  width: 400,
+                                  modal: true,
+                                  buttons: {
+                                    "I accept": function() {
+                                      $( this ).dialog("close" );
+                                    }
+                                  }
+                                });
+                            } );                                
+                        }
+                        else
+                        {
+                            $( function() {
+                                $( "#dialog-confirm2" ).dialog({
+                                  closeOnEscape: false,
+                                  resizable: false,
+                                  height: "auto",
+                                  width: 400,
+                                  modal: true,
+                                  buttons: {
+                                    "I accept": function() {
+                                      $( this ).dialog("close" );
+                                    }
+                                  }
+                                });
+                            } );                         
+                        }  
+                        
+                    </script>
+
+                      <div class="address-title">
+                        <div class="address-options hide">
+                           <button class="btn new-address" addr-type="3" model="0">
+                            <i class="icon-plus"></i>
+                              #springMessage("vm.checkout_shipping.newaddress")
+                           </button>
+                         </div>
+                        <h2>#springMessage("vm.checkout_shipping.selectbillingaddress")</h2>
+                      </div>
+                      
+                      <div class="select-single">
+                        #set($selectedaddressid = 0)
+                        #foreach($billingAdress in $billingAddressDTO) 
+                          #if($checkoutViewDTO.billingaddressid>0 && $billingAdress.addressid==$checkoutViewDTO.billingaddressid)
+                            #set($selectedaddressid = $billingAdress.addressid)
+                          #end
+                          #if($selectedaddressid==0 && ($billingAdress.def || $velocityCount==$billingAddressDTO.size()))
+                            #set($selectedaddressid = $billingAdress.addressid)
+                            #end   
+                        #end
+                        <ul>
+                        #foreach($billingAdress in $billingAddressDTO)  
+                          <li class="active">
+                          <input name="billingaddressid" id="bill-address_$billingAdress.addressid" value="$billingAdress.addressid"  #if($selectedaddressid==$billingAdress.addressid) checked="checked" #end type="radio">
+                          <label for="billaddress-$billingAdress.addressid">
+                            <div class="name">$billingAdress.firstname $billingAdress.lastname</div>
+                            #if($billingAdress.company && $billingAdress.company!='')
+                              <div class="company">$billingAdress.company</div>
+                            #end
+                              <div class="address address-one">$billingAdress.address1</div>
+                            #if($billingAdress.address2 && $billingAdress.address2!='')
+                              <div class="address address-two">$billingAdress.address2</div>
+                            #end
+                              <div class="city-state-zip">$billingAdress.city,$billingAdress.countryCode $billingAdress.postal<a href="javascript:void(0);" addr-type="3" model="1" class="edit-address-link" addr-id="$billingAdress.addressid">Edit</a></div>
+                          </label>
+                        </li>
+                        #end  
+                       </ul>
+                      </div>
+            
+                      <div class="actions clearfix">
+                        <button class="btn btn-large btn-primary right" id="checkout-continue" onClick="doContinue('frm', 't', this,'payment');" >
+                          #springMessage("vm.checkout_shipping.continue")
+                          <i class="icon-arrow-right icon-white"></i>
+                        </button>
+                      </div>
+                    </form>
+            
+                #*================================
+                      New Address Modal
+                    =================================*#
+                    <div id="new-address-modal" style="display:none;">
+                      <h1>New Address</h1>
+            <p>All fields are required unless otherwise noted. </p>
+                      <div id="haserror" class="error"></div>
+                      <form name="frm2" action="" method="POST">
+                        <input name="vendorId" id="vendorId" type="hidden" value="${vendorSettingsDTO.vendorId}">
+                        <input name="address.addressid" id="ajaxaddressid" type="hidden" value="0">
+                        <input name="address.type" id="ajaxaddresstype" type="hidden" value="2">
+                        <input name="model" id="ajaxmodel" type="hidden" value="0">
+                        <fieldset>
+                          <div class="clearfix">
+                            <div class="half">
+                              <label for="ajaxfirst-name">#springMessage("vm.checkout_address.firstname")</label>
+                              <input name="address.firstname" id="ajaxfirst-name" maxlength="28" type="text">
+                            </div>
+                            <div class="half">
+                              <label for="ajaxlast-name">#springMessage("vm.checkout_address.lastname")</label>
+                              <input name="address.lastname" id="ajaxlast-name" maxlength="28" type="text">
+                            </div>
+                          </div>
+                        ##   <div>
+                        ##     <label for="ajaxaddress1">#springMessage("vm.checkout_address.company") (Optional)</label>
+                        ##     <input name="address.company" id="ajaxcompany" maxlength="50" type="text">
+                        ##   </div>
+                          <div class="clearfix">
+                              <div class="half">
+                                <label for="ajaxnick-name">Nickname</label>
+                                <input name="address.nickname" id="ajaxnickname" maxlength="50" >     
+                              </div>
+                              <div class="half">
+                                <label for="ajaxaddress1">#springMessage("vm.checkout_address.company") (Optional)</label>
+                                <input name="address.company" id="ajaxcompany" maxlength="50" type="text">
+                              </div>                          
+                          </div>              
+                          <div class="clearfix">
+                          <div class="half">
+                            <label for="country">#springMessage("vm.checkout_address.country")</label>
+                            <select name="address.countryid" id="country" class="chzn-select" style="width:220px;" data-placeholder="Select a Country...">
+                              <option value=""></option>                                  
+                            </select>
+                          </div>
+                          <div class="half">
+                            <label for="province">#springMessage("vm.checkout_address.region")</label>
+                            <select name="address.provinceid" id="province" class="chzn-select" style="width:220px;" data-placeholder="Select a Province...">
+                              <option value=""></option>              
+                            </select>
+                            <input name="address.anotherprovince" id="ajaxprovince_another" maxlength="28" type="text" style="display:none;">
+                          </div>
+            </div>              
+            <div>
+                            <label for="ajaxaddress2">#springMessage("vm.checkout_address.adress") <div class="warningText">Please Note: We are unable to ship to a P.O. Box address</div></label>
+                            <input name="address.address1" id="ajaxaddress1" maxlength="30" type="text">
+                          </div>
+                          <div>
+                            <input name="address.address2" id="ajaxaddress2" maxlength="30" type="text">
+                          </div>
+                          <div class="clearfix">
+                            <div class="half">
+                              <label for="ajaxcity">#springMessage("vm.checkout_address.city")</label>
+                              <input name="address.city" id="ajaxcity" maxlength="28" type="text">
+                            </div>
+                                     <div class="half">
+                              <label for="ajaxzip">#springMessage("vm.checkout_address.zippostalcode")</label>
+                              <input name="address.postal" id="ajaxzip" maxlength="12" type="text">
+                            </div>       
+                            
+                          </div>
+                          <div class="clearfix">
+            
+                            <div class="half">
+                              <label for="ajaxstate">#springMessage("vm.checkout_address.email")</label>
+                              <input name="address.email" id="ajaxemail" maxlength="50" type="text">
+                            </div>
+                            <div class="half">
+                              <label for="ajaxphone">#springMessage("vm.checkout_address.phone")</label>
+                              <input name="address.phone" id="ajaxphone" maxlength="28" type="text">
+                            </div>
+                          </div>
+                        </fieldset>
+                        <div class="default">
+                          <input name="address.def" id="make-default-address" type="checkbox">
+                          <label for="make-default-address">Make this my default address</label>
+                        </div>
+                      </form>
+            
+                            <button class="btn btn-primary right" onclick="checkNickName()"><i class="icon-plus icon-white"></i> Add New Address</button>
+                            <button class="btn btn-primary right" id="address-oper" style="display:none;"><i class="icon-plus icon-white"></i> Add New Address</button>
+                            ## <button class="btn btn-primary right" id="address-oper"><i class="icon-plus icon-white"></i> Add New Address</button>
+                      </div>
+                      
+                      <script>
+                      
+                          $( document ).ready(function() {
+                                makeDate();
+                                console.log('ready')
+                          });
+                          
+                          function makeDate()
+                          {
+                              var currentdate = new Date(); 
+                              var datetime = (currentdate.getMonth()+1)  + "/"                   
+                                    + currentdate.getDate() + "/"
+                                    + currentdate.getFullYear() + " @ "  
+                                    + currentdate.getHours() + ":"  
+                                    + currentdate.getMinutes() + ":" 
+                                    + currentdate.getSeconds();                  
+                               document.getElementById("ajaxnickname").value="New Address "+datetime;    
+                          }
+                          
+                          function checkNickName()
+                          {    
+                            if (document.getElementById("ajaxnickname").value!="")
+                            {
+                                $('#address-oper').trigger('click');
+                            }
+                            else
+                            {
+                                alert("Please enter in a nickname");
+                                makeDate();
+                            }
+                          }
+                      </script>  
+                    </div>
+                    <!--//#new-address-modal-->        
+        ## END libpartcheckoutshippingcontent
+
+     
+     
+     
+    #end
+      
+      </div> <!--//#content -->
+      
+      #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end
+      #if($!$footerPosition == "INSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    </div> <!--//#container -->
+    #if($!$footerPosition == "OUTSIDE") #displayFooter($!$displayCustomFooterContent) #end
+
+    #parse("libpartcheckoutpaymentjsbottom.vm")
+    
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+  </body>
+</html>
