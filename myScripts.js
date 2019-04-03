@@ -238,3 +238,9 @@
 
 
     //</script>
+
+    //<script> to identify site
+        jQuery( document ).ready(function() {
+            console.log( "69Y" );
+        });
+    //</script>
