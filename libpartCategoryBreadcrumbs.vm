@@ -1,0 +1,38 @@
+
+#set($bcSeparator = "/") ## Breadcrumbs separator
+
+#if($useFacet)
+  #set($idx =0)
+  #foreach($clink in $categoryPathDTO) 
+    #if($idx > 1)
+      <span>$bcSeparator</span>
+    #end
+    #if ($idx==0)
+      <a href="#encodeURL($seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId"))">#springMessage("navHome")</a>
+    #elseif($idx > 1)
+      #if($velocityCount==$categoryPathDTO.size())
+          <span><strong>$clink.getName()</strong></span>
+       #else
+          <a href="#encodeURL($seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$clink.cid"))">$clink.getName()</a>
+       #end
+    #end
+    #set($idx=$idx+1)
+  #end
+#else
+  #set($bcMax = $categoryPathDTO.size())
+  #foreach($clink in $categoryPathDTO)
+    #if($velocityCount == 1)
+      <a href="#encodeURL($seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId"))">#springMessage("navHome")</a>
+    #elseif($velocityCount != $bcMax)
+       #if($velocityCount>2)
+      <span>/ </span><span>$clink.getName()</span>
+      #end
+    #else
+      <span>/ </span><em>$clink.getName()</em>
+    #end
+  #end
+#end
+
+<script language="javascript" type="text/javascript">
+var commerceshop_item_dropshipmsg = '$!commerceshop_item_dropshipmsg';
+</script>

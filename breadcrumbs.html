@@ -1,0 +1,17 @@
+
+    <div class="bCrumbs">
+        ##   #parse("libpartCategoryBreadcrumbs.vm")
+      #set($bcMax = $categoryPathDTO.size())
+        #foreach($clink in $categoryPathDTO)
+          #if($velocityCount == 1)
+            <a href="#encodeURL($seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId"))">#springMessage("navHome")</a>
+          #elseif($velocityCount != $bcMax)
+            #if($velocityCount>1)
+              <span>/ </span><a href="#encodeURL($seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$clink.cid"))">$clink.getName()</a>
+            #end
+          #else
+            <span>/ </span><a href="#encodeURL($seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId&cid=$clink.cid"))">$clink.getName()</a>
+          #end
+        #end
+
+    </div>
