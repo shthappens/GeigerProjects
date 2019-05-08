@@ -114,14 +114,14 @@ h1,h2,h3,h4,h5,h6{
 }
 
 strong{
-    font-weight: bold;
+    font-weight: 500;
 }
 
 /*********** Global - Typography: p, a, H1 H2, etc*************/
 
 body{
-    color:#000;
-    font-family: franklin-gothic-urw-comp, sans-serif;
+    color:#333;
+    font-family: aktiv-grotesk, sans-serif; 
     font-size: 14px;
     line-height: 18px;
 }
@@ -132,12 +132,12 @@ body{
 
 p{ 
     margin-bottom: 15px;
-    color: #000;
+    color: #333;
     font-weight: 300;
 }
 
 p .pageItem{
-      font-size: 14px !important;
+    font-size: 14px !important;
     line-height: 18px !important;  
 }
 
@@ -146,31 +146,25 @@ p .pageItem{
 }
 
 a{ 
-    color:#bf2026;
-    text-decoration: underline;
+    color: #0054A4;
+    text-decoration: none;
+/*    cursor: pointer;
+    pointer-events: auto;*/
 }
 
 a:hover {
-    color: #dd3538;
+    color: #0054A4;
+    text-decoration: underline;
+/*    cursor: pointer;
+    pointer-events: auto;*/
 }
 
 #footer{
     font-size: 12px;
-    background-color: #000;
-    height: 70px;
+    background-color: #061639;
+    height: 50px;
     padding-top: 6px;
     margin-top: auto;
-    /*commented out- kevin */
-    /*position: relative;*/
-    
-<<<<<<< HEAD
-/*    position: absolute;
-    bottom: 0;
-=======
-    /*position: absolute;*/
-/*    bottom: 0;
->>>>>>> 038882b0d199db85aca6e14f0cc07bde4414b183
-    width: 100%;*/
 }
 
 #footer a{
@@ -178,16 +172,16 @@ a:hover {
     text-decoration: none;
 }
 
-#footer-traction {
+/*#footer-traction {
     background: url("../images/nav-traction.png") repeat-x;
-    /*updated height to 12pc - kevin */
+    updated height to 12pc - kevin 
     height: 12px;
     width: 100%;
-}
+}*/
 
 .nav a, .nav-left a{
-    color: #ffffff;
-    font-size: 14px;
+    color: #333;
+    font-size: 16px;
     text-decoration: none;
     line-height: 45px;
 }
@@ -199,17 +193,19 @@ div#DDmenu a{
 }
 
 h1{ 
-    font-weight: 900;
+    font-weight: 500;
     font-size: 26px;
     padding: 0;
     margin: 0px 0px 8px 0px;
     line-height: 30px;
+    color: #333;
 }
 
 #pageHome h1{
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 12px;
+    font-family: aktiv-grotesk-condensed, sans-serif;
 }
 
 #pageCategory h1, #pageItem h1, 
@@ -218,20 +214,21 @@ h1{
 #pageMyAccount h1, #pageSearchResults h1, 
 #pageWishlist h1, #pageFAQ h1, #contact h1,
 #pageTerms h1:first-of-type {
-    margin-top: 15px;
-    text-transform: uppercase;
-    font-weight: 900;
-    border-top: 4px solid;
-    border-image: linear-gradient(to right, #bf2026 90px, #fff 90px) 2;
+    font-weight: bold; 
     padding-top: 24px;
     padding-bottom: 5px;
-    font-size: 30px;
+    font-size: 32px;
+    text-transform: uppercase;
+    border-bottom: 3px solid #FDB927;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-family: aktiv-grotesk-condensed, sans-serif;
 }
 
 #pageLogin h1 {
     margin-top: 15px;
     text-transform: uppercase;
-    font-weight: 900;
+    font-weight: 500;
     /*border-top: 4px solid;*/
     /*border-image: linear-gradient(to right, #bf2026 90px, #fff 90px) 2;*/
     padding-top: 24px;
@@ -243,20 +240,17 @@ h1{
     padding-top: 0;
     padding-bottom: 0;
     margin-bottom: 0;
-<<<<<<< HEAD
-    font-weight: 900;
+    font-weight: 500;
     margin-bottom: 15px;
 }
 
 #pageLogin h2:first-of-type {
     font-size: 15px;
-=======
->>>>>>> 038882b0d199db85aca6e14f0cc07bde4414b183
 }
 
 h2{ 
     font-size:22px;
-    color:#000;
+    color:#333;
     font-weight: 500;
     margin-bottom: 15px;
     text-transform: uppercase;
@@ -271,9 +265,10 @@ h6{ }
 
 .bCrumbs, .bCrumbs a{
     font-size: 14px;
-    color:#2d2d2d;
-    margin-bottom: 33px;
+    color:#333;
+    /*margin-bottom: 33px;*/
     text-decoration: none;
+    font-family: aktiv-grotesk-condensed, sans-serif;
 }
 
 .image .price-box{
@@ -286,19 +281,19 @@ h6{ }
 }
 
 .filter .title{
-    font-weight: bold; 
+    font-weight:500; 
 }
 
 #pageItem .price {
     font-size: 20px;
-    font-weight: 900;
+    font-weight: 500;
     margin: 10px;
-    color: #000;
+    color: #333;
 }
 
 #itemCodeList {
     /*font-style: italic;*/
-    font-weight: 300;
+    font-weight: 500;
 }
 
 .show-estimate-calendar img{
@@ -310,16 +305,16 @@ h6{ }
 }
 
 label, .label {
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .add-another-item label, .add-another-item .col3 span{
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
 } 
 
 .sidebar .title{
-    font-weight: 600;
+    font-weight: 500;
     font-size: 13px;
     margin-top: 10px;
     text-transform: uppercase;
@@ -336,7 +331,7 @@ label, .label {
 .subcat-title a,#recentlyViewed a {
     padding:3px 2px 3px 33px;
     display:block;
-    color:#555;
+    color:#333;
     background:url(../images/arrow-menu.png) 2px 1px no-repeat;
     text-decoration:none;
     font-size:12px
@@ -365,8 +360,6 @@ html{
 body{
     background: #FFF;
     height: 100vh;
-/*    display: flex;
-    flex-flow: column;*/
 }
 
 #container{
@@ -378,13 +371,6 @@ body{
 }
 
 
-/*commented out - kevin */
-/*#pageHome #container {
-    min-height: 443px !important;
-}*/
-
-
-
 #content{
     z-index: 1;
     clear: both;
@@ -392,20 +378,22 @@ body{
 }
 
 #header{
-    height: 80px;
+    /*height: 87px;*/
     margin: 0 auto;
-    background-color: #000;
+    background-color: #fff;
+    font-family: aktiv-grotesk-condensed, sans-serif;
 }
 
 #header-top{
-    height: 30px;
+    height: 50px;
     margin: 0 auto;
-    background-color: #2d2d2d;
+    background-color: #0054A4;
+    font-family: aktiv-grotesk-condensed, sans-serif;
 }
 
 #header-top .wrapper{
     width: 1024px;
-    height: 30px;
+    height: 50px;
     display: flex;
     margin: 0 auto;
 }
@@ -442,7 +430,8 @@ body{
 }
 
 #footer .wrapper a:hover {
-    color: #bf2026;
+    color: #fff;
+    text-decoration: underline;
 }
 
 .repInfo {
@@ -486,7 +475,7 @@ body{
     background-color: #FADCDA;
     border: 1px solid #f00;
     padding: 5px 10px;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 /*********** Global Site Components *************
@@ -494,24 +483,24 @@ body{
 * navigation, header, footer, etc */
 
 #header .logo a{
-    background: url("../images/gates-logo.png") no-repeat scroll left top transparent;
+    background: url("../images/napa-logo.png") no-repeat scroll left top transparent;
     display: block;
     float: left;
     height: 110px;
-    margin: 19px 0px 0px 10px;
+    margin: 19px 0px 0px 0px;
     padding: 10px 8px 0px 0px;
     width: 142px;
 }
 
 #header .logo span {
-    color: #fefefe;
+    color: #333;
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 20px;
     position: absolute;
-    margin-left: 114px;
-    margin-top: 10px;
+    margin-left: 160px;
+    margin-top: 20px;
     margin-bottom: auto;
-    font-weight: 900;
+    /*font-weight: 900;*/
 }
 
 #js-popup-message.popup, #deliverypopup{
@@ -540,24 +529,26 @@ body{
 
 #menu{
     z-index:100;
-    height: 65px;
-    background: #000;
+    /*height: 65px;*/
+    background: #fff;
     display: flex;
     flex-flow: row wrap;
+    border-bottom: 8px solid #FDB927;
+    font-family: aktiv-grotesk-condensed, sans-serif;
 }
 
 #menuWrapper{
     width: 1024px;
-    margin: 0 auto;
+    margin: auto;
     display: flex;
     text-transform: uppercase;
 }
 
-#nav-traction {
+/*#nav-traction {
     background: url("../images/nav-traction.png") repeat-x;
     height: 20px;
     width: 100%;
-}
+}*/
 
 .nav{
     width: auto;
@@ -569,11 +560,12 @@ body{
 
 #menulast {
     text-transform: uppercase;
+    margin-left: 35px;
 
 }
 
 .nav li a {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .nav-left {
@@ -590,15 +582,26 @@ body{
 .nav-left li {
     float:left;
     font-weight: 500;
+    margin-right: 24px;
 }
 
 .nav a, .nav-left a {
     padding: 10px 10px;
+    font-weight: 500;
+}
+
+.nav-left a:first-of-type {
+    padding: 10px 10px 10px 0;
+}
+
+.nav a:last-of-type {
+    padding: 10px 0 10px 10px;
 }
 
 .nav li a:hover, .nav-left li a:hover{
     /*background-color: #b12936;*/
-    color: #bf2026;
+    /*color: #bf2026;*/
+    text-decoration: underline;
 }
 
 div#DDmenu{
@@ -639,9 +642,49 @@ div#DDmenu li a:hover{
 
 .utilNav {
     font-size: 12px;
-    margin: 6px 0 auto auto;
+    margin: 17px 0 auto auto;
     text-transform: uppercase;
     width: 490px;
+}
+
+.utilNav-left {
+    background-color: #000;
+    width: 300px;
+    display: inline-flex;
+    text-transform: uppercase;
+}
+
+.utilNav-left a {
+    display: inline-flex;
+    color: #fff;
+    text-decoration: none;
+}
+
+.utilNav-left p {
+    color: #fff;
+    font-size: 12px;
+    margin: auto 10px auto auto;
+    text-align: right;
+    line-height: 13px;
+    width: 90px;
+    font-family: aktiv-grotesk-condensed, sans-serif;
+}
+
+/*.utilNav-left p:last-of-type {
+    font-size: 11px;
+    font-weight: bold;
+    margin: auto 20px auto auto;
+}*/
+
+.utilNav-left i {
+    color: #fff;
+    margin: auto 0 auto 9px;
+    font-size: 30px;
+}
+
+.utilNav-left img {
+    height: 34px;
+    margin: auto;
 }
 
 .utilNav ul{
@@ -657,7 +700,17 @@ div#DDmenu li a:hover{
 }
 
 .utilNav ul li a:hover {
-    color: #c0c0c0;
+    text-decoration: underline;
+}
+
+.utilNav-left p:last-of-type {
+    font-size: 11px;
+    font-weight: bold;
+    font-family: FranklinGothic URW, sans-serif;
+}
+
+.utilNav-left:hover {
+    background-color: #262626;
 }
 
 .welcomemsg strong {
@@ -680,13 +733,17 @@ div#DDmenu li a:hover{
 /****Mini Cart****/
 
 .cart {
-    margin-top: auto;
+    margin-top: 40px;
     margin-bottom: auto;
     margin-left: 19px;
-    background-color: #bf2026;
+    background-color: #F2F2F2;
+    border: 1px solid #E6E6E6;
     height: 35px;
-    border-radius: 20px;
     width: 250px;
+}
+
+.cart:hover {
+    background-color: #E6E6E6;
 }
 
 .mini-cart .cartbutton{
@@ -694,7 +751,11 @@ div#DDmenu li a:hover{
 }
 
 .mini-cart a {
-    color: #fff;
+    color: #0054A4;
+}
+
+.mini-cart a:hover {
+    text-decoration: none;
 }
 
 .cartbutton{
@@ -737,19 +798,18 @@ div#DDmenu li a:hover{
 /**** search ****/
 
 .search {
-    margin-top: 33px; /*IE positioning fix*/
+    margin-top: 40px; /*IE positioning fix*/
     /*margin-bottom: auto;*/
     margin-left: auto;
 }
 
 #searchForm div{
-    /*border: 1px solid #aaaaaa;*/
+    border: 1px solid #E6E6E6;    
     background-color: #fff;
     width: 225px;
     height: 35px;
     display: flex;
     position: relative;
-    border-radius: 20px;   
 }
 
 #searchForm input#key{
@@ -757,7 +817,7 @@ div#DDmenu li a:hover{
     width: 148px;
     float: left;
     padding-left: 2px;
-   /*padding-top: 5px;*/
+    color: #333;
 }
 
 #searchForm input#searchBtn{
@@ -779,13 +839,13 @@ hr{
 Feel free to change as needed*/
 
 table a:link {
-    font-weight: bold;
+    font-weight: 500;
     text-decoration:none;
 }
 
 table a:visited {
     color: #999999;
-    font-weight:bold;
+    font-weight:500;
     text-decoration:none;
 }
 
@@ -796,8 +856,8 @@ table a:hover {
 }
 
 table {
-    font-family: franklin-gothic-urw-comp, sans-serif;
-    color:#666;
+    font-family: aktiv-grotesk, sans-serif; 
+    color:#333;
     font-size:12px;
     text-shadow: 1px 1px 0px #fff;
     background:#eaebec;
@@ -903,64 +963,58 @@ tfoot tr td{
 }
 
 .btn {
-    background-color: #c0c0c0;
-    color:#FFF;
+    color: #0054A4;
     font-weight: 500;
     cursor: pointer;
-    -moz-border-radius:20px;
-    -webkit-border-radius:20px;
-    border-radius:20px;
-    /*min-width: 176px;*/
     text-align: center;
-    padding: 11px 35px 11px 35px;
+    padding: 11px 13px 11px 13px;
     text-transform: uppercase;
     text-decoration: none;
-    border: none;
+    border: 1px solid #E6E6E6;  
+    background-color: #FFFFFF;
 }
 
 .btn:hover{
-    background-color: #808080;
-    color:#FFF;
+    color: #0054A4;
     font-weight: 500;
     cursor: pointer;
-    -moz-border-radius:20px;
-    -webkit-border-radius:20px;
-    border-radius:20px;
-    /*min-width: 176px;*/
     text-align: center;
-    padding: 11px 35px 11px 35px;
+    padding: 11px 13px 11px 13px;
     text-transform: uppercase;
-    border: none;
+    text-decoration: none;
+    border: 1px solid #E6E6E6;  
+    background-color: #E6E6E6;
 } 
 
 .btn-primary{
-    background-color: #bf2026;
-    color:#FFF;
+    color: #0054A4;
+    background-color: #FDBE38;
     font-weight: 500;
     cursor: pointer;
     -moz-border-radius:20px;
-    -webkit-border-radius:20px;
-    border-radius:20px;
-    /*min-width: 150px;*/
+    /*-webkit-border-radius:20px;*/
+    /*border-radius:20px;*/
+    /*min-width: 176px;*/
     text-align: center;
-    padding: 11px 35px 11px 35px;
+    padding: 11px 15px 11px 15px;
     text-transform: uppercase;
     text-decoration: none;
     border: none;
 }
 
 .btn-primary:hover{
-    background-color: #dd353b;
-    color:#FFF;
+    color: #0054A4;
+    background-color: #FDCE68;
     font-weight: 500;
     cursor: pointer;
     -moz-border-radius:20px;
-    -webkit-border-radius:20px;
-    border-radius:20px;
-   /* min-width: 150px;*/
+    /*-webkit-border-radius:20px;*/
+    /*border-radius:20px;*/
+    /*min-width: 176px;*/
     text-align: center;
-    padding: 11px 35px 11px 35px;
+    padding: 11px 15px 11px 15px;
     text-transform: uppercase;
+    text-decoration: none;
     border: none;
 }
 
@@ -979,7 +1033,7 @@ tfoot tr td{
 /****Home****/
 
 .home-content{
-    padding-top: 175px;
+    padding-top: 137px;
 }
 
 #pageHome #content {
@@ -988,14 +1042,15 @@ tfoot tr td{
 
 #pageHome h2 {
     font-size: 24px;
+    text-transform: capitalize;
 }
 
 .welcome-message{
-    color: #000;
+    color: #333;
 }
 
 .welcome-message p {
-    color: #000;
+    color: #333;
     text-align: center!important;
     height: auto;
     width: 825px;
@@ -1017,13 +1072,16 @@ tfoot tr td{
 .spotlight-background {
     background: url("../images/spot-img.jpg");
     background-size: cover;
-    height: 500px;
+    height: 600px;
     width: auto;
 }
 
 .spotlight  h1 {
     text-transform: uppercase;
-    font-size: 60px;
+    font-size: 85px;
+    line-height: 90px;
+    font-weight: 500;
+}
 }
 
 .spotlight p {
@@ -1034,10 +1092,11 @@ tfoot tr td{
 .spotlight h1, .spotlight p {
     color: #fff;
     text-align: left !important;
+    text-decoration: underline solid #FDB927;
 }
 
 .spot-text {
-    margin: -343px auto auto 0px;
+    margin: -445px auto auto 0px;
 }
 
 .spot-text-bar {
@@ -1095,15 +1154,15 @@ tfoot tr td{
     background-color: #f8f8f8;
     text-align: center;
     height: 304px;
-    margin-bottom: 78px;
-    margin-top: 95px;
+/*    margin-bottom: 78px;
+    margin-top: 95px;*/
 }
 
 .featured-product-carousel .title{
     margin: 0 0 0.35em 0;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 18px;
-    color: #000;
+    color: #333;
     height: 23px;
     padding-bottom: 2px;
     padding-left:10px;
@@ -1182,13 +1241,13 @@ tfoot tr td{
     border-radius: 3px 3px 3px 3px;
     box-shadow: 0 1px 2px #D1D1D1;
     color: #666666;
-    font-family: franklin-gothic-urw-comp, sans-serif;
+    font-family: aktiv-grotesk, sans-serif; 
     font-size: 12px;
     margin: 0px;
     padding: 15px;
     text-shadow: 1px 1px 0 #FFFFFF;
     width: 660px;
-    font-weight: 900;
+    font-weight: 500;
 }
 
 #pageFAQ h2:hover{
@@ -1216,7 +1275,7 @@ tfoot tr td{
     border-radius: 3px 3px 3px 3px;
     box-shadow: 0 1px 2px #D1D1D1;
     color: #666666;
-    font-family: franklin-gothic-urw-comp, sans-serif;
+    font-family: aktiv-grotesk, sans-serif; 
     font-size: 12px;
     margin: 20px 0 20px 0;
     padding: 15px;
@@ -1227,7 +1286,7 @@ tfoot tr td{
 /****Login****/
 
 .login form{
-    font-family: franklin-gothic-urw-comp, sans-serif;
+    font-family: aktiv-grotesk, sans-serif; 
     color:#666;
     font-size:12px;
     text-shadow: 1px 1px 0px #fff;
@@ -1261,7 +1320,7 @@ a.forgotPassword{
 /****Register****/
 
 #registration form#registerForm{
-    font-family:franklin-gothic-urw-comp, sans-serif;
+    font-family: aktiv-grotesk, sans-serif; 
     color:#666;
     font-size:12px;
     text-shadow: 1px 1px 0px #fff;
@@ -1304,7 +1363,7 @@ a.forgotPassword{
 }
 
 #pageMyAccount form.myAccountForm{
-    font-family:franklin-gothic-urw-comp, sans-serif;
+    font-family: aktiv-grotesk, sans-serif; 
     color:#666;
     font-size:12px;
     text-shadow: 1px 1px 0px #fff;
@@ -1430,7 +1489,7 @@ td.ar{
 
 .image .price-box{
     position: absolute;
-    background: #444;
+    background: #333;
     right: 0;
     bottom: 5px;
     padding: 5px 6px;
@@ -1452,13 +1511,13 @@ td.ar{
 .sortControl {
     float: right;
     margin-left: 15px;
-    color: #000;
+    color: #333;
     font-weight: 500;
     font-size: 13px;
 }
 
 #sortby {
-    color: #000;
+    color: #333;
     font-size: 13px;
     font-weight: 300;
 }
@@ -1466,7 +1525,7 @@ td.ar{
 .pagination-new li{
     float: left;
     margin-right: 10px;
-    margin-top: 3px;
+    /*margin-top: 3px;*/
 }
 
 .pagination-new ul{
@@ -1521,7 +1580,7 @@ a.view-all{
 }
 
 .estimate-calendar a {
-    text-decoration: underline;
+    /*text-decoration: underline;*/
     font-weight: 300;
 }
 
@@ -1569,7 +1628,7 @@ input.qty-input{
 }
 
 .ui-tabs-panel{
-    font-family:franklin-gothic-urw-comp, sans-serif;
+    font-family: aktiv-grotesk, sans-serif; 
     color:#666;
     font-size:12px;
     background:#eaebec;
@@ -1671,7 +1730,7 @@ ul.radios-list li label{
 }
 
 .co-breadcrumb li.active{
-    font-weight: bold;
+    font-weight: 500;
     color:#666;
 }
 
@@ -1703,11 +1762,11 @@ ul.radios-list li label{
 }
 
 .co-breadcrumb li strong{
-  color: #000;
+  color: #333;
 }
 
 .co-breadcrumb li a{
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .co-breadcrumb li.re {
@@ -1799,7 +1858,7 @@ float: right;
 .select-single label:hover {
     background-color:#F5F5F5;
 }
-.select-single .name, .select-single .company {font-weight:bold;}
+.select-single .name, .select-single .company {font-weight:500;}
 
 .select-single .active label, .select-single .active label:hover {background:#FFF;}
     
@@ -1839,7 +1898,7 @@ float: right;
     overflow:auto;  /* safe scroll for all browsers */
     overflow-x:hidden;  /* browser-supported hiding of horizontal scroll */
 }
-    #new-address-modal label {display:block;margin-top:10px; font-weight:bold;}
+    #new-address-modal label {display:block;margin-top:10px; font-weight:500;}
     #new-address-modal label span {font-weight:normal; color:#999; padding:0 4px; font-size:11px}
     #new-address-modal .half {float:left;margin-right:20px}
     #new-address-modal input {display:block; margin:2px 0; width:220px}
@@ -1856,7 +1915,7 @@ float: right;
 
 .splitQuantity:hover {
     border: 1px solid #000;
-    color: #000;
+    color: #333;
 }
 
 /****Checkout ????????? Payment****/
@@ -1870,7 +1929,7 @@ float: right;
 }
 
     .shipping-methods-section address span{
-        font-weight:bold;
+        font-weight:500;
     }
 
     .shipping-methods-section{
@@ -1923,7 +1982,7 @@ float: right;
 }
 
 .tabs .tab {
-    font-family:franklin-gothic-urw-comp, sans-serif;
+    font-family: aktiv-grotesk, sans-serif; 
     color:#666;
     font-size:12px;
     background:#FFFFFF;
@@ -2018,7 +2077,7 @@ float: right;
     .tabs .half{float:left;width:49%;}
     .tabs .section {line-height:2em;}
     .tabs .section label {line-height:1em;padding:0 0 1px;margin:12px 0 0;}
-    .tabs .section h4 {font-weight:bold;font-size:14px;border-bottom:1px solid #ADADAD;padding-bottom:1px;line-height:1.3em;margin:10px 0 6px}
+    .tabs .section h4 {font-weight:500;font-size:14px;border-bottom:1px solid #ADADAD;padding-bottom:1px;line-height:1.3em;margin:10px 0 6px}
     .tabs .chzn-container {margin-top:4px;}
     .tabs .chzn-select {width:405px;}
 
@@ -2063,7 +2122,7 @@ input#cvv{
     text-align: center;
     font-size: 19px;
     line-height: 20px;
-    font-family: franklin-gothic-urw-comp, sans-serif;
+    font-family: aktiv-grotesk, sans-serif; 
     color: #FFF;
     text-shadow: 0px 0px 2px #000;
     box-shadow: 0px 1px 1px 0px #aaa;
@@ -2095,7 +2154,7 @@ input#cvv{
 /****Checkout ????????? Review****/
 
 .location{
-        font-family:franklin-gothic-urw-comp, sans-serif;
+        font-family: aktiv-grotesk, sans-serif; 
         color:#666;
         font-size:12px;
         text-shadow: 1px 1px 0px #fff;
@@ -2155,7 +2214,7 @@ input#cvv{
     margin: 0px 0px 10px 0px;
     color: #f00;
     text-shadow: none;
-    font-weight: bold;
+    font-weight: 500;
 }
 .warning{
     border: 1px solid #FC9801;
@@ -2164,13 +2223,13 @@ input#cvv{
     margin: 0px 0px 10px 0px;
     color: #FC9801;
     text-shadow: none;
-    font-weight: bold;
+    font-weight: 500;
 
 }
 
 .warningText{
     color: red;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 13px;
     text-align: center;
     margin-bottom: 20px;
@@ -2360,7 +2419,7 @@ input#cvv{
     float: left;
     cursor: pointer;
     font-size: 30px !important;
-    color: #bf2026;
+    color: #0054A4;
     top: 4px;
     padding-left: 10px;    
 }
