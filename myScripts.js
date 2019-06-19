@@ -1,4 +1,19 @@
 
+//32K Factset - show script question based on prior question answer
+
+//<script>
+        
+    $( document ).ready(function() {
+        $('#830').css("display","none");
+        $("select[name^=829_0_8626]").on("change", function(e) {      
+            if (jQuery('select[name^=829_0_8626]').val().trim()=="Yes")
+                $('#830').css("display","initial")
+            else
+                $('#830').css("display","none");
+        });
+    });
+//</script>
+
 // Regal scripts
 //<script>
         
@@ -39,6 +54,27 @@
         });
       
   // </script>
+
+      // ## Script to redirect flyout menu to pop-up store. *231 Schaeffler
+    // <script>
+    
+        jQuery( document ).ready(function() {
+            jQuery(function() {
+                jQuery("a[href='SCHF/product-categories/apparel/polos-with-custom-sleeve']").attr('href','https://schaefflerpolos.brandingbygeiger.com/').attr('target', '_blank');
+            })
+        });
+        
+    // </script>
+
+  //<script for 35P and 35Y to create view only site by removing button to access checkout.>
+
+        #if ($request.session.getAttribute("SessionCustomerDTO_${vendorSettingsDTO.vendorId}").getCustomerProperty('ViewSite') == "ViewOnly")
+            $(document).ready(function(){
+                $(".btn-primary").css("display", "none");
+            });
+        #end
+
+  //</script>
 
   // Remove '( )' at the end of brand name in facets (Hobart)
 
