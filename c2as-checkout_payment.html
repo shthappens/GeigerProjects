@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 #parse('libGlobalConfig.vm')
 #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
@@ -33,36 +34,81 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
     #parse('libpartcheckoutpaymentcssjs.vm ')
     #parse('libpartpresetaddresseshead.vm')
     
-  </head>
-  <body>
-  
-    
-    <script src="store/$vendorSettingsDTO.vendorId/assets/jquery.simplemodal.1.4.4.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function(){
-            jQuery('#addfreight-modal').modal();
+
+<script>
+
+    $( document ).ready(function() {
+        $('#698').css("display","none");
+        $("select[name^=694_0_7928]").on("change", function(e) {      
+            if (jQuery('select[name^=694_0_7928]').val().trim()=="YES")
+                $('#698').css("display","initial")
+            else
+                $('#698').css("display","none");
         });
-    </script>
-    
-<div id="addfreight-modal" class="simplemodal-data" style="display:none;padding:20px;width:400px;">
-    <h1>Warning:</h1>
-  <p>Additional International freight charges, duties & taxes will be billed separately.</p>
-</div>
+    });
 
+    function validateForm() {
 
+        var forEvent = jQuery('select[name^=694_0_7928]');            // The script question input element.
+        
+        var errortxt= "";
+                // if 3PB field is not filled out, warn
+            if($('#thirdptyft input')) {
+                if ( $('#thirdptyft input').val() == '') {
+                    errortxt = 'Please enter 3rd Party Freight Account. \n';
+                }
+                    
+            }
 
+	    if(forEvent.length > 0 && forEvent.val().trim() == 'Please') {
+	         errortxt = errortxt + 'Please let us know if these products are for an Event. \n';
+	    } else if (forEvent.val().trim() != 'NO') {
+            var eventDate = jQuery('input[name^=698_0_7975]');
+            if(eventDate.length > 0 && eventDate.val().trim() == '') {
+                errortxt += 'Please enter your Event Date. \n';
+            }	        
+            else{
+                // Does this have a response? Let's append an order header comment .
+                // This line will generate the hidden input element to add the script question response to the order header.
+                jQuery("form[name='frm']").append("<input type='hidden' name='details.orderComment' value='" + forEvent.val().trim().replace(/'/g, '\\\'') + "' />");
+                jQuery("form[name='frm']").append("<input type='hidden' name='details.orderComment' value='" + eventDate.val().trim().replace(/'/g, '\\\'') + "' />"); 
+            }            
+
+	    }
+
+        // No errors? Good to go!
+        if(errortxt == '') {
+            return true;
+        }
+        else {
+            alert(errortxt);
+
+    }
+</script>
+
+  </head>
+ <body>
     #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
     <div id="container">
         #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
         
       <div id="content" role="main">
+      
+      <p style="font-weight:bold; text-align:center;">IF YOU WOULD LIKE TO ESTABLISH TERMS FOR INVOICING PLEASE <a href="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/files/AM_STAND_Credit_App.doc">CLICK HERE</a>.<br/> COMPLETE THE DOCUMENT AND RETURN VIA FAX TO 207.755.2182<p>
     
+##     <div style="margin: 25px auto;width: 320px;">
+## 	<a class="btn-primary" href= "https://www.surveymonkey.com/r/ZBDLXS7" target= "_blank">Your Opinion Matters - Share It With Us!</a>
+## </div>
      #if($!{isPointStore}== 'TRUE')
       #parse('libpartcheckoutpaymentcontentpoints.vm')
      
     #else
-        ## #parse('libpartcheckoutpaymentcontent.vm')
-        ##  BEGIN libpartcheckoutpaymentcontent
+    
+    
+     ## #parse('libpartcheckoutpaymentcontent.vm')
+     
+     ## BEGIN==
+     
 #set($vm = $versions.put("libPartCheckoutPaymentContent", [1, 0, 1]))
 
 ## Main Checkout Payment Content
@@ -74,170 +120,523 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
 ##  - Versioning now stored in $versions map.
 
 ## Settings:
-## hidePaymentScriptQuestionsBottomSection      Hides the standard script questions section at the bottom.
+## hidePaymentScriptQuestionsBottomSection			Hides the standard script questions section at the bottom.
 
 <h1>#springMessage("navPayment")</h1>
-        #*================================
-          Checkout Progress
-        =================================*#
-        <ul class="co-breadcrumb step2">
-          <li class="yi"><a href="multibilltoaddr.html?vid=$vendorSettingsDTO.vendorId">Addresses</a></li>
-          <li class="py active">Payment</li>
-          <li class="rv">Review</li>
-<li class="ty">Order Confirmation</li>
-        </ul>
 
+#*================================
+  Checkout Progress
+=================================*#
+<ul class="co-breadcrumb step2">
+    <li class="yi"><a href="multibilltoaddr.html?vid=$vendorSettingsDTO.vendorId">Addresses</a></li>
+    <li class="py active">Payment</li>
+    <li class="rv">Review</li>
+    <li class="ty">Order Confirmation</li>
+</ul>
 
-        <form name="frm" action="payment.html" method="POST">
-          #springBind( "checkoutViewDTO.*" )         
-          #if($status.errors.errorCount > 0)
-            <div class="warning">
-              <p>#springMessage("vm.checkout_payment.warn"):</p>
-              #if($status.errorMessages)
+<form name="frm" action="payment.html" method="POST">
+    #springBind( "checkoutViewDTO.*" )         
+    
+    #if($status.errors.errorCount > 0)
+        <div class="warning">
+            <p>#springMessage("vm.checkout_payment.warn"):</p>
+            
+            #if($status.errorMessages)
                 <ul>
-                  #foreach($error in $status.errorMessages)
-                    <li>$error</li>
-                  #end 
+                    #foreach($error in $status.errorMessages)
+                        <li>$error</li>
+                    #end 
                 </ul>
-              #end
-            </div>
-          #end
-          <input type="hidden" name="t">
-          <input type="hidden" name="productidx" value="0">
-          <input type="hidden" name="addressidx" value="0">
-          <input type="hidden" name="shipaddressid" value="0">
-          <input type="hidden" name="mid" id="mid" value="demo">
+            #end
+        </div>
+    #end
+    
+    <input type="hidden" name="t">
+    <input type="hidden" name="productidx" value="0">
+    <input type="hidden" name="addressidx" value="0">
+    <input type="hidden" name="shipaddressid" value="0">
+    <input type="hidden" name="mid" id="mid" value="demo">
 
-## SHIPPING OPTIONS SECTION #####################################################
-          <h2>#springMessage("vm.checkout_payment.title2")</h2>
-          #set($groupidx = 0)
-          <div class="shipping-methods-section">
-            #foreach($productgroup in $checkoutViewDTO.details.shippinggroup)
-              #set($shippingAdress = $productgroup.address.address)
-              <div class="location clearfix">
-                <div class="location-items">
-                  #if($productgroup.address.addressid && $productgroup.address.addressid>0)
-                    <address>
-                     <span>$shippingAdress.firstname $shippingAdress.lastname </span><br/> 
-                     #if($shippingAdress.company && $shippingAdress.company!='')$shippingAdress.company <br/>#end  
-                     $shippingAdress.address1 <br/>
-                     #if($shippingAdress.address2 && $shippingAdress.address2!='')$shippingAdress.address2 <br/>#end  
-                     $!shippingAdress.city $!productgroup.address.province.a3, $!productgroup.address.country.a3  $!shippingAdress.postal 
-                   </address>
-                  #end
-                  <div class="js-click" onclick="show($groupidx);">#springMessage("vm.checkout_payment.veiwItem")</div>
-                  <div id="$groupidx" class="items" style="display: none;">
-                    <ul>
-                      #foreach($productitem in $productgroup.shipItems)
-                        #set($product =$productitem.product)
-                        <li>
-                          ($productitem.shipaddr.qty)
-                          <b>$product.title</b>
-                          #foreach($attribute in $product.attribute)
-                            | <em>attribute</em>  
-                          #end                 
-                        </li>
-                      #end
-                    </ul>
-                  </div>
-                </div>
-                <div class="options">
-                  #if($productgroup.shipmethods.size()>0)
-                    <select name="SHIPTYP_${groupidx}" id="SHIPTYP_${groupidx}"  onchange="document.frm.submit()">
-                      #foreach($shipmethod in ${productgroup.shipmethods}) 
-                        #if( ${productgroup.shipmethod.shippingmethod.id} == ${shipmethod.shippingmethod.id})
-                          <option value="${shipmethod.shippingmethod.id}" selected>
-                            ${shipmethod.shippingmethod.description} 
-                            ## Check if option is 'actual' (S&H or 3PB)
-                            #if(${shipmethod.shippingRateDTO.totalcharges} == 0 && $displayCustomActualShippingText == "YES")
-                                #set($CustomShippingText = 1) ## Only show the custom text if it is relevant for the selected option.
-                                $actualShippingDropdownText
-                            #else
-                                - $number.format('currency',$checkoutViewDTO.formatter.currency(${shipmethod.shippingRateDTO.totalcharges}),$viewStoreCurrency.locale)
-                            #end
-                          </option>
-                        #else
-                          <option value="${shipmethod.shippingmethod.id}">
-                            ${shipmethod.shippingmethod.description}
-                            ## Check if option is 'actual' (S&H or 3PB)
-                            #if(${shipmethod.shippingRateDTO.totalcharges} == 0 && $displayCustomActualShippingText == "YES")
-                                $actualShippingDropdownText
-                            #else
-                                - $number.format('currency',$checkoutViewDTO.formatter.currency(${shipmethod.shippingRateDTO.totalcharges}),$viewStoreCurrency.locale)
-                            #end
-                          </option>
-                        #end 
-                      #end
-                    </select>
-                                        
-                    <!-- Third Party Freight Account -->
-#if($productgroup.shipmethod.shippinggroup.couriercode == "3PF")
-<div id="thirdptyft">
-  #if($productgroup.shipmethod.shippinggroup.option1 =="YES")  ##need input
-    #springBind("checkoutViewDTO.freightAccountNumberMap[${checkoutViewDTO.keyPrefix}${groupidx}]")
-    $productgroup.shipmethod.shippinggroup.option2:<input type="text" name="$status.expression" value="$!status.value">
-  #else
-   #springBind("checkoutViewDTO.freightAccountNumberMap[${checkoutViewDTO.keyPrefix}${groupidx}]")
-    <input type="hidden" name="$status.expression" value="$productgroup.shipmethod.shippinggroup.option3">
-  #end
-  </div>
+    ## SHIPPING OPTIONS SECTION #####################################################
 
-#end
+<h2>#springMessage("vm.checkout_payment.title2")</h2>
 
+#set($groupidx = 0)
+#set($itemCount = 0)
+#set($ccounter = 0)
+#set($match = 'false')
 
-<!-- End 3PF Account -->
+<div class="shipping-methods-section col s12 m10 offset-m1">
+
+            ##   #set($itemCount = $checkoutViewDTO.details.shippinggroup.size())
+          
+        #foreach($productgroup in $checkoutViewDTO.details.shippinggroup) 
+            
+           
+            
+            #set($shippingAdress = $productgroup.address.address)
+            <div class="location clearfix">
+                 <div class="location-items col s6 m7">
+                    #if($productgroup.address.addressid && $productgroup.address.addressid>0)
+                        <address>
+                            <span>$shippingAdress.firstname $shippingAdress.lastname </span><br/>
+                            #if($shippingAdress.company && $shippingAdress.company!='')$shippingAdress.company <br/>#end  
+                            $shippingAdress.address1 <br/>
+                            #if($shippingAdress.address2 && $shippingAdress.address2!='')$shippingAdress.address2 <br/>#end  
+                            $!shippingAdress.city $!productgroup.address.province.a3, $!productgroup.address.country.a3  $!shippingAdress.postal
+                        </address>
+                    #end
+                    <div class="js-click" onclick="show($groupidx);">#springMessage("vm.checkout_payment.veiwItem")</div>
+                   
+                    <div id="$groupidx" class="items" style="display: none;">
+                        <ul>
                     
-                  #end
-                </div>
-                #if($CustomShippingText == 1)
-                    <div id="sh-shipping-info">
-                            #if($actualShippingInfoText)
-                                $actualShippingInfoText
-                                ## script reads the values of the shipping option drop down. 
-                                ## if there is a numerical value in the drop down indicating it is a PPD purchase, 
-                                ## it will hide the 'actual shipping' message that is shown for 3PB or Drop Ship items.
-                                
-                                <script>
-                                    ## appends numeric value of groupidx to shipInfotxt to help target he correct shipInfotxt 
-                                    document.getElementById("shipInfotxt").id="shipInfotxt_${groupidx}";
-                                    
-                                    ## optionValue used to read the value of the drop down for shipping options. 
-                                    var optionValue=$('#SHIPTYP_${groupidx} option:selected').text().trim();
-                                    
-                                    ## checks to see if there is a numerical value in the shipping option selected   
-                                    if ( /\d/.test(optionValue)==true)
-                                    {
-                                        $("#shipInfotxt_${groupidx}").hide();
-                                    }
-                                    ## add styling needed - not all sites have CSS coded as needed
-                                    else
-                                    {
-                                         $("#shipInfotxt_${groupidx}").css("float","right");
-                                         $("#shipInfotxt_${groupidx}").css("width","540px");
-                                         $("#shipInfotxt_${groupidx}").css("padding","15px 15px 1px");
-                                         $("#shipInfotxt_${groupidx}").css("margin","5px 0 0 0");
-                                         $("#shipInfotxt_${groupidx}").css("background-color","#DDDDDD");
-                                    }
-                                </script>    
+                            #foreach($productitem in $productgroup.shipItems)
+                                #set($product =$productitem.product)
+                                <li>
+                                    ($productitem.shipaddr.qty)
+                                    <b>$product.title</b>
+                                    #foreach($attribute in $product.attribute)
+                                        | <em>attribute</em>  
+                                    #end                
+                                </li>
+                                    <script>
+                                        console.log('ship item!')
+                                    </script>
+                                #set($itemCount = $math.add($itemCount, 1))
+                            
                             #end
-                    </div>
-                #else
-                    ## checks to see if there is a Custom Currency Symbol being used, if so, replaces $ with 
-                    #if($customCurrencySymbol)
-                        <script>
-                            var replaceCurrency="$!customCurrencySymbol";
-                            $('select option:contains("$")').each(function(){
-                              var $this = $(this);
-                              $this.text($this.text().replace("$",replaceCurrency));    
-                            });                       
-                        </script>
+                        </ul>
+                    </div><!--/.items -->
+                </div><!--/.location-items-->
+               
+                ## RESTRICT_SHIPPING
+                ## Versrion 1.0.5
+                ##
+                ## Restricts shipping based on an item property
+                ##
+                ## Version 1.0.5 fixed functionality to work with split shipping, changed the location of
+                ##    the restricted shipping message, and added in functionality that removes the option
+                ##    select and continue button when no shipping options on a single item are available.
+                ## Version 1.0.4 fixed and issue where if a shipping method was restricted on one item across
+                ##    all providers and the same method was restricted one an item for only one provider, all
+                ##    shipping methods for all providers would parse in the message for the item with only one
+                ##    provider/method restriction.
+                ## Version 1.0.3 adds the ability to string together more than one method on a provider.
+                ##    EX: 1-UPS-DOMESTIC > RP > OP
+                ## Version 1.0.2 adds an addiontal message about removing item with restrictions from the cart
+                ##    if another item is present in the order.
+                ## Version 1.0.1 adds the ability to hide the restricted shipping message and allows for a
+                ##    custom restricted shipping message
+                ##
+                ## Expected value of RESTRICTED_SHIPPING: PROVIDER > METHOD | PROVIDER > METHOD > METHOD | METHOD
+                ## e.g. "1-UPS-PPD > BP | RP"
+                ##      The above would block the BP method for the 1-UPS-PPD provider, while the other
+                ##      would block the RP method on all providers.
+                ##
+                ##
+                ## Expected value RESTRICT_SHIPPING_HIDE_MESSAGE : true
+                ##      The above will hide the default message for a restricted shipping method on an item
+                ##
+                ##
+                ## Expecteed value of RESTRICT_SHIPPING_CUSTOM_MESSAGE: "Custom Message Here"
+                ## e. g. "This is a custom message that will be displayed for the restricted shipping message.
+                ##      The above will replace the default system message with a message of choice on a per
+                ##      item basis.
+               
+               
+                ## Structure:
+                ## {
+                ##     "productTitle": ["restrictedMethod", "restrictedMethod", ...],
+                ##     ...
+                ## }
+                #set($productsWithRestrictions = {})
+           
+                ## Structure:
+                ## {
+                ##     "methodCode": ["methodDescription", "methodDescription", ...],
+                ##     ...
+                ## }
+                #set($shippingNames = {})
+               
+                ## Structure:
+                ## {
+                ##     "productTitle": ["customMessage", "customMessage", ...],
+                ##     ...
+                ## }
+                #set($customMessages = {})
+               
+                #set($restrictedShippingMethods = [])
+                #set($hideRestirctMessage = [])
+               
+                #foreach($productitem in $productgroup.shipItems)
+                    #set($product = $productitem.product)
+                   
+                    #foreach($property in $product.properties)
+                        #set($propertyName = $property.getPropName())
+                        #set($productKey = "$product.title")
+                        #set($propertyValue = $property.getPropValue())
+                       
+                        #if($propertyName == "RESTRICT_SHIPPING")
+                            #set($methods = $propertyValue.split("[|]"))
+                   
+                            ## If the product isn't currently in the  $productsWithRestrictions hashmap, add it.
+                            #if($productsWithRestrictions.containsKey($productKey) == false)
+                                #set($temp = $productsWithRestrictions.put($productKey, []))
+                            #end
+                           
+                            #foreach($method in $methods)
+                                #set($providerCode = $method.split("[>]"))
+                               
+                                ## Restricted method, no matter the provider
+                                #if($providerCode.size() == 1)
+                                    #set($restrictedMethod = $providerCode.get(0).trim().toLowerCase())
+                                   
+                                    ## Set and add to $productsWithRestrictions hashmap
+                                    #set($productsRestrictedList = $productsWithRestrictions.get($productKey))
+                                     
+                                           ## added-----------
+                                        #if (!$productsRestrictedList.contains($restrictedMethod))
+                                            #set($hash = $productsRestrictedList.add($restrictedMethod))
+                                            ## Set and add to $restrictedShippingMethods list
+                                            #set($list = $restrictedShippingMethods.add($restrictedMethod))
+                                        #end
+                                        ## // added--------
+
+                                #end
+                                
+                                
+                               
+                                ## Restricted method/s with a specific provider
+                                #if($providerCode.size() > 1)
+                                   
+                                    #set($restrictedProvider = $providerCode.get(0).trim().toLowerCase())
+                                   
+                                    #foreach($entry in $providerCode.subList(1, $providerCode.size()))
+                                        #set($restrictedMethod = $entry.trim().toLowerCase())
+                                        #set($restrictedProviderMethod = "$restrictedProvider | $restrictedMethod")
+                                       
+                                        ## Set and add to $productsWithRestrictions hashmap
+                                        #set($productsRestrictedList = $productsWithRestrictions.get($productKey))
+                                        
+                                    
+                                        
+                                        #if (!$productsRestrictedList.contains($restrictedProviderMethod))
+                                            #set($hash = $productsRestrictedList.add($restrictedProviderMethod))
+                                           
+                                            ## Set and add to $restrictedShippingMethods list
+                                            #set($list = $restrictedShippingMethods.add($restrictedProviderMethod))
+                                        #end
+                                    #end
+                                #end
+                                 
+                            #end
+                        
+                        #end
+                        
+                       
+                      
+                       
+                        #if($propertyName == "RESTRICT_SHIPPING_HIDE_MESSAGE")
+                            #if($hideRestirctMessage.contains($productKey) == false)
+                                #set($hide = $hideRestirctMessage.add($productKey))
+                            #end
+                        #end
+           
+                        #if($propertyName == "RESTRICT_SHIPPING_CUSTOM_MESSAGE")
+                            #if($customMessages.containsKey($productKey) == false)
+                                #set($custom = $customMessages.put($productKey, []))
+                                #set($customMessagesList = $customMessages.get($productKey))
+                                #set($hash = $customMessagesList.add($propertyValue))
+                            #end
+                        #end
                     #end
                 #end
-              </div> <!--//.location -->
-              #set($groupidx = $groupidx+1)
+
+                <div class="options col s6 m5">
+                
+                <p id="selectShip">Please select your UPS or FEDEX<br />shipping option from the drop down list. <i class="material-icons">arrow_right_alt</i></p>
+                
+                    #if($productgroup.shipmethods.size()>0)
+                        <select name="SHIPTYP_${groupidx}" id="SHIPTYP_${groupidx}"  onchange="document.frm.submit()">
+                            #foreach($shipmethod in ${productgroup.shipmethods})
+                                #set($shippingMethodName = ${shipmethod.shippingmethod.getMethodname().trim().toLowerCase()})
+                                #set($shippingProviderCode = ${shipmethod.getShippinggroup().getCode().trim().toLowerCase()})
+                                #set($shippingDescription = ${shipmethod.shippingmethod.description})
+                                #set($shippingProviderMethod = "$shippingProviderCode | $shippingMethodName")
+                               
+                               
+                                ## Compare current shipping provider/method against list of restricted shipping
+                                #set($inMethodList = $restrictedShippingMethods.contains($shippingMethodName))
+                                #set($inProviderlist = $restrictedShippingMethods.contains($shippingProviderMethod) || $inMethodList)
+                               
+                                ## If current method is restricted add the shipping description to the $shippingNames hashmap
+                                #if($inMethodList)
+                                    #if($shippingNames.containsKey($shippingMethodName) == false)
+                                        #set($temp = $shippingNames.put($shippingMethodName, []))
+                                    #end
+                                                       
+                                    #set($shipDescription = $shippingNames.get($shippingMethodName))
+                                    #set($temp = $shipDescription.add($shippingDescription))
+                                #end
+                                               
+                                #if($inProviderlist)
+                                    #if($shippingNames.containsKey($shippingProviderMethod) == false)
+                                        #set($temp = $shippingNames.put($shippingProviderMethod, []))
+                                    #end
+                                   
+                                    #set($shipDescription = $shippingNames.get($shippingProviderMethod))
+                                    #set($temp = $shipDescription.add($shippingDescription))
+                                #end
+                                               
+                                ## If current method is not restricted, parse the shipping option as normal
+                                #if(!$inProviderlist)
+                           
+                                  
+                                    #if( ${productgroup.shipmethod.shippingmethod.id} == ${shipmethod.shippingmethod.id})
+                                      
+                                     
+                                        
+                                        #set($match = 'true')
+                                     
+                                        <option value="${shipmethod.shippingmethod.id}" selected>
+                                            ${shipmethod.shippingmethod.description}
+                                            ## Check if option is 'actual' (S&H or 3PB)
+                                            #if(${shipmethod.shippingRateDTO.totalcharges} == 0 && $displayCustomActualShippingText == "YES")
+                                                #set($CustomShippingText = 1) ## Only show the custom text if it is relevant for the selected option.
+                                                $actualShippingDropdownText
+                                            #else
+                                                ## sitewide variable for pricing on/off
+                                                #if(($priceOnOff && $priceOnOff == 1) || (!$priceOnOff))
+                                                    - $number.format('currency',$checkoutViewDTO.formatter.currency(${shipmethod.shippingRateDTO.totalcharges}),$viewStoreCurrency.locale)
+                                                #end
+                                            #end
+                                        </option>
+                                    #else
+                                       
+                                            <option value="${shipmethod.shippingmethod.id}">
+                                      
+                                            ${shipmethod.shippingmethod.description}
+                                            ## Check if option is 'actual' (S&H or 3PB)
+                                            #if(${shipmethod.shippingRateDTO.totalcharges} == 0 && $displayCustomActualShippingText == "YES")
+                                                $actualShippingDropdownText
+                                            #else
+                                                ## sitewide variable for pricing on/off
+                                                #if(($priceOnOff && $priceOnOff == 1) || (!$priceOnOff))
+                                                    - $number.format('currency',$checkoutViewDTO.formatter.currency(${shipmethod.shippingRateDTO.totalcharges}),$viewStoreCurrency.locale)
+                                                #end
+                                            #end
+                                        </option>
+                                    #end
+                                     
+                                #end
+                              
+                               ## not in providerlist BUT id of current shipping matches list item id...add new option to dropdown
+                                   
+                                #if( ${productgroup.shipmethod.shippingmethod.id} == ${shipmethod.shippingmethod.id} && $match != 'true')
+                                  
+                                        
+                                    <option value="select" selected>
+                                        Please select shipping method
+                                    </option>
+                                            
+                                #end
+                                
+                            #end
+                        </select>
+                                       
+                        <!-- Third Party Freight Account -->
+                        <script>
+                         /*   console.log('$productgroup.shipmethod.shippinggroup.couriercode')
+                            code = jQuery('#SHIPTYP_0 :selected').text().indexOf('Enter Your Shipping');
+                            console.log('code: ' + code); */
+                        </script>
+                        #if($productgroup.shipmethod.shippinggroup.couriercode == "3PF" )
+                            <div id="thirdptyft">
+                                #if($productgroup.shipmethod.shippinggroup.option1 == "YES")  ##need input
+                                    #springBind("checkoutViewDTO.freightAccountNumberMap[${checkoutViewDTO.keyPrefix}${groupidx}]")
+                                    $productgroup.shipmethod.shippinggroup.option2:<input type="text" name="$status.expression" value="$!status.value">
+                                #else
+                                    #springBind("checkoutViewDTO.freightAccountNumberMap[${checkoutViewDTO.keyPrefix}${groupidx}]")
+                                    <input type="hidden" name="$status.expression" value="$productgroup.shipmethod.shippinggroup.option3">
+                                #end
+                            </div><!-- End 3PF Account -->
+                        #end
+                    #end
+                </div><!--options -->
+           
+           
+            #if($CustomShippingText == 1)
+                <div id="sh-shipping-info" class="col s12 m6">
+                    #if($actualShippingInfoText)
+                        $actualShippingInfoText
+                        ## script reads the values of the shipping option drop down.
+                        ## if there is a numerical value in the drop down indicating it is a PPD purchase,
+                        ## it will hide the 'actual shipping' message that is shown for 3PB or Drop Ship items.
+                           
+                        <script>
+                            ## appends numeric value of groupidx to shipInfotxt to help target he correct shipInfotxt
+                            document.getElementById("shipInfotxt").id="shipInfotxt_${groupidx}";
+                               
+                            ## optionValue used to read the value of the drop down for shipping options.
+                            var optionValue=$('#SHIPTYP_${groupidx} option:selected').text().trim();
+                               
+                            ## checks to see if there is a numerical value in the shipping option selected   
+                            if ( /\d/.test(optionValue)==true){
+                                $("#shipInfotxt_${groupidx}").hide();
+                            }
+                           
+                            ## add styling needed - not all sites have CSS coded as needed
+                            else{
+                                $("#shipInfotxt_${groupidx}").css("float","right");
+                                $("#shipInfotxt_${groupidx}").css("padding","15px 15px 1px");
+                                $("#shipInfotxt_${groupidx}").css("margin","5px 0 0 0");
+                                $("#shipInfotxt_${groupidx}").css("background-color","#DDDDDD");
+                            }
+                        </script>    
+                    #end
+                </div>
+            #else
+                ## checks to see if there is a Custom Currency Symbol being used, if so, replaces $ with
+                #if($customCurrencySymbol)
+                    <script>
+                        var replaceCurrency="$!customCurrencySymbol";
+                        $('select option:contains("$")').each(function(){
+                            var $this = $(this);
+                            $this.text($this.text().replace("$",replaceCurrency));    
+                        });                      
+                    </script>
+                #end
             #end
-          </div><!--//.shipping-methods-section-->
-## END SHIPPING OPTIONS SECTION ####################################################
+           
+            </div> <!--//.location .clearfix-->
+               
+            ## Restricted Shipping Messages
+                   
+            ## Uses the $productsWithRestrictions and $shippingNames hasmaps to pull in shipping descriptions for the associated restricted item
+            ## If the $productsWithRestrictions hashmap contains restricted shipping values, create the message center
+               
+            #if($productsWithRestrictions.size() > 0 && $shippingNames.size() > 0)
+                <div class="restrictedShippingMessages location clearfix" id="restrictedShippingMessages">
+                      ##     <script>
+                      ##                    console.log("products with restrictions:  $productsWithRestrictions")
+                      ##        </script>
+                    ## Loop through the $productsWithRestrictions hashmap, pulling out each item and restricted method.
+                    
+                        <p>We're sorry, the following items cannot be shipped using the methods listed:</p>
+                        <ul id="content-$restricteditemEntry.key" class="ship-method-list">
+                        
+                    #foreach($restricteditemEntry in $productsWithRestrictions.entrySet())
+                        
+                      
+                                ## uil, uis, bp, ...
+                        ## If the item does not contain the RESTRICT_SHIPPING_HIDE_MESSAGE, parse the message
+                        #if(!$hideRestirctMessage.contains($restricteditemEntry.key))
+                                       
+                            ## If the item has the RESTRICT_SHIPPING_CUSTOM_MESSAGE property, parse the custom message
+                            #if($customMessages.containsKey($restricteditemEntry.key))
+                                #foreach($customMessage in $customMessages.entrySet())
+                                    #foreach($message in $customMessage.value)
+                                
+                                        <p>$message</p>
+                                    #end
+                                #end
+                                       
+                                ## Parse the default message
+                            #else
+                                <script>
+                                    console.log("$restricteditemEntry.key")
+                                </script>
+                                <p><b>"$restricteditemEntry.key"</strong></b></p>
+                                #foreach($restrictedShipMethod in $restricteditemEntry.value)
+                                
+                                    ## uil, uis, bp, ...
+                                    #if($shippingNames.containsKey($restrictedShipMethod))
+                                                   
+                                        #set($names = $shippingNames.get($restrictedShipMethod))
+                                        
+                                        
+                                    ##    #if($velocityCount == 1)
+                                    ##        <p>We're sorry, the item <strong>"$restricteditemEntry.key"</strong> cannot be shipped using the following methods:</p>
+                                    ##        <ul id="content-$restricteditemEntry.key" class="ship-method-list">
+                                    ##    #end
+                                        
+                                        #foreach($name in $names)
+                                            <li> - $name</li>
+                                        #end
+                                        
+                                        #set($ccounter = $ccounter + 1)
+                                        
+                                        <script>
+                                            console.log("count: $ccounter")
+                                        </script>           
+                                  ##     #if($velocityCount == $restricteditemEntry.value.size())
+                                        #if($ccounter > $restricteditemEntry.value.size())
+                                            
+                                            </ul>
+                                        #end
+                                                   
+                                        </br>
+                                    #end
+                                #end
+                            #end     
+                        #end
+                    #end
+                    <script>
+                        console.log('itemCount: $itemCount')
+                    </script>              
+                    #if($itemCount > 1)
+                        <p class="restricted-sub-message">There #if($itemCount > 2) are items #else is another item #end in your cart that may be able to ship to one of the restricted shipping methods. You'll need to split your order up to ship with these methods.</p>
+                    #end
+                </div> <!--// #restrictedShippingMessages -->
+            #end
+               
+            #set($groupidx = $groupidx+1)
+        #end
+    </div><!--//.shipping-methods-section-->
+    
+    <script>
+        jQuery(document).ready(function(){
+            setMsg = false;
+            console.log('dropdown length: ' + $("select[name='SHIPTYP_0'] option").length);
+            // console.log('dropdown val: ' + $("select[name='SHIPTYP_0']").val().indexOf('select') == 0);
+          
+          
+          if ( $("select[name='SHIPTYP_0']").length == 1 && $("select[name='SHIPTYP_0'] option").val().indexOf('select') == 0 ) {
+                // jQuery('select[name^=SHIPTYP]').css("display", "none");
+                    jQuery('#checkout-continue').css("display", "none");
+                    //jQuery('.restricted-sub-message').css("display", "none");
+                   // jQuery('#thirdptyft').css("display", "none");
+                    if (!setMsg) {
+                        jQuery('.shipping-methods-section').before('<p style="color:red;"><strong>Due to restrictions on shipping we are unable to send your items to the listed shipping address. Please either select a different item or shipping address. For additional help please contact customer service at $htmlCSRPhone.</strong></p>')
+                        setMsg = true;
+                    }
+          
+          }
+          
+         
+          
+          /*  $("select[name='SHIPTYP']").each(function(i, obj) {
+               
+                console.log('value of dropdown: ' + $('"select[name='SHIPTYP']"'this'').val(0));
+                if(this.length == 0){
+                    jQuery('select[name^=SHIPTYP]').css("display", "none");
+                    jQuery('#checkout-continue').css("display", "none");
+                    //jQuery('.restricted-sub-message').css("display", "none");
+                    jQuery('#thirdptyft').css("display", "none");
+                    if (!setMsg) {
+                        jQuery('.shipping-methods-section').before('<p style="color:red;"><strong>Due to restrictions on shipping we are unable to send your items to the listed shipping address. Please either select a different item or shipping address. For additional help please contact customer service at $htmlCSRPhone.</strong></p>')
+                        setMsg = true;
+                    }
+                    
+                }
+            }); */
+        });
+    </script>
+
+    
+    
+    ## END SHIPPING OPTIONS SECTION ####################################################
 
           <h2>#springMessage("vm.checkout_payment.title1")</h2>
 
@@ -267,21 +666,21 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
                 #else
 
                   #foreach($paymentgateway in ${checkoutViewDTO.ccPreferencesDTO.paymentgateways}) 
-                      #if($paymentgateway.code == 'PLP')
-                          #set($PLPGatewayActive = true)
-                      <li  #if($velocityCount == 1) class="active" #end style="float:left" id="payment-list-tab-$!paymentgateway.code" >
-                        <a href="javascript:void(0)" onclick="showtab2('PLP','$paymentgateway.paymentgatewayid','radio_$velocityCount','input_$velocityCount');">#springMessage("vm.checkout_payment.budgetTab")</a>
-                      </li>
-                      <script>
-                        jQuery(document).ready(function() {
-                showtab2('PLP','$paymentgateway.paymentgatewayid','radio_$velocityCount','input_$velocityCount');
-                        });
-                      </script>
-                  #end
-                #end
+                  	  #if($paymentgateway.code == 'PLP')
+                  	      #set($PLPGatewayActive = true)
+		                  <li  #if($velocityCount == 1) class="active" #end style="float:left" id="payment-list-tab-$!paymentgateway.code" >
+		                    <a href="javascript:void(0)" onclick="showtab2('PLP','$paymentgateway.paymentgatewayid','radio_$velocityCount','input_$velocityCount');">#springMessage("vm.checkout_payment.budgetTab")</a>
+		                  </li>
+		                  <script>
+		                  	jQuery(document).ready(function() {
+								showtab2('PLP','$paymentgateway.paymentgatewayid','radio_$velocityCount','input_$velocityCount');
+		                  	});
+		                  </script>
+		              #end
+	              #end
 
-                ## If the PLP Payment Gateway isn't active, render the Budget tab the old way.
-                #if(!$PLPGatewayActive)
+	              ## If the PLP Payment Gateway isn't active, render the Budget tab the old way.
+	              #if(!$PLPGatewayActive)
                     <li class="active" style="float:left">
                       <a href="#tabl1" onclick="showtab(1);">#springMessage("vm.checkout_payment.budgetTab")</a>
                     </li> 
@@ -500,11 +899,11 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
                   #if($paymentgateway.code =='STPP')
                     <div class="columnOne">
                       <div class="cc-note-about-pci">
-                  <div>Upon placing your order, you will be asked for your credit card through our secure trading gateway.</div>
+                	<div>Upon placing your order, you will be asked for your credit card through our secure trading gateway.</div>
                       </div><!--//.cc-note-about-pci-->
                       
                       #if($giftCertGateways.contains("STPP"))
-                  #parse("libgiftcertificate.vm")
+                	#parse("libgiftcertificate.vm")
                       #end
                     </div><!--//.column-->
                   #end 
@@ -627,30 +1026,31 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
                         
                         #if($showScriptQuestionsColumnOne)
                             #set($hasQuestion = 'false')
-                              #foreach($popage in $checkOutQuestionDTO.productOptionPageDTOs)
-                                #foreach($question in $popage.questions)
-                                #if($question.code !='purchaseOrder')
-                                  #set($hasQuestion = 'true')
-                                #end
-                              #end 
-                            #end
-                          
-                          #if ( $hasQuestion == 'true')
-                              <h4>Order Questions</h4>
-                            <div class="f-field">
-                              <input type="hidden" name="mode" value="answerQuestion"/>
-                                #foreach($popage in $checkOutQuestionDTO.productOptionPageDTOs)
-                                  #foreach($question in $popage.questions)
-                                    #if($question.code !='purchaseOrder')
-                                      <div class="question">
-                                          #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/$question.template")
-                                      </div>
-                                    #end
-                                  #end 
-                                #end
-                            </div>
-                          #end
+                        	    #foreach($popage in $checkOutQuestionDTO.productOptionPageDTOs)
+                        		    #foreach($question in $popage.questions)
+                        				#if($question.code !='purchaseOrder')
+                        					#set($hasQuestion = 'true')
+                        				#end
+                        			#end 
+                        		#end
+                        	
+                        	#if ( $hasQuestion == 'true')
+                        	    <h4>Order Questions</h4>
+                        		<div class="f-field">
+                        			<input type="hidden" name="mode" value="answerQuestion"/>
+                        				#foreach($popage in $checkOutQuestionDTO.productOptionPageDTOs)
+                        					#foreach($question in $popage.questions)
+                        						#if($question.code !='purchaseOrder')
+                        							<div class="question">
+                        							    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/$question.template")
+                        							</div>
+                        						#end
+                        					#end 
+                        				#end
+                        		</div>
+                        	#end
                         #end
+                        
                       </div> 
                        #if($giftCertGateways.contains("INV"))
                             #parse("libgiftcertificate.vm")
@@ -733,9 +1133,11 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
                           </div>
                         </div>
                       </div>
-                    </div> ## Marked out extra </div>
+                        <p style="margin-top: 10px;">If the information above is wrong, please adjust your billing address <a href="myaccount.html?mode=billingaddress&vid=$vendorSettingsDTO.vendorId"><b>HERE</b></a></p>
+                    </div>
                   #end  ## END INVOICE
-        </div>  <!-- end of payment gateway tab -->
+                
+				</div>  <!-- end of payment gateway tab -->
                 #end ## END PAYMENT GATEWAYS
 
               #else ## // $checkoutViewDTO.details.noAllowanceRecord
@@ -1131,6 +1533,7 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
           #*================================
             SUBTOTALS
           =================================*#
+        ## sitewide variable for pricing on/off
           #if(($priceOnOff && $priceOnOff == 1) || (!$priceOnOff))
               <div class="cart-subtotals">
                 <div class="subtotal-line clearfix">
@@ -1139,7 +1542,8 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
                   ## code block updated 01.25.18 for customCurrencySymbol - kevin  
                   ## <span class="value">$number.format('currency', $checkoutViewDTO.details.total, $viewStoreCurrency.locale)</span>
                   #if($customCurrencySymbol)
-                      <span class="value">$customCurrencySymbol $number.format("#0.00", $checkoutViewDTO.details.total)</span>
+                    ##   <span class="value">$customCurrencySymbol $number.format("#0.00", $checkoutViewDTO.details.total)</span>
+                    <span class="value">$customCurrencySymbol $number.format('#,##0.00', $checkoutViewDTO.details.total)</span>
                   #else   
                       <span class="value">$number.format('currency', $checkoutViewDTO.details.total, $viewStoreCurrency.locale)</span>
                   #end                    
@@ -1161,7 +1565,8 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
                   ## code block updated 01.25.18 for customCurrencySymbol - kevin 
                   ##   <span class="value">$number.format('currency',$checkoutViewDTO.details.shipTotal,$viewStoreCurrency.getLocale())</span>
                   #if($customCurrencySymbol)
-                     <span class="value">$customCurrencySymbol $number.format("#0.00", $checkoutViewDTO.details.shipTotal)</span>
+                    ##  <span class="value">$customCurrencySymbol $number.format("#0.00", $checkoutViewDTO.details.shipTotal)</span>
+                    <span class="value">$customCurrencySymbol $number.format('#,##0.00', $checkoutViewDTO.details.shipTotal)</span>
                   #else   
                      <span class="value">$number.format('currency',$checkoutViewDTO.details.shipTotal,$viewStoreCurrency.getLocale())</span>
                   #end                   
@@ -1181,7 +1586,8 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
                   ## code block updated 01.25.18 for customCurrencySymbol - kevin
                   ##   <span class="value">$number.format('currency', $checkoutViewDTO.details.taxTotal, $viewStoreCurrency.locale)</span>
                   #if($customCurrencySymbol)
-                      <span class="value">$customCurrencySymbol $number.format("#0.00", $checkoutViewDTO.details.taxTotal)</span>
+                    ##   <span class="value">$customCurrencySymbol $number.format("#0.00", $checkoutViewDTO.details.taxTotal)</span>
+                    <span class="value">$customCurrencySymbol $number.format('#,##0.00', $checkoutViewDTO.details.taxTotal)</span>
                   #else   
                     <span class="value">$number.format('currency', $checkoutViewDTO.details.taxTotal, $viewStoreCurrency.locale)</span>
                   #end                    
@@ -1195,7 +1601,8 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
                     ## code block updated 01.25.18 for customCurrencySymbol - kevin
                     ## <span class="value">$number.format('currency', $checkoutViewDTO.giftCertificate.totalAvailable, $viewStoreCurrency.locale)</span>
                     #if($customCurrencySymbol)
-                        <span class="value">$customCurrencySymbol $number.format('#0.00', $checkoutViewDTO.giftCertificate.totalAvailable, $viewStoreCurrency.locale)</span>
+                        ## <span class="value">$customCurrencySymbol $number.format('#0.00', $checkoutViewDTO.giftCertificate.totalAvailable, $viewStoreCurrency.locale)</span>
+                        <span class="value">$customCurrencySymbol $number.format('#,##0.00', $checkoutViewDTO.giftCertificate.totalAvailable, $viewStoreCurrency.locale)</span>
                     #else   
                         <span class="value">$number.format('currency', $checkoutViewDTO.giftCertificate.totalAvailable, $viewStoreCurrency.locale)</span>
                     #end                    
@@ -1223,7 +1630,8 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
                       ## code block updated 01.25.18 for customCurrencySymbol - kevin
                       ##   $number.format('currency',$total, $viewStoreCurrency.locale)
                       #if($customCurrencySymbol)
-                          <span class="value">$customCurrencySymbol $number.format("#0.00", $total)</span>
+                        ##   <span class="value">$customCurrencySymbol $number.format("#0.00", $total)</span>
+                        <span class="value">$customCurrencySymbol $number.format('#,##0.00', $total)</span>
                       #else   
                         $number.format('currency',$total, $viewStoreCurrency.locale)
                       #end                       
@@ -1248,24 +1656,22 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
         #end 
       #end
       #if ( $hasQuestion == 'true')
-        <div id="scriptQuestions">
         <h2>Order Questions</h2>
-            <div class="location clearfix checkoutQuestions">
-                <input type="hidden" name="mode" value="answerQuestion"/>
-              #foreach($popage in $checkOutQuestionDTO.productOptionPageDTOs)
-                  #foreach($question in $popage.questions)
-                      #if($question.code !='purchaseOrder')
-                          <div class="question" id="$!question.code">
-                              #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/$question.template")
-                          </div>
-                      #end
-                  #end 
-               #end
-               <input id="otherInput" value="">
-            </div>
+        <div class="location clearfix checkoutQuestions">
+          <input type="hidden" name="mode" value="answerQuestion"/>
+          #foreach($popage in $checkOutQuestionDTO.productOptionPageDTOs)
+            #foreach($question in $popage.questions)
+              #if($question.code !='purchaseOrder')
+                <div class="question" id="$!question.code">
+                  #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/$question.template")
+                </div>
+              #end
+            #end 
+          #end
         </div>
       #end
       #end
+
 
           #*================================
             ACTION BUTTONS
@@ -1274,496 +1680,12 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
             #parse('libPartPaymentButton.vm')
           </div>
 
-        </form>        
-        ##  END libpartcheckoutpaymentcontent
-        
-        ## checks to see if the user has the marketingUser propery.  if so, hides the clientUser script question and calls validaiton just the the marketing question.
-        ## if the user does not have the marketingUser, hides the marketingUser script question.
-        #if($request.session.getAttribute("SessionCustomerDTO_${vendorSettingsDTO.vendorId}").getCustomerProperty('marketingUser') == 'true')
-
-
-            <script>
-                jQuery(document).ready(function() {
-                jQuery("#691").hide();
-                jQuery("#725").hide();
-                jQuery("#830").hide();    
-
-                jQuery( "#725" ).insertAfter( $( "#724" ) );
-            });
-                /* Form Submit Validation - ES */
-                function validateForm() {
-                
-                    var marketingCode = jQuery("select[name='690_0_7915']");
-                    var marketingCodeText = jQuery("select[name='690_0_7915'] option:selected").text();
-                    
-                    var otherPurposeCode = jQuery("select[name='724_0_8029']");
-                    var otherPurposeText = jQuery("select[name='724_0_8029'] option:selected").text();  
-
-                    var otherPurposeInput = jQuery('input[name^=725_0_8033]');
-
-                    var costCenterCode = jQuery("select[name='768_0_8558']");
-                    var costCenterText = jQuery("select[name='768_0_8558'] option:selected").text();                       
-
-                    var deliveryDateCode = jQuery("select[name='829_0_8626']");
-                    var deliveryDateText = jQuery("select[name='829_0_8626'] option:selected").text();                    
-                    
-                    var actualDate = jQuery('input[name^=830_0_8627]');                                            
-                
-                    
-                    var errortxt= "";
-                
-                    // if(marketingCode.val().trim() =='NA' && marketingCodeText=='Required-Please Select...'){
-                    //     errortxt += 'Please select who is placing the order.\n';
-                    // }
-                    
-                    // if(otherPurposeCode.length > 0 && otherPurposeText== 'Required-Please Select...') {
-                    //   errortxt += errortxt + 'Please enter the purpose for this order. \n';
-                    // }
-                    
-                    // if(otherPurposeCode.val().trim() =='Other' && $.trim($("#otherInput").val())=="") {
-                    //     errortxt += 'Please enter in a value in the input box. \n';
-                    // }       
-                    // 
-                    if(otherPurposeCode.length > 0 && otherPurposeText== 'Required-Please Select...') {
-                      errortxt += 'Please enter the purpose for this order. \n';
-                    }
-                    
-                    // if(otherPurposeCode.val().trim() =='Other' && $.trim($("#otherInput").val())=="") {
-                    //     errortxt += 'Please enter in a value in the input box. \n';
-                    // } 
-
-                    if(otherPurposeCode.val().trim() =='Other' && otherPurposeInput.val().trim() =='' ) {
-                        errortxt += 'Please enter in a value into the Other input field. \n';
-                    } 
-
-
-                    if(costCenterCode.length > 0 && costCenterText== 'Required-Please Select...') {
-                      errortxt += 'Please enter the cost center for this order. \n';
-                    }                    
-
-                    if(deliveryDateCode.length > 0 && deliveryDateText== 'Required-Please Select...') {
-                       errortxt += 'Please answer the delivery date question. \n';
-                    }           
-
-                    if((deliveryDateCode.val().trim() =='Yes') && (actualDate.length > 0 && actualDate.val().trim() == '')) {
-                        errortxt += 'Please enter the delivery date. \n';        
-                    }
-                 
-                    if(errortxt == '') {
-                    
-                       //  ## Only assigns script question the value of the input box when all validation has passed. 
-                       //  ##  -kevin 08.09.18                    
-                        
-                       // $("select[name='724_0_8029'] option:selected").val($("#otherInput").val());
-                       // return true;
-                       
-                        //## Only assigns script question the value of the input box when all validation has passed. 
-                        //##  -kevin 08.09.18
-                        ## $("select[name='724_0_8029'] option:selected").val($("#otherInput").val());
-                        
-                        ## if(otherPurposeCode.val().trim() =='Other'){
-                        ##     $("select[name='724_0_8029'] option:selected").val($("#725").val());   
-                        ## }
-
-                      if (deliveryDateCode.val().trim() =='Yes') {
-
-                        // Does this have a response? Let's append an order header comment .
-                        // This line will generate the hidden input element to add the script question response to the order header.
-                        jQuery("form[name='frm']").append("<input type='hidden' name='details.orderComment' value='" + deliveryDateCode.val().trim().replace(/'/g, '\\\'') + "' />");
-                        jQuery("form[name='frm']").append("<input type='hidden' name='details.orderComment' value='" + actualDate.val().trim().replace(/'/g, '\\\'') + "' />"); 
-
-                      }                       
-                                                
-                        return true;                        
-                       
-                    } 
-
-                    else {
-                        alert(errortxt);
-                        
-                        ## debugging output
-                        ## console.log(otherPurposeCode.val()); 
-
-                        return false;
-                    }
-                 }
-                /*  //Form Submit Validation - ES */     
-
-
-            $( "#829" ).change(function() {
-                
-                ## debugging output
-                ## console.log($("select[name='724_0_8029'] option:selected").text());
-
-                if($("select[name='829_0_8626'] option:selected").text()=="Yes")
-                {
-
-                    $("#830").show();
-                    
-                    ## debugging outputs
-                    ## console.log("minh");                    
-                    ## console.log();
-                    ## console.log($("select[name='724_0_8029']").val().trim());
-                    ## console.log("value of the box is " + $("#otherInput").val());
-                }
-                else
-                {
-                    $("#830").hide();
-                    // $("#otherInput").val("");
-                    // $("select[name='724_0_8029']").find("option:contains('Other')").val("Other");
-                }
-            });   
-
-            </script>
-        #else
-            <script>
-                jQuery(document).ready(function() {
-                jQuery("#690").hide();
-                jQuery("#740").hide();
-                jQuery("#741").hide();
-            });
-            </script>
-        #end
-
-
-        <!-- One user type per PM - 7.28.2019 -->
-
-        ## checks to see if the user has the clientUser property.  if so, hides the marketingUser script question and calls validation just the the client question.
-        ## if the user does not have the clientUser, hides the clientUser script question.
-        #if($request.session.getAttribute("SessionCustomerDTO_${vendorSettingsDTO.vendorId}").getCustomerProperty('clientUser') == 'true')
-            <script>               
-               
-                jQuery(document).ready(function() {
-                  jQuery("#690").hide();
-                  jQuery("#725").hide();
-                  jQuery("#740").hide();
-                  jQuery("#741").hide();
-                  jQuery("#830").hide();                  
-
-                  jQuery( "#725" ).insertAfter( $( "#724" ) );
-
-                });
-            
-                /* Form Submit Validation - ES */
-                function validateForm() {
-
-                    
-                    var otherPurposeCode = jQuery("select[name='724_0_8029']");
-                    var otherPurposeText = jQuery("select[name='724_0_8029'] option:selected").text();
-
-                    var otherPurposeInput = jQuery('input[name^=725_0_8033]');
-
-                    var costCenterCode = jQuery("select[name='768_0_8558']");
-                    var costCenterText = jQuery("select[name='768_0_8558'] option:selected").text();                       
-
-                    var deliveryDateCode = jQuery("select[name='829_0_8626']");
-                    var deliveryDateText = jQuery("select[name='829_0_8626'] option:selected").text();                    
-                    
-                    var actualDate = jQuery('input[name^=830_0_8627]');      
-
-                  
-                    var errortxt= "";                                 
-                    
-                    if(otherPurposeCode.length > 0 && otherPurposeText== 'Required-Please Select...') {
-                      errortxt += 'Please enter the purpose for this order. \n';
-                    }
-                    
-                    // if(otherPurposeCode.val().trim() =='Other' && $.trim($("#otherInput").val())=="") {
-                    //     errortxt += 'Please enter in a value in the input box. \n';
-                    // } 
-
-                    if(otherPurposeCode.val().trim() =='Other' && otherPurposeInput.val().trim() =='' ) {
-                        errortxt += 'Please enter in a value into the Other input field. \n';
-                    } 
-
-
-                    if(costCenterCode.length > 0 && costCenterText== 'Required-Please Select...') {
-                      errortxt += 'Please enter the cost center for this order. \n';
-                    }                    
-
-                    if(deliveryDateCode.length > 0 && deliveryDateText== 'Required-Please Select...') {
-                       errortxt += 'Please answer the delivery date question. \n';
-                    }           
-                    
-                    if((deliveryDateCode.val().trim() =='Yes') && (actualDate.length > 0 && actualDate.val().trim() == '')) {
-                        errortxt += 'Please enter the delivery date. \n'; 
-                    }                
-                 
-                    if(errortxt == '') {
-                        
-                        //## Only assigns script question the value of the input box when all validation has passed. 
-                        //##  -kevin 08.09.18
-                        ## $("select[name='724_0_8029'] option:selected").val($("#otherInput").val());
-                        
-                        ## if(otherPurposeCode.val().trim() =='Other'){
-                        ##     $("select[name='724_0_8029'] option:selected").val($("#725").val());   
-                        ## }
-
-                        if (deliveryDateCode.val().trim() =='Yes') {
-
-                          // Does this have a response? Let's append an order header comment .
-                          // This line will generate the hidden input element to add the script question response to the order header.
-                          jQuery("form[name='frm']").append("<input type='hidden' name='details.orderComment' value='" + deliveryDateCode.val().trim().replace(/'/g, '\\\'') + "' />");
-                          jQuery("form[name='frm']").append("<input type='hidden' name='details.orderComment' value='" + actualDate.val().trim().replace(/'/g, '\\\'') + "' />"); 
-
-                        }                         
-                        
-                        return true;
-                    }
-                    else {
-                        alert(errortxt);
-                        
-                        ## debugging output
-                        ## console.log(otherPurposeCode.val());
-                        
-                        return false;
-                    }
-                 }
-                /*  //Form Submit Validation - ES */       
-                
-                
-            $( "#829" ).change(function() {
-                
-                ## debugging output
-                ## console.log($("select[name='724_0_8029'] option:selected").text());
-
-                if($("select[name='829_0_8626'] option:selected").text()=="Yes")
-                {
-
-                    $("#830").show();
-                    
-                    ## debugging outputs
-                    ## console.log("minh");                    
-                    ## console.log();
-                    ## console.log($("select[name='724_0_8029']").val().trim());
-                    ## console.log("value of the box is " + $("#otherInput").val());
-                }
-                else
-                {
-                    $("#830").hide();
-                    // $("#otherInput").val("");
-                    // $("select[name='724_0_8029']").find("option:contains('Other')").val("Other");
-                }
-            });                      
-                
-            </script>
-        #else
-            <script>
-                jQuery(document).ready(function() {
-                    jQuery("#691").hide();
-                });
-            </script>
-        #end
-        
-        ## if the user has neither the marketingUser and clientUser, hides the entire Script Order Questions box from the screen
-        #if( ($request.session.getAttribute("SessionCustomerDTO_${vendorSettingsDTO.vendorId}").getCustomerProperty('marketingUser') != 'true') && ($request.session.getAttribute("SessionCustomerDTO_${vendorSettingsDTO.vendorId}").getCustomerProperty('clientUser') != 'true') )
-
-            <script>               
-               
-                jQuery(document).ready(function() {
-                  jQuery("#690").hide();
-                  jQuery("#725").hide();
-                  jQuery("#740").hide();
-                  jQuery("#741").hide();
-                  jQuery("#830").hide();                  
-
-                  jQuery( "#725" ).insertAfter( $( "#724" ) );
-
-                });
-            
-                /* Form Submit Validation - ES */
-                /*Client user validation copied to other user - 6.28.2019*/
-                function validateForm() {
-
-                    
-                    var otherPurposeCode = jQuery("select[name='724_0_8029']");
-                    var otherPurposeText = jQuery("select[name='724_0_8029'] option:selected").text();
-
-                    var otherPurposeInput = jQuery('input[name^=725_0_8033]');
-
-                    var costCenterCode = jQuery("select[name='768_0_8558']");
-                    var costCenterText = jQuery("select[name='768_0_8558'] option:selected").text();                       
-
-                    var deliveryDateCode = jQuery("select[name='829_0_8626']");
-                    var deliveryDateText = jQuery("select[name='829_0_8626'] option:selected").text();                    
-                    
-                    var actualDate = jQuery('input[name^=830_0_8627]');      
-
-                  
-                    var errortxt= "";                                 
-                    
-                    if(otherPurposeCode.length > 0 && otherPurposeText== 'Required-Please Select...') {
-                      errortxt += 'Please enter the purpose for this order. \n';
-                    }
-                    
-                    // if(otherPurposeCode.val().trim() =='Other' && $.trim($("#otherInput").val())=="") {
-                    //     errortxt += 'Please enter in a value in the input box. \n';
-                    // } 
-
-                    if(otherPurposeCode.val().trim() =='Other' && otherPurposeInput.val().trim() =='' ) {
-                        errortxt += 'Please enter in a value into the Other input field. \n';
-                    } 
-
-
-                    if(costCenterCode.length > 0 && costCenterText== 'Required-Please Select...') {
-                      errortxt += 'Please enter the cost center for this order. \n';
-                    }                    
-
-                    if(deliveryDateCode.length > 0 && deliveryDateText== 'Required-Please Select...') {
-                       errortxt += 'Please answer the delivery date question. \n';
-                    }           
-                    
-                    if((deliveryDateCode.val().trim() =='Yes') && (actualDate.length > 0 && actualDate.val().trim() == '')) {
-                        errortxt += 'Please enter the delivery date. \n'; 
-                    }                
-                 
-                    if(errortxt == '') {
-                        
-                        //## Only assigns script question the value of the input box when all validation has passed. 
-                        //##  -kevin 08.09.18
-                        ## $("select[name='724_0_8029'] option:selected").val($("#otherInput").val());
-                        
-                        ## if(otherPurposeCode.val().trim() =='Other'){
-                        ##     $("select[name='724_0_8029'] option:selected").val($("#725").val());   
-                        ## }
-
-                        if (deliveryDateCode.val().trim() =='Yes') {
-
-                          // Does this have a response? Let's append an order header comment .
-                          // This line will generate the hidden input element to add the script question response to the order header.
-                          jQuery("form[name='frm']").append("<input type='hidden' name='details.orderComment' value='" + deliveryDateCode.val().trim().replace(/'/g, '\\\'') + "' />");
-                          jQuery("form[name='frm']").append("<input type='hidden' name='details.orderComment' value='" + actualDate.val().trim().replace(/'/g, '\\\'') + "' />"); 
-
-                        }                         
-                        
-                        return true;
-                    }
-                    else {
-                        alert(errortxt);
-                        
-                        ## debugging output
-                        ## console.log(otherPurposeCode.val());
-                        
-                        return false;
-                    }
-                 }
-                /*  //Form Submit Validation - ES */       
-                
-                
-            $( "#829" ).change(function() {
-                
-                ## debugging output
-                ## console.log($("select[name='724_0_8029'] option:selected").text());
-
-                if($("select[name='829_0_8626'] option:selected").text()=="Yes")
-                {
-
-                    $("#830").show();
-                    
-                    ## debugging outputs
-                    ## console.log("minh");                    
-                    ## console.log();
-                    ## console.log($("select[name='724_0_8029']").val().trim());
-                    ## console.log("value of the box is " + $("#otherInput").val());
-                }
-                else
-                {
-                    $("#830").hide();
-                    // $("#otherInput").val("");
-                    // $("select[name='724_0_8029']").find("option:contains('Other')").val("Other");
-                }
-            });                      
-                
-            </script>
-
-            <!-- Other user validation copied from client user - 6.28.2019 -->
-            <!-- <script>
-               /*  $("#scriptQuestions").hide(); */
-                jQuery(document).ready(function() {
-                  jQuery("#691").hide();
-                  // jQuery("#690").hide();
-                  // jQuery("#725").hide();
-                  // jQuery("#740").hide();
-                  // jQuery("#741").hide();
-                  // jQuery("#830").hide();
-                });
-                /* Form Submit Validation - ES */
-                function validateForm() {
-                
-                    var otherPurposeCode = jQuery("select[name='724_0_8029']");
-                    var otherPurposeText = jQuery("select[name='724_0_8029'] option:selected").text();
-                    
-                    var errortxt= "";
-                    
-                    if(otherPurposeCode.length > 0 && otherPurposeText== 'Required-Please Select...') {
-                    errortxt = errortxt + 'Please enter the purpose for this order. \n';
-                    }
-                    
-                    if(otherPurposeCode.val().trim() =='Other' && $.trim($("#otherInput").val())=="") {
-                        errortxt += 'Please enter in a value in the input box. \n';
-                    }                                   
-                 
-                    if(errortxt == '') {
-                        
-                        //## Only assigns script question the value of the input box when all validation has passed. 
-                        //##  -kevin 08.09.18
-                        ## $("select[name='724_0_8029'] option:selected").val($("#otherInput").val());
-                        
-                        ## if(otherPurposeCode.val().trim() =='Other'){
-                        ##     $("select[name='724_0_8029'] option:selected").val($("#otherInput").val());   
-                        ## }     
-                        
-                        return true;
-                    }
-                    else {
-                        alert(errortxt);
-                        
-                        ## debugging output
-                        ## console.log(otherPurposeCode.val());
-                        
-                        return false;
-                    }
-                 }
-                /*  //Form Submit Validation - ES */    
-            </script> -->
-        #end
-    #end 
-        
-        ## checks to see if the script question selected is equal to the Other option.  
-        ## Toggles whether an input box is shown and resets values of input box and script question to default values if option is not "Other"
-        ## -kevin 08.09.18
-        <script>
-            $( "#724" ).change(function() {
-                
-                ## debugging output
-                ## console.log($("select[name='724_0_8029'] option:selected").text());
-
-                if($("select[name='724_0_8029'] option:selected").text()=="Other")
-                {
-
-                    // $("#otherInput").show();
-                    
-                    $('#725').show();
-
-                    ## debugging outputs
-                    ## console.log("minh");                    
-                    ## console.log();
-                    ## console.log($("select[name='724_0_8029']").val().trim());
-                    ## console.log("value of the box is " + $("#otherInput").val());
-                }
-                else
-                {
-                    // $("#otherInput").hide();
-                    $('#725').hide();
-                    // $("#otherInput").val("");
-                    $("#725").val("");
-                    $("select[name='724_0_8029']").find("option:contains('Other')").val("Other");
-                }
-            });
-        </script>
+        </form>
+     ## END==
     
-
-
+    
+    #end
+      
       </div> <!--//#content -->
       
       #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end
@@ -1775,5 +1697,14 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
     
     #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
     #parse("libMarkupFoot.vm")
+    
+    
+    <script>
+        jQuery(document).ready(function(){
+    // document.frm.submit()
+    console.log('ready')
+    });
+    </script>
+
   </body>
 </html>
