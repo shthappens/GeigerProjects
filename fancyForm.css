@@ -1,0 +1,188 @@
+
+.columnOne{
+    width: 400px;
+    padding: 2% 0 0;
+    margin: auto;
+}
+
+.columnTwo{
+    /*border: 1px solid #00F;*/
+    width: 450px;
+    margin-left: 50px;
+}
+
+.warning2{
+    color: #f00;
+    background-color: #FADCDA;
+    border: 1px solid #f00;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+/****Login****/
+
+.login form{
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    max-width: 400px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    height: 370px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.login form input{
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.login .btn-primary{
+    text-transform: uppercase;
+    outline: 0;
+    width: 100%;
+    border: 0;
+    color: #FFFFFF;
+    font-size: 16px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    margin-bottom: 15px;
+}
+
+.login h2{
+	font-size: 20px;
+}
+
+#registerForm .btn-primary{
+    text-transform: uppercase;
+    outline: 0;
+    background: #888;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    margin-bottom: 15px;
+}
+
+
+#registerForm .btn-primary:hover, .login .btn-primary:hover{
+
+}
+
+.login .btn, #registerForm .btn{
+    text-transform: uppercase;
+    outline: 0;
+    background: #E7E7E7;
+/*    width: 100%;*/
+    border: 0;
+    padding: 15px;
+    color: #000;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    margin-bottom: 15px;
+}
+
+.login .btn:hover, #registerForm .btn:hover{
+	background: #eee;
+}
+
+.login .btn{
+	padding: 15px 77px;
+	position: relative;
+	top: 13px;
+}
+
+#registerForm .btn:hover{
+    text-decoration: none;
+}
+
+.loginbox.clearfix{
+    width: 400px;
+    margin: 0 auto;
+}
+
+.login form p{
+    font-size: 12px;
+}
+
+.login form a{
+    text-decoration:none; 
+}
+
+.usernameFields, .passwordFields{
+    margin-bottom: 10px;
+}
+
+a.forgotPassword{
+    display: block;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-align: right;
+    margin-top: -5px;
+}
+
+/****Register****/
+
+#registration form#registerForm{
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    max-width: 400px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#registerForm input{
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+#registration form#registerForm label{
+    width: 100px;
+    display: block;
+    float: left;
+}
+
+#registration h1, #pageLogin h1{
+    text-align: center;
+}
+
+.error{
+    color: red;
+    margin-bottom: 10px;
+}
+
+#registerForm .btn{
+   width: 100%
+}

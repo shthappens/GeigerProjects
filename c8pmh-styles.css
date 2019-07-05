@@ -58,7 +58,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 body {
     line-height: 1;
-    color: black;
+    color: #333333;
     background: white;
 }
 ol, ul, li {
@@ -105,7 +105,7 @@ strong{
 /*********** Global - Typography: p, a, H1 H2, etc*************/
 
 body{
-    /*font-family: 	Arial,"Helvetica Neue",Helvetica,sans-serif;*/
+    /*font-family:  Arial,"Helvetica Neue",Helvetica,sans-serif;*/
     font-family: museo-sans, sans-serif;
     font-size: 14px;
     line-height: 18px;
@@ -113,7 +113,7 @@ body{
 
 p{ 
     margin-bottom: 15px;
-    color: #333;
+    color: #333333;
 }
 
 p .pageItem{
@@ -126,8 +126,13 @@ p .pageItem{
 }
 
 a{ 
-    color: #B32572;
+    color: #830065;
     text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #A70081;
 }
 
 #footer{
@@ -136,10 +141,15 @@ a{
     height: 35px;
     width: 960px;
     background: #f3f3f3;
+    margin-top: 20px;
+}
+
+#pageHome #footer, #pageCategory #footer {
+    margin-top: 0;
 }
 
 #footer a{
-    color:#333;
+    color:#333333;
     text-decoration: none;
 }
 
@@ -151,7 +161,7 @@ a{
 }
 
 div#DDmenu a{
-    font-size: 18px;
+    font-size: 14px;
     line-height: 28px;
 }
 
@@ -164,23 +174,37 @@ div#DDmenu a{
 }
 
 h1{ 
-    color: #003399;
+    color: #ED1849;
     font-size: 26px;
-    font-style: italic;
-    font-weight: bold;
+    /*font-style: italic;*/
+    font-weight: 700;
     line-height: 30px;
     margin: 0 0 15px;
+    font-family: museo, serif;
+    width: 150px;
 }
 
-#pageHome h1{
-    font-size: 30px;
-    font-style: normal;
-    /*line-height: 40px;*/
-    margin: 0;
-    padding-bottom: 10px;
-    text-align: left;
-    color: #ED1849;
-    font-family: museo, sans-serif;
+#pageHome h1, #pageFAQ h1, #pageCategoryStatic h1, 
+#pageCategory h1, #pageCheckoutComplete h1, #pageItem h1 {
+    width: auto !important;
+}
+
+#pageBasket h1, #pageLogin h1 {
+    width: 225px;
+}
+
+#pageForgottenPassword h1 {
+    width: 300px;
+}
+
+#pageLogin h1 {
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+#loginTitle {
+    width: 100%;
+    display: flex;
 }
 
 #pageHome h3{
@@ -204,7 +228,7 @@ h1{
 .welcome-message p{
     font-size: 14px;
     line-height: 19px;
-    color: #333;
+    color: #333333;
 }
 
 .poNote{
@@ -215,22 +239,31 @@ h1{
 
 .poNote p{
     font-weight: bold;
-    color: #333;
+    color: #333333;
     text-align: center;
     font-size: 14px;
 }
 
 #pageCategory h1{
-    color: #003399;
+    color: #ED1849;
     margin-top: 15px;
-    padding-left: 20px;
+    /*padding-left: 20px;*/
+}
+
+#pageLogin h2{
+    color: #ED1849;
 }
 
 h2{ 
     font-size:22px;
-    color:#009966;
+    color: #ED1849;
     font-weight:bold;
     margin: 0 0 15px;
+    font-family: Museo;
+}
+
+#pageMyAccount h2 {
+    margin-left: 15px;
 }
 
 h3{ 
@@ -242,9 +275,10 @@ h5{ }
 h6{ }
 
 .bCrumbs, .bCrumbs a{
-    color: #777777;
-    font-size: 12px;
-    padding: 5px 0 0 10px;
+    color: #333333;
+    font-size: 14px;
+    /*padding: 5px 0 0 10px;*/
+    width: 130px;
 }
 
 .image .price-box{
@@ -265,6 +299,8 @@ h6{ }
     font-size: 18px;
     font-weight: bold;
     margin: 10px;
+    color: #3333333;
+    font-family: Museo;
 }
 
 label, .label {
@@ -283,11 +319,42 @@ label, .label {
 }
 
 .sidebar .title{
-    color: #003399;
-    font-size: 20px;
+    /*color: #003399;*/
+    color: #333333;
+    font-size: 14px;
     font-weight: bold;
     margin-top: 10px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;    
+    margin-bottom: 10px;
+    width: 85%;
 }
+
+.sidebar a {
+    color: #333333;
+    font-size: 13px;
+}
+
+.subcat-title a, #recentlyViewed a {
+    padding: 3px 2px 3px 33px;
+    display: block;
+    color: #333333;
+    background: url(../images/arrow-menu.png) 2px 1px no-repeat;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.subcat-title a:hover, #recentlyViewed a:hover {
+    background-position: 2px -48px;
+    /*text-decoration: underline;*/
+    font-size: 13px;
+}
+
+#contact .sidebar, #pageCategoryStatic .sidebar, #pageFAQ .sidebar {
+    display: none;
+}
+
 
 /*********** Global - Structure *************
 Place style here that define the global stturctre. Wrapper divs, one coloumn, two column definitions, etc*/
@@ -312,13 +379,18 @@ body{
     padding-right: 20px;
 }
 #contentWrapper{
-    padding: 60px 15px 15px;
+    /*padding: 60px 15px 15px;*/
     position: relative;
-    border: 1px solid #F2F2F2;
+    box-shadow: inset 0 0 0 1px #f2f2f2;
     background-color: #FFFFFF;
 }
-#content{
 
+#pageHome #contentWrapper, #pageCategory #contentWrapper {
+    padding: 60px 15px 15px;
+}
+
+#content{
+    padding: 60px 15px 15px;
 }
 
 #spotlightimage {
@@ -355,6 +427,7 @@ body{
 #header{
     height: 118px;
     width: 960px;
+    margin-bottom: 4px;
 }
 
 #header .wrapper{
@@ -364,6 +437,11 @@ body{
 }
 
 #header .wrapper a {
+    text-decoration: none;
+}
+
+#header .wrapper a:hover {
+    color: #B32572;
     text-decoration: none;
 }
 
@@ -381,7 +459,7 @@ body{
 
 #footer .wrapper p{
     clear: both;
-    color: #333;
+    color: #333333;
     /*padding: 10px 0 5px 20px;*/
     margin-left: 25px;
     margin-right: auto;
@@ -413,17 +491,17 @@ body{
 
 .info_needed {
     color: #000000;
-    padding-left: 10px;
+    margin-left: 15px;
 }
 
-.sidebar {
+#pageCategory .sidebar, #pageItem .sidebar {
      float: left;
-    width: 220px;
+    width: 215px;
 }
 
 .page {
     float: left;
-    margin-left: 10px;
+    margin-left: 15px;
     width: 700px;
 }
 
@@ -566,14 +644,20 @@ li.productCategories a{
 }
 
 li.productCategories {
-    width: 260px;
+    width: 206px;
+}
+
+i.material-icons.down.keyboardMI {
+    position: absolute;
+    margin-top: 10px;
 }
 
 div#DDmenu li{
     float: none;
     height: 38px;
     padding-top: 8px;
-    width: 310px; /* changed from 300 to 310*/
+    width: 206px;
+    text-align: center;
 }
 
 div#DDmenu li:hover{
@@ -598,8 +682,8 @@ div#DDmenu li a:hover{
 }
 
 .welcome{
-    color: #000000;
-    font-weight: 900;
+    color: #B32572;
+    font-weight: 500;
 }
 
 .utilNav ul{
@@ -627,35 +711,48 @@ div#DDmenu li a:hover{
 
 .mini-cart{
     background-color: #830065;
-    margin-top: -24px;
-    padding: 17px 10px 10px;
+    margin-top: -31px;
+    padding: 17px 0 3px 0;
     -webkit-border-bottom-right-radius: 4px;
     -webkit-border-bottom-left-radius: 4px;
     -moz-border-radius-bottomright: 4px;
     -moz-border-radius-bottomleft: 4px;
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
+    width: 139px;
 }
 
 #miniViewCart{
-    background-color: #339966;
-    display: block;
+    /*background-color: #339966;*/
+    /*display: block;*/
+    display: flex;
     height: 20px;
-    margin: 2px auto 0;
+    /*margin: 2px auto 0;*/
+    text-transform: uppercase;
+}
+
+#miniViewCart a {
+    font-size: 12px;
+    padding-top: 4px;
+    margin-right: auto;
+}
+
+.summary {
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     text-align: center;
-    width: 80px;
-    -webkit-border-bottom-right-radius: 4px;
-    -webkit-border-bottom-left-radius: 4px;
-    -webkit-border-top-right-radius: 4px;
-    -webkit-border-top-left-radius: 4px;
-    -moz-border-radius-bottomright: 4px;
-    -moz-border-radius-bottomleft: 4px;
-    -moz-border-radius-topright: 4px;
-    -moz-border-radius-topleft: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-top-left-radius: 4px;
+}
+
+.summary strong {
+    font-weight: normal;
+    font-size: 12px;
+    font-family: museo-sans, sans-serif;
+}
+
+i#cart-icon.material-icons {
+    margin-left: auto;
 }
 
 /**** search ****/
@@ -673,19 +770,24 @@ div#DDmenu li a:hover{
 }
 #searchForm input#key{
 border: none;
-width: 148px;
+/*width: 148px;*/
 float: left;
-padding-left: 2px;
+padding-left: 5px;
 padding-top: 4px;
 }
-#searchForm input#searchBtn{
+/*#searchForm input#searchBtn{
     width: 20px;
     height: 24px;
     background: url("../images/btn_search.gif") 50% 50% #FFF no-repeat;
     border: none;
     cursor: pointer;
     float: right;
-text-indent:-20000px;
+    text-indent:-20000px;
+}*/
+
+i.material-icons.searchGlass {
+    color: #333333;
+    padding-top: 2px;
 }
 
 /*********** Global - Reused Basic Elements: tables, HR, etc; *************/
@@ -805,42 +907,33 @@ tfoot tr td{
 }
 
 .btn {
-    background-color: #E7E7E7;
-    border:1px solid #777777;
-    color:#000;
-    padding: 5px 10px;
+    background-color: #B32572;
+    border:1px solid #B32572;
+    color:#fff;
+    padding: 10px 36px 10px 36px;
     cursor: pointer;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    border-radius:3px;
 }
+
 .btn:hover{
-    background-color: #009966;
+    background-color: #D12B85;
     text-decoration: none;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    border-radius:3px;
     color: #FFFFFF;
 } 
 
 .btn-primary{
-    background-color: #003399;
-    border:1px solid #777777;
+    background-color: #830065;
+    border: 1px solid #830065;
     color:#FFFFFF;
     font-weight: bold;
-    padding: 5px 10px;
-    margin: 0 10px;
     cursor: pointer;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    border-radius:3px;
+    padding: 10px 33px 10px 33px;
+    /*width: 145px;*/
+    /*height: 40px;*/
+    text-align: center;
 }
 .btn-primary:hover{
-    background-color: #009966;
+    background-color: #A70081;
     text-decoration: none;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    border-radius:3px;
 }
 
 /*********** Page Experience Specific Styles *************
@@ -888,21 +981,28 @@ tfoot tr td{
     .featured-product-carousel .prev{
         display: block;
         float: left;
-        height: 29px;
+        height: 19px;
         margin-top: 50px;
-        width: 26px;
-        background:url("../images/arrowLeft.png") no-repeat;
-        }
+        width: 12px;
+        /*background:url("../images/arrowLeft.png") no-repeat;*/
+        color: #ed1849;
+        margin-right: 22px;
+        font-size: 36px;
+    }
     .featured-product-carousel .next{
-    background: url("../images/arrowRight.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    display: block;
-    float: left;
-    height: 29px;
-    margin-top: 50px;
-    position: absolute;
-    right: 0;
-    width: 26px;
-        }       
+        /*background: url("../images/arrowRight.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);*/
+        display: block;
+        float: left;
+        height: 19px;
+        margin-top: 50px;
+        position: absolute;
+        right: 0;
+        width: 26px;
+        color: #ed1849;
+        margin-left: 22px;
+        font-size: 36px;
+    }   
+
     .featured-product-carousel .item{
         width:135px;
         height:125px;
@@ -948,6 +1048,10 @@ tfoot tr td{
 }
 #pageFAQ .section{
     padding: 10px;
+}
+
+#pageFAQ #content {
+    margin-bottom: 40px;
 }
 
 /****Custom Orders****/
@@ -1170,7 +1274,7 @@ display:none;
 .sortControl {
     float: right;
     margin-left: 15px;
-    color: #000000;
+    color: #333333;
 }
 .pagination-new li{
     float: left;
@@ -1184,6 +1288,7 @@ display:none;
 
 a.view-all{
     margin-right: 10px;
+    margin-top: 3px;
 }
 
 .btn.wishlist{
@@ -1220,7 +1325,7 @@ a.view-all{
 }
 .add-another-item  table {
     margin: 0;
-    width: 600px;
+    width: 600px !important;
 }
 input.qty-input{
     width:30px;
@@ -1314,6 +1419,11 @@ background-image: none !important;
 .ymal img {
   width: 90px;
   height: auto;
+}
+
+.ymal h3 {
+    color: #333333;
+    font-size: 14px;
 }
 
 /****Basket****/
@@ -1469,15 +1579,15 @@ ul.radios-list li label{
 #simplemodal-container {background-color:#FFF; border:1px solid #444; padding:12px;}
 
 #simplemodal-container a.modalCloseImg {
-	background:url(../images/x.png) no-repeat;
-	width:25px;
-	height:29px;
-	display:inline;
-	z-index:3200;
-	position:absolute;
-	top:-15px;
-	right:-18px;
-	cursor:pointer;
+    background:url(../images/x.png) no-repeat;
+    width:25px;
+    height:29px;
+    display:inline;
+    z-index:3200;
+    position:absolute;
+    top:-15px;
+    right:-18px;
+    cursor:pointer;
 }
 
 #new-address-modal {
@@ -1549,6 +1659,8 @@ ul.radios-list li label{
     border-radius: 3px;
     -moz-border-radius: 3px;
     -moz-border-radius: 3px;
+/*    margin: 20px;
+    margin-top: 0;*/
 
 }
 
@@ -1579,18 +1691,24 @@ ul.radios-list li label{
     clear: right;
 }
 
+/*#pageCheckoutAddresses .f-group, #pageCheckoutAddressesMult form {
+    margin: 20px;
+}*/
+
 
 
 .tabs {margin:10px 0;}
 .tabs ul li {
     list-style-type:none;
     display:inline;
+    /*margin: 20px;*/
+    /*margin: auto 20px auto 20px;*/
 }
     .tabs ul li a {
         display:block;
         float:left;
         padding:6px 8px;
-        color:#333;
+        color:#333333;
         text-decoration:none;
         margin-right:1px;
         -webkit-border-top-left-radius: 3px;
@@ -1778,6 +1896,7 @@ input#cvv{
 .warningText{
     color: #FC9801;
     font-weight: bold;
+    margin-left: 15px;
 }
 .message.success{
     padding: 5px 10px;
@@ -1964,3 +2083,33 @@ padding: 5px 10px 0;
     margin-top: -335px;
     display: none;
 }
+
+#siteMessage {
+    position: absolute;
+    width: 275px;
+    height: 46px;
+    display: flex;
+    border: 1px solid #E6E6E6;  
+    background-color: #F5F5F5;
+    margin-top: 52px;
+    margin-left: 101px;
+}
+
+#siteMessage i {
+    color: #ED1849;
+    font-size: 36px;
+    margin: 5px 0 8px 8px;
+}
+
+#siteMessage p {
+    font-family: Museo;
+    font-weight: 700;
+    font-size: 15px;
+    color: #333333;
+    text-transform: uppercase;
+    margin: auto 9px auto 0;
+    text-align: left;
+}
+
+
+

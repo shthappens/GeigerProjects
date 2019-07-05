@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 #parse('libGlobalConfig.vm')
 #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
@@ -1283,7 +1284,6 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
         
 
             <script>
-
                 jQuery(document).ready(function() {
                 jQuery("#691").hide();
                 jQuery("#725").hide();
@@ -1313,10 +1313,25 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
                     
                     var errortxt= "";
                 
-
+                    // if(marketingCode.val().trim() =='NA' && marketingCodeText=='Required-Please Select...'){
+                    //     errortxt += 'Please select who is placing the order.\n';
+                    // }
+                    
+                    // if(otherPurposeCode.length > 0 && otherPurposeText== 'Required-Please Select...') {
+                    //   errortxt += errortxt + 'Please enter the purpose for this order. \n';
+                    // }
+                    
+                    // if(otherPurposeCode.val().trim() =='Other' && $.trim($("#otherInput").val())=="") {
+                    //     errortxt += 'Please enter in a value in the input box. \n';
+                    // }       
+                    // 
                     if(otherPurposeCode.length > 0 && otherPurposeText== 'Required-Please Select...') {
                       errortxt += 'Please enter the purpose for this order. \n';
-                    } 
+                    }
+                    
+                    // if(otherPurposeCode.val().trim() =='Other' && $.trim($("#otherInput").val())=="") {
+                    //     errortxt += 'Please enter in a value in the input box. \n';
+                    // } 
 
                     if(otherPurposeCode.val().trim() =='Other' && otherPurposeInput.val().trim() =='' ) {
                         errortxt += 'Please enter in a value into the Other input field. \n';
@@ -1339,6 +1354,9 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
                     
                        //  ## Only assigns script question the value of the input box when all validation has passed. 
                        //  ##  -kevin 08.09.18                    
+                        
+                       // $("select[name='724_0_8029'] option:selected").val($("#otherInput").val());
+                       // return true;
                        
                         //## Only assigns script question the value of the input box when all validation has passed. 
                         //##  -kevin 08.09.18
@@ -1408,14 +1426,143 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
             </script>
         #end
 
+
+        <!-- One user type per PM - 7.28.2019 -->
+
+        <!-- ## checks to see if the user has the clientUser property.  if so, hides the marketingUser script question and calls validation just the the client question.
+        ## if the user does not have the clientUser, hides the clientUser script question.
+        #if($request.session.getAttribute("SessionCustomerDTO_${vendorSettingsDTO.vendorId}").getCustomerProperty('clientUser') == 'true')
+            <script>               
+               
+                jQuery(document).ready(function() {
+                  jQuery("#690").hide();
+                  jQuery("#725").hide();
+                  jQuery("#740").hide();
+                  jQuery("#741").hide();
+                  jQuery("#830").hide();                  
+
+                  jQuery( "#725" ).insertAfter( $( "#724" ) );
+
+                });
+            
+                /* Form Submit Validation - ES */
+                function validateForm() {
+
+                    
+                    var otherPurposeCode = jQuery("select[name='724_0_8029']");
+                    var otherPurposeText = jQuery("select[name='724_0_8029'] option:selected").text();
+
+                    var otherPurposeInput = jQuery('input[name^=725_0_8033]');
+
+                    var costCenterCode = jQuery("select[name='768_0_8558']");
+                    var costCenterText = jQuery("select[name='768_0_8558'] option:selected").text();                       
+
+                    var deliveryDateCode = jQuery("select[name='829_0_8626']");
+                    var deliveryDateText = jQuery("select[name='829_0_8626'] option:selected").text();                    
+                    
+                    var actualDate = jQuery('input[name^=830_0_8627]');      
+
+                  
+                    var errortxt= "";                                 
+                    
+                    if(otherPurposeCode.length > 0 && otherPurposeText== 'Required-Please Select...') {
+                      errortxt += 'Please enter the purpose for this order. \n';
+                    }
+                    
+                    // if(otherPurposeCode.val().trim() =='Other' && $.trim($("#otherInput").val())=="") {
+                    //     errortxt += 'Please enter in a value in the input box. \n';
+                    // } 
+
+                    if(otherPurposeCode.val().trim() =='Other' && otherPurposeInput.val().trim() =='' ) {
+                        errortxt += 'Please enter in a value into the Other input field. \n';
+                    } 
+
+
+                    if(costCenterCode.length > 0 && costCenterText== 'Required-Please Select...') {
+                      errortxt += 'Please enter the cost center for this order. \n';
+                    }                    
+
+                    if(deliveryDateCode.length > 0 && deliveryDateText== 'Required-Please Select...') {
+                       errortxt += 'Please answer the delivery date question. \n';
+                    }           
+                    
+                    if((deliveryDateCode.val().trim() =='Yes') && (actualDate.length > 0 && actualDate.val().trim() == '')) {
+                        errortxt += 'Please enter the delivery date. \n'; 
+                    }                
+                 
+                    if(errortxt == '') {
+                        
+                        //## Only assigns script question the value of the input box when all validation has passed. 
+                        //##  -kevin 08.09.18
+                        ## $("select[name='724_0_8029'] option:selected").val($("#otherInput").val());
+                        
+                        ## if(otherPurposeCode.val().trim() =='Other'){
+                        ##     $("select[name='724_0_8029'] option:selected").val($("#725").val());   
+                        ## }
+
+                        if (deliveryDateCode.val().trim() =='Yes') {
+
+                          // Does this have a response? Let's append an order header comment .
+                          // This line will generate the hidden input element to add the script question response to the order header.
+                          jQuery("form[name='frm']").append("<input type='hidden' name='details.orderComment' value='" + deliveryDateCode.val().trim().replace(/'/g, '\\\'') + "' />");
+                          jQuery("form[name='frm']").append("<input type='hidden' name='details.orderComment' value='" + actualDate.val().trim().replace(/'/g, '\\\'') + "' />"); 
+
+                        }                         
+                        
+                        return true;
+                    }
+                    else {
+                        alert(errortxt);
+                        
+                        ## debugging output
+                        ## console.log(otherPurposeCode.val());
+                        
+                        return false;
+                    }
+                 }
+                /*  //Form Submit Validation - ES */       
+                
+                
+            $( "#829" ).change(function() {
+                
+                ## debugging output
+                ## console.log($("select[name='724_0_8029'] option:selected").text());
+
+                if($("select[name='829_0_8626'] option:selected").text()=="Yes")
+                {
+
+                    $("#830").show();
+                    
+                    ## debugging outputs
+                    ## console.log("minh");                    
+                    ## console.log();
+                    ## console.log($("select[name='724_0_8029']").val().trim());
+                    ## console.log("value of the box is " + $("#otherInput").val());
+                }
+                else
+                {
+                    $("#830").hide();
+                    // $("#otherInput").val("");
+                    // $("select[name='724_0_8029']").find("option:contains('Other')").val("Other");
+                }
+            });                      
+                
+            </script>
+        #else
+            <script>
+                jQuery(document).ready(function() {
+                    jQuery("#691").hide();
+                });
+            </script>
+        #end -->
+
       <!-- One user type per PM - 6.28.2019  Validation for all non-Marketing User types -->
         
         ## if the user has neither the marketingUser or clientUser, hides the entire Script Order Questions box from the screen
-        #if (!$request.session.getAttribute("SessionCustomerDTO_${vendorSettingsDTO.vendorId}").getCustomerProperty('marketingUser'))
+        #if($request.session.getAttribute("SessionCustomerDTO_${vendorSettingsDTO.vendorId}").getCustomerProperty('marketingUser') != true)
 
 
             <script>               
-
                
                 jQuery(document).ready(function() {
                   jQuery("#690").hide();
@@ -1533,6 +1680,56 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
                 
             </script>
 
+            <!-- Other user validation copied from client user - 6.28.2019 -->
+            <!-- <script>
+               /*  $("#scriptQuestions").hide(); */
+                jQuery(document).ready(function() {
+                  jQuery("#691").hide();
+                  // jQuery("#690").hide();
+                  // jQuery("#725").hide();
+                  // jQuery("#740").hide();
+                  // jQuery("#741").hide();
+                  // jQuery("#830").hide();
+                });
+                /* Form Submit Validation - ES */
+                function validateForm() {
+                
+                    var otherPurposeCode = jQuery("select[name='724_0_8029']");
+                    var otherPurposeText = jQuery("select[name='724_0_8029'] option:selected").text();
+                    
+                    var errortxt= "";
+                    
+                    if(otherPurposeCode.length > 0 && otherPurposeText== 'Required-Please Select...') {
+                    errortxt = errortxt + 'Please enter the purpose for this order. \n';
+                    }
+                    
+                    if(otherPurposeCode.val().trim() =='Other' && $.trim($("#otherInput").val())=="") {
+                        errortxt += 'Please enter in a value in the input box. \n';
+                    }                                   
+                 
+                    if(errortxt == '') {
+                        
+                        //## Only assigns script question the value of the input box when all validation has passed. 
+                        //##  -kevin 08.09.18
+                        ## $("select[name='724_0_8029'] option:selected").val($("#otherInput").val());
+                        
+                        ## if(otherPurposeCode.val().trim() =='Other'){
+                        ##     $("select[name='724_0_8029'] option:selected").val($("#otherInput").val());   
+                        ## }     
+                        
+                        return true;
+                    }
+                    else {
+                        alert(errortxt);
+                        
+                        ## debugging output
+                        ## console.log(otherPurposeCode.val());
+                        
+                        return false;
+                    }
+                 }
+                /*  //Form Submit Validation - ES */    
+            </script> -->
         #end
     #end 
         
@@ -1569,6 +1766,8 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
             });
         </script>
     
+
+
       </div> <!--//#content -->
       
       #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end
@@ -1582,5 +1781,3 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
     #parse("libMarkupFoot.vm")
   </body>
 </html>
-
-#showDebugPopup()
