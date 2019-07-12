@@ -1,3 +1,25 @@
+// Velocity - end foreach look for *72A DSG
+
+   <div class="items-wrapper" id="featured_carousel_new">
+       <div class="listing">
+           #set($itemCounter = 0)
+           #foreach($temp in $StoreFeaturedItemsDTO.items)
+            #if($foreach.count > 3 )
+                #break
+            #end
+               #set($items = $pageTile.getItemObject($StoreFeaturedItemsDTO, $temp, "i"))
+               <div class="item">
+                   <a href="$seourl.encodeURL("storeitem.html?vid=$vendorSettingsDTO.vendorId&iid=$items.itemid")">
+                       #if($items.thumbnail && $items.thumbnail != "")
+                           <img src="store$items.thumbnail" alt="$items.title"/>
+                       #else
+                           <img src="store/$vendorSettingsDTO.vendorId/assets/items/thumbnails/noimage.jpg" alt="$items.title"/>
+                       #end 
+                   </a>
+               </div>
+           #end
+       </div>
+   </div>
 
 //32K Factset - show script question based on prior question answer
 
