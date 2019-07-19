@@ -1,3 +1,60 @@
+//340 C2GPM Script Q validations
+
+function validateForm() {
+    var district = jQuery('select[name^=834]');
+    var stateAb = jQuery('select[name^=312]');
+    var storeNum = jQuery('input[name^=311]');
+    var empID = jQuery('input[name^=527]');
+    var person = jQuery('input[name^=835]');
+    var errortxt= "";
+
+    if (district.val().trim() == 'Required') {
+      errortxt = 'Please select your district. \n'
+    }
+
+    if(stateAb.val().trim() == 'Required') {
+        errortxt = errortxt + 'Please select your state abbreviation. \n';
+    }
+
+    if(storeNum.length > 0 && storeNum.val().trim() == '') {
+        errortxt = errortxt +'Please enter your store number. \n';   
+    }
+
+    if(empID.length > 0 && empID.val().trim() == '') {
+        errortxt = errortxt + 'Please enter your employee ID. \n';    
+    }
+
+    if (person.length > 0 && person.val().trim() == '') {
+      errortxt = errortxt + 'Please enter the name of the person placing this order. \n'
+    }
+
+    if(errortxt == '') {
+       return true;
+    }
+    else {
+        alert(errortxt);
+        return false;
+    }
+ }
+
+// Sticky footer fix
+
+#if(${displayStickyFooter} == "TRUE")
+    <style>
+        #container {
+            min-height: 100vh !important;
+            margin: 0 auto -${pushValue}; /* the bottom margin is the negative value of the footer's height */
+        }
+        #pageHome #container {
+            min-height: 68vh !important;
+            margin: 0 auto -${pushValue}; /* the bottom margin is the negative value of the footer's height */
+        }
+    </style>
+#end
+
+//
+
+
 // Velocity - end foreach look for *72A DSG
 
    <div class="items-wrapper" id="featured_carousel_new">

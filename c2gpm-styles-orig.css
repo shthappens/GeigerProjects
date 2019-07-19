@@ -37,7 +37,11 @@ html, body {
 }
 
 html{
-    color:#000;background:#FFF;
+    /*color:#000;background:#FFF;*/
+
+    background: url("../images/bg.jpg");
+    background-repeat: repeat-x;
+    background-color: #2466ba;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -121,7 +125,7 @@ strong{
 
 body{
     color:#444444;
-    font-family: 'Lato', sans-serif;
+    font-family:    Arial,"Helvetica Neue",Helvetica,sans-serif;
     font-size: 14px;
     line-height: 18px;
 }
@@ -132,7 +136,6 @@ body{
 
 p{ 
     margin-bottom: 15px;
-    color: #252525;
 
 }
 
@@ -143,58 +146,67 @@ p .pageItem{
 
 #footer p{
     margin-bottom: 0px;
+    /* added the following code to get footer elements to line up*/
+    float: left;
+    margin-top: -15px;
+
 }
 
 a{ 
-    color:#84010F;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #7A7A7A;
+    color:#1c739f;
 }
 
 #footer{
-    font-size: 15px;
-    position: relative;
-    color: #7A7A7A;
-    background-color: #252525;
-}
-
-#footer a{
-    color: #7A7A7A;
-    font-size: 15px;
-}
-
-#footer a:hover {
-    color: #fff;
+    font-size: 12px;
 }
 
 .nav a{
-    color: #252525;
-    font-size: 16px;
+    color: #ffffff;
+    font-size: 22px;
     text-decoration: none;
-    line-height: 100px;
+    line-height: 45px;
+    text-shadow: 1px 1px 1px #660000;
+    margin-top: 10px;
 }
 
 div#DDmenu a{
-    font-size: 14px;
+    font-size: 18px;
     line-height: 28px;
     display: block;
-    color: #fff;
+    float: left;
+}
+
+.utilNav .mini-cart, .utilNav .mini-cart a{
+    color:#FFF;
 }
 
 h1{ 
-    font-weight: normal;
+    font-weight: bold;
     font-size: 26px;
+    /*font-style: italic;*/
     padding: 0;
     margin: 0px 0px 15px 0px;
     line-height: 30px;
-    color: #B50000; 
+    color: #d42926;
+
+}
+
+#appleHeadImg{
+    margin-top: -50px;
+
 }
 
 #pageHome h1{
-    /*text-align: center;*/
+    text-align: center;
+}
+
+#pageHome a:hover{
+    color: rgba(229, 229, 229, .9);
+}
+
+#pageHome .homePageBrands li{
+    display: inline;
+    margin-left: 30px;
 }
 
 #pageCategory h1{
@@ -214,9 +226,8 @@ h5{ }
 h6{ }
 
 .bCrumbs, .bCrumbs a{
-    font-size: 14px;
+    font-size: 12px;
     color:#777;
-    margin-bottom: 20px;
 }
 
 .image .price-box{
@@ -238,18 +249,6 @@ h6{ }
     margin: 10px;
 }
 
-#itemCodeList {
-    /*font-style: italic;*/
-}
-
-.show-estimate-calendar img{
-    vertical-align: text-top;
-}
-
-.ui-widget-content.ui-tabs{
-    margin-top: 10px !important;
-}
-
 label, .label {
     font-weight: bold;
 }
@@ -268,10 +267,11 @@ label, .label {
     border-bottom: 1px solid #eee;
     padding-bottom: 5px;
     margin-bottom: 10px;
-    width: 85%;
 }
 
+
 #recentlyViewed li {
+    padding:4px 2px 4px 10px
 }
 
 .subcat-title a,#recentlyViewed a {
@@ -284,11 +284,11 @@ label, .label {
 }
 
 .subcat-title a:hover,#recentlyViewed a:hover {
-    /*color:#555;*/
+    color:#555;
     background-position:2px -48px;
-    text-decoration:underline;
+    text-decoration:none;
     font-size:12px;
-    /*color:#00acd4;*/
+    color:#00acd4;
 }
 
 .facettitle.blue {
@@ -300,11 +300,11 @@ label, .label {
 Place style here that define the global stturctre. Wrapper divs, one coloumn, two column definitions, etc*/
 
 html{
-    background: #fff;
+    /*background-color: #444444;*/
 }
 
 body{
-    background: #FFF;
+    background: url("../images/bgstarburst.jpg") center top no-repeat scroll;
 }
 
 #container{
@@ -316,58 +316,49 @@ body{
 }
 
 #content{
+    background: url("../images/greatdaneWaterMark.gif") no-repeat scroll left bottom #FFFFFF;
+    border:1px solid #666666;
     z-index: 1;
     clear: both;
-    padding: 30px 20px 50px 20px;
-}
-
-#pageHome #content {
-    width: 1024px;
-    display: flex;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 15px 20px;
+    min-height: 630px;
 }
 
 #header{
-    width: 100vw;
-    height: 100px;
-    margin: 0 auto;
-    border-top: 2px solid #b50000;
-    border-bottom: 1px solid #cdcdcd;
-}
-
-#header-nav {
-    height: 40px;
-    margin: 0 auto;
-    background-color: #252525;
-}
-
-#header-nav .wrapper {
     width: 1024px;
-    height: 40px;
-    display: flex;
-    margin: 0 auto;
+    height: 140px;
 }
 
 #header .wrapper{
-    width: 1024px;
-    height: 100px;
-    display: flex;
-    margin: 0 auto;
+    float: right;
+    /*width: 700px;*/
+    text-align: right;
+    margin-top: 15px;
 }
 
 #footer .wrapper{
+    /*background-color: #fff;*/
     box-sizing: border-box;
-    height: 50px;
-    padding: 17.5px 0;
-    margin: 0 auto;
-    width: 1024px;
-
+    height: 65px;
+    /*opacity:0.6;
+    filter:alpha(opacity=60); /* For IE8 and earlier */
+    padding:15px 15px;
+    color: #ffffff;
 }
 
 #footer .wrapper p{
     clear:both;
-    float: left;
+}
+
+#footer a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#footer a:hover{
+    color: rgba(229, 229, 229, .9);
+};
+   
 }
 
 .repInfo {
@@ -378,13 +369,13 @@ body{
 
 .sidebar {
     float: left;
-    width: 222px;
+    width: 200px;
 }
 
 .page {
     float: left;
-    margin-left: 15px;
-    width: 744px;
+    margin-left: 10px;
+    width: 700px;
 }
 
 .page.noFacet{
@@ -417,18 +408,15 @@ body{
 /*********** Global Site Components *************
 * Place site styles here for things used on multiple pages like:
 * navigation, header, footer, etc */
-.logo {
-    margin: auto 0;
-}
 
 #header .logo a{
-    background: url("../images/dsg-logo.svg") no-repeat scroll left top transparent;
+    background: url("../images/logo.png") no-repeat scroll left top transparent;
     display: block;
     float: left;
-    height: 46px;
-/*    margin: 15px 0px 0px 20px;
-    padding: 10px 8px 0px 0px;*/
-    width: 150px;
+    height: 80px;
+    margin: 15px 0px 0px 20px;
+    padding: 10px 8px 0px 0px;
+    width: 300px;
 }
 
 #header .logo span {
@@ -461,24 +449,40 @@ body{
 
 #menu{
     z-index:100;
-    height: 100px;
-    width: 100%;
-    /*margin-bottom: 15px;*/
-    /*background: #8E0215;*/
+    height: 51px;
+    margin-bottom: 8px; /*changed from 8  to 20*/
+    background: url("../images/menubg.png") no-repeat scroll left top #8E0215;
+    /*border: 1px solid #666666;*/
+
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    line-height: 54px;
+    /*font-size: 13px;*/
+    text-align: center;
+
+
 }
 
-#menuWrapper{
-    /*width: 1024px;*/
-    /*margin: 0 auto;*/
-    height: 100px;
-    float: right;
-    display: inline-flex;
+#menu li a {
+    display: block;
+    /*padding-right: 45px;
+    padding-left: 72px;*/
+    margin-right: 80px;
+    color: #FFF;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+#menu li a:hover{
+    color: rgba(229, 229, 229, .9);
 }
 
 .nav{
-    /*width: 1024px;*/
-    /*height: 45px;*/
-    text-transform: uppercase;
+    margin: 0;
+    width: 1024px;
+    height: 45px;
 }
 
 .nav li{
@@ -486,98 +490,71 @@ body{
 }
 
 .nav a{
-    padding: 10px 20px;
+    /*padding: 10px 20px;*/
 }
 
 .nav li:hover{
-    background-color: #252525;
+    /*background-color: #b12936;*/
 }
 
-.nav a:hover {
-    color: #fff;
+#navHome{
+    margin-left: 80px;
+
 }
 
 div#DDmenu{
     position: absolute;
-    background-color: #b12936;
+    background-color: #F9C25A;
     display: none;
     z-index: 100;
-    padding-bottom: 20px;
-    max-width: 195px;
+    /*padding: 10px;*/
+    padding-left: 10px;
+    min-width: 850px;
+    margin-left: -100px; 
+    margin-top: -5px;
+    min-height: 520px;
 }
 
 li.productCategories:hover div#DDmenu{
     display: block;
-    background-color: #252525;
-}
-
-li.productCategories:hover a{
-    color: #fff;
-    padding-right: 35px;
-}
-
-.productCategories:hover a::after{
-    color: #fff;
-}
-
-li.productCategories a{
-    padding-right: 35px;
 }
 
 div#DDmenu li{
     float:none;
-}
+ }
 
 div#DDmenu li a{
-    padding:6px 20px;
+    /*padding:3px 20px;*/
+    width: 200px;
+    height:90px;
+    border: solid 1px transparent;
 }
 
-/*div#DDmenu li a:hover{
-    text-decoration: underline;
-}*/
+div#DDmenu li a:hover{
+    /*text-decoration: underline;
+    border: solid 1px blue;
+    background-color: red;*/
+    -webkit-filter: drop-shadow(0px 0px 8px rgba(0, 231, 255, 0.8));
 
-div#DDmenu li:hover{
-    background: #b50000;
 }
 
-.liveChat{
-    
-}
 
 /****Utility Nav****/
 
-#header-nav .wrapper .utilNav li{
+#header .wrapper .utilNav li{
     float: left;
-    /*margin-left: 10px;*/
+    margin-left: 10px;
 }
 
-.welcomemsg:first-child {
-    padding-right: 10px;
-}
 
-.utilNav {
-    font-size: 13px;
-    margin: 10px 0 auto auto;
-    width: auto;
-}
+.utilNav{
 
-.utilNav a, .utilNav p, .utilNav strong {
-    color: #fff;
-    font-weight: normal;
-}
-
-.utilNav a {
-    padding: 13.5px 20px;
-}
-
-.utilNav a:hover {
-    background: #B50000;
 }
 
 .utilNav ul{
     float: right;
+    margin-top: -100px;
 }
-
 
 /****footer nav****/
 
@@ -586,72 +563,43 @@ div#DDmenu li:hover{
     padding:0px 10px;
 }
 
-#footer ul li:nth-child(2) {
-    padding-right: 0;
-}
-
 #footer ul{
-    width: auto;
+    /*
+    margin: 0 auto;
+    width: 500px;*/
     float: right;
 }
 
 /****Mini Cart****/
 
-.mini-cart{
-    margin-top: -10px;
-    background: #b50000;
-    height: 40px;
-    width: 200px;
-    padding: 0;
-    display: flex;
-}
-
-.mini-cart a {
-    padding: 0;
-}
-
-.cartbutton{
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;    
-}
-
-#cart-icon{
-    float: left;
-    font-size: 24px;
-    margin: auto 8px auto 9px;
-}
-
-.summary{
-    float: right;
-    text-align: left;
-}
-
-#cart-quantity, #cart-total{
-    clear: both;
+.utilNav .mini-cart{
+    margin-top: -7px;
+    background-color: #444444;
+    padding: 6px 10px 10px;
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
 }
 
 /**** search ****/
 
 .search {
-    /*clear: right;*/
+    clear: right;
     /*padding-top: 20px;*/
-/*    float: right;
-    margin: auto 0;*/
-    display: inline-flex;
-    margin-top: 31.5px;
-    margin-bottom: 31.5px;
+    margin-top: -50px;
+    float: right;
 }
 
 #searchForm div{
-    border: 1px solid #e6e6e6;
     background-color: #fff;
-    width: 210px;
-    height: 35px;
-    display: flex;
-    position: relative;   
-
+    width: 175px;
+    /*border: 1px solid #aaaaaa;*/
+    height: 24px;
+    float: right;
+    margin-right: 80px;
 }
 
 #searchForm input#key{
@@ -659,17 +607,43 @@ div#DDmenu li:hover{
     width: 148px;
     float: left;
     padding-left: 2px;
+    background-color: #8fcff8;
+    border: 1px solid #499ACD;
+    color: #454545;
+    font-size: 12px;
+    padding: 2px 2px 3px 8px;
+    width: 165px;
+    height: 19px;
 }
 
 #searchForm input#searchBtn{
-    width: 20px;
-    height: 24px;
-    background: url("../images/btn_search.gif") 50% 50% #FFF no-repeat;
+    width: 79px;
+    height: 26px;
+    background: url("../images/searchbutton.png") no-repeat;
     border: none;
     cursor: pointer;
     float: right;
-    text-indent:-20000px;
+    /*text-indent:-20000px;*/
+    margin-top: -27px;
+    float: left;
+    margin-left: 177px;
 }
+
+::-webkit-input-placeholder { /* Chrome */
+  color: #000000;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: 000000;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: 000000;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: 000000;
+  opacity: 1;
+}
+
 
 /*********** Global - Reused Basic Elements: tables, HR, etc; *************/
 
@@ -692,15 +666,15 @@ table a:visited {
 
 table a:active,
 table a:hover {
-/*    color: #bd5a35;*/
+    color: #bd5a35;
     text-decoration:underline;
 }
 
 table {
-    font-family: 'Lato', sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color:#666;
     font-size:12px;
-    /*text-shadow: 1px 1px 0px #fff;*/
+    text-shadow: 1px 1px 0px #fff;
     background:#eaebec;
     margin:20px;
     border:#ccc 1px solid;
@@ -710,10 +684,6 @@ table {
     -moz-box-shadow: 0 1px 2px #d1d1d1;
     -webkit-box-shadow: 0 1px 2px #d1d1d1;
     box-shadow: 0 1px 2px #d1d1d1;
-}
-
-.p-table.cart-table {
-    width: 95%;
 }
 
 table th {
@@ -804,47 +774,41 @@ tfoot tr td{
 }
 
 .btn {
-    background-color: #f5f5f5;
-    color: #B50000;
-    border: none;
-    padding: 0 20px;
-    cursor: pointer;;
-    display: flex;
-    align-items: center;    
-    justify-content: center;
-    height: 40px;
-    min-width: auto;
-    text-transform: uppercase;
-    font-size: 16px;
-    font-weight: 900;
+    background-color: #d42926;
+    border:1px solid #777;
+    color:#FFF;
+    font-weight: bold;
+    padding: 5px 10px;
+    cursor: pointer;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
 }
 
 .btn:hover{
-    background-color: #E0E0E0;
+    background-color: #CCCCCC;
+      -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
 } 
 
 .btn-primary{
-    background-color: #B50000;
-    color: #FFF;
-    border: none;
-    font-weight: 900;
-    padding: 0 20px;
+    background-color: #d42926;
+    border:1px solid #777;
+    color:#FFF;
+    font-weight: bold;
+    padding: 5px 10px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    min-width: auto;
-    font-size: 16px;
-    text-transform: uppercase;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
 }
 
 .btn-primary:hover{
-    background-color: #252525;
-}
-
-#continueShopBtn {
-    margin-top: 15px;
+    background-color: #CCCCCC;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
 }
 
 .gift-btn {
@@ -853,6 +817,7 @@ tfoot tr td{
     -webkit-border-radius: 3px 3px 3px 3px;
     border: 1px solid !important;
     background: #ededed;
+    background-color: #d42926 !important;
 }
 
 /*********** Page Experience Specific Styles *************
@@ -860,77 +825,10 @@ tfoot tr td{
 
 /****Home****/
 
-.home-content{
-
-}
-
-.welcome-message{
-
-}
-
-.spotlight {
-    background: url("../images/spot-img.jpg");
-    background-size: auto;
-    background-size: cover;
-    height: 500px;
-    width: auto;
-    display: flex;
-}
-
-.spotlight .wrapper {
-    width: 1024px;
-    height: 150px;
-    display: flex;
-    margin: auto;
-}
-
-.spotlight-msg {
-    height: 150px;
-    width: 690px;
-    background: rgba(181, 0, 0, 0.7);
-}
-
-.spotlight-msg h1, .spotlight-msg h2 {
-    text-transform: uppercase;
-    color: #fff!important;
-    text-align: left;
-    line-height: 55px;
-    margin-left: 26px;
-}
-
-.spotlight-msg h1 {
-    font-size: 70px;
-    font-weight: 900;
-}
-
-.spotlight-msg h2 {
-    font-size: 45px!important;
-    margin-top: 9px;
-    font-weight: normal;
-}
-
-#pageHome h2 {
-    color: #b50000;
-    font-size: 28px;
-    font-weight: normal;
-    margin-bottom: 8px;
-}
-
-.aboutUs {
-    width: 50%;
-}
-
-.aboutUs p {
-    font-size: 16px;
-    line-height: 22px;
-    width: 460px;
-}
-
 /*Featured Products Carousel*/
 
 .featured-product-carousel{
     position:relative;
-    width: 50%;
 }
 
 .featured-product-carousel .title{
@@ -946,12 +844,12 @@ tfoot tr td{
 .featured-product-carousel .items-wrapper{
     float:left;
     width:600px;
-    /*padding-left:10px;*/
-    height: 154px;
+    padding-left:10px;
+    height: 132px;
 }   
 
 .featured-product-carousel .prev{
-    display: none;
+    display:block;
     width:23px;
     height:127px;
     float:left;
@@ -959,53 +857,34 @@ tfoot tr td{
 }
 
 .featured-product-carousel .next{
-    display: none;
+    display:block;
     width:23px;
     height:127px;
     float:left;
     background:url("../images/arrowRight.png") no-repeat;
 }       
 
-.keyboardMI{
-    background:initial !important;
-    font-size: 40px !important;
-    height: 50px !important;
-    top: 50px !important;
-    position: relative;
-}
-
 .featured-product-carousel .item{
-/*    width:135px;
-    height:125px;*/
-    width:150px;
-    height:150px;
+    width:135px;
+    height:125px;
     float:left;
     display:table-cell;
     vertical-align:middle;
-    /*margin-right:5px;*/
-}
-
-.featured-product-carousel .item:nth-child(6) {
-    margin-right: 31px;
-    margin-left: 31px;
+    margin-right:5px;
 }
 
 .featured-product-carousel .item img{
-/*    max-height:125px;
-    max-width:125px;*/
-    max-height:150px;
-    max-width:150px;
+    max-height:125px;
+    max-width:125px;
 }
 
 .featured-product-carousel .item a{
-    /*width:100%;*/
-    /*height:125px;*/
-    width: 150px;
-    height: 150px;
+    width:100%;
+    height:125px;
     display:table-cell;
     vertical-align:middle;
     text-align:center;
-    border: 1px solid #e6e6e6;
+    border:1px solid #C3C3C3;
 }   
         
 /****FAQ ****/
@@ -1016,12 +895,12 @@ tfoot tr td{
     border: 1px solid #CCCCCC;
     border-radius: 3px 3px 3px 3px;
     box-shadow: 0 1px 2px #D1D1D1;
-    color: #252525;
-    font-family: 'Lato', sans-serif;
-    font-size: 14px;
+    color: #666666;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
     margin: 0px;
     padding: 15px;
-    /*text-shadow: 1px 1px 0 #FFFFFF;*/
+    text-shadow: 1px 1px 0 #FFFFFF;
     width: 660px;
 }
 
@@ -1031,7 +910,6 @@ tfoot tr td{
 
 #pageFAQ .section{
     padding: 10px;
-    width: 660px;
 }
 
 /****Custom Orders****/
@@ -1050,7 +928,7 @@ tfoot tr td{
     border-radius: 3px 3px 3px 3px;
     box-shadow: 0 1px 2px #D1D1D1;
     color: #666666;
-    font-family: 'Lato', sans-serif;
+    font-family: Arial,Helvetica,sans-serif;
     font-size: 12px;
     margin: 20px 0 20px 0;
     padding: 15px;
@@ -1061,7 +939,7 @@ tfoot tr td{
 /****Login****/
 
 .login form{
-    font-family: 'Lato', sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color:#666;
     font-size:12px;
     text-shadow: 1px 1px 0px #fff;
@@ -1095,7 +973,7 @@ a.forgotPassword{
 /****Register****/
 
 #registration form#registerForm{
-    font-family: 'Lato', sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color:#666;
     font-size:12px;
     text-shadow: 1px 1px 0px #fff;
@@ -1113,7 +991,7 @@ a.forgotPassword{
 }
 
 #registration form#registerForm label{
-    width: 120px;
+    width: 100px;
     display: block;
     float: left;
 }
@@ -1138,10 +1016,10 @@ a.forgotPassword{
 }
 
 #pageMyAccount form.myAccountForm{
-    font-family: 'Lato', sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color:#666;
     font-size:12px;
-    /*text-shadow: 1px 1px 0px #fff;*/
+    text-shadow: 1px 1px 0px #fff;
     background:#eaebec;
     margin:0px 20px 20px 20px;
     border:#ccc 1px solid;
@@ -1150,7 +1028,7 @@ a.forgotPassword{
 }
 
 #pageMyAccount form.myAccountForm label{
-    width: 120px;
+    width: 100px;
     display: block;
     float: left;
 }
@@ -1161,15 +1039,6 @@ a.forgotPassword{
 
 #pageMyAccount form.myAccountForm .f-row{
     margin-top: 5px;
-}
-
-#pageMyAccount hr{
-    border: #000;
-    color:  #fff;
-}
-
-.info_needed {
-    margin-bottom: 15px;
 }
 
 /****My Account My Address****/
@@ -1194,8 +1063,7 @@ td.ar{
     float: left;
     height: 275px;
     margin-right: 20px;
-    width: 151px;
-    padding-bottom: 30px;
+    width: 150px;
 }
 
 #pageCategory .badges, #pageSearchResults .badges{
@@ -1203,19 +1071,6 @@ td.ar{
     top: 1px;
     left: 1px;
     display:none;
-}
-
-#pageCategory .container, #pageSearchResults .container{
-    min-height: 275px;
-}
-
-#pageCategory .text, #pageSearchResults .text{
-    min-height: 72px;
-    line-height: 17px;
-}    
-
-#pageCategory .name{
-    text-align: left;
 }
 
 .sortView{
@@ -1274,12 +1129,12 @@ td.ar{
 .sortControl {
     float: right;
     margin-left: 15px;
-    color: #252525;
 }
 
 .pagination-new li{
     float: left;
     margin-right: 10px;
+    margin-top: 3px;
 }
 
 .pagination-new ul{
@@ -1291,7 +1146,7 @@ a.view-all{
 }
 
 .btn.wishlist{
-    /*display: block;*/
+    display: block;
     margin-top: 5px;
 }
 
@@ -1302,20 +1157,15 @@ a.view-all{
 }
 
 #pageItem .sidebar{
-    width: 322px;   
+    width: 300px;   
 }
 
 #pageItem .page{
-    width: 644px;   
-}
-
-#pageItem .desc {
-    font-size: 13px;
-    color: #252525;
+    width: 600px;   
 }
 
 #pageItem .itemContent{
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 #pageItem .imageWindow{
@@ -1324,7 +1174,6 @@ a.view-all{
 
 #pageItem .price {
     margin: 10px;
-    color: #252525;
 }
 
 #pageItem .actions{
@@ -1333,12 +1182,11 @@ a.view-all{
 
 .estimate-calendar {
     margin-top: 5px;
-    font-size: 16px;
 }
 
 .add-another-item  table {
-    margin: 0px 0px 15px;
-    width: 644px;
+    margin: 0;
+    width: 600px;
 }
 
 input.qty-input{
@@ -1380,7 +1228,7 @@ input.qty-input{
 }
 
 .ui-tabs-panel{
-    font-family: 'Lato', sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color:#666;
     font-size:12px;
     background:#eaebec;
@@ -1389,7 +1237,7 @@ input.qty-input{
     -webkit-box-shadow: 0 1px 2px #d1d1d1;
     box-shadow: 0 1px 2px #d1d1d1;
     padding: 15px;
-    height:100% !important;
+    height:150px !important;
 }
 
 .ui-corner-bottom{
@@ -1453,6 +1301,7 @@ background-image: none !important;
 
 .cart-table a.icon-trash{
     font-size: 16px;
+    background-color: #fff;
     display: block;
     text-indent: -4000px;
 }
@@ -1466,10 +1315,6 @@ tr.total td{
 
 ul.radios-list li label{
     font-weight: normal;
-    display: flex;
-    align-items: baseline;
-    justify-content: flex-start;
-    margin-top: 5px;
 }
 
 #pageBasket td{
@@ -1480,7 +1325,7 @@ ul.radios-list li label{
 
 .co-breadcrumb{
   background-image: url("../images/bg/checkout_sprite.png");
-  background-position: 103% 0;
+  background-position: 102% 0;
   background-repeat: no-repeat;
   margin: 30px 0;
 }
@@ -1491,7 +1336,7 @@ ul.radios-list li label{
 }
 
 .co-breadcrumb.step2 {
-    background-position: 86% 0;
+    background-position: 85% 0;
 }
 
 .co-breadcrumb.step3{
@@ -1547,7 +1392,6 @@ ul.radios-list li label{
 
 .co-breadcrumb li.ty {
   margin-left: 60px;
-  width: 125px;
 }
 
 .address-options {
@@ -1574,25 +1418,6 @@ float: right;
     display:block;
     color:#444;
     border:1px solid #CDCDCD;
-}
-
-#view-preset a {
-    position: inherit;
-    padding: 0px;
-}
-
-#view-preset {
-    height: 60px;
-    text-align: center;
-    line-height: 0px;
-}
-
-.preset-address .preset-name {
-    font-style: italic;
-}
-
-.select-single .preset-address {
-    display: none;
 }
 
 .select-single label {
@@ -1676,7 +1501,7 @@ float: right;
 
 /****Checkout ????????? Payment****/
 
-.shipInfotxt {
+#shipInfotxt {
     float: right;
     width: 540px;
     padding: 15px 15px 1px;
@@ -1690,10 +1515,6 @@ float: right;
 
     .shipping-methods-section{
         
-    }
-
-    .shipping-methods-section .location{
-        margin: 20px 0px;
     }
 
     .shipping-methods-section .ship-account-number {
@@ -1718,19 +1539,7 @@ float: right;
 }
 
 #pageCheckoutPayment .js-click{
-    color:#84010F;
-}
-
-.payment-section{
-    margin-bottom: 30px;
-}
-
-.shipInfotxt {
-    float: right;
-    width: 540px;
-    padding: 15px 15px 1px;
-    background: #DDDDDD;
-    margin: 5px 0 0 0;
+    color:#d42926;
 }
 
 .tabs.clearfix > ul {
@@ -1738,7 +1547,7 @@ float: right;
 }
 
 .tabs .tab {
-    font-family: 'Lato', sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color:#666;
     font-size:12px;
     background:#FFFFFF;
@@ -1841,11 +1650,6 @@ input#cvv{
     width: 50px;
 }
 
-.checkoutQuestions {
-    float: left;
-    margin: 0px !important;
-}
-
 /*** CVV/CID Security Code Help popup ***/
 
 #securityCode_help {
@@ -1878,7 +1682,7 @@ input#cvv{
     text-align: center;
     font-size: 19px;
     line-height: 20px;
-    font-family: 'Lato', sans-serif;
+    font-family: arial;
     color: #FFF;
     text-shadow: 0px 0px 2px #000;
     box-shadow: 0px 1px 1px 0px #aaa;
@@ -1901,16 +1705,14 @@ input#cvv{
 }
 
 .question {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
+    /*! display: inline; */
+    margin-top: 10px;
 }
-
 
 /****Checkout ????????? Review****/
 
 .location{
-        font-family: 'Lato', sans-serif;
+        font-family:Arial, Helvetica, sans-serif;
         color:#666;
         font-size:12px;
         text-shadow: 1px 1px 0px #fff;
@@ -1924,6 +1726,8 @@ input#cvv{
         -webkit-box-shadow: 0 1px 2px #d1d1d1;
         box-shadow: 0 1px 2px #d1d1d1;
         padding: 15px;
+
+        /*!  */
 }
 
 .location .items{
@@ -1984,11 +1788,8 @@ input#cvv{
 }
 
 .warningText{
-    color: red;
+    color: #FC9801;
     font-weight: bold;
-    font-size: 13px;
-    text-align: center;
-    margin-bottom: 20px;
 }
 
 .message.success{
@@ -1997,6 +1798,162 @@ input#cvv{
     border: 1px solid #208802;
     margin: 5px 0px;
 }
+
+/*****  modal login box  - begin   *******/
+
+        #modal {
+            width:450px;
+            height:189px;
+            padding:8px;
+            background:rgba(0,0,0,.3);
+            -webkit-border-radius:8px;
+            -moz-border-radius:8px;
+            border-radius:8px;
+            position:absolute !important;
+            top:50% !important;
+            left:50% !important;
+            margin-top:-94px !important;
+            margin-left:-180px !important;
+            z-index:150;
+            visibility:hidden;
+        }
+
+        #heading {
+            width:450px;
+            height:40px;
+            background-image: -webkit-linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));
+            background-image: -moz-linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));
+            background-image: -o-linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));
+            background-image: -ms-linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));
+            background-image: linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f9f9f9', EndColorStr='#e9e9e9');
+            border-bottom:1px solid #bababa;
+            -webkit-box-shadow:
+                inset 0px -1px 0px #fff,
+                0px 1px 3px rgba(0,0,0,.08);
+            -moz-box-shadow:
+                inset 0px -1px 0px #fff,
+                0px 1px 3px rgba(0,0,0,.08);
+            box-shadow:
+                inset 0px -1px 0px #fff,
+                0px 1px 3px rgba(0,0,0,.08);
+            -webkit-border-radius:4px 4px 0px 0px;
+            -moz-border-radius:4px 4px 0px 0px;
+            border-radius:4px 4px 0px 0px;
+            font-size:13px;
+            font-weight:bold;
+            text-align:center;
+            line-height:44px;
+            color:#444444;
+            text-shadow:0px 1px 0px #fff;
+        }
+
+        #modalcontent {
+            width: 450px;
+            height:125px;
+            padding-top: 10px;
+            background:#fcfcfc;
+            -webkit-box-shadow:0px 1px 3px rgba(0,0,0,.25);
+            -moz-box-shadow:0px 1px 3px rgba(0,0,0,.25);
+            box-shadow:0px 1px 3px rgba(0,0,0,.25);
+            -webkit-border-radius:0px 0px 4px 4px;
+            -moz-border-radius:0px 0px 4px 4px;
+            border-radius:0px 0px 4px 4px;
+        }
+        #modalcontent p {
+            font-size:13px;
+            font-weight:normal;
+            text-align:center;
+            line-height:22px;
+            color:#555555;
+            width:100%;
+            float: left;
+            margin:10px 0;
+        }
+
+        #modal .fieldbox input {
+            background: url("../templateimages/subfield.jpg") repeat-x scroll left top transparent;
+            height: 16px;
+            padding: 2px 5px;
+            width: 250px;
+            /* margin-top: 10px; */
+            border: solid #e2e2e2;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #modal .button {
+            width:138px;
+            height:33px;
+            font-size:13px;
+            font-weight:bold;
+            line-height:33px;
+            color:#fff;
+            background-color: #69913a;
+            text-shadow:0px 1px 0px rgba(0,0,0,.2);
+            -webkit-border-radius:3px;
+            -moz-border-radius:3px;
+            border-radius:3px;
+            border: none;
+            text-transform: uppercase;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+
+        #modal .button:hover{
+            background-color: #402f8e;
+        } 
+        #modal .button img {
+            float:left;
+            width:33px;
+            height:33px;
+        }
+
+        .button.purple {
+            float: none;
+            margin: 20px auto;
+        }
+
+        .reveal-modal-bg {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            background: #000;
+            background: rgba(0,0,0,.8);
+            z-index: 100;
+            display: none;
+            top: 0;
+            left: 0;
+        }
+
+        .modalbutton1 {
+            display: inline-block;
+            margin-left: 85px;
+            margin-top: 20px;
+        }
+
+        .modalbutton2 {
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*****  modal login box - end   *******/
 
 [class^="icon-"],
 [class*=" icon-"] {
@@ -2152,214 +2109,3 @@ input#cvv{
 .icon-filter {background-position: -408px -144px;}
 .icon-briefcase {background-position: -432px -144px;}
 .icon-fullscreen {background-position: -456px -144px;}
-
-.buttonOff{
-    background-color: #2B2A2C !important;
-}
-
-#pageTerms p{
-    margin-bottom: 30px;
-}
-
-#submitClearWishList{
-    position: relative;
-    float: right;
-}
-
-#imageWindow{
-    padding-bottom: 15px;
-}
-
-.searchGlass {
-    position: relative;
-    float: left;
-    cursor: pointer;
-    font-size: 24px !important;
-    color: #B50000;
-    top: 7px;
-    padding-left: 6px;    
-}
-
-.featuredwrap{
-    display: flex;
-    justify-content: space-between;    
-}
-
-#recentlyViewed{
-    margin-top: 12px;
-}
-
-.cross-sell h3{
-    margin-bottom: 5px;
-}
-
-.productCategories a::after{
-    font-family: 'Material Icons';
-    content: '\e5cf';
-    position: absolute;
-    font-size: 24px;
-    color: #B50000;
-}
-
-div#DDmenu a::after{
-    content:'';
-}
-
-#deleteAll{
-    top: 5px;
-    position: relative;
-    cursor: pointer;
-}
-
-/*****  modal login box  - begin   *******/
-
-        #modal {
-            width:450px;
-            height:189px;
-            padding:8px;
-            background:rgba(0,0,0,.3);
-            -webkit-border-radius:8px;
-            -moz-border-radius:8px;
-            border-radius:8px;
-            position:absolute !important;
-            top:50% !important;
-            left:50% !important;
-            margin-top:-120px !important;
-            margin-left:-200px !important;
-            z-index:150;
-            visibility:hidden;
-        }
-
-        #heading {
-            width:450px;
-            height:40px;
-            background-image: -webkit-linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));
-            background-image: -moz-linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));
-            background-image: -o-linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));
-            background-image: -ms-linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));
-            background-image: linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));
-            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f9f9f9', EndColorStr='#e9e9e9');
-            border-bottom:1px solid #bababa;
-            -webkit-box-shadow:
-                inset 0px -1px 0px #fff,
-                0px 1px 3px rgba(0,0,0,.08);
-            -moz-box-shadow:
-                inset 0px -1px 0px #fff,
-                0px 1px 3px rgba(0,0,0,.08);
-            box-shadow:
-                inset 0px -1px 0px #fff,
-                0px 1px 3px rgba(0,0,0,.08);
-            -webkit-border-radius:4px 4px 0px 0px;
-            -moz-border-radius:4px 4px 0px 0px;
-            border-radius:4px 4px 0px 0px;
-            font-size:13px;
-            font-weight:bold;
-            text-align:center;
-            line-height:44px;
-            color:#444444;
-            text-shadow:0px 1px 0px #fff;
-        }
-
-        #modalcontent {
-            width: 370px;
-            height:85px;
-            padding: 20px 40px 0;
-            background:#fcfcfc;
-            -webkit-box-shadow:0px 1px 3px rgba(0,0,0,.25);
-            -moz-box-shadow:0px 1px 3px rgba(0,0,0,.25);
-            box-shadow:0px 1px 3px rgba(0,0,0,.25);
-            -webkit-border-radius:0px 0px 4px 4px;
-            -moz-border-radius:0px 0px 4px 4px;
-            border-radius:0px 0px 4px 4px;
-            text-align: center;
-        }
-        #modalcontent p {
-            font-size:13px;
-            font-weight:normal;
-            text-align:center;
-            line-height:22px;
-            color:#555555;
-            width:100%;
-            float: left;
-            margin:10px 0;
-        }
-
-        #modal .fieldbox input {
-            background: url("../templateimages/subfield.jpg") repeat-x scroll left top transparent;
-            height: 16px;
-            padding: 2px 5px;
-            width: 250px;
-            /* margin-top: 10px; */
-            border: solid #e2e2e2;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            border-radius: 5px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        #modal .button {
-            width:138px;
-            font-size:13px;
-            font-weight:bold;
-            line-height:33px;
-            color:#fff;
-            background-color: #f00;
-            text-shadow:0px 1px 0px rgba(0,0,0,.2);
-            -webkit-border-radius:3px;
-            -moz-border-radius:3px;
-            border-radius:3px;
-            border: none;
-            text-transform: uppercase;
-            display: inline-block;
-            cursor: pointer;
-        }
-
-
-        #modal .button:hover{
-            background-color: #B50937;
-        } 
-        #modal .button img {
-            float:left;
-            width:33px;
-            height:33px;
-        }
-
-        .button.purple {
-            float: none;
-            margin: 20px auto;
-        }
-
-        .reveal-modal-bg {
-            position: fixed;
-            height: 100%;
-            width: 100%;
-            background: #000;
-            background: rgba(0,0,0,.8);
-            z-index: 100;
-            display: none;
-            top: 0;
-            left: 0;
-        }
-
-       .modalbuttondiv{
-             position: relative;
-             top: 30px;
-             display: flex;
-             justify-content: space-around;
-       }
-
-        .modalbutton1 {
-            display: inline-block;
-        }
-
-        .modalbutton2 {
-            display: inline-block;
-        }
-
-/*****  modal login box - end   *******/
-
-#addAnother {
-    font-size: 16px;
-}
-
