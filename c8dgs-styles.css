@@ -517,7 +517,7 @@ li.productCategories:hover a{
 }
 
 .productCategories:hover a::after{
-    color: #fff;
+    color: #fff!important;
 }
 
 li.productCategories a{
@@ -2193,7 +2193,7 @@ input#cvv{
     margin-bottom: 5px;
 }
 
-.productCategories a::after{
+li.productCategories.top > a::after{
     font-family: 'Material Icons';
     content: '\e5cf';
     position: absolute;

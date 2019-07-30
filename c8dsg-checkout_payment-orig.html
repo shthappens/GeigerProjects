@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+#parse('libGlobalConfig.vm')
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+
+#########################################################################
+
+## Identify payment gateway codes that should not authorize or charge a credit card in C8
+#set( $pgcodenocc = ["NCC","GL","PP","IB","NOCHEX","UFS","DPS","ALIGNET","PCI2NONE","PCI2CC",""] )
+
+#########################################################################
+#macro ( showPriceOnCheckout $price)
+#if($isPointStore && $isPointStore=='TRUE')
+$regExp.currencyInteger($viewStoreCurrency.locale,  $price) #if ( $price==0) Point #else Points #end
+#else
+$number.format('currency', $price, $viewStoreCurrency.locale)
+#end
+#end
+
+#macro ( showPriceOnCheckout2 $price)
+#if($isPointStore && $isPointStore=='TRUE')
+$regExp.currencyInteger($viewStoreCurrency.locale,  $price) 
+#else
+$number.format('currency', $price, $viewStoreCurrency.locale)
+#end
+#end
+
+
+<html id="pageCheckoutPayment">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else #springMessage("navPayment") - $!{htmlSiteName} #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+    #parse('libpartcheckoutpaymentcssjs.vm ')
+    #parse('libpartpresetaddresseshead.vm')
+  </head>
+  <body>
+    #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+    <div id="container">
+        #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+        <div id="content" role="main">
+            #if($!{isPointStore}== 'TRUE')
+                #parse('libpartcheckoutpaymentcontentpoints.vm')
+            #else
+                #parse('libpartcheckoutpaymentcontent.vm')
+            #end 
+        </div> <!--//#content -->
+      #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end
+      #if($!$footerPosition == "INSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    </div> <!--//#container -->
+    #if($!$footerPosition == "OUTSIDE") #displayFooter($!$displayCustomFooterContent) #end
+
+    #parse("libpartcheckoutpaymentjsbottom.vm")
+    
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+  </body>
+</html>
