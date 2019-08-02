@@ -1,3 +1,15 @@
+// <script>    
+
+    $( document ).ready(function() {
+        
+        console.log('hola')
+        $('input[name="validateBillingPhone"]').attr('value','false');
+        
+    });
+
+// </script>
+
+
 //340 C2GPM Script Q validations
 
 function validateForm() {
