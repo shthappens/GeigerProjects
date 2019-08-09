@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 #parse('libGlobalConfig.vm')
 #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
@@ -52,7 +51,9 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
             jQuery("#838").hide();
             jQuery("#839").hide();
             jQuery("#840").hide();
-            jQuery("#841").hide();                  
+            jQuery("#841").hide();
+            jQuery("#842").hide();
+            jQuery("#843").hide();                  
 
           });
 
@@ -73,8 +74,14 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
             var corporateGLCode = jQuery("select[name='840_0_5507']");
             var corporateGLCodeText = jQuery("select[name='840_0_5507'] option:selected").text();
 
-            var hrGLode = jQuery("select[name='841_0_5508]");
+            var hrGLode = jQuery("select[name='841_0_5508']");
             var hrGLCodeText = jQuery("select[name='841_0_5508'] option:selected").text();
+
+            var corpMarketing = jQuery("select[name='842_0_5510']");
+            var corpMarketingText = jQuery("select[name='842_0_5510'] option:selected").text();
+
+            var branchMarketing = jQuery("select[name='843_0_5511']");
+            var branchMarketingText = jQuery("select[name='843_0_5511'] option:selected").text();
 
             //check for question completion
             var answers= 0;
@@ -98,13 +105,36 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
               answers ++;
             }
 
+            // if(corpMarketing.val() == 'Please Select') {
+            //   alert("Please select Corporate Marketing Options.");
+            // }
+            // if(branchMarketing.val() == 'Please Select') {
+            //   alert("Please select Branch Marketing Options.");
+            // }
+            
             if(branchCodeText== 'Please Select') {
               alert("Please select Branch Number.");
               return false;
             }
-            if(answers <= 3 ) {                          
+
+            console.log('answers: ' + answers)
+
+            if(answers <= 3) {
+              // at this point, we know all three options have values, now we proceed to validate validate options
+              if ( branchMarketing.is(':visible') && branchMarketingText == 'Please Select') {
+                console.log('must select option')
+                alert("Please complete each order question.");
+                return false
+              }
+              if ( corpMarketing.is(':visible') && corpMarketingText == 'Please Select') {
+                console.log('must select option')
+                alert("Please complete each order question.");
+                return false
+              }                             
+              // else, we're golden!
               return true;
             }
+
             else {
               alert("Please complete each order question.");
               return false;
@@ -112,7 +142,7 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
 
           };
 
-          // if Corporate branch, show Corporate departments and Corporate GL Code, hide Segment and Segment GL Code .
+          // if Corporate branch, show Corporate departments and Corporate GL Code, hide Segment and Segment GL Code.
           $( "#836" ).change(function() {
  
             if($("select[name='836_0_5503'] option:selected").text() == "Corporate (88)") {
@@ -122,13 +152,15 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
 
               $("#838").hide();
               $("#839").hide();
+              $("#843").hide();
 
               $("select[name='838_0_5505']").val("");
               $("select[name='839_0_5506']").val("");
+              $("select[name='843_0_5511']").val("");
               
             }
 
-          //if Coroate not selected, show intial options
+          //if Corporate branch deselected, show intial options
           if($("select[name='836_0_5503'] option:selected").text() != "Corporate (88)")
             {
               $("#838").show();
@@ -137,16 +169,18 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
               $("#837").hide();
               $("#840").hide();
               $("#841").hide();
+              $("#842").hide();
               
               $("select[name='837_0_5504']").val("");
               $("select[name='840_0_5507']").val("");
               $("select[name='841_0_5508']").val("");
+              $("select[name='842_0_5510']").val("");
               
             }
 
           });
 
-          // if Corporate BRANCH and HR department, show HR GL code
+          // if Corporate branch and HR department, show HR GL code
           $( "#837" ).change(function() {
 
             if($("select[name='837_0_5504'] option:selected").text() == "Human Resources (70)") {
@@ -168,6 +202,51 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
               $("#841").hide();
 
               $("select[name='841_0_5508']").val("");
+            }
+          });
+
+          // if Branch is not Corporate (88), show Branch Marketing Options
+          $( "#839" ).change(function() {
+
+            if($("select[name='839_0_5506'] option:selected").text() == "Branch Marketing (6240)") {
+
+              $("#843").show();
+
+              // $("#839").hide();
+              // $("#840").hide();
+
+              // $("select[name='843_0_5511']").val("Please Select");
+              // $("select[name='839_0_5506']").val("");
+              // $("select[name='840_0_5507']").val("");
+            }
+
+            if($("select[name='839_0_5506'] option:selected").text() != "Branch Marketing (6240)") {
+              
+              $("#843").hide();
+
+              $("select[name='843_0_5511']").val("");
+            }
+          });
+
+          // if Corporate BRANCH and Corporate Marketing, show Corporate Marketing Options
+          $( "#840" ).change(function() {
+
+            if($("select[name='840_0_5507'] option:selected").text() == "Corporate Marketing (6250)") {
+
+              $("#842").show();
+
+              $("#843").hide();
+
+              $("select[name='843_0_5511']").val("");
+              // $("select[name='842_0_5510']").val("Please Select");
+              // $("select[name='840_0_5507']").val("");
+            }
+
+            if($("select[name='840_0_5507'] option:selected").text() != "Corporate Marketing (6250)") {
+              
+              $("#842").hide();
+
+              $("select[name='842_0_5510']").val("");
             }
           });
 
@@ -231,7 +310,7 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
             }
 
             if($("select[name='836_0_5503'] option:selected").text() == "Ham Lake, MN (52)") {
-                $("input[name*='freightAccountNumberMap']").val("N/A");
+                $("input[name*='freightAccountNumberMap']").val("1A40A7");
             }
 
             if($("select[name='836_0_5503'] option:selected").text() == "Helena, MT (40)") {
