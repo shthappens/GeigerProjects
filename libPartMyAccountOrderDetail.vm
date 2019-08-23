@@ -1,0 +1,622 @@
+
+#macro (showPriceOnOrderDetail $price)
+    #if($isPointStore && $isPointStore=='TRUE')
+        ##$regExp.currencyInteger($viewStoreCurrency.locale,$price)
+        $number.format('Integer',$regExp.showPrice($price),$viewStoreCurrency.locale)
+    #else
+        $number.format('currency',$price,$viewStoreCurrency.locale)
+    #end
+#end
+
+
+## controls colspan value used in display of order details.  - added 10.04.18 - kevin 
+#if($shipViaMethod && $shipViaMethod == 'TRUE')
+    #set($colSpan = '6') 
+#else
+    #set($colSpan = '5') 
+#end
+
+
+<h2>#springMessage("vm.vieworderdetail.title"):</h2><br>
+<table class="no-border">
+  <tr>
+    <td>#springMessage("vm.vieworderdetail.orderid"):</td>
+    <td>$!myAccountDTO.order.orderid</td>
+  </tr>
+  <tr>
+    <td>#springMessage("vm.vieworderdetail.date"):</td>
+    <td>$date.format('medium',$!myAccountDTO.order.updatetime)</td>
+  </tr>
+    #set($paytypeid = 0)
+    #set($strcc = "")
+    #set($strgc = "")
+    #foreach($orderpayment in $myAccountDTO.order.orderPayments)
+        #if ($orderpayment.paytype == 'CC') 
+            #set($paytypeid = $paytypeid + 100)
+            #set($strcc = "Credit Card")
+        #end
+        #if ($orderpayment.paytype == 'GC') 
+            #set($paytypeid = $paytypeid + 1)
+            #set($strgc = "Gift Card")
+        #end                        
+    #end
+    
+    #if($paytypeid > 0)
+  <tr>
+    <td>#springMessage("vm.vieworderdetail.method"):</td>
+    <td>$strcc #if ($strcc!="" && $strgc!="") , #end $strgc</td>
+  </tr>
+    #end     
+</table>
+<hr/>      
+<tr>
+#set($hasTrackingNumber = 'false')
+#foreach($orderTrackingNumber in $orderTrackingNumberDTO.getItems())
+    #set($hasTrackingNumber='true')
+#end
+#if($hasTrackingNumber=='true')
+##	<div class="hide"><!--order_details_block-->
+    <div>
+		<table border="0">
+			<tr>
+				<td width="$labelWidth">Order Tracking number:</td>
+				<td></td>
+			</tr>
+			
+            #set ($UPS='http://wwwapps.ups.com/WebTracking/track?track=yes&amp;trackNums=')
+            #set ($FedEx='http://www.fedex.com/Tracking?action=track&amp;tracknumbers=')
+            
+			#foreach($orderTrackingNumber in $orderTrackingNumberDTO.getItems())
+    			<tr>
+    				<td width="$labelWidth">$orderTrackingNumber.label</td>
+    				
+                    #if($orderTrackingNumber.trackingNumber.startsWith('1Z'))
+                      #set ($CourierLink = $UPS)
+                    #else 
+                      #set ($CourierLink = $FedEx)
+                    #end
+                    
+    				<td><a href="${CourierLink}$orderTrackingNumber.trackingNumber">$orderTrackingNumber.trackingNumber</a></td>
+    			</tr>
+			#end
+		</table>
+        </div><!--order_details_block-->
+#end ## end of tracking  number 
+</tr>
+
+<tr>
+<h2 class="hide">#springMessage("vm.vieworderdetail.billto"):</h2><br>
+#set ($addrno = 0)
+  <!-- billing address -->
+<table class="no-border">
+     #foreach($addr in $myAccountDTO.order.orderAddresses)
+      #if ($addr.addressdesc == 'BILLING ADDRESS')
+          #set ($addrno = 1)
+          <tr>
+            <th colspan="5" class=""><b>$!billingAddressHeader</b></th>
+            <th width="16">&nbsp;</th>
+          </tr>
+          
+          <tr>
+            <td width="55" class="label">#springMessage("vm.vieworderdetail.attention"):</td>
+            <td> $!addr.firstname $!addr.lastname</td>
+            <td width="16">&nbsp;</td>
+            <td width="90" class="label">#springMessage("vm.register.province"):</td>
+            <td>#if ($addr.province.id != 0)
+                 $!addr.province.name #else $!addr.anotherprovince #end</td>
+            <td width="16">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td width="55" class="label">#springMessage("vm.register.company"):</td>
+            <td>$!addr.company</td>
+            <td width="16">&nbsp; </td>
+            <td width="90" class="label">#springMessage("vm.register.country"):</td>
+            <td>#if ($addr.country.id != 0)
+                 $!addr.country.name #end</td>
+            <td width="16">&nbsp;</td>
+          </tr>
+          <tr>
+            <td width="55" class="label">#springMessage("vm.register.address"):</td>
+
+            <td>$!addr.Address1</td>
+            <td width="16">&nbsp;</td>
+            <td width="90" class="label">#springMessage("vm.register.postal"):</td>
+            <td> $!addr.Postal</td>
+
+            <td width="16">&nbsp;</td>
+          </tr>
+          <tr>
+            <td width="55" class="label">
+      #if($addr.Address2!="")
+      &nbsp;
+      #else
+      #springMessage("vm.register.city"):
+        #end    
+            </td>
+            <td>
+      #if($addr.Address2!="")
+            $!addr.Address2 
+      #else
+      $!addr.City
+      #end      
+            </td>
+            <td width="16">&nbsp;</td>
+            <td width="90" class="label">#springMessage("vm.register.phone"):</td>
+            <td>$!addr.Phone</td>
+            <td width="16">&nbsp;</td>
+          </tr>
+          <tr>
+            <td width="55" class="label">
+        #if($addr.Address2!="")     
+            #springMessage("vm.register.city"):
+        #else
+      &nbsp;
+      #end     
+            </td>
+            <td>
+      #if($addr.Address2!="")
+            $!addr.City
+      #else
+      &nbsp;
+      #end
+            </td>
+            <td width="16">&nbsp;</td>
+            <td width="90" class="label">#springMessage("word.email"):</td>
+            <td>$!addr.Email</td>
+            <td width="16">&nbsp;</td>
+          </tr>
+      <tr><td colspan="6"><br/></td></tr>
+      #end
+    #end                          
+</table>
+#if ($addrno == 1)
+<hr/>   
+#end
+
+#set ($addrno = 0)  
+#foreach($addr in $myAccountDTO.order.orderAddresses)
+    #if ($addr.addressdesc == 'SHIPPING ADDRESS')
+         #set ($addrno = 1)
+    #end
+#end
+
+#if ($addrno == 1)
+<h2>#springMessage("vm.vieworderdetail.shipto"):</h2>
+
+  <table class="no-border">
+     #foreach($addr in $myAccountDTO.order.orderAddresses)
+      #if ($addr.addressdesc == 'SHIPPING ADDRESS')
+          <tr>
+            <th colspan="5"><b>$!addr.nickname</b></th>
+            <th width="16"> </th>
+          </tr>
+          
+          <tr>
+            <td width="55" class="label">#springMessage("vm.vieworderdetail.attention"):</td>
+            <td> $!addr.firstname $!addr.lastname</td>
+            <td width="16"> </td>
+            <td width="90" class="label">#springMessage("vm.register.province"):</td>
+            <td>#if ($addr.province.id != 0)
+                 $!addr.province.name #end</td>
+            <td width="16"> </td>
+          </tr>
+
+          <tr>
+            <td width="55" class="label">#springMessage("vm.register.company"):</td>
+            <td>$!addr.company</td>
+            <td width="16">  </td>
+            <td width="90" class="label">#springMessage("vm.register.country"):</td>
+            <td>#if ($addr.country.id != 0)
+                 $!addr.country.name #end</td>
+            <td width="16"> </td>
+          </tr>
+          <tr>
+            <td width="55" class="label">#springMessage("vm.register.address"):</td>
+
+            <td>$!addr.Address1</td>
+            <td width="16"> </td>
+            <td width="90" class="label">#springMessage("vm.register.postal"):</td>
+            <td> $!addr.Postal</td>
+
+            <td width="16"> </td>
+          </tr>
+          <tr>
+            <td width="55" class="label">
+      #if($addr.Address2!="")
+        
+      #else
+      #springMessage("vm.register.city"):
+        #end    
+            </td>
+            <td>
+      #if($addr.Address2!="")
+            $!addr.Address2 
+      #else
+      $!addr.City
+      #end      
+            </td>
+            <td width="16"> </td>
+            <td width="90" class="label">#springMessage("vm.register.phone"):</td>
+            <td>$!addr.Phone</td>
+            <td width="16"> </td>
+          </tr>
+          <tr>
+            <td width="55" class="label">
+        #if($addr.Address2!="")     
+            #springMessage("vm.register.city"):
+        #else
+        
+      #end     
+            </td>
+            <td>
+      #if($addr.Address2!="")
+            $!addr.City
+      #else
+        
+      #end
+            </td>
+            <td width="16"> </td>
+            <td width="90" class="label">#springMessage("word.email"):</td>
+            <td>$!addr.Email</td>
+            <td width="16"> </td>
+          </tr>
+      <tr><td colspan="6"><br></td></tr>
+      #end
+    #end                          
+  </table>
+<hr/>   
+#end
+
+
+#set ($downloadno = 0)  
+#foreach($download in $myAccountDTO.order.orderDownloads)
+     #set ($downloadno = 1)
+#end
+#if ($downloadno == 1)
+<h2>#springMessage("vm.vieworderdetail.downloadfiles"):</h2>
+
+  <table class="">
+    <!-- order items table header -->
+    <tr>
+      <td bgcolor="#FFFFFF" width="35%" ><b>#springMessage("vm.vieworderdetail.itemname")</b>
+        </td>
+      <td bgcolor="#FFFFFF" width="45%" >
+        <b>#springMessage("vm.vieworderdetail.filename")</b>
+      </td>
+      <td bgcolor="#FFFFFF" width="20%" >
+        <b>#springMessage("vm.vieworderdetail.status")</b>
+      </td>                  
+    </tr>
+
+     #foreach($download in $myAccountDTO.order.orderDownloads)
+          <tr>
+            <td >
+        <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+              #set($itemtitle="")
+              #foreach($item in $myAccountDTO.order.orderItems)
+                      #if ($item.itemid == $download.itemid)
+                            #set($itemtitle=$item.title)
+                      #end
+              #end
+              $!itemtitle
+          
+         </td>
+          <td >
+            <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+              $!download.filename
+          
+         </td>
+          <td >
+            <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+              #if("${download.status}" != "0")
+                     #springMessage("vm.vieworderdetail.expired")
+              #else
+                  #if("${download.saveat}" == "1" )
+                        <a href="download.html?vid=${download.vid}&KeyId=${download.id}">#springMessage("word.download")</a>
+                  #else
+                        <a href="$!download.downloadurl">#springMessage("word.download")</a>
+                  #end
+              #end 
+             
+         </td>
+          </tr>
+      #end    
+          
+  </table>
+<hr/>   
+#end
+
+
+  <table >
+    <!-- order items table header -->
+    <tr>
+      <th width="35%"><b>#springMessage("vm.vieworderdetail.details")</b><br>
+        </th>
+      <th width="10%">
+        <div ><b>#springMessage("vm.register.shipto")</b></div>
+      </th>
+      
+      ## controls display of Ship Methodology - added 10.04.18 - kevin 
+      #if($shipViaMethod && $shipViaMethod == 'TRUE')
+          <th width="10%">
+            <div ><b>Ship Via</b></div>
+          </th>      
+      #end
+      
+      <th width="5%">
+        <div ><b>#springMessage("vm.register.qty")</b></div>
+      </th>
+      ##sitewide variable for pricing on/off
+      #if(($priceOnOff && $priceOnOff == 1) || (!$priceOnOff))
+          <th width="10%">
+            <p ><b>#springMessage("vm.vieworderdetail.unitprice")</b></p>
+          </th>
+          <th width="10%">
+            <div ><b>#springMessage("vm.vieworderdetail.totalprice") </b></div>
+          </th>
+      #end     
+      <th width="10%">
+        <div ><b>#springMessage("vm.vieworderdetail.status")</b></div>
+      </th>                      
+    </tr>
+    
+    <!-- items list start-->
+    #set($tempSubtotal = 0)
+    #foreach($orderItem in $myAccountDTO.order.orderItems)
+    #set($singlePrice = $math.sub($orderItem.itemcost,$orderItem.discount))
+    #set($totalPrice = $math.mul($singlePrice, $orderItem.qty))
+    
+      #set($tempSubtotal = $math.add($tempSubtotal , $totalPrice) )
+
+    <tr>
+      <td>
+        <font face="Verdana, Arial, Helvetica, sans-serif" size="1">$!orderItem.itemcode<br>$!orderItem.title. 
+          
+        <font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+          $!orderItem.InventoryMsg
+        
+      
+      </td>
+      <td >
+        <div >
+     #foreach($addr in $myAccountDTO.order.orderAddresses)
+      #if ($addr.orderaddressid == $orderItem.shipto)
+          $!addr.nickname
+      #end
+     #end            
+        </div>
+
+      </td>
+      ## controls display of Ship Methodology - added 10.04.18 - kevin 
+      #if($shipViaMethod && $shipViaMethod == 'TRUE')
+          <td >
+            <div>
+            #if($orderItem.shipvia)
+                #set($shipmethodCode= $orderItem.shipvia.split(":")[2])
+                #foreach($itemRow in $shippingmethodsDTO.getItems())
+                    #set($shipmethod= $pageTile.getItemObject($shippingmethodsDTO, $itemRow , "s"))
+                    #if($shipmethod.groupid == $orderItem.shipid && $shipmethod.methodname == $shipmethodCode)
+                        $shipmethod.description
+                    #end
+                #end
+            #end
+            </div>
+          </td>
+      #end
+      <td >
+        <div >$!orderItem.qty</div>
+
+      </td>
+
+     ## sitewide variable for pricing on/off
+     #if(($priceOnOff && $priceOnOff == 1) || (!$priceOnOff))   
+          <td >
+            ## code block updated 01.25.18 for customCurrencySymbol - kevin
+            ## <div >#showPriceOnOrderDetail($singlePrice)</div>
+            #if($customCurrencySymbol)
+                ## updated with check for $isPointStore 03.28.19 - kevin 
+                #if($isPointStore=="TRUE")
+                    $number.format("#0", $singlePrice)
+                #else
+                    $customCurrencySymbol $number.format("#0.00", $singlePrice)
+                #end    
+            #else   
+                <div >#showPriceOnOrderDetail($singlePrice)</div>
+            #end              
+          </td>
+                  
+          <td>
+            
+            ## code block updated 01.25.18 for customCurrencySymbol - kevin            
+            ## <div >#showPriceOnOrderDetail($totalPrice)</div>
+            #if($customCurrencySymbol)
+                <div >
+                    ## updated with check for $isPointStore 03.28.19 - kevin 
+                    #if($isPointStore=="TRUE")
+                        $number.format("#0", $totalPrice)
+                    #else
+                        $customCurrencySymbol $number.format("#0.00", $totalPrice)
+                    #end  
+                </div>
+            #else   
+                <div >#showPriceOnOrderDetail($totalPrice)</div>
+            #end     
+          </td>
+      #end
+      
+      <td>#set ($ois = $myAccountDTO.orderItemStates)
+        <div>
+            #if($orderItem.orderitemstate == 2)
+              #springMessage("jsp.preferences5.shipstates.Cancelled")
+            #elseif($orderItem.orderitemstate == 3)
+              #springMessage("jsp.preferences5.shipstates.toBeShipped")
+            #elseif($orderItem.orderitemstate == 5)
+              #springMessage("jsp.preferences5.shipstates.shippedOn")
+            #elseif($orderItem.orderitemstate == 6)
+              #springMessage("jsp.preferences5.shipstates.returned")
+            #elseif($orderItem.orderitemstate == 9)
+              #springMessage("jsp.preferences5.shipstates.declined")
+            #elseif($orderItem.orderitemstate == 10)
+              #springMessage("jsp.preferences5.shipstates.paymentFailed")
+            #elseif($orderItem.orderitemstate == 13)
+              #springMessage("jsp.preferences5.shipstates.processed")
+            #elseif($orderItem.orderitemstate == 14)
+              #springMessage("jsp.preferences5.shipstates.onHold")
+            #end
+        </div>
+      </td>
+    </tr>
+
+    #end
+    <!-- items list end-->
+    ## sitewide variable for pricing on/off
+    #if(($priceOnOff && $priceOnOff == 1) || (!$priceOnOff))
+        <!-- summary start -->
+        <tr>
+          ## updated colspan values to be controlled by a variable used in conjunction with $shipViaMethod for display purposes. - updated 10.04.18 - kevin          
+          <td colspan="$!colSpan" class="ar">
+            <div ><b>#springMessage("vm.register.subtotal")</b></div>
+    
+          </td>
+          <td>
+            
+            ## code block updated 01.25.18 for customCurrencySymbol - kevin            
+            ## <div > #showPriceOnOrderDetail($math.sub($myAccountDTO.order.tot, $myAccountDTO.order.itemdiscount))</div>
+            #if($customCurrencySymbol)
+                <div> 
+                    ## updated with check for $isPointStore 03.28.19
+                    #if($isPointStore=="TRUE")
+                        $number.format("#0", $math.sub($myAccountDTO.order.tot, $myAccountDTO.order.itemdiscount))
+                    #else
+                        $customCurrencySymbol $number.format("#0.00", $math.sub($myAccountDTO.order.tot, $myAccountDTO.order.itemdiscount))
+                    #end    
+                </div>
+            #else   
+                <div > #showPriceOnOrderDetail($math.sub($myAccountDTO.order.tot, $myAccountDTO.order.itemdiscount))</div>
+            #end             
+          </td>
+    
+        </tr>
+        
+        #if($math.toInteger($myAccountDTO.order.orderdiscount) > 0)
+        
+        <tr>
+          ## updated colspan values to be controlled by a variable used in conjunction with $shipViaMethod for display purposes. - updated 10.04.18 - kevin   
+          <td colspan="$!colSpan" class="ar">
+            <div ><b>#springMessage("vm.register.discounts")</b></div>
+    
+          </td>
+          <td>
+            ## may need to update to customCurrency in the future - kevin 
+            <div ><font color="red" face="Verdana, Arial, Helvetica, sans-serif" size="2">#showPriceOnOrderDetail($myAccountDTO.order.orderdiscount)</div>
+          </td>
+    
+        </tr>
+        #end
+     
+        <tr>
+          ## updated colspan values to be controlled by a variable used in conjunction with $shipViaMethod for display purposes. - updated 10.04.18 - kevin 
+          <td colspan="$!colSpan" class="ar">
+            <div ><b>#springMessage("vm.register.shipping")</b></div>
+    
+          </td>
+          <td>
+            
+            ## code block updated 01.25.18 for customCurrencySymbol - kevin
+            ## <div >#showPriceOnOrderDetail($myAccountDTO.order.shiptot)</div>
+            #if($customCurrencySymbol)
+                <div>
+                    ## updated with check for $isPointStore 03.28.19
+                    #if($isPointStore=="TRUE")
+                        $number.format("#0", $myAccountDTO.order.shiptot)
+                    #else
+                        $customCurrencySymbol $number.format("#0.00", $myAccountDTO.order.shiptot)
+                    #end  
+                </div>
+            #else   
+                <div >#showPriceOnOrderDetail($myAccountDTO.order.shiptot)</div>
+            #end             
+          </td>
+        </tr>
+        <tr>
+          ## updated colspan values to be controlled by a variable used in conjunction with $shipViaMethod for display purposes. - updated 10.04.18 - kevin 
+          <td colspan="$!colSpan" class="ar">
+            <div ><b>#springMessage("vm.register.tax")</b></div>
+    
+          </td>
+          <td>
+          
+            ## code block updated 01.25.18 for customCurrencySymbol - kevin
+            ## <div >#showPriceOnOrderDetail($myAccountDTO.order.taxtot)</div>
+            #if($customCurrencySymbol)
+                <div>
+                    ## updated with check for $isPointStore 03.28.19
+                    #if($isPointStore=="TRUE")
+                        $number.format("#0", $myAccountDTO.order.taxtot)
+                    #else
+                        $customCurrencySymbol $number.format("#0.00", $myAccountDTO.order.taxtot)
+                    #end   
+                </div>
+            #else   
+                <div >#showPriceOnOrderDetail($myAccountDTO.order.taxtot)</div>
+            #end               
+          </td>
+        </tr>
+    
+    
+        <!-- check if gc or any amount already paid -->
+        #set($totalPaid = 0)
+        #foreach($orderpayment in $myAccountDTO.order.orderPayments)
+            #set($totalPaid = $totalPaid + $orderpayment.paytot)
+        #end
+        
+        ## #if($totalPaid > 0)
+        ## <tr>
+        ##   <td colspan="5" class="ar">
+        ##     <div ><b>#springMessage("vm.vieworderdetail.paid")</b></div>
+        ##   </td>
+        ##   <td>
+        ##     ## code block updated 01.25.18 for customCurrencySymbol - kevin
+        ##     ## <div ><font color="red" face="Verdana, Arial, Helvetica, sans-serif" size="2">#showPriceOnOrderDetail($totalPaid)</div>
+                ## #if($customCurrencySymbol)
+                ##     <div ><font color="red" face="Verdana, Arial, Helvetica, sans-serif" size="2">$customCurrencySymbol $number.format("#0.00", $totalPaid)</div>
+                ## #else   
+                ## <div ><font color="red" face="Verdana, Arial, Helvetica, sans-serif" size="2">#showPriceOnOrderDetail($totalPaid)</div>
+                ## #end          
+        ##   </td>
+        ## </tr>
+        ## #end
+        ## <!-- end gc or any amount already paid -->
+    
+        <tr>
+          ## updated colspan values to be controlled by a variable used in conjunction with $shipViaMethod for display purposes. - updated 10.04.18 - kevin 
+          <td colspan="$!colSpan" class="ar">
+            <div ><b>#springMessage("vm.register.total")</b></div>
+          </td>
+          <td>
+            #set($otot = $math.add($myAccountDTO.order.tot ,$myAccountDTO.order.shiptot))
+            #set($otot = $math.sub($otot ,$myAccountDTO.order.itemdiscount))
+            #set($otot = $math.add($otot ,$myAccountDTO.order.taxtot))
+            #set($otot = $math.sub($otot ,$myAccountDTO.order.orderdiscount))
+            ## #set($otot = $math.sub($otot ,$totalPaid))
+            
+            ## code block updated 01.25.18 for customCurrencySymbol - kevin
+            ##  <div><font color="red" face="Verdana, Arial, Helvetica, sans-serif" size="2">#showPriceOnOrderDetail($otot)</div>
+            #if($customCurrencySymbol)
+                <div>
+                    ## updated with check for $isPointStore 03.28.19
+                    #if($isPointStore=="TRUE")
+                        $number.format("#0", $otot)
+                    #else
+                        $customCurrencySymbol $number.format("#0.00", $otot)
+                    #end 
+                </div>
+            #else   
+                <div >#showPriceOnOrderDetail($otot)</div>
+            #end                
+          </td>
+        </tr>
+        <!-- summary end -->
+    #end
+    </table>

@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+#parse('libGlobalConfig.vm')
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+
+#########################################################################
+
+## Identify payment gateway codes that should not authorize or charge a credit card in C8
+#set( $pgcodenocc = ["NCC","GL","PP","IB","NOCHEX","UFS","DPS","ALIGNET","PCI2NONE","PCI2CC",""] )
+
+#########################################################################
+#macro ( showPriceOnCheckout $price)
+#if($isPointStore && $isPointStore=='TRUE')
+$regExp.currencyInteger($viewStoreCurrency.locale,  $price) #if ( $price==0) Point #else Points #end
+#else
+$number.format('currency', $price, $viewStoreCurrency.locale)
+#end
+#end
+
+#macro ( showPriceOnCheckout2 $price)
+#if($isPointStore && $isPointStore=='TRUE')
+$regExp.currencyInteger($viewStoreCurrency.locale,  $price) 
+#else
+$number.format('currency', $price, $viewStoreCurrency.locale)
+#end
+#end
+
+
+<html id="pageCheckoutPayment">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else #springMessage("navPayment") - $!{htmlSiteName} #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+    #parse('libpartcheckoutpaymentcssjs.vm ')
+    #parse('libpartpresetaddresseshead.vm')
+  </head>
+  <body>
+    #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+    <div id="container">
+        #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+        <div id="content" role="main">
+            #if($!{isPointStore}== 'TRUE')
+                #parse('libpartcheckoutpaymentcontentpoints.vm')
+            #else
+                #parse('libpartcheckoutpaymentcontent.vm')
+            #end
+
+    <script>
+
+          jQuery(document).ready(function() {
+            jQuery("#848").hide();
+            jQuery("#849").hide();
+            jQuery("#850").hide();
+            jQuery("#851").hide();
+            jQuery("#852").hide();
+            jQuery("#853").hide();
+            jQuery("#854").hide();                  
+
+          });
+
+          function validateForm() {
+    
+            var branchCode = jQuery("select[name='847_0_5535']");
+            var branchCodeText = jQuery("select[name='847_0_5535'] option:selected").text();
+             
+            var departmentCode = jQuery("select[name='848_0_5536']");
+            var departmentCodeText = jQuery("select[name='848_0_5536'] option:selected").text();
+
+            var segmentCode = jQuery("select[name='849_0_5537']");
+            var segmentCodeText = jQuery("select[name='849_0_5537'] option:selected").text();
+
+            var glCode = jQuery("select[name='850_0_5538']");
+            var glCodeText = jQuery("select[name='850_0_5538'] option:selected").text();
+
+            var corporateGLCode = jQuery("select[name='851_0_5539']");
+            var corporateGLCodeText = jQuery("select[name='851_0_5539'] option:selected").text();
+
+            var hrGLode = jQuery("select[name='852_0_5540']");
+            var hrGLCodeText = jQuery("select[name='852_0_5540'] option:selected").text();
+
+            var corpMarketing = jQuery("select[name='853_0_5541']");
+            var corpMarketingText = jQuery("select[name='853_0_5541'] option:selected").text();
+
+            var branchMarketing = jQuery("select[name='854_0_5542']");
+            var branchMarketingText = jQuery("select[name='854_0_5542'] option:selected").text();
+
+            //check for question completion
+            var answers= 0;
+
+            if(branchCodeText== 'Please Select') {
+              answers ++;
+            }
+            if(departmentCodeText== 'Please Select') {
+              answers ++;
+            }
+            if(segmentCodeText== 'Please Select') {
+              answers ++;
+            }
+            if(glCodeText== 'Please Select') {
+              answers ++;
+            }
+            if(corporateGLCodeText== 'Please Select') {
+              answers ++;
+            }
+            if(hrGLCodeText== 'Please Select') {
+              answers ++;
+            }
+
+            // if(corpMarketing.val() == 'Please Select') {
+            //   alert("Please select Corporate Marketing Options.");
+            // }
+            // if(branchMarketing.val() == 'Please Select') {
+            //   alert("Please select Branch Marketing Options.");
+            // }
+            
+            if(branchCodeText== 'Please Select') {
+              alert("Please select Branch Number.");
+              return false;
+            }
+
+            console.log('answers: ' + answers)
+
+            if(answers <= 3) {
+              // at this point, we know all three options have values, now we proceed to validate validate options
+              if ( branchMarketing.is(':visible') && branchMarketingText == 'Please Select') {
+                console.log('must select option')
+                alert("Please complete each order question.");
+                return false
+              }
+              if ( corpMarketing.is(':visible') && corpMarketingText == 'Please Select') {
+                console.log('must select option')
+                alert("Please complete each order question.");
+                return false
+              }                             
+              // else, we're golden!
+              return true;
+            }
+
+            else {
+              alert("Please complete each order question.");
+              return false;
+            }
+
+          };
+
+          // if Corporate branch, show Corporate departments and Corporate GL Code, hide Segment and Segment GL Code.
+          $( "#847" ).change(function() {
+ 
+            if($("select[name='847_0_5535'] option:selected").text() == "Corporate (88)") {
+
+              $("#848").show();
+              $("#851").show();
+
+              $("#849").hide();
+              $("#850").hide();
+              $("#854").hide();
+
+              $("select[name='849_0_5537']").val("");
+              $("select[name='850_0_5538']").val("");
+              $("select[name='854_0_5542']").val("");
+              
+            }
+
+          //if Corporate branch deselected, show intial options
+          if($("select[name='847_0_5535'] option:selected").text() != "Corporate (88)")
+            {
+              $("#849").show();
+              $("#850").show();
+
+              $("#848").hide();
+              $("#851").hide();
+              $("#852").hide();
+              $("#853").hide();
+              
+              $("select[name='848_0_5536']").val("");
+              $("select[name='851_0_5539']").val("");
+              $("select[name='852_0_5540']").val("");
+              $("select[name='853_0_5541']").val("");
+              
+            }
+
+          });
+
+          // if Corporate branch and HR department, show HR GL code
+          $( "#848" ).change(function() {
+
+            if($("select[name='848_0_5536'] option:selected").text() == "Human Resources (70)") {
+
+              $("#852").show();
+
+              $("#850").hide();
+              $("#851").hide();
+
+              $("select[name='850_0_5538']").val("");
+              $("select[name='851_0_5539']").val("");
+            }
+
+            if($("select[name='848_0_5536'] option:selected").text() != "Human Resources (70)") {
+
+              $("#848").show();
+              $("#851").show();
+              
+              $("#852").hide();
+
+              $("select[name='852_0_5540']").val("");
+            }
+          });
+
+          // if Branch is not Corporate (88), show Branch Marketing Options
+          $( "#850" ).change(function() {
+
+            if($("select[name='850_0_5538'] option:selected").text() == "Branch Marketing (6240)") {
+
+              $("#854").show();
+
+              // $("#850").hide();
+              // $("#851").hide();
+
+              // $("select[name='854_0_5542']").val("Please Select");
+              // $("select[name='850_0_5538']").val("");
+              // $("select[name='851_0_5539']").val("");
+            }
+
+            if($("select[name='850_0_5538'] option:selected").text() != "Branch Marketing (6240)") {
+              
+              $("#854").hide();
+
+              $("select[name='854_0_5542']").val("");
+            }
+          });
+
+          // if Corporate BRANCH and Corporate Marketing, show Corporate Marketing Options
+          $( "#851" ).change(function() {
+
+            if($("select[name='851_0_5539'] option:selected").text() == "Corporate Marketing (6250)") {
+
+              $("#853").show();
+
+              $("#854").hide();
+
+              $("select[name='854_0_5542']").val("");
+              // $("select[name='853_0_5541']").val("Please Select");
+              // $("select[name='851_0_5539']").val("");
+            }
+
+            if($("select[name='851_0_5539'] option:selected").text() != "Corporate Marketing (6250)") {
+              
+              $("#853").hide();
+
+              $("select[name='853_0_5541']").val("");
+            }
+          });
+
+          // Set UPS # based on Branch #
+          $( "#847" ).change(function() {
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Aberdeen, SD (01)") {
+                $("input[name*='freightAccountNumberMap']").val("570376");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Alexandria, MN (27)") {
+                $("input[name*='freightAccountNumberMap']").val("31F389");
+            }
+
+           if($("select[name='847_0_5535'] option:selected").text() == "Austin, MN (28)") {
+                $("input[name*='freightAccountNumberMap']").val("558470");
+            }
+
+           if($("select[name='847_0_5535'] option:selected").text() == "Bemidji, MN (24)") {
+                $("input[name*='freightAccountNumberMap']").val("6F89A5");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Billings, MT (48)") {
+                $("input[name*='freightAccountNumberMap']").val("R66775");
+            }
+
+           if($("select[name='847_0_5535'] option:selected").text() == "Bismarck, ND (16)") {
+                $("input[name*='freightAccountNumberMap']").val("E58588");
+            }
+            
+            if($("select[name='847_0_5535'] option:selected").text() == "Bismarck, ND  Waterworks (15)") {
+                $("input[name*='freightAccountNumberMap']").val("6Y681F");
+            }
+
+           if($("select[name='847_0_5535'] option:selected").text() == "Bozeman, MT (42)") {
+                $("input[name*='freightAccountNumberMap']").val("4807X3");
+            }
+    
+           if($("select[name='847_0_5535'] option:selected").text() == "Corporate (88)") {
+                $("input[name*='freightAccountNumberMap']").val("566393");
+            }
+    
+           if($("select[name='847_0_5535'] option:selected").text() == "Dickinson, ND (18)") {
+                $("input[name*='freightAccountNumberMap']").val("A820V5");
+            }
+    
+           if($("select[name='847_0_5535'] option:selected").text() == "Fargo, ND (12)") {
+                $("input[name*='freightAccountNumberMap']").val("566047");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Fargo, ND Waterworks (11)") {
+                $("input[name*='freightAccountNumberMap']").val("566393");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Grand Forks, ND (14)") {
+                $("input[name*='freightAccountNumberMap']").val("555963");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Grand Rapids, MN (54)") {
+                $("input[name*='freightAccountNumberMap']").val("AY8291");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Ham Lake, MN (52)") {
+                $("input[name*='freightAccountNumberMap']").val("1A40A7");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Helena, MT (40)") {
+                $("input[name*='freightAccountNumberMap']").val("598075");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Kalispell, MT (46)") {
+                $("input[name*='freightAccountNumberMap']").val("597978");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "La Crosse, WI (31)") {
+                $("input[name*='freightAccountNumberMap']").val("583103");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Minot, ND (19)") {
+                $("input[name*='freightAccountNumberMap']").val("566166");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Missoula, MT (44)") {
+                $("input[name*='freightAccountNumberMap']").val("YR1586");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Mitchell, SD (02)") {
+                $("input[name*='freightAccountNumberMap']").val("570498");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Monticello, MN (56)") {
+                $("input[name*='freightAccountNumberMap']").val("YV4371");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Oakdale, MN (58)") {
+                $("input[name*='freightAccountNumberMap']").val("5E67X4");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Pierre, SD (03)") {
+                $("input[name*='freightAccountNumberMap']").val("585256");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Plover, WI (37)") {
+                $("input[name*='freightAccountNumberMap']").val("585256");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Plymouth, MN (55)") {
+                $("input[name*='freightAccountNumberMap']").val("556153");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Rapid City, SD (04)") {
+                $("input[name*='freightAccountNumberMap']").val("570442");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Rice Lake, WI (39)") {
+                $("input[name*='freightAccountNumberMap']").val("570086");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Rochester, MN (20)") {
+                $("input[name*='freightAccountNumberMap']").val("570086");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Sioux Falls, SD Automation (09)") {
+                $("input[name*='freightAccountNumberMap']").val("570086");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Sioux Falls, SD Electrical (10)") {
+                $("input[name*='freightAccountNumberMap']").val("570086");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Sioux Falls, SD Waterworks (06)") {
+                $("input[name*='freightAccountNumberMap']").val("570050");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "St. Paul, MN (21)") {
+                $("input[name*='freightAccountNumberMap']").val("566203");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Williston, ND (17)") {
+                $("input[name*='freightAccountNumberMap']").val("566203");
+            }
+
+            if($("select[name='847_0_5535'] option:selected").text() == "Winona, MN (26)") {
+                $("input[name*='freightAccountNumberMap']").val("Winona, MN (26)");
+            }
+          });
+        
+        </script>
+        
+
+        </div> <!--//#content -->
+      #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end
+      #if($!$footerPosition == "INSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    </div> <!--//#container -->
+    #if($!$footerPosition == "OUTSIDE") #displayFooter($!$displayCustomFooterContent) #end
+
+    #parse("libpartcheckoutpaymentjsbottom.vm")
+    
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+  </body>
+</html>

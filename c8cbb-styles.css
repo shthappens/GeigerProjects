@@ -495,7 +495,7 @@ div#DDmenu{
     padding-bottom: 20px;
     min-width: 227px;
     background-color: #064DA3;
-    top: 53px;    
+    top: 52px;    
 }
 
 li.productCategories:hover div#DDmenu{
@@ -508,6 +508,10 @@ div#DDmenu li{
 
 div#DDmenu li a{
     padding:3px 20px;
+}
+
+div#DDmenu li a:after{
+    content: '';
 }
 
 div#DDmenu li a:hover{
@@ -1668,7 +1672,7 @@ ul.radios-list li label{
     float: right;
     margin-top: 15px;
     text-align: right;
-    width: 150px;
+    width: 250px;
 }
 
 .subtotal-line.total{

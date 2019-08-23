@@ -1,0 +1,313 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"font",
+				"font-weight\tproperty"
+			],
+			[
+				"hrG",
+				"hrGLCodeText"
+			],
+			[
+				"copro",
+				"corporateGLCodeText"
+			],
+			[
+				"glCod",
+				"glCodeText"
+			],
+			[
+				"segment",
+				"segmentCodeText"
+			],
+			[
+				"error",
+				"errortxt"
+			],
+			[
+				"text",
+				"text-decoration\tproperty"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/seththompson/Desktop/GeigerProjects/c8sjhe-styles.css",
+		"/Users/seththompson/Desktop/GeigerProjects/c8sjhm-styles.css",
+		"/Users/seththompson/Desktop/GeigerProjects/c8sjhm-c8sjhe-checkout_payment.html",
+		"/Users/seththompson/Desktop/GeigerProjects/c8dsg-c8dsgc-styles.css",
+		"/Users/seththompson/Desktop/GeigerProjects/myScripts.js",
+		"/Users/seththompson/Desktop/GeigerProjects/c8ww-vieworderdetails.html",
+		"/Users/seththompson/Desktop/45W-Shop-Templates",
+		"/Users/seththompson/Desktop/fancy.css",
+		"/Users/seththompson/Desktop/GeigerProjects/c8dsg-checkout_payment.html",
+		"/Users/seththompson/Desktop/ScriptQuestionParse.html",
+		"/Users/seththompson/Desktop/GeigerProjects/libPartMyAccountOrderDetail.html",
+		"/Users/seththompson/Desktop/costCenter.json",
+		"/Users/seththompson/Downloads/costCenter.json",
+		"/Users/seththompson/Downloads/costCenterpreview.json",
+		"/Users/seththompson/Desktop/GeigerProjects/c8cbb-styles.css",
+		"/Users/seththompson/Desktop/GeigerProjects/c8sjhm-checkout_payment.html",
+		"/Users/seththompson/Desktop/GeigerProjects/c8dgs-styles.css",
+		"/Users/seththompson/Desktop/GeigerProjects/c8irb-styles.css",
+		"/Users/seththompson/Desktop/GeigerProjects/c8dsg-superfish.css",
+		"/Users/seththompson/Desktop/GeigerProjects/c2fsps-checkout_payment.html",
+		"/Users/seththompson/Desktop/libpartcheckoutpaymentcontentpoints.html",
+		"/Users/seththompson/Desktop/libpartcheckoutpaymentcontent.html",
+		"/Users/seththompson/Desktop/GeigerProjects/c2gpm-styles.css",
+		"/Users/seththompson/Desktop/c8taa.css",
+		"/Users/seththompson/Desktop/fancyForm.css",
+		"/Users/seththompson/Desktop/GeigerProjects/c2gpm-checkout_payment.html",
+		"/Users/seththompson/Desktop/GeigerProjects/c2gpm-checkout_payment-orig.html",
+		"/Users/seththompson/Desktop/GeigerProjects/c2gpm-fancyForm.css",
+		"/Users/seththompson/Desktop/temp.html",
+		"/Users/seththompson/Desktop/GeigerProjects/c8pmh-fancyForm.css",
+		"/Users/seththompson/Desktop/header.html",
+		"/Users/seththompson/Desktop/GeigerProjects/c8pmh-styles.css",
+		"/Users/seththompson/Desktop/GeigerProjects/fancyForm.css",
+		"/Users/seththompson/Desktop/GeigerProjects/c2fsps-checkout_payment-shop.html",
+		"/Users/seththompson/Desktop/GeigerProjects/c2fsps-checkout_payment-preview.html",
+		"/Users/seththompson/Desktop/GeigerProjects/38jvalidation-script.js",
+		"/Users/seththompson/Desktop/GeigerProjects/c2fsps-sendemail.js",
+		"/Users/seththompson/Desktop/GeigerProjects/c8gts-styles-update.css",
+		"/Users/seththompson/Desktop/GeigerProjects/c8zac-styles.css",
+		"/Users/seththompson/Desktop/GeigerProjects/c8miwd-styles.css",
+		"/Users/seththompson/Desktop/GeigerProjects/c8miwds-styles.css",
+		"/Users/seththompson/Desktop/GeigerProjects/c8gnhc-styles.css",
+		"/Users/seththompson/Desktop/GeigerProjects/c83lsn-home_store-orig.html",
+		"/Users/seththompson/Desktop/GeigerProjects/c8elsn-styles.css",
+		"/Users/seththompson/Desktop/GeigerProjects/c8elsn-styles-orig.css",
+		"/Users/seththompson/Desktop/GeigerProjects/breadcrumbs.html",
+		"/Users/seththompson/Desktop/GeigerProjects/libpartcheckoutpaymentcontent.html",
+		"/Users/seththompson/Desktop/GeigerProjects/c2iri-checkout_payment.html",
+		"/Users/seththompson/Desktop/GeigerProjects/c8gts-checkout_payment.html",
+		"/Users/seththompson/Desktop/c8gnhc-styles.css",
+		"/Users/seththompson/Desktop/c8gts-home_store-wroking.html",
+		"/Users/seththompson/Desktop/GeigerProjects/c8gts-styles.css"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"item-img",
+			"btn",
+			"body",
+			".FAQ",
+			"text-transform",
+			"item-attribute",
+			"text-transform",
+			"pageitem",
+			"span",
+			"/**************\n* This is the basic CSS file for use on Geiger Stores. \n* \n* The goal is to keep it simple, organized, clean and well commented. \n* If you are adding styles for something, chances are that it could use a comment to describe \n* what it is for. Please add one. Someone should be able to look at this CSS file and have a \n* good sense of where the style is used and for what. \n* \n* This style sheet starts with a basic reset and then has the following section breakdown:\n* Global - Typography: p, a, H1 H2, etc\n* Global - Reused Elements: tables, HR, etc\n* Global - Structure- styles that define the global strurctre. Wrapper divs, one coloumn, two column definitions, etc\n* Global Site Components - styles for things used on multiple pages like: navigation, header, footer, etc \n* Page Experience Specific Styles \n*\n* Color Glossary\n* Note the HEX values for common colors used in the site HERE. This allows for the style to be \n* known to any developers and helps to keep them constnat. \n* \n* Dark Grey for text and headers:; #444444\n* red (links): #84010F\n*  Med Grey (table headers) #777777;\n* Light Grey (talbe row odd) #F8F8F8\n* grey (table row even) #EFEFEF\n* \n* \n**************/\n\n/************ CSS Reset *************/\n\n* {\n    margin: 0;\n}\n\nhtml, body {\n    height: 100%;\n}\n\nhtml{\n    color:#000;background:#FFF;\n}\n\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, font, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    outline: 0;\n    font-weight: inherit;\n    font-style: inherit;\n    font-size: 100%;\n    font-family: inherit;\n    vertical-align: baseline;\n}\n\n/* remember to define focus styles! */\n\n:focus {\n    outline: 0;\n}\n\nbody {\n    line-height: 1;\n    color: black;\n    background: white;\n}\n\nol, ul, li {\n    list-style: none;\n}\n\n/* tables still need 'cellspacing=\"0\"' in the markup */\n\ntable {\n    border-collapse: separate;\n    border-spacing: 0;\n}\n\nsup { vertical-align: text-top; }\n\nsub { vertical-align: text-bottom; }\n\ncaption, th, td {\n    text-align: left;\n    font-weight: normal;\n}\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n    content: \"\";\n}\n\nblockquote, q {\n    quotes: \"\" \"\";\n}\n\nabbr, acronym {\n    border-bottom: .1em dotted;\n    cursor: help;\n}\n\naddress,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,textarea,th,var{\n    font:inherit;\n}\n\nh1,h2,h3,h4,h5,h6{\n    font-size:100%;font-weight:normal;\n}\n\nstrong{\n    font-weight: bold;\n}\n\n/*********** Global - Typography: p, a, H1 H2, etc*************/\n\nbody{\n    color: #252525;\n    font-family: 'Lato', sans-serif;\n    font-size: 14px;\n    line-height: 18px;\n}\n\n#container{\n    text-align: left;\n}\n\np{ \n    margin-bottom: 15px;\n    color: #252525;\n\n}\n\np .pageItem{\n      font-size: 14px !important;\n    line-height: 18px !important;  \n}\n\n#pageLogin p {\n    margin-bottom: 10px;\n}\n\n#footer p{\n    margin-bottom: 0px;\n}\n\na{ \n    color: #B50000;\n    text-decoration: none;\n}\n\na:hover {\n    color: #7A7A7A;\n}\n\n#footer{\n    font-size: 15px;\n    position: relative;\n    color: #7A7A7A;\n    background-color: #252525;\n}\n\n#footer a{\n    color: #7A7A7A;\n    font-size: 15px;\n}\n\n#footer a:hover {\n    color: #fff;\n}\n\n.nav a{\n    color: #252525;\n    font-size: 16px;\n    text-decoration: none;\n    line-height: 100px;\n}\n\ndiv#DDmenu a{\n    font-size: 14px;\n    line-height: 28px;\n    display: block;\n    color: #fff;\n}\n\nh1{ \n    font-weight: normal;\n    font-size: 26px;\n    padding: 0;\n    margin: 0px 0px 10px 0px;\n    line-height: 30px;\n    color: #B50000; \n}\n\n#pageHome h1{\n    /*text-align: center;*/\n}\n\n#pageCategory h1{\n    margin-top: 15px;\n}\n\n#pageTerms h1:first-child {\n    color: #B50000;\n    font-size: 26px;\n}\n\n#pageTerms h1 {\n    color: #252525;\n    font-size: 22px;\n}\n\nh2{ \n    font-size:22px;\n    color: #252525;\n    font-weight:bold;\n    margin-bottom: 15px;\n}\n\nh3{ }\nh4{ }\nh5{ }\nh6{ }\n\n.bCrumbs, .bCrumbs a{\n    font-size: 14px;\n    color:#777;\n    margin-bottom: 20px;\n}\n\n.image .price-box{\n    color:#fff;\n}\n\n.pagination-new li.active a{\n    color:#444444;\n    text-decoration: none;\n}\n\n.filter .title{\n    font-weight: bold; \n}\n\n#pageItem .price {\n    font-size: 18px;\n    font-weight: bold;\n    margin: 10px;\n}\n\n#itemCodeList {\n    /*font-style: italic;*/\n}\n\n.show-estimate-calendar img{\n    /*vertical-align: text-top;*/\n}\n\n.ui-widget-content.ui-tabs{\n    margin-top: 10px !important;\n}\n\nlabel, .label {\n    font-weight: bold;\n}\n\n.add-another-item label, .add-another-item .col3 span{\n    font-size: 14px;\n    font-weight: bold;\n} \n\n.sidebar .title{\n    font-weight: 600;\n    font-size: 13px;\n    margin-top: 10px;\n    text-transform: uppercase;\n    color: #555;\n    border-bottom: 1px solid #eee;\n    padding-bottom: 9px;\n    margin-bottom: 10px;\n    width: 85%;\n}\n\n#recentlyViewed li {\n}\n\n.subcat-title a,#recentlyViewed a {\n    padding:3px 2px 3px 33px;\n    display:block;\n    color: #252525;\n    background:url(../images/arrow-menu.png) 2px 1px no-repeat;\n    text-decoration:none;\n    font-size:12px\n}\n\n.subcat-title a:hover,#recentlyViewed a:hover {\n    /*color:#555;*/\n    background-position:2px -48px;\n    text-decoration:underline;\n    font-size:12px;\n    /*color:#00acd4;*/\n}\n\n.facettitle.blue {\n    font-size:11px;\n    font-weight:600\n}\n\n/*********** Global - Structure *************\nPlace style here that define the global stturctre. Wrapper divs, one coloumn, two column definitions, etc*/\n\nhtml{\n    background: #fff;\n}\n\nbody{\n    background: #FFF;\n}\n\n#container{\n    margin: 0 auto;\n    position: relative;\n    text-align: left;\n    width: 1024px;\n    min-height: 787px;\n}\n\n#content{\n    z-index: 1;\n    clear: both;\n    padding: 30px 20px 50px 20px;\n}\n\n#pageHome #content {\n    width: 1024px;\n    display: flex;\n    padding-left: 0;\n    padding-right: 0;\n    padding-top: 50px;\n}\n\n#header{\n    /*width: 100vw;*/\n    height: 100px;\n    margin: 0 auto;\n    border-top: 2px solid #b50000;\n    border-bottom: 1px solid #cdcdcd;\n}\n\n#header-nav {\n    height: 40px;\n    margin: 0 auto;\n    background-color: #252525;\n}\n\n#header-nav .wrapper {\n    width: 1024px;\n    height: 40px;\n    display: flex;\n    margin: 0 auto;\n}\n\n#header .wrapper{\n    width: 1024px;\n    height: 100px;\n    display: flex;\n    margin: 0 auto;\n    align-items: center;\n}\n\n#footer .wrapper{\n    box-sizing: border-box;\n    height: 50px;\n    padding: 15.5px 0;\n    margin: 0 auto;\n    width: 1024px;\n\n}\n\n#footer .wrapper p{\n    clear:both;\n    float: left;\n    color: #7A7A7A;\n}\n\n.repInfo {\n    float: left;\n    padding-right: 15px;\n    width: 285px;\n}\n\n.sidebar {\n    float: left;\n    width: 222px;\n}\n\n.page {\n    float: left;\n    margin-left: 15px;\n    width: 744px;\n}\n\n.page.noFacet{\n    width: 100%;   \n}\n\n.columnOne, .columnTwo{\n    float: left;\n}\n\n.columnOne{\n    /*border: 1px solid #f00;*/\n    width: 450px;\n}\n\n.columnTwo{\n    /*border: 1px solid #00F;*/\n    width: 450px;\n    margin-left: 10px;\n}\n\n.warning2{\n    color: #f00;\n    background-color: #FADCDA;\n    border: 1px solid #f00;\n    padding: 5px 10px;\n    font-weight: bold;\n}\n\n/*********** Global Site Components *************\n* Place site styles here for things used on multiple pages like:\n* navigation, header, footer, etc */\n.logo {\n    margin: auto 0;\n}\n\n#header .logo a{\n    background: url(\"../images/dsg-logo.svg\") no-repeat scroll left top transparent;\n    display: block;\n    float: left;\n    height: 46px;\n/*    margin: 15px 0px 0px 20px;\n    padding: 10px 8px 0px 0px;*/\n    width: 150px;\n}\n\n#header .logo span {\n    display: none;\n}\n\n#js-popup-message.popup, #deliverypopup{\n    background-color: #DE7A82;\n    border: 3px solid #9E091C;\n    box-shadow: 1px 1px 5px #ADADAD;\n    left: 40% !important;\n    padding: 20px;\n    position: absolute;\n    top: 50%;\n    visibility: visible;\n    width: 400px;\n    z-index: 2000;\n} \n\n#js-popup-message.popup .popup_menuItem {\n    background-color: #84010F;\n    color: #FFFFFF;\n    display: inline-block;\n    margin-top: 15px;\n    padding: 5px;\n    text-decoration: none;\n}\n\n/****Main Navigation****/\n\n#menu{\n    z-index:100;\n    height: 100px;\n    width: 100%;\n    /*margin-bottom: 15px;*/\n    /*background: #8E0215;*/\n}\n\n#menuWrapper{\n    /*width: 1024px;*/\n    /*margin: 0 auto;*/\n    height: 100px;\n    float: right;\n    display: inline-flex;\n}\n\n.nav{\n    /*width: 1024px;*/\n    /*height: 45px;*/\n    text-transform: uppercase;\n}\n\n.nav li{\n    float:left;\n}\n\n.nav a{\n    padding: 10px 20px;\n}\n\n.nav li:hover{\n    background-color: #252525;\n}\n\n.nav a:hover {\n    color: #fff;\n}\n\ndiv#DDmenu{\n    position: absolute;\n    background-color: #b12936;\n    display: none;\n    z-index: 100;\n    padding-bottom: 20px;\n    max-width: 195px;\n}\n\nli.productCategories:hover div#DDmenu{\n    display: block;\n    background-color: #252525;\n}\n\nli.productCategories:hover a{\n    color: #fff;\n    padding-right: 35px;\n}\n\n.productCategories:hover a::after{\n    color: #fff!important;\n}\n\nli.productCategories a{\n    padding-right: 35px;\n}\n\ndiv#DDmenu li{\n    float:none;\n}\n\ndiv#DDmenu li a{\n    padding:6px 20px;\n}\n\n/*div#DDmenu li a:hover{\n    text-decoration: underline;\n}*/\n\ndiv#DDmenu li:hover{\n    background: #b50000;\n}\n\n.liveChat{\n    \n}\n\n/****Utility Nav****/\n\n#header-nav .wrapper .utilNav li{\n    float: left;\n    /*margin-left: 10px;*/\n}\n\n.welcomemsg:first-child {\n    padding-right: 10px;\n}\n\n.utilNav {\n    font-size: 13px;\n    margin: 10px 0 auto auto;\n    width: auto;\n}\n\n.utilNav a, .utilNav p, .utilNav strong {\n    color: #fff;\n    font-weight: normal;\n}\n\n.utilNav a {\n    padding: 13.5px 20px;\n}\n\n.utilNav a:hover {\n    background: #B50000;\n}\n\n.utilNav ul{\n    float: right;\n}\n\n\n/****footer nav****/\n\n#footer ul li{\n    display: inline;\n    padding: 0px 10px 0px 20px;\n}\n\n#footer ul li:nth-child(2) {\n    padding-right: 0;\n}\n\n#footer ul{\n    width: auto;\n    float: right;\n}\n\n/****Mini Cart****/\n\n.mini-cart{\n    margin-top: -10px;\n    background: #b50000;\n    height: 40px;\n    width: 200px;\n    padding: 0;\n    display: flex;\n}\n\n.mini-cart a {\n    padding: 0;\n}\n\n.cartbutton{\n    text-decoration: none;\n    display: flex;\n    align-items: center;\n    justify-content: center;    \n}\n\n#cart-icon{\n    float: left;\n    font-size: 24px;\n    margin: auto 8px auto 9px;\n}\n\n.summary{\n    float: right;\n    text-align: left;\n}\n\n#cart-quantity, #cart-total{\n    clear: both;\n}\n\n/**** search ****/\n\n.search {\n    /*clear: right;*/\n    /*padding-top: 20px;*/\n/*    float: right;\n    margin: auto 0;*/\n    display: inline-flex;\n    margin-top: 31.5px;\n    margin-bottom: 31.5px;\n    margin-left: 16px;\n}\n\n#searchForm div{\n    border: 1px solid #e6e6e6;\n    background-color: #fff;\n    width: 198px;\n    height: 35px;\n    display: flex;\n    position: relative;   \n\n}\n\n#searchForm input#key{\n    border: none;\n    width: 148px;\n    float: left;\n    padding-left: 2px;\n}\n\n#searchForm input#searchBtn{\n    width: 20px;\n    height: 24px;\n    background: url(\"../images/btn_search.gif\") 50% 50% #FFF no-repeat;\n    border: none;\n    cursor: pointer;\n    float: right;\n    text-indent:-20000px;\n}\n\n/*********** Global - Reused Basic Elements: tables, HR, etc; *************/\n\nhr{\n}\n\n/*example table style from http://www.premiumpixels.com/freebies/simple-little-table-psd/ \nFeel free to change as needed*/\n\ntable a:link {\n    font-weight: bold;\n    text-decoration:none;\n}\n\ntable a:visited {\n    color: #999999;\n    font-weight:bold;\n    text-decoration:none;\n}\n\ntable a:active,\ntable a:hover {\n/*    color: #bd5a35;*/\n    /*text-decoration:underline;*/\n}\n\ntable {\n    font-family: 'Lato', sans-serif;\n    color:#666;\n    font-size:12px;\n    /*text-shadow: 1px 1px 0px #fff;*/\n    background:#eaebec;\n    margin:20px;\n    border:#ccc 1px solid;\n    -moz-border-radius:3px;\n    -webkit-border-radius:3px;\n    border-radius:3px;\n    -moz-box-shadow: 0 1px 2px #d1d1d1;\n    -webkit-box-shadow: 0 1px 2px #d1d1d1;\n    box-shadow: 0 1px 2px #d1d1d1;\n}\n\n.p-table.cart-table {\n    width: 95%;\n}\n\ntable th {\n    padding:21px 25px 22px 25px;\n    border-top:1px solid #fafafa;\n    border-bottom:1px solid #e0e0e0;\n    background: #ededed;\n    background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));\n    background: -moz-linear-gradient(top,  #ededed,  #ebebeb);\n}\n\ntable th:first-child {\n    text-align: left;\n    padding-left:20px;\n}\n\ntable tr:first-child th:first-child {\n    -moz-border-radius-topleft:3px;\n    -webkit-border-top-left-radius:3px;\n    border-top-left-radius:3px;\n}\n\ntable tr:first-child th:last-child {\n    -moz-border-radius-topright:3px;\n    -webkit-border-top-right-radius:3px;\n    border-top-right-radius:3px;\n}\n\ntable tr {\n    text-align: center;\n    padding-left:20px;\n}\n\ntable td:first-child {\n    padding-left:20px;\n    border-left: 0;\n}\n\ntable td {\n    padding:18px;\n    border-top: 1px solid #ffffff;\n    border-bottom:1px solid #e0e0e0;\n    border-left: 1px solid #e0e0e0; \n    background: #fafafa;\n    background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));\n    background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);\n}\n\ntable tr.even td {\n    background: #f6f6f6;\n    background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));\n    background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);\n}\n\ntable tr:last-child td {\n    border-bottom:0;\n}\n\ntable tr:last-child td:first-child {\n    -moz-border-radius-bottomleft:3px;\n    -webkit-border-bottom-left-radius:3px;\n    border-bottom-left-radius:3px;\n}\n\ntable tr:last-child td:last-child {\n    -moz-border-radius-bottomright:3px;\n    -webkit-border-bottom-right-radius:3px;\n    border-bottom-right-radius:3px;\n}\n\ntable tr:hover td {\n    background: #f2f2f2;\n    background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));\n    background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);  \n}\n\ntable.no-border tr, table.no-border td{\n    border:none;\n    padding: 5px 10px !important;\n} \n\ntfoot tr td{\n    border-top: 1px solid #E0E0E0;\n}\n\n.input{\n    padding: 2px 5px;\n}\n\n.btn {\n    background-color: #f5f5f5;\n    color: #B50000;\n    border: none;\n    padding: 0 20px;\n    cursor: pointer;;\n    display: flex;\n    align-items: center;    \n    justify-content: center;\n    height: 40px;\n    min-width: auto;\n    text-transform: uppercase;\n    font-size: 16px;\n    font-weight: 900;\n}\n\n.btn:hover, a.btn.btn-small.wishlist:hover{\n    background-color: #E0E0E0!important;\n    color: #B50000!important;\n} \n\n.btn-primary{\n    background-color: #B50000;\n    color: #FFF;\n    border: none;\n    font-weight: 900;\n    padding: 0 20px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: 40px;\n    min-width: auto;\n    font-size: 16px;\n    text-transform: uppercase;\n}\n\n.btn-primary:hover{\n    background-color: #252525!important;\n    color: #fff!important;\n}\n\n#continueShopBtn {\n    margin-top: 15px;\n}\n\n.gift-btn {\n    border-radius: 3px 3px 3px 3px;\n    -moz-border-radius: 3px 3px 3px 3px;\n    -webkit-border-radius: 3px 3px 3px 3px;\n    border: 1px solid !important;\n    background: #ededed;\n}\n\n#pageWishlist .btn, #pageWishist .btn-primary {\n    display: table-footer-group;\n}\n\n/*********** Page Experience Specific Styles *************\n* Place site styles here for things that are specific to a certain page experience. */\n\n/****Home****/\n\n.home-content{\n\n}\n\n.welcome-message{\n\n}\n\n.spotlight {\n    background: url(\"../images/spot-img.jpg\");\n    background-size: auto;\n    background-size: cover;\n    height: 500px;\n    width: auto;\n    display: flex;\n}\n\n.spotlight .wrapper {\n    width: 1024px;\n    height: 150px;\n    display: flex;\n    margin: auto;\n}\n\n.spotlight-msg {\n    height: 150px;\n    width: 690px;\n    background: rgba(181, 0, 0, 0.7);\n}\n\n.spotlight-msg h1, .spotlight-msg h2 {\n    text-transform: uppercase;\n    color: #fff!important;\n    text-align: left;\n    line-height: 55px;\n    margin-left: 26px;\n}\n\n.spotlight-msg h1 {\n    font-size: 70px;\n    font-weight: 900;\n}\n\n.spotlight-msg h2 {\n    font-size: 45px!important;\n    margin-top: 9px;\n    font-weight: normal;\n}\n\n#pageHome h2 {\n    color: #b50000;\n    font-size: 28px;\n    font-weight: normal;\n    margin-bottom: 8px;\n}\n\n.aboutUs {\n    width: 50%;\n}\n\n.aboutUs p {\n    font-size: 16px;\n    line-height: 22px;\n    width: 460px;\n    margin-top: 20px;\n    line-height: 23px;\n}\n\n/*Featured Products Carousel*/\n\n.featured-product-carousel{\n    position:relative;\n    width: 50%;\n}\n\n.featured-product-carousel .title{\n    margin: 0 0 0.35em 0;\n    font-weight: bold;\n    font-size: 18px;\n    color: #000;\n    height: 23px;\n    padding-bottom: 2px;\n    padding-left:10px;\n}\n\n.featured-product-carousel .items-wrapper{\n    float:left;\n    width:600px;\n    /*padding-left:10px;*/\n    height: 154px;\n}   \n\n.featured-product-carousel .prev{\n    display: none;\n    width:23px;\n    height:127px;\n    float:left;\n    background:url(\"../images/arrowLeft.png\") no-repeat;\n}\n\n.featured-product-carousel .next{\n    display: none;\n    width:23px;\n    height:127px;\n    float:left;\n    background:url(\"../images/arrowRight.png\") no-repeat;\n}       \n\n.keyboardMI{\n    background:initial !important;\n    font-size: 40px !important;\n    height: 50px !important;\n    top: 50px !important;\n    position: relative;\n}\n\n.featured-product-carousel .item{\n/*    width:135px;\n    height:125px;*/\n    width:150px;\n    height:150px;\n    float:left;\n    display:table-cell;\n    vertical-align:middle;\n    /*margin-right:5px;*/\n}\n\n.featured-product-carousel .item:nth-child(6) {\n    margin-right: 31px;\n    margin-left: 31px;\n}\n\n.featured-product-carousel .item img{\n/*    max-height:125px;\n    max-width:125px;*/\n    max-height:150px;\n    max-width:150px;\n}\n\n.featured-product-carousel .item a{\n    /*width:100%;*/\n    /*height:125px;*/\n    width: 150px;\n    height: 150px;\n    display:table-cell;\n    vertical-align:middle;\n    text-align:center;\n    border: 1px solid #e6e6e6;\n}   \n        \n/****FAQ ****/\n\n#pageFAQ h2{\n    cursor:pointer;\n    background: none repeat scroll 0 0 #FAFAFA;\n    border: 1px solid #CCCCCC;\n    border-radius: 3px 3px 3px 3px;\n    box-shadow: 0 1px 2px #D1D1D1;\n    color: #252525;\n    font-family: 'Lato', sans-serif;\n    font-size: 14px;\n    margin: 0px;\n    padding: 15px;\n    /*text-shadow: 1px 1px 0 #FFFFFF;*/\n    width: 660px;\n}\n\n#pageFAQ h2:hover{\n    background: none repeat scroll 0 0 #F0F0F0;\n}\n\n#pageFAQ .section{\n    padding: 10px;\n    width: 660px;\n}\n\n/****Custom Orders****/\n\n/****Contact Us ****/\n\n.contactForm {\n    float: right;\n    margin-left: 20px;\n    margin-top: 50px;\n}\n\n.contactForm form{\n    background: none repeat scroll 0 0 #EAEBEC;\n    border: 1px solid #CCCCCC;\n    border-radius: 3px 3px 3px 3px;\n    box-shadow: 0 1px 2px #D1D1D1;\n    color: #666666;\n    font-family: 'Lato', sans-serif;\n    font-size: 12px;\n    margin: 20px 0 20px 0;\n    padding: 15px;\n    text-shadow: 1px 1px 0 #FFFFFF;\n    width: 335px;\n}\n\n/****Login****/\n\n.login form{\n    font-family: 'Lato', sans-serif;\n    color:#666;\n    font-size:12px;\n    text-shadow: 1px 1px 0px #fff;\n    background:#eaebec;\n    margin:20px;\n    border:#ccc 1px solid;\n    -moz-border-radius:3px;\n    -webkit-border-radius:3px;\n    border-radius:3px;\n    -moz-box-shadow: 0 1px 2px #d1d1d1;\n    -webkit-box-shadow: 0 1px 2px #d1d1d1;\n    box-shadow: 0 1px 2px #d1d1d1;\n    padding: 45px 45px 75px 45px!important;\n}\n\n.login form label{\n    width: 65px;\n    display: block;\n    float: left;\n}\n\n.usernameFields, .passwordFields{\n    margin-bottom: 10px;\n}\n\na.forgotPassword{\n    display: block;\n    margin-top: 5px;\n}\n\n/****Register****/\n\n#registration form#registerForm{\n    font-family: 'Lato', sans-serif;\n    color:#666;\n    font-size:12px;\n    text-shadow: 1px 1px 0px #fff;\n    background:#eaebec;\n    margin:0px 20px 20px 20px;\n    border:#ccc 1px solid;\n    -moz-border-radius:3px;\n    -webkit-border-radius:3px;\n    border-radius:3px;\n    -moz-box-shadow: 0 1px 2px #d1d1d1;\n    -webkit-box-shadow: 0 1px 2px #d1d1d1;\n    box-shadow: 0 1px 2px #d1d1d1;\n    padding: 15px;\n    width: 425px;\n}\n\n#registration form#registerForm label{\n    width: 120px;\n    display: block;\n    float: left;\n}\n\n/****Forgot Password****/\n\n/****Terms of Service/Privacy Policy****/\n\n/**** My Account ****/\n\n#myaccount_menu li {\n    display: inline;\n    margin-right: 15px;\n}\n\n#myaccount_menu{\n    background-color: #eaebec;\n    border: 1px solid #CCCCCC;\n    margin: 10px 0 20px;\n    padding: 10px 5px;\n    text-align: center;\n}\n\n#pageMyAccount form.myAccountForm{\n    font-family: 'Lato', sans-serif;\n    color:#666;\n    font-size:12px;\n    /*text-shadow: 1px 1px 0px #fff;*/\n    background:#eaebec;\n    margin:0px 20px 20px 20px;\n    border:#ccc 1px solid;\n    padding: 15px;\n    width: 425px;\n}\n\n#pageMyAccount form.myAccountForm label{\n    width: 120px;\n    display: block;\n    float: left;\n}\n\n#pageMyAccount form.myAccountForm .f-buttons{\n    margin-top: 15px;\n}\n\n#pageMyAccount form.myAccountForm .f-row{\n    margin-top: 5px;\n}\n\n#pageMyAccount hr{\n    border: #000;\n    color:  #fff;\n}\n\n.info_needed {\n    margin-bottom: 15px;\n}\n\n/****My Account My Address****/\n\n/****New Shipping Address****/\n\n/****My Account - Change Password****/\n\n/****My Account - View Orders****/\n\ntd.ar{\n    text-align: right ;\n}\n\n/****My Account - Order Detail****/\n\n/****My Wishlist****/\n\n/****Category and search results****/\n\n#pageCategory .item, #pageSearchResults .item{\n    float: left;\n    height: 275px;\n    margin-right: 20px;\n    width: 151px;\n    padding-bottom: 30px;\n}\n\n#pageCategory .badges, #pageSearchResults .badges{\n    position: absolute;\n    top: 1px;\n    left: 1px;\n    display:none;\n}\n\n#pageCategory .container, #pageSearchResults .container{\n    min-height: 275px;\n}\n\n#pageCategory .text, #pageSearchResults .text{\n    min-height: 72px;\n    line-height: 17px;\n}    \n\n#pageCategory .name{\n    text-align: left;\n}\n\n.sortView{\n    background-color: #eaebec;\n    padding: 3px 5px;\n    border: 1px solid #ccc;\n    margin: 10px 0px 20px 0px;\n}\n\n.active-filters{\n    padding-bottom: 5px;\n    border-bottom: 1px solid #ccc;\n    margin-bottom:15px;\n}\n\n.filter {\n    margin-bottom: 15px;\n}\n\n.item{\n    position: relative;\n}\n\n.image{\n    position:relative;\n}\n\n.item .image img{\n    border:1px solid #ccc;\n    padding: 12px;\n    width: 125px;\n}\n\n.item .badges img{\n    border:none;\n}\n\n.image .price-box{\n    position: absolute;\n    background: #444;\n    right: 0;\n    bottom: 5px;\n    padding: 5px 6px;\n\n}\n\n.pagination-new {\n    float: left;\n    width: 700px;\n}\n\n.view-all {\n    float: left;\n}\n\n.sortControl {\n    float: right;\n    margin-left: 15px;\n    color: #252525;\n}\n\n.pagination-new li{\n    float: left;\n    margin-right: 10px;\n}\n\n.pagination-new ul{\n    margin-left: 10px;\n}\n\na.view-all{\n    margin-right: 10px;\n}\n\n.btn.wishlist{\n    /*display: block;*/\n    margin-top: 5px;\n    padding-left: 10px;\n    padding-right: 10px;\n    font-size: 14px;\n}\n\n/****Item Page****/\n\n#itemForm > div {\n    margin-bottom: 15px;\n}\n\n#pageItem .sidebar{\n    width: 322px;   \n}\n\n#pageItem .page{\n    width: 644px;   \n}\n\n#pageItem .desc {\n    font-size: 13px;\n    color: #252525;\n}\n\n#pageItem .itemContent{\n    margin-top: 10px;\n}\n\n#pageItem .imageWindow{\n    border:1px solid #ccc;\n}\n\n#pageItem .price {\n    margin: 10px;\n    color: #252525;\n}\n\n#pageItem .actions{\n    text-align: right;\n}\n\n.estimate-calendar {\n    margin-top: 5px;\n    font-size: 16px;\n}\n\n.add-another-item  table {\n    margin: 0px 0px 15px;\n    width: 644px;\n}\n\ninput.qty-input{\n    width:30px;\n}\n\n.add-another-item table td{\n    border:none;\n    padding:10px;\n    vertical-align: middle;\n}\n\n.add-another-item .col1, .add-another-item .col2, .add-another-item .col4{\n    white-space: nowrap;\n}\n\n.add-another-item .col3{\n    width: 99%;\n\n} \n\n.add-another-item .removeLink{\n    border: 1px solid #CCCCCC;\n    float: right;\n    padding: 5px 10px;\n}\n\n.add-another-item {\n    margin-top: 15px;\n}\n\n.add-another-item label, .add-another-item .col3 span{\n    display: block;\n\n} \n\n.add-another-item .col3 span{\n    padding-bottom: 7px;    \n}\n\n.ui-tabs-panel{\n    font-family: 'Lato', sans-serif;\n    color:#666;\n    font-size:12px;\n    background:#eaebec;\n    border:#ccc 1px solid;\n    -moz-box-shadow: 0 1px 2px #d1d1d1;\n    -webkit-box-shadow: 0 1px 2px #d1d1d1;\n    box-shadow: 0 1px 2px #d1d1d1;\n    padding: 15px;\n    height:100% !important;\n}\n\n.ui-corner-bottom{\n    border-bottom-right-radius: 3px;\n    border-bottom-left-radius: 3px;\n    -moz-border-radius-bottomright: 3px;\n    -moz-border-radius-bottomleft: 3px;\n}\n\n.ui-tabs .ui-tabs-nav li {\n    padding: 5px 10px !important;\n    box-shadow: 0 1px 2px #D1D1D1;\n    border-top-right-radius: 3px;\n    border-top-left-radius: 3px;\n    -moz-border-radius-topright: 3px;\n    -moz-border-radius-topleft: 3px;\n    text-shadow: 1px 1px 0px #fff;\n}\n\nli.ui-tabs-selected{\nbackground-image: none !important;\n}\n\n#pageItem .blue, td.process_day a{\n    background-color: #75CFFF !important;\n    background-image: none !important;\n}\n\n#pageItem .orange, td.production_day a{\n    background-color: #FECC81 !important;\n    background-image: none !important;\n}\n\n#pageItem .green, td.transit_day a{\n    background-color: #66F26D !important;\n    background-image: none !important;\n}\n\n/* Customized Imprints */\n\n.customization {\n    width: 400px;\n    background-color: #fafafa;\n    border: 1px solid #DDD;\n    box-shadow: 0px 0px 3px 0px #DDD;\n    padding: 12px;\n}\n\n/*You May Also Like */\n\n.ymal .item {\n  display: inline-block;\n}\n\n.ymal img {\n  width: 90px;\n  height: auto;\n}\n\n/****Basket****/\n\n.cart-table a.icon-trash{\n    font-size: 16px;\n    display: block;\n    text-indent: -4000px;\n}\n\n.icon-trash{\n}\n\ntr.total td{\n    border-top: 1px solid #e0e0e0;\n}\n\nul.radios-list li label{\n    font-weight: normal;\n    display: flex;\n    align-items: baseline;\n    justify-content: flex-start;\n    margin-top: 5px;\n}\n\n#pageBasket td{\n    vertical-align: middle;\n}\n\n/**** Checkout General ****/\n\n.co-breadcrumb{\n  background-image: url(\"../images/bg/checkout_sprite.png\");\n  background-position: 103% 0;\n  background-repeat: no-repeat;\n  margin: 30px 0;\n}\n\n.co-breadcrumb li.active{\n    font-weight: bold;\n    color: #252525;\n}\n\n.co-breadcrumb.step2 {\n    background-position: 86% 0;\n}\n\n.co-breadcrumb.step3{\n  background-position: 69% 0;\n}\n\n.co-breadcrumb.step4{\n  background-position: 51% 0;\n}\n\n.co-breadcrumb.step5{\n  background-position: 34% 0;\n}\n\n.co-breadcrumb.step6{\n  background-position: 17% 0;\n}\n\n.co-breadcrumb li {\n  color: #aeaeae;\n  display: inline-block;\n  padding-top: 26px;\n  width: 100px;\n}\n\n.co-breadcrumb li strong{\n  color: #000;\n}\n\n.co-breadcrumb li a{\n  font-weight: bold;\n}\n\n.co-breadcrumb li.re {\n  margin-left: 47px;\n}\n\n.co-breadcrumb li.yi {\n  margin-left: 38px;\n}\n\n.co-breadcrumb li.sp {\n  margin-left: 76px;\n}\n\n.co-breadcrumb li.py {\n  margin-left: 64px;\n}\n\n.co-breadcrumb li.rv {\n  margin-left: 58px;\n}\n\n.co-breadcrumb li.ty {\n  margin-left: 60px;\n  width: 125px;\n}\n\n.address-options {\ntext-align: right;\n/*margin: -5px 0 8px;*/\nfloat: right;\n}\n\n.address-title.autoclear {\n    display: inline-flex;\n    flex-flow: row-reverse;\n    width: 984px;\n    justify-content: space-between;\n    padding-bottom: 19px;\n}\n\n.address-title.autoclear h2 {\n    margin-top: auto;\n    margin-bottom: 0;\n}\n\n\n#pageCheckoutAddresses h2, #pageCheckoutPayment h2 {\n    font-size: 22px;\n    color: #252525;\n    font-weight: normal;\n}\n\n/****Checkout - Your Information Edit/New Shipping Address****/\n\n.select-single {\n    margin-bottom: 30px;\n    -moz-border-radius:3px;\n    -webkit-border-radius:3px;\n    border-radius:3px;\n    -moz-box-shadow: 0 1px 2px #d1d1d1;\n    -webkit-box-shadow: 0 1px 2px #d1d1d1;\n    box-shadow: 0 1px 2px #d1d1d1;\n    /*margin-top: 36px;*/\n}\n\n.select-single li {\n    position:relative;\n    margin-top:-1px;\n    display:block;\n    color:#444;\n    border:1px solid #CDCDCD;\n}\n\n#view-preset a {\n    position: inherit;\n    padding: 0px;\n}\n\n#view-preset {\n    height: 60px;\n    text-align: center;\n    line-height: 0px;\n}\n\n.preset-address .preset-name {\n    font-style: italic;\n}\n\n.select-single .preset-address {\n    display: none;\n}\n\n.select-single label {\n    background-color:#eaebec;\n    padding:8px 12px 8px 50px;\n    line-height:1.2em;\n    display:block;\n    font-weight: normal;\n\n        /* Prevent accidental click-drag on label which will select text and not activate radio\n        -webkit-touch-callout: none;\n        -webkit-user-select: none;\n        -khtml-user-select: none;\n        -moz-user-select: none;\n        -ms-user-select: none;\n        user-select: none; */\n}\n\n.select-single label:hover {\n    background-color:#F5F5F5;\n}\n.select-single .name, .select-single .company {font-weight:bold;}\n\n.select-single .active label, .select-single .active label:hover {background:#FFF;}\n    \n.select-single li input {position:absolute;top:50%;left:14px;margin-top:-5px;}\n\n.select-single li a {\n    padding: 6px 16px;\n    position: absolute;\n    top: 50%;\n    right: 0px;\n    margin-top: -12px;\n    text-decoration: none;\n    }\n\n/*Simplemodal Styles*/\n\n#simplemodal-overlay {background-color:#000;}\n#simplemodal-container {background-color:#FFF; border:1px solid #444; padding:12px;}\n\n#simplemodal-container a.modalCloseImg {\n    background:url(\"../images/x.png\") no-repeat;\n    width:25px;\n    height:29px;\n    display:inline;\n    z-index:3200;\n    position:absolute;\n    top:-15px;\n    right:-18px;\n    cursor:pointer;\n}\n\n#new-address-modal {\n    width:600px;\n    height: 550px;\n    padding: 0px 20px;\n    background-color:#FFF;\n    overflow:auto;  /* safe scroll for all browsers */\n    overflow-x:hidden;  /* browser-supported hiding of horizontal scroll */\n}\n    #new-address-modal label {display:block;margin-top:10px; font-weight:bold;}\n    #new-address-modal label span {font-weight:normal; color:#999; padding:0 4px; font-size:11px}\n    #new-address-modal .half {float:left;margin-right:20px}\n    #new-address-modal input {display:block; margin:2px 0; width:220px}\n    #new-address-modal .default {margin:10px 0;}\n    #new-address-modal .default label, #new-address-modal .default input {display:inline;width:auto;}\n    #new-address-modal .default label {font-weight:normal;position:relative;top:2px;left:4px;}\n\n\n.splitQuantity {\n    border: 1px solid #CCC;\n    padding: 1px 3px;\n    float: right;\n}\n\n.splitQuantity:hover {\n    border: 1px solid #000;\n    color: #000;\n}\n\n/****Checkout ????????? Payment****/\n\n.shipInfotxt {\n    float: right;\n    width: 540px;\n    padding: 15px 15px 1px;\n    background: #DDDDDD;\n    margin: 5px 0 0 0;\n}\n\n    .shipping-methods-section address span{\n        font-weight:bold;\n    }\n\n    .shipping-methods-section{\n        \n    }\n\n    .shipping-methods-section .location{\n        margin: 20px 0px;\n    }\n\n    .shipping-methods-section .ship-account-number {\n        padding-top:3px;\n    }\n\n    .shipping-methods-section .ship-account-number input {\n        width:203px;\n    }\n\n    .shipping-methods-section .location-items {\n        float:left;\n    }\n\n    .shipping-methods-section .options {\n        float:right;\n    }\n\n#sh-shipping-info {\n    float: right;\n    clear: right;\n}\n\n#pageCheckoutPayment .js-click{\n    color:#84010F;\n}\n\n.payment-section{\n    margin-bottom: 30px;\n}\n\n.shipInfotxt {\n    float: right;\n    width: 540px;\n    padding: 15px 15px 1px;\n    background: #DDDDDD;\n    margin: 5px 0 0 0;\n}\n\n.tabs.clearfix > ul {\n    height: 30px;\n}\n\n.tabs .tab {\n    font-family: 'Lato', sans-serif;\n    color:#666;\n    font-size:12px;\n    background:#FFFFFF;\n    border:#ccc 1px solid;\n    -moz-box-shadow: 0 1px 2px #d1d1d1;\n    -webkit-box-shadow: 0 1px 2px #d1d1d1;\n    box-shadow: 0 1px 2px #d1d1d1;\n    padding: 15px;\n    border-radius: 3px;\n    border-radius: 3px;\n    -moz-border-radius: 3px;\n    -moz-border-radius: 3px;\n}\n\n.tab .columnOne{\n    clear: both;\n    width: 425px;\n}\n\n.tab .columnTwo{\n    margin-left: 30px;\n    width: 425px;\n}\n\n.cart-subtotals{\n    float: right;\n    margin-top: 15px;\n    text-align: right;\n    width: 150px;\n}\n\n.subtotal-line.total{\n    border-top: 1px solid #ccc;\n}\n\n#pageCheckoutPayment .actions, #pageCheckoutReview .actions{\n    padding-top: 15px;\n    clear: right;\n}\n\n.tabs {margin:10px 0;}\n.tabs ul li {\n    list-style-type:none;\n    display:inline;\n}\n\n    .tabs ul li a {\n        display:block;\n        float:left;\n        padding:6px 8px;\n        color:#333;\n        text-decoration:none;\n        margin-right:1px;\n        -webkit-border-top-left-radius: 3px;\n        -webkit-border-top-right-radius: 3px;\n        -moz-border-radius-topleft: 3px;\n        -moz-border-radius-topright: 3px;\n        border-top-left-radius: 3px;\n        border-top-right-radius: 3px;\n        border:1px solid #CDCDCD;\n        border-bottom:0;\n        background: #f9f9f9;\n        background: -moz-linear-gradient(top,  #f9f9f9 0%, #ededed 100%);\n        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(100%,#ededed));\n        background: -webkit-linear-gradient(top,  #f9f9f9 0%,#ededed 100%);\n        background: -o-linear-gradient(top,  #f9f9f9 0%,#ededed 100%);\n        background: -ms-linear-gradient(top,  #f9f9f9 0%,#ededed 100%);\n        background: linear-gradient(top,  #f9f9f9 0%,#ededed 100%);\n        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#ededed',GradientType=0 );\n    }\n    \n    .tabs ul li a:hover {\n        background:#FAFAFA;\n    }\n    \n    .tabs ul .active a {\n        background:#FFF;\n    }\n\n    .tabs .tab {\n        padding:16px;\n        border:1px solid #CDCDCD;\n        /*height:160px;\n        overflow-y:scroll;*/\n    }\n\n    .tabs .column {width:45%;float:left;margin-right:3%;padding-left:1%;}\n    .tabs .last {margin-right:0px;}\n    .tabs input, .tabs select {width:405px;}\n    .tabs label {display:block;}\n    .tabs .half input, .tabs .half select {width:180px;}\n    .tabs .half{float:left;width:49%;}\n    .tabs .section {line-height:2em;}\n    .tabs .section label {line-height:1em;padding:0 0 1px;margin:12px 0 0;}\n    .tabs .section h4 {font-weight:bold;font-size:14px;border-bottom:1px solid #ADADAD;padding-bottom:1px;line-height:1.3em;margin:10px 0 6px}\n    .tabs .chzn-container {margin-top:4px;}\n    .tabs .chzn-select {width:405px;}\n\ninput#cvv{\n    width: 50px;\n}\n\n.checkoutQuestions {\n    float: left;\n    margin: 0px !important;\n}\n\n/*** CVV/CID Security Code Help popup ***/\n\n#securityCode_help {\n    cursor: pointer;\n}\n\n#securityCode_help:hover {\n    text-decoration: underline;\n}\n\n#cvv-help-popup {\n    display: none;\n    position: absolute;\n    z-index: 2000;\n    width: 300px;\n    background-color: #fff;\n    border: 1px solid black;\n    padding: 20px;\n    margin-left: 59px;\n    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.25);\n}\n\n#cvv-help-close {\n    float: right;\n    width: 26px;\n    height: 23px;\n    background-color: #f22;\n    background: linear-gradient(#F75, #F22) repeat scroll 0% 0% #f22;\n    border-radius: 5px;\n    text-align: center;\n    font-size: 19px;\n    line-height: 20px;\n    font-family: 'Lato', sans-serif;\n    color: #FFF;\n    text-shadow: 0px 0px 2px #000;\n    box-shadow: 0px 1px 1px 0px #aaa;\n    cursor: pointer;\n    padding-left: 1px;\n}\n\n#cvv-help-popup p {\n    clear: both;\n}\n\n#cvv-help-popup b {\n    display: block;\n}\n\n/*** Script Questions ***/\n\n.checkoutQuestions {\n    width: 600px;\n}\n\n.question {\n    display: flex;\n    justify-content: space-between;\n    margin-bottom: 5px;\n}\n\n\n/****Checkout ????????? Review****/\n\n.location{\n        font-family: 'Lato', sans-serif;\n        color:#666;\n        font-size:12px;\n        text-shadow: 1px 1px 0px #fff;\n        background:#eaebec;\n        margin:20px;\n        border:#ccc 1px solid;\n        -moz-border-radius:3px;\n        -webkit-border-radius:3px;\n        border-radius:3px;\n        -moz-box-shadow: 0 1px 2px #d1d1d1;\n        -webkit-box-shadow: 0 1px 2px #d1d1d1;\n        box-shadow: 0 1px 2px #d1d1d1;\n        padding: 15px;\n}\n\n.location .items{\n    border-top: 1px solid #CCCCCC;\n    margin-top: 10px;\n    padding-top:10px;\n}\n\n.location .items li{\n    border-bottom: 1px dashed #CCCCCC;\n}\n\n/****Checkout ????????? Thank You****/\n\n\n/**** Misc basic Helper Elements ****/\n\n.hide{\n    display: none !important;\n}\n\n.clearfix:before,\n.clearfix:after {\n    content: \" \";\n    display: table;\n}\n\n.clearfix:after {\n    clear: both;\n}\n\n.clearfix {\n    *zoom: 1;  //IE lt 8\n}\n\n.right{\n    float: right;\n}\n\n.error-text-area, #haserror div{\n    border: 1px solid #f00;\n    background-color: #FDD9D0;\n    padding: 10px;\n    margin: 0px 0px 10px 0px;\n    color: #f00;\n    text-shadow: none;\n    font-weight: bold;\n}\n.warning{\n    border: 1px solid #FC9801;\n    background-color: #FFFF99;\n    padding: 10px;\n    margin: 0px 0px 10px 0px;\n    color: #FC9801;\n    text-shadow: none;\n    font-weight: bold;\n\n}\n\n.warningText{\n    color: red;\n    font-weight: bold;\n    font-size: 13px;\n    text-align: center;\n    margin-bottom: 20px;\n}\n\n.message.success{\n    padding: 5px 10px;\n    background-color: #C1FEAF;\n    border: 1px solid #208802;\n    margin: 5px 0px;\n}\n\n[class^=\"icon-\"],\n[class*=\" icon-\"] {\n  display: inline-block;\n  width: 14px;\n  height: 14px;\n  *margin-right: .3em;\n  line-height: 14px;\n  vertical-align: text-top;\n  background-image: url(\"../images/glyphicons-halflings.png\");\n  background-position: 14px 14px;\n  background-repeat: no-repeat;}[class^=\"icon-\"]:last-child,\n[class*=\" icon-\"]:last-child {\n  *margin-left: 0;}\n.icon-white {background-image: url(\"../images/glyphicons-halflings-white.png\");}\n.icon-glass {background-position: 0 0;}\n.icon-music {background-position: -24px 0;}\n.icon-search {background-position: -48px 0;}\n.icon-envelope {background-position: -72px 0;}\n.icon-heart {background-position: -96px 0;}\n.icon-star {background-position: -120px 0;}\n.icon-star-empty {background-position: -144px 0;}\n.icon-user {background-position: -168px 0;}\n.icon-film {background-position: -192px 0;}\n.icon-th-large {background-position: -216px 0;}\n.icon-th {background-position: -240px 0;}\n.icon-th-list {background-position: -264px 0;}\n.icon-ok {background-position: -288px 0;}\n.icon-remove {background-position: -312px 0;}\n.icon-zoom-in {background-position: -336px 0;}\n.icon-zoom-out {background-position: -360px 0;}\n.icon-off {background-position: -384px 0;}\n.icon-signal {background-position: -408px 0;}\n.icon-cog {background-position: -432px 0;}\n.icon-trash {background-position: -456px 0;}\n.icon-home {background-position: 0 -24px;}\n.icon-file {background-position: -24px -24px;}\n.icon-time {background-position: -48px -24px;}\n.icon-road {background-position: -72px -24px;}\n.icon-download-alt {background-position: -96px -24px;}\n.icon-download {background-position: -120px -24px;}\n.icon-upload {background-position: -144px -24px;}\n.icon-inbox {background-position: -168px -24px;}\n.icon-play-circle {background-position: -192px -24px;}\n.icon-repeat {background-position: -216px -24px;}\n.icon-refresh {background-position: -240px -24px;}\n.icon-list-alt {background-position: -264px -24px;}\n.icon-lock {background-position: -287px -24px;}\n.icon-flag {background-position: -312px -24px;}\n.icon-headphones {background-position: -336px -24px;}\n.icon-volume-off {background-position: -360px -24px;}\n.icon-volume-down {background-position: -384px -24px;}\n.icon-volume-up {background-position: -408px -24px;}\n.icon-qrcode {background-position: -432px -24px;}\n.icon-barcode {background-position: -456px -24px;}\n.icon-tag {background-position: 0 -48px;}\n.icon-tags {background-position: -25px -48px;}\n.icon-book {background-position: -48px -48px;}\n.icon-bookmark {background-position: -72px -48px;}\n.icon-print {background-position: -96px -48px;}\n.icon-camera {background-position: -120px -48px;}\n.icon-font {background-position: -144px -48px;}\n.icon-bold {background-position: -167px -48px;}\n.icon-italic {background-position: -192px -48px;}\n.icon-text-height {background-position: -216px -48px;}\n.icon-text-width {background-position: -240px -48px;}\n.icon-align-left {background-position: -264px -48px;}\n.icon-align-center {background-position: -288px -48px;}\n.icon-align-right {background-position: -312px -48px;}\n.icon-align-justify {background-position: -336px -48px;}\n.icon-list {background-position: -360px -48px;}\n.icon-indent-left {background-position: -384px -48px;}\n.icon-indent-right {background-position: -408px -48px;}\n.icon-facetime-video {background-position: -432px -48px;}\n.icon-picture {background-position: -456px -48px;}\n.icon-pencil {background-position: 0 -72px;}\n.icon-map-marker {background-position: -24px -72px;}\n.icon-adjust {background-position: -48px -72px;}\n.icon-tint {background-position: -72px -72px;}\n.icon-edit {background-position: -96px -72px;}\n.icon-share {background-position: -120px -72px;}\n.icon-check {background-position: -144px -72px;}\n.icon-move {background-position: -168px -72px;}\n.icon-step-backward {background-position: -192px -72px;}\n.icon-fast-backward {background-position: -216px -72px;}\n.icon-backward {background-position: -240px -72px;}\n.icon-play {background-position: -264px -72px;}\n.icon-pause {background-position: -288px -72px;}\n.icon-stop {background-position: -312px -72px;}\n.icon-forward {background-position: -336px -72px;}\n.icon-fast-forward {background-position: -360px -72px;}\n.icon-step-forward {background-position: -384px -72px;}\n.icon-eject {background-position: -408px -72px;}\n.icon-chevron-left {background-position: -432px -72px;}\n.icon-chevron-right {background-position: -456px -72px;}\n.icon-plus-sign {background-position: 0 -96px;}\n.icon-minus-sign {background-position: -24px -96px;}\n.icon-remove-sign {background-position: -48px -96px;}\n.icon-ok-sign {background-position: -72px -96px;}\n.icon-question-sign {background-position: -96px -96px;}\n.icon-info-sign {background-position: -120px -96px;}\n.icon-screenshot {background-position: -144px -96px;}\n.icon-remove-circle {background-position: -168px -96px;}\n.icon-ok-circle {background-position: -192px -96px;}\n.icon-ban-circle {background-position: -216px -96px;}\n.icon-arrow-left {background-position: -240px -96px;}\n\n.icon-arrow-right {\n    /*background-position: -264px -96px;*/\n    display: none!important;\n}\n\n.icon-arrow-up {background-position: -289px -96px;}\n.icon-arrow-down {background-position: -312px -96px;}\n.icon-share-alt {background-position: -336px -96px;}\n.icon-resize-full {background-position: -360px -96px;}\n.icon-resize-small {background-position: -384px -96px;}\n\n.icon-plus {\n    /*background-position: -408px -96px;*/\n    display: none!important;\n}\n\n.icon-minus {background-position: -433px -96px;}\n.icon-asterisk {background-position: -456px -96px;}\n.icon-exclamation-sign {background-position: 0 -120px;}\n.icon-gift {background-position: -24px -120px;}\n.icon-leaf {background-position: -48px -120px;}\n.icon-fire {background-position: -72px -120px;}\n.icon-eye-open {background-position: -96px -120px;}\n.icon-eye-close {background-position: -120px -120px;}\n.icon-warning-sign {background-position: -144px -120px;}\n.icon-plane {background-position: -168px -120px;}\n.icon-calendar {background-position: -192px -120px;}\n.icon-random {background-position: -216px -120px;}\n.icon-comment {background-position: -240px -120px;}\n.icon-magnet {background-position: -264px -120px;}\n.icon-chevron-up {background-position: -288px -120px;}\n.icon-chevron-down {background-position: -313px -119px;}\n.icon-retweet {background-position: -336px -120px;}\n.icon-shopping-cart {background-position: -360px -120px;}\n.icon-folder-close {background-position: -384px -120px;}\n.icon-folder-open {background-position: -408px -120px;}\n.icon-resize-vertical {background-position: -432px -119px;}\n.icon-resize-horizontal {background-position: -456px -118px;}\n.icon-hdd {background-position: 0 -144px;}\n.icon-bullhorn {background-position: -24px -144px;}\n.icon-bell {background-position: -48px -144px;}\n.icon-certificate {background-position: -72px -144px;}\n.icon-thumbs-up {background-position: -96px -144px;}\n.icon-thumbs-down {background-position: -120px -144px;}\n.icon-hand-right {background-position: -144px -144px;}\n.icon-hand-left {background-position: -168px -144px;}\n.icon-hand-up {background-position: -192px -144px;}\n.icon-hand-down {background-position: -216px -144px;}\n.icon-circle-arrow-right {background-position: -240px -144px;}\n.icon-circle-arrow-left {background-position: -264px -144px;}\n.icon-circle-arrow-up {background-position: -288px -144px;}\n.icon-circle-arrow-down {background-position: -312px -144px;}\n.icon-globe {background-position: -336px -144px;}\n.icon-wrench {background-position: -360px -144px;}\n.icon-tasks {background-position: -384px -144px;}\n.icon-filter {background-position: -408px -144px;}\n.icon-briefcase {background-position: -432px -144px;}\n.icon-fullscreen {background-position: -456px -144px;}\n\n.buttonOff{\n    background-color: #2B2A2C !important;\n}\n\n#pageTerms p{\n    margin-bottom: 30px;\n}\n\n#submitClearWishList{\n    position: relative;\n    float: right;\n}\n\n#imageWindow{\n    padding-bottom: 15px;\n}\n\n.searchGlass {\n    position: relative;\n    float: left;\n    cursor: pointer;\n    font-size: 24px !important;\n    color: #B50000;\n    top: 7px;\n    padding-left: 6px;    \n}\n\n.featuredwrap{\n    display: flex;\n    justify-content: space-between;\n    margin-top: 24px;\n}\n\n#recentlyViewed{\n    margin-top: 20px;\n}\n\n.cross-sell h3{\n    margin-bottom: 5px;\n}\n\nli.productCategories.top > a::after{\n    font-family: 'Material Icons';\n    content: '\\e5cf';\n    position: absolute;\n    font-size: 24px;\n    color: #B50000;\n}\n\ndiv#DDmenu a::after{\n    content:'';\n}\n\n#deleteAll{\n    top: 5px;\n    position: relative;\n    cursor: pointer;\n}\n\n/*****  modal login box  - begin   *******/\n\n        #modal {\n            width:450px;\n            height:189px;\n            padding:8px;\n            background:rgba(0,0,0,.3);\n            -webkit-border-radius:8px;\n            -moz-border-radius:8px;\n            border-radius:8px;\n            position:absolute !important;\n            top:50% !important;\n            left:50% !important;\n            margin-top:-120px !important;\n            margin-left:-200px !important;\n            z-index:150;\n            visibility:hidden;\n        }\n\n        #heading {\n            width:450px;\n            height:40px;\n            background-image: -webkit-linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));\n            background-image: -moz-linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));\n            background-image: -o-linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));\n            background-image: -ms-linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));\n            background-image: linear-gradient(top, rgb(249, 249, 249), rgb(233, 233, 233));\n            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f9f9f9', EndColorStr='#e9e9e9');\n            border-bottom:1px solid #bababa;\n            -webkit-box-shadow:\n                inset 0px -1px 0px #fff,\n                0px 1px 3px rgba(0,0,0,.08);\n            -moz-box-shadow:\n                inset 0px -1px 0px #fff,\n                0px 1px 3px rgba(0,0,0,.08);\n            box-shadow:\n                inset 0px -1px 0px #fff,\n                0px 1px 3px rgba(0,0,0,.08);\n            -webkit-border-radius:4px 4px 0px 0px;\n            -moz-border-radius:4px 4px 0px 0px;\n            border-radius:4px 4px 0px 0px;\n            font-size:13px;\n            font-weight:bold;\n            text-align:center;\n            line-height:44px;\n            color:#444444;\n            text-shadow:0px 1px 0px #fff;\n        }\n\n        #modalcontent {\n            width: 370px;\n            height:85px;\n            padding: 20px 40px 0;\n            background:#fcfcfc;\n            -webkit-box-shadow:0px 1px 3px rgba(0,0,0,.25);\n            -moz-box-shadow:0px 1px 3px rgba(0,0,0,.25);\n            box-shadow:0px 1px 3px rgba(0,0,0,.25);\n            -webkit-border-radius:0px 0px 4px 4px;\n            -moz-border-radius:0px 0px 4px 4px;\n            border-radius:0px 0px 4px 4px;\n            text-align: center;\n        }\n        #modalcontent p {\n            font-size:13px;\n            font-weight:normal;\n            text-align:center;\n            line-height:22px;\n            color:#555555;\n            width:100%;\n            float: left;\n            margin:10px 0;\n        }\n\n        #modal .fieldbox input {\n            background: url(\"../templateimages/subfield.jpg\") repeat-x scroll left top transparent;\n            height: 16px;\n            padding: 2px 5px;\n            width: 250px;\n            /* margin-top: 10px; */\n            border: solid #e2e2e2;\n            -webkit-border-radius: 5px;\n            -moz-border-radius: 5px;\n            border-radius: 5px;\n            display: block;\n            margin: 0 auto;\n        }\n\n        #modal .button {\n            width:138px;\n            font-size:13px;\n            font-weight:bold;\n            line-height:33px;\n            color:#fff;\n            background-color: #f00;\n            text-shadow:0px 1px 0px rgba(0,0,0,.2);\n            -webkit-border-radius:3px;\n            -moz-border-radius:3px;\n            border-radius:3px;\n            border: none;\n            text-transform: uppercase;\n            display: inline-block;\n            cursor: pointer;\n        }\n\n\n        #modal .button:hover{\n            background-color: #B50937;\n        } \n        #modal .button img {\n            float:left;\n            width:33px;\n            height:33px;\n        }\n\n        .button.purple {\n            float: none;\n            margin: 20px auto;\n        }\n\n        .reveal-modal-bg {\n            position: fixed;\n            height: 100%;\n            width: 100%;\n            background: #000;\n            background: rgba(0,0,0,.8);\n            z-index: 100;\n            display: none;\n            top: 0;\n            left: 0;\n        }\n\n       .modalbuttondiv{\n             position: relative;\n             top: 30px;\n             display: flex;\n             justify-content: space-around;\n       }\n\n        .modalbutton1 {\n            display: inline-block;\n        }\n\n        .modalbutton2 {\n            display: inline-block;\n        }\n\n/*****  modal login box - end   *******/\n\n#addAnother {\n    font-size: 16px;\n}\n",
+			"hover",
+			"item list start-->",
+			"item list start",
+			"2410-30",
+			"all",
+			".address-title",
+			"menuwrapper",
+			".sf-menu",
+			".login .btn",
+			".btn",
+			"pageCategory",
+			"pageItem",
+			"itemPage",
+			"item",
+			"itemPage",
+			"item",
+			"dsmessage",
+			"item",
+			"item-secondary",
+			"desc",
+			".price",
+			"container",
+			"pageHome",
+			"clearfix",
+			"cleaerfix",
+			"utilNav",
+			"font-family",
+			"productCategor",
+			"::after",
+			".product",
+			"sf-menu",
+			"sf-with-ul",
+			"nav li",
+			".location",
+			"#tshirtBanner",
+			"#page",
+			"#pageFAQ",
+			"pageCheckout",
+			"payment_gift_card",
+			"pageItem",
+			"utilnav a",
+			"utilnav",
+			"welcomemsg",
+			"spotlight",
+			"font-family",
+			".btn",
+			"a:hover",
+			"productCategories",
+			"p {",
+			"p",
+			"h2",
+			"menu",
+			"#header-nav",
+			"#header",
+			"utilNav",
+			"utliNav",
+			"header",
+			"font-family",
+			"fton-family"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "c8sjhe-styles.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

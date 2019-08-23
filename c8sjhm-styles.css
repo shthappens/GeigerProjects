@@ -120,7 +120,7 @@ strong{
 /*********** Global - Typography: p, a, H1 H2, etc*************/
 
 body{
-    color:#444444;
+    color:#000;
     font-family: 'Maven Pro', sans-serif;
     font-size: 14px;
     line-height: 18px;
@@ -133,6 +133,7 @@ body{
 
 p{ 
     margin-bottom: 15px;
+    color: #5c5c5c;
 
 }
 
@@ -152,6 +153,10 @@ a{
 
 a:hover {
     color: #A1B6D5;
+}
+
+#landingPage a, #landingPage a:hover {
+    text-decoration: none;
 }
 
 #footer{
@@ -186,7 +191,8 @@ h1{
     font-size: 28px;
     padding: 0;
     margin: 0px 0px 15px 0px;
-    line-height: 30px;
+    line-height: 28px;
+    color: #000;
 }
 
 #pageHome h1{
@@ -198,10 +204,10 @@ h1{
     text-transform: uppercase;
 }
 
-h2{ 
-    font-size:22px;
-    color:#424242;
-    font-weight:bold;
+h2 { 
+    font-size: 22px;
+    color: #5c5c5c;
+    font-weight: 700;
     margin-bottom: 15px;
 }
 
@@ -338,10 +344,11 @@ body{
 #footer .wrapper{
     box-sizing: border-box;
     height: 50px;
-    padding: 20px 15px;
-    margin: 0 auto;
+    /*padding: 20px 15px;*/
+    margin: auto;
     width: 1024px;
     display: flex;
+    align-items: center;
 }
 
 }
@@ -400,7 +407,7 @@ body{
 * navigation, header, footer, etc */
 
 #header .logo a{
-    background: url("../images/chi-logo.png") no-repeat scroll left top transparent;
+    background: url("../images/chi-logo.svg") no-repeat scroll left top transparent;
     display: block;
     float: left;
     height: 73px;
@@ -463,11 +470,15 @@ body{
 }
 
 li.productCategories {
-    width: 205px;
+    width: 208px;
+}
+
+li.productCategories a {
+    padding-left: 20px;
 }
 
 .nav a{
-    padding: 10px 20px;
+    padding: 10px 30px;
     color: #426DA9;
     font-size: 16px;
     font-weight: bold;
@@ -484,7 +495,7 @@ div#DDmenu{
     background-color: #fff;
     display: none;
     z-index: 100;
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
     width: 206px;
     box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.33);
 }
@@ -522,6 +533,7 @@ div#DDmenu li a:hover{
 .utilNav ul{
     float: right;
     display: flex;
+    align-items: center;
 }
 
 .utilNav a {   
@@ -540,12 +552,16 @@ div#DDmenu li a:hover{
     padding-right: 22px;
 }
 
+.welcomemsg strong {
+    color: #5c5c5c;
+}
+
 
 /****footer nav****/
 
 #footer ul li{
     display: inline;
-    padding:0px 10px;
+    padding:0px 15px;
 }
 
 #footer ul{
@@ -568,14 +584,17 @@ div#DDmenu li a:hover{
     color: #FFFFFF;
     padding-right: 0;
     height: 35px;
+    align-items: center;
 }
 
 .mini-cart a {
     padding-left: 11px;
 }
 
-.mini-cart:hover{
+.mini-cart:hover, .mini-cart a:hover {
     background-color: #A1B6D5;
+    text-decoration: none;
+    border-radius: 0 0 5px 5px;
 }
 
 .mini-cart .summary strong {
@@ -777,7 +796,7 @@ tfoot tr td{
     padding: 2px 5px;
 }
 
-.btn {
+.btn, .gift-btn {
     background-color: #ECECEC;
     /*border:1px solid #777;*/
     color: #5C5C5C;
@@ -789,7 +808,7 @@ tfoot tr td{
     display: flex;
     align-items: center;
     justify-content: center;    
-    height: 40px;
+    height: 40px!important;
     /*min-width: 150px;*/
     text-transform: uppercase;
     font-weight: bold;
@@ -800,12 +819,16 @@ tfoot tr td{
     text-decoration: none;
 }
 
-.btn:hover{
+.btn:hover, .gift-btn:hover {
     background-color: #E0E0E0!important;
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border-radius:5px;
 } 
+
+.gift-btn:hover {
+    color: #5c5c5c;
+}
 
 .btn-primary{
     background-color: #426DA9!important;
@@ -837,12 +860,12 @@ tfoot tr td{
     border-radius:5px;
 }
 
-.gift-btn {
-    border-radius: 3px 3px 3px 3px;
-    -moz-border-radius: 3px 3px 3px 3px;
-    -webkit-border-radius: 3px 3px 3px 3px;
-    border: 1px solid !important;
-    background: #ededed;
+.btn.new-address {
+    margin-left: 5px;
+}
+
+#pageWishlist .btn, #pageWishist .btn-primary {
+    display: inline;
 }
 
 /*********** Page Experience Specific Styles *************
@@ -862,6 +885,7 @@ tfoot tr td{
 
 #landingPage #menuWrapper {
     height: 40px;
+    align-items: center;
 }
 
 #landingPage #content {
@@ -875,6 +899,7 @@ tfoot tr td{
     height: 233px;  
     width: 350px;
     margin: 48px 71px 0 71px;
+    padding-bottom: 10px;
 }
 
 #manager .landing-img {
@@ -909,7 +934,7 @@ tfoot tr td{
     color: #000000;
     font-size: 14px;
     font-weight: bold;
-    line-height: 16px
+    line-height: 11px
 }
 
 #landingPage .store-link {
@@ -950,18 +975,22 @@ tfoot tr td{
 
 .btn-landing-left {
     background-color: #426DA9;
+    text-decoration: none;
 }
 
 .btn-landing-left:hover {
     background-color: #A1B6D5;
+    text-decoration: none;
 }
 
 .btn-landing-right {
     background-color: #0097A9;
+    text-decoration: none;
 }
 
 .btn-landing-right:hover {
     background-color: #8BCBD4;
+    text-decoration: none;
 }
 
 /****Home****/
@@ -1113,6 +1142,7 @@ tfoot tr td{
     vertical-align:middle;
     text-align:center;
     border:1px solid #C3C3C3;
+    background: #fff;
 }  
 
 
@@ -1141,6 +1171,7 @@ tfoot tr td{
 #pageFAQ h2:hover{
     background: none repeat scroll 0 0 #F0F0F0;
 }
+
 
 #pageFAQ .section{
     padding: 10px;
@@ -1188,6 +1219,7 @@ tfoot tr td{
     -webkit-box-shadow: 0 1px 2px #d1d1d1;
     box-shadow: 0 1px 2px #d1d1d1;
     padding: 15px;
+    height: auto!important;
 }
 
 .login form label{
@@ -1333,6 +1365,7 @@ td.ar{
 
 #pageCategory .name a {
     text-decoration: underline;
+    line-height: 16px;
 }
 
 .sortView{
@@ -1424,6 +1457,9 @@ a.view-all{
     /*display: block;*/
     margin-top: 5px;
     color: #5C5C5C;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /****Item Page****/
@@ -1431,6 +1467,7 @@ a.view-all{
 #itemForm > div {
     margin-bottom: 15px;
 }
+
 
 #pageItem .page a {
 /*    text-decoration: underline;
@@ -1621,7 +1658,7 @@ ul.radios-list li label{
   background-image: url("../images/bg/checkout_sprite.png");
   background-position: 103% 0;
   background-repeat: no-repeat;
-  margin: 30px 0;
+  margin: 30px 0 50px;
 }
 
 .co-breadcrumb li.active{
@@ -1690,9 +1727,10 @@ ul.radios-list li label{
 }
 
 .address-options {
-text-align: right;
-margin: -5px 0 8px;
-float: right;
+    text-align: right;
+    margin: -15px 0 8px;
+    float: right;
+    display: inline-flex;
 }
 
 /****Checkout - Your Information Edit/New Shipping Address****/
@@ -1832,7 +1870,7 @@ float: right;
     }
 
     .shipping-methods-section .location{
-        margin: 20px 0px;
+        margin: 20px 0px 30px;
     }
 
     .shipping-methods-section .ship-account-number {
@@ -2306,8 +2344,25 @@ input#cvv{
     margin-bottom: 30px;
 }
 
+#pageTerms h1 {
+    margin-bottom: 10px;
+    color: #5c5c5c;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+#pageTerms h1:first-child {
+    color: #000;
+    font-weight: normal;
+    font-size: 28px;
+}
+
 #submitClearWishList{
     position: relative;
+/*    float: right;*/
+}
+
+#submitAddToCart {
     float: right;
 }
 
@@ -2504,3 +2559,9 @@ div#DDmenu a::after{
         }
 
 /*****  modal login box - end   *******/
+
+.item_img img {
+    height: 125px;
+    width: 125px;
+}
+
