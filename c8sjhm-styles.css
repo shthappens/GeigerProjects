@@ -868,6 +868,11 @@ tfoot tr td{
     display: inline;
 }
 
+.promo-button {
+    margin-bottom: 10px;
+    margin-top: 7px;
+}
+
 /*********** Page Experience Specific Styles *************
 * Place site styles here for things that are specific to a certain page experience. */
 

@@ -1,3 +1,19 @@
+
+    //script to change bCrumbs link to home page when landing page is in use.
+        // <script>
+            $( document ).ready(function() {
+                $(".bCrumbs a:first").html("<a href='SJHM/home'>Home</a>");
+            });
+        // </script>
+
+    // <script> 72A/72C to change Order Quesiton title and add second line of text
+        
+        jQuery( document ).ready(function() {
+            jQuery("h2:last").html("<h2>Expense Coding</h2></n><p id='script-notice'>*All fields must be selected before proceeding</p>");
+        });
+        
+    // </script>
+
 // <script>    
 
     $( document ).ready(function() {

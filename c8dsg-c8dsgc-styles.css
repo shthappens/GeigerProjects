@@ -595,6 +595,33 @@ div#DDmenu li:hover{
     float: right;
 }
 
+.branch-link {
+    width: 150px;
+    height: 40px;
+    background: #b50000;
+}
+
+.branch-link a {    
+    color: #FFFFFF;   
+    font-size: 15px;    
+    font-weight: bold;  
+    line-height: 15px;
+    display: inline-flex;
+    margin-top: 5px;
+    align-items: center;
+}
+
+#open-in-new {
+/*    height: 19px;*/   
+    /*width: 19px;    */
+    color: #FFFFFF;  
+    font-size: 24px;    
+    line-height: 0; 
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 10px;
+    padding-right: 9px;
+}
 
 /****footer nav****/
 
@@ -2443,4 +2470,10 @@ div#DDmenu a::after{
 .item_img img {
     height: 125px;
     width: 125px;
+}
+
+#script-notice {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: normal;
 }
