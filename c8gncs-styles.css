@@ -593,7 +593,7 @@ body{
 
 .nav a, .nav-left a {
     padding: 10px 10px;
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .nav-left a:first-of-type {
@@ -976,7 +976,7 @@ tfoot tr td{
 
 .btn {
     color: #0054A4;
-    font-weight: 500;
+    font-weight: bold;
     cursor: pointer;
     text-align: center;
     padding: 11px 13px 11px 13px;
@@ -988,7 +988,7 @@ tfoot tr td{
 
 .btn:hover{
     color: #0054A4;
-    font-weight: 500;
+    font-weight: bold;
     cursor: pointer;
     text-align: center;
     padding: 11px 13px 11px 13px;
@@ -1001,7 +1001,7 @@ tfoot tr td{
 .btn-primary{
     color: #0054A4;
     background-color: #FDBE38;
-    font-weight: 500;
+    font-weight: bold;
     cursor: pointer;
     -moz-border-radius:20px;
     /*-webkit-border-radius:20px;*/
@@ -1017,7 +1017,7 @@ tfoot tr td{
 .btn-primary:hover{
     color: #0054A4;
     background-color: #FDCE68;
-    font-weight: 500;
+    font-weight: bold;
     cursor: pointer;
     -moz-border-radius:20px;
     /*-webkit-border-radius:20px;*/
@@ -1284,8 +1284,8 @@ tfoot tr td{
 }
 
 .featured-product-carousel .item img{
-    max-height:125px;
-    max-width:125px;
+    max-height:210px;
+    max-width:210px;
 }
 
 .featured-product-carousel .item a{
@@ -1304,7 +1304,10 @@ tfoot tr td{
 
 #item-container {
     width: 256px;
+    margin-left: 14px;
+    margin-right: 14px;
 }
+
         
 /****FAQ ****/
 

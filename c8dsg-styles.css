@@ -568,6 +568,11 @@ div#DDmenu li:hover{
     /*margin-left: 10px;*/
 }
 
+#allowance-bal {
+    color: #fff;
+    font-weight: normal;
+}
+
 .welcomemsg:first-child {
     padding-right: 10px;
 }
@@ -861,6 +866,10 @@ tfoot tr td{
 .btn-primary:hover{
     background-color: #252525!important;
     color: #fff!important;
+}
+
+.btn.ship-to-multiple {
+    margin-right: 5px;
 }
 
 #continueShopBtn {
@@ -1511,7 +1520,7 @@ ul.radios-list li label{
   background-image: url("../images/bg/checkout_sprite.png");
   background-position: 103% 0;
   background-repeat: no-repeat;
-  margin: 30px 0;
+  margin: 30px 0 50px;
 }
 
 .co-breadcrumb li.active{
@@ -1583,6 +1592,7 @@ ul.radios-list li label{
 text-align: right;
 /*margin: -5px 0 8px;*/
 float: right;
+display: flex;
 }
 
 .address-title.autoclear {
@@ -1602,7 +1612,7 @@ float: right;
 #pageCheckoutAddresses h2, #pageCheckoutPayment h2 {
     font-size: 22px;
     color: #252525;
-    font-weight: normal;
+    font-weight: 700;
 }
 
 /****Checkout - Your Information Edit/New Shipping Address****/
@@ -2223,6 +2233,11 @@ input#cvv{
 
 #submitClearWishList{
     position: relative;
+    display: table-footer-group;
+    /*float: right;*/
+}
+
+#submitAddToCart {
     float: right;
 }
 
@@ -2422,4 +2437,15 @@ div#DDmenu a::after{
 
 #addAnother {
     font-size: 16px;
+}
+
+.item_img img {
+    height: 125px;
+    width: 125px;
+}
+
+#script-notice {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: normal;
 }
