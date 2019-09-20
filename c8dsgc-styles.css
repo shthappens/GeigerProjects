@@ -568,12 +568,6 @@ div#DDmenu li:hover{
     /*margin-left: 10px;*/
 }
 
-#allowance-bal {
-    color: #fff;
-    font-weight: normal;
-    padding: 0 20px;
-}
-
 .welcomemsg:first-child {
     padding-right: 10px;
 }
@@ -601,6 +595,33 @@ div#DDmenu li:hover{
     float: right;
 }
 
+.branch-link {
+    width: 150px;
+    height: 40px;
+    background: #b50000;
+}
+
+.branch-link a {    
+    color: #FFFFFF;   
+    font-size: 15px;    
+    font-weight: bold;  
+    line-height: 15px;
+    display: inline-flex;
+    margin-top: 5px;
+    align-items: center;
+}
+
+#open-in-new {
+/*    height: 19px;*/   
+    /*width: 19px;    */
+    color: #FFFFFF;  
+    font-size: 24px;    
+    line-height: 0; 
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 10px;
+    padding-right: 9px;
+}
 
 /****footer nav****/
 
@@ -889,14 +910,6 @@ tfoot tr td{
     display: table-footer-group;
 }
 
-input.btn.pointBtn {
-    display: inline;
-    margin-right: 5px;
-}
-#awardbtn, #dp_confirmaward {
-    display: inline!important;
-}
-
 /*********** Page Experience Specific Styles *************
 * Place site styles here for things that are specific to a certain page experience. */
 
@@ -1123,8 +1136,7 @@ input.btn.pointBtn {
     -moz-box-shadow: 0 1px 2px #d1d1d1;
     -webkit-box-shadow: 0 1px 2px #d1d1d1;
     box-shadow: 0 1px 2px #d1d1d1;
-    padding: 45px 45px 45px 45px!important;
-    height: auto!important ;
+    padding: 45px 45px 75px 45px!important;
 }
 
 .login form label{
@@ -1225,6 +1237,12 @@ a.forgotPassword{
 /****My Account My Address****/
 
 /****New Shipping Address****/
+
+/****New Hide 3PB #input field ****/
+
+#thirdptyft {
+    display: none;
+}
 
 /****My Account - Change Password****/
 
