@@ -1,5 +1,16 @@
 
-    //script to change bCrumbs link to home page when landing page is in use.
+    //force imprint customization on two items. 35B
+    
+        #if($item.code == "WP835B008" || $item.code == "WT835B005BLK") 
+            // <script>
+                $( document ).ready(function() {
+                    $("#customize").prop("checked",true);
+                    $(".custom-input").show();
+                });                              
+            // </script>
+        #end
+
+    //script to change bCrumbs link to home page when landing page is in use. *33x
         // <script>
             $( document ).ready(function() {
                 $(".bCrumbs a:first").html("<a href='SJHM/home'>Home</a>");
@@ -122,7 +133,7 @@ function validateForm() {
 //</script>
 
 // Regal scripts
-//<script>
+//<script> remove click function on prod. categories
         
         jQuery( document ).ready(function() {
             jQuery(function() {

@@ -1037,7 +1037,7 @@ input.btn.pointBtn {
 .featured-product-carousel .item img{
 /*    max-height:125px;
     max-width:125px;*/
-    max-height:150px;
+    max-height:149px;
     max-width:150px;
 }
 
@@ -2463,4 +2463,28 @@ div#DDmenu a::after{
     font-size: 16px;
     font-style: italic;
     font-weight: normal;
+}
+
+#calendarLink {
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    margin-top: 32px;
+    text-transform: uppercase;
+    height: 90px;
+}
+
+#calendarLink h1 {
+    margin-top: 15px;
+    margin-bottom: 7px;
+}
+
+#calendarLink p {
+    font-size: 16px;
+}
+
+#categoryNotice {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: #B50000;
 }

@@ -1050,7 +1050,7 @@ tfoot tr td{
 .featured-product-carousel .item img{
 /*    max-height:125px;
     max-width:125px;*/
-    max-height:150px;
+    max-height:149px;
     max-width:150px;
 }
 
@@ -1991,12 +1991,54 @@ input#cvv{
 
 .checkoutQuestions {
     width: 600px;
+    display: flex;
+    flex-direction: column;
 }
 
 .question {
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
+}
+
+/*label[for="question-9"] {
+    background: red;
+}*/
+
+[id="865"].question {
+    order: 1;
+}
+
+[id="847"].question {
+    order: 2;
+}
+
+[id="848"].question {
+    order: 3;
+}
+
+[id="849"].question {
+    order: 4;
+}
+
+[id="850"].question {
+    order: 5;
+}
+
+[id="851"].question {
+    order: 6;
+}
+
+[id="852"].question {
+    order: 7;
+}
+
+[id="853"].question {
+    order: 8;
+}
+
+[id="854"].question {
+    order: 9;
 }
 
 
@@ -2481,4 +2523,28 @@ div#DDmenu a::after{
     font-size: 16px;
     font-style: italic;
     font-weight: normal;
+}
+
+#calendarLink {
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    margin-top: 32px;
+    text-transform: uppercase;
+    height: 90px;
+}
+
+#calendarLink h1 {
+    margin-top: 15px;
+    margin-bottom: 7px;
+}
+
+#calendarLink p {
+    font-size: 16px;
+}
+
+#categoryNotice {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: #B50000;
 }

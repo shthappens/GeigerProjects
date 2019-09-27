@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 #parse('libGlobalConfig.vm')
 #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
@@ -45,9 +44,36 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
                 #parse('libpartcheckoutpaymentcontent.vm')
             #end
 
+            ## #if($paymentgateway.code == "PLP")
+            ##   <script>
+            ##     $("#847").hide();
+            ##   </script>
+            ## #end
+
+    <script>
+        
+        jQuery( document ).ready(function() {
+            jQuery("h2:last").html("<h2>Expense Coding</h2></n><p id='script-notice'>*All fields must be selected before proceeding</p>");
+        });
+        
+    </script>
     <script>
 
           jQuery(document).ready(function() {
+
+
+            // jQuery("#847").show();
+
+            if ($('#tab_PLP')) {
+              console.log('visible!')
+              jQuery("#847").hide();
+            }
+
+            if ($('#tab_NCC-ACCOUNT')) {
+              jQuery("#847").show();
+            }
+
+            // jQuery("#847").hide();
             jQuery("#848").hide();
             jQuery("#849").hide();
             jQuery("#850").hide();
@@ -59,6 +85,9 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
           });
 
           function validateForm() {
+          
+            var purchaseType = jQuery("select[name='865_0_5562']");
+            var purchaseTypeText = jQuery("select[name='865_0_5562'] option:selected").text();
     
             var branchCode = jQuery("select[name='847_0_5535']");
             var branchCodeText = jQuery("select[name='847_0_5535'] option:selected").text();
@@ -87,6 +116,10 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
             //check for question completion
             var answers= 0;
 
+            if(purchaseTypeText== 'Please Select') {
+              answers ++;
+            }
+
             if(branchCodeText== 'Please Select') {
               answers ++;
             }
@@ -112,16 +145,25 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
             // if(branchMarketing.val() == 'Please Select') {
             //   alert("Please select Branch Marketing Options.");
             // }
-            
-            if(branchCodeText== 'Please Select') {
-              alert("Please select Branch Number.");
+
+            if(purchaseTypeText== 'Please Select') {
+              alert("Is this a personal order?");
               return false;
             }
 
+            if ( purchaseTypeText== 'Yes') {
+              return true;
+            }
+            
+            // if(branchCodeText== 'Please Select') {
+            //   alert("Please select Branch Number.");
+            //   return false;
+            // }
+
             console.log('answers: ' + answers)
 
-            if(answers <= 3) {
-              // at this point, we know all three options have values, now we proceed to validate validate options
+            if(answers <= 4) {
+              // at this point, we know all three options have values, now we proceed to validate options
               if ( branchMarketing.is(':visible') && branchMarketingText == 'Please Select') {
                 console.log('must select option')
                 alert("Please complete each order question.");
@@ -142,6 +184,39 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
             }
 
           };
+
+          $("#865").change(function() {
+
+            if ($("select[name='865_0_5562'] option:selected").text() == "No") {
+
+              $("#847").show();
+
+            }
+
+            if ($("select[name='865_0_5562'] option:selected").text() != "No") {
+
+              $("#847").hide();
+              $("#848").hide();
+              $("#849").hide();
+              $("#850").hide();
+              $("#851").hide();
+              $("#852").hide();
+              $("#853").hide();
+              $("#854").hide();
+
+              $("select[name='847_0_5535']").val("");
+              $("select[name='848_0_5536']").val("");
+              $("select[name='849_0_5537']").val("");
+              $("select[name='850_0_5538']").val("");
+              $("select[name='851_0_5539']").val("");
+              $("select[name='852_0_5540']").val("");
+              $("select[name='853_0_5541']").val("");
+              $("select[name='854_0_5542']").val("");
+
+            }
+
+
+          });
 
           // if Corporate branch, show Corporate departments and Corporate GL Code, hide Segment and Segment GL Code.
           $( "#847" ).change(function() {
@@ -252,148 +327,148 @@ $number.format('currency', $price, $viewStoreCurrency.locale)
           });
 
           // Set UPS # based on Branch #
-          $( "#847" ).change(function() {
+        ##   $( "#847" ).change(function() {
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Aberdeen, SD (01)") {
-                $("input[name*='freightAccountNumberMap']").val("570376");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Aberdeen, SD (01)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("570376");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Alexandria, MN (27)") {
-                $("input[name*='freightAccountNumberMap']").val("31F389");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Alexandria, MN (27)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("31F389");
+        ##     }
 
-           if($("select[name='847_0_5535'] option:selected").text() == "Austin, MN (28)") {
-                $("input[name*='freightAccountNumberMap']").val("558470");
-            }
+        ##   if($("select[name='847_0_5535'] option:selected").text() == "Austin, MN (28)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("558470");
+        ##     }
 
-           if($("select[name='847_0_5535'] option:selected").text() == "Bemidji, MN (24)") {
-                $("input[name*='freightAccountNumberMap']").val("6F89A5");
-            }
+        ##   if($("select[name='847_0_5535'] option:selected").text() == "Bemidji, MN (24)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("6F89A5");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Billings, MT (48)") {
-                $("input[name*='freightAccountNumberMap']").val("R66775");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Billings, MT (48)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("R66775");
+        ##     }
 
-           if($("select[name='847_0_5535'] option:selected").text() == "Bismarck, ND (16)") {
-                $("input[name*='freightAccountNumberMap']").val("E58588");
-            }
+        ##   if($("select[name='847_0_5535'] option:selected").text() == "Bismarck, ND (16)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("E58588");
+        ##     }
             
-            if($("select[name='847_0_5535'] option:selected").text() == "Bismarck, ND  Waterworks (15)") {
-                $("input[name*='freightAccountNumberMap']").val("6Y681F");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Bismarck, ND  Waterworks (15)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("6Y681F");
+        ##     }
 
-           if($("select[name='847_0_5535'] option:selected").text() == "Bozeman, MT (42)") {
-                $("input[name*='freightAccountNumberMap']").val("4807X3");
-            }
+        ##   if($("select[name='847_0_5535'] option:selected").text() == "Bozeman, MT (42)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("4807X3");
+        ##     }
     
-           if($("select[name='847_0_5535'] option:selected").text() == "Corporate (88)") {
-                $("input[name*='freightAccountNumberMap']").val("566393");
-            }
+        ##   if($("select[name='847_0_5535'] option:selected").text() == "Corporate (88)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("566393");
+        ##     }
     
-           if($("select[name='847_0_5535'] option:selected").text() == "Dickinson, ND (18)") {
-                $("input[name*='freightAccountNumberMap']").val("A820V5");
-            }
+        ##   if($("select[name='847_0_5535'] option:selected").text() == "Dickinson, ND (18)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("A820V5");
+        ##     }
     
-           if($("select[name='847_0_5535'] option:selected").text() == "Fargo, ND (12)") {
-                $("input[name*='freightAccountNumberMap']").val("566047");
-            }
+        ##   if($("select[name='847_0_5535'] option:selected").text() == "Fargo, ND (12)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("566047");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Fargo, ND Waterworks (11)") {
-                $("input[name*='freightAccountNumberMap']").val("566393");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Fargo, ND Waterworks (11)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("566393");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Grand Forks, ND (14)") {
-                $("input[name*='freightAccountNumberMap']").val("555963");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Grand Forks, ND (14)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("555963");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Grand Rapids, MN (54)") {
-                $("input[name*='freightAccountNumberMap']").val("AY8291");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Grand Rapids, MN (54)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("AY8291");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Ham Lake, MN (52)") {
-                $("input[name*='freightAccountNumberMap']").val("1A40A7");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Ham Lake, MN (52)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("1A40A7");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Helena, MT (40)") {
-                $("input[name*='freightAccountNumberMap']").val("598075");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Helena, MT (40)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("598075");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Kalispell, MT (46)") {
-                $("input[name*='freightAccountNumberMap']").val("597978");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Kalispell, MT (46)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("597978");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "La Crosse, WI (31)") {
-                $("input[name*='freightAccountNumberMap']").val("583103");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "La Crosse, WI (31)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("583103");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Minot, ND (19)") {
-                $("input[name*='freightAccountNumberMap']").val("566166");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Minot, ND (19)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("566166");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Missoula, MT (44)") {
-                $("input[name*='freightAccountNumberMap']").val("YR1586");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Missoula, MT (44)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("YR1586");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Mitchell, SD (02)") {
-                $("input[name*='freightAccountNumberMap']").val("570498");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Mitchell, SD (02)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("570498");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Monticello, MN (56)") {
-                $("input[name*='freightAccountNumberMap']").val("YV4371");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Monticello, MN (56)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("YV4371");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Oakdale, MN (58)") {
-                $("input[name*='freightAccountNumberMap']").val("5E67X4");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Oakdale, MN (58)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("5E67X4");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Pierre, SD (03)") {
-                $("input[name*='freightAccountNumberMap']").val("585256");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Pierre, SD (03)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("585256");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Plover, WI (37)") {
-                $("input[name*='freightAccountNumberMap']").val("585256");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Plover, WI (37)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("585256");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Plymouth, MN (55)") {
-                $("input[name*='freightAccountNumberMap']").val("556153");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Plymouth, MN (55)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("556153");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Rapid City, SD (04)") {
-                $("input[name*='freightAccountNumberMap']").val("570442");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Rapid City, SD (04)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("570442");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Rice Lake, WI (39)") {
-                $("input[name*='freightAccountNumberMap']").val("570086");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Rice Lake, WI (39)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("570086");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Rochester, MN (20)") {
-                $("input[name*='freightAccountNumberMap']").val("570086");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Rochester, MN (20)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("570086");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Sioux Falls, SD Automation (09)") {
-                $("input[name*='freightAccountNumberMap']").val("570086");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Sioux Falls, SD Automation (09)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("570086");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Sioux Falls, SD Electrical (10)") {
-                $("input[name*='freightAccountNumberMap']").val("570086");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Sioux Falls, SD Electrical (10)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("570086");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Sioux Falls, SD Waterworks (06)") {
-                $("input[name*='freightAccountNumberMap']").val("570050");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Sioux Falls, SD Waterworks (06)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("570050");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "St. Paul, MN (21)") {
-                $("input[name*='freightAccountNumberMap']").val("566203");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "St. Paul, MN (21)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("566203");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Williston, ND (17)") {
-                $("input[name*='freightAccountNumberMap']").val("566203");
-            }
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Williston, ND (17)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("566203");
+        ##     }
 
-            if($("select[name='847_0_5535'] option:selected").text() == "Winona, MN (26)") {
-                $("input[name*='freightAccountNumberMap']").val("Winona, MN (26)");
-            }
-          });
+        ##     if($("select[name='847_0_5535'] option:selected").text() == "Winona, MN (26)") {
+        ##         $("input[name*='freightAccountNumberMap']").val("Winona, MN (26)");
+        ##     }
+        ##   });
         
         </script>
         
