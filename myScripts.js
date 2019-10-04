@@ -1,3 +1,10 @@
+    // change a link in drop down menu - 72A/C
+
+        jQuery(function() {
+            jQuery("a[href='DSG/product-categories/business-cards-name-bades']").attr('href', 'https://dsg.brandingbygeiger.com/').attr('target','_blank')
+            console.log("hola")
+        })
+    
 
     //force imprint customization on two items. 35B
     

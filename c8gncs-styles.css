@@ -25,8 +25,57 @@
 * 
 * 
 **************/
-
 /************ CSS Reset *************/
+
+
+a.startShopping.btn-primary {
+    width: 125px;
+}
+
+#pageMyAccount form.myAccountForm {
+display: inline-block;
+}
+
+#pageCheckoutPayment .gift-btn {
+    display: inline-block;
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+#pageCheckoutPayment .tabs, #pageCheckoutPayment h2, .payment-section {
+    margin-bottom: 0!important;
+}
+
+#payment_gift_card {
+    margin-top: 0!important;
+}
+
+.coupon-progress {
+    height: 38px;
+    border: 1px dotted orange;
+    width: 855px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.coupon-progress .addmore {
+    width: 200px;
+    margin-left: 30px;
+}
+
+.coupon-progress .fill {
+    background: #FDCE68;
+    width: 0%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.coupon-progress p {
+    margin: auto;
+}
 
 * {
     margin: 0;
@@ -41,7 +90,7 @@ html{
 }
 
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+h1, h2, h3, h4, h5, h6, p, bloc130pxkquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, font, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -557,7 +606,6 @@ body{
 }*/
 
 .nav{
-    width: 277px;
     height: 45px;
     display: inline-flex;
     text-transform: none;
@@ -583,6 +631,9 @@ body{
 .nav li{
     float:right;
     font-weight: 500;
+    text-transform: uppercase;
+    padding-right: 2px;
+    padding-left: 2px;
 }
 
 .nav-left li {
@@ -600,9 +651,9 @@ body{
     padding: 10px 10px 10px 0;
 }
 
-.nav li:first-child {
+/*.nav li:first-child {
     text-transform: uppercase;
-}
+}*/
 
 .nav li a:hover, .nav-left li a:hover{
     /*background-color: #b12936;*/
@@ -747,13 +798,17 @@ div#DDmenu li a:hover{
     background-color: #F2F2F2;
     border: 1px solid #E6E6E6;
     height: 35px;
-    width: 250px;
+    min-width: 130px;
     border-radius: 5px;
     font-family: aktiv-grotesk, sans-serif;
 }
 
 .cart:hover {
     background-color: #E6E6E6;
+}
+
+li.mini-cart .summary .def:nth-of-type(2) {
+    display: none;
 }
 
 .mini-cart .cartbutton{
@@ -984,6 +1039,7 @@ tfoot tr td{
     text-decoration: none;
     border: 1px solid #E6E6E6;  
     background-color: #FFFFFF;
+    font-size: 14px;
 }
 
 .btn:hover{
@@ -999,44 +1055,49 @@ tfoot tr td{
 } 
 
 .btn-primary{
-    color: #0054A4;
-    background-color: #FDBE38;
-    font-weight: bold;
-    cursor: pointer;
-    -moz-border-radius:20px;
+    color: #0054A4 !important;
+    background-color: #FDBE38 !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    -moz-border-radius:20px !important;
     /*-webkit-border-radius:20px;*/
     /*border-radius:20px;*/
     /*min-width: 176px;*/
-    text-align: center;
-    padding: 11px 15px 11px 15px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: none;
+    text-align: center !important;
+    padding: 11px 15px 11px 15px !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    border: none !important;
+    font-size: 14px;
 }
 
 .btn-primary:hover{
-    color: #0054A4;
-    background-color: #FDCE68;
-    font-weight: bold;
-    cursor: pointer;
-    -moz-border-radius:20px;
+    color: #0054A4 !important;
+    background-color: #FDCE68 !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    -moz-border-radius:20px !important;
     /*-webkit-border-radius:20px;*/
     /*border-radius:20px;*/
     /*min-width: 176px;*/
-    text-align: center;
-    padding: 11px 15px 11px 15px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: none;
+    text-align: center !important;
+    padding: 11px 15px 11px 15px !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    border: none !important;
 }
 
 .gift-btn {
     border-radius: 3px 3px 3px 3px;
     -moz-border-radius: 3px 3px 3px 3px;
     -webkit-border-radius: 3px 3px 3px 3px;
-    border: 1px solid !important;
+   /* border: 1px solid !important;*/
     background: #ededed;
     border: none;
+}
+
+.login .btn-primary {
+    margin-bottom: 40px!important;
 }
 
 /*********** Page Experience Specific Styles *************
@@ -1129,6 +1190,7 @@ tfoot tr td{
     background-position: 0 1.10em;
     background-repeat: repeat-x;
     background-size: 2px 4px;
+    line-height: 80px;
 }
 
 
@@ -1197,7 +1259,7 @@ tfoot tr td{
 
 #banner-top {
     height: 50px;   
-    background: linear-gradient(90deg, #0053A1 0%, #002D62 100%);
+    background: linear-gradient(90deg, #002D62 0%, #0053A1 100%);
     display: flex;
 }
 
@@ -1377,6 +1439,7 @@ tfoot tr td{
     -webkit-box-shadow: 0 1px 2px #d1d1d1;
     box-shadow: 0 1px 2px #d1d1d1;
     padding: 15px;
+    height: 415px!important;
 }
 
 .login form label{
@@ -1574,6 +1637,7 @@ td.ar{
     right: 0;
     bottom: 5px;
     padding: 5px 6px;
+    display: none;
 }
 
 .image .price-box .currency, .image .price-box strong {
@@ -2094,10 +2158,15 @@ float: right;
     margin-top: 15px;
     text-align: right;
     width: 150px;
+    display: none;
 }
 
 .subtotal-line.total{
     border-top: 1px solid #ccc;
+}
+
+#pageCheckoutPayment #payment_gift_card .note {
+    display: none;
 }
 
 #pageCheckoutPayment .actions, #pageCheckoutReview .actions{
@@ -2509,4 +2578,14 @@ input#cvv{
 .featuredwrap{
     display: flex;
     justify-content: space-around;    
+}
+
+.cross-sell.ymal {
+    display: none;
+}
+
+/*ul.no_top_margin li */
+
+#pageCheckoutPayment ul.no_top_margin li:nth-of-type(2) > label {
+    display: none;
 }
