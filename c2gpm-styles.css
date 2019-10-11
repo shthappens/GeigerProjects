@@ -140,9 +140,9 @@ p{
 }
 
 #pageItem p {
-	font-size: 14px;
-	color: #585252;
-	font-weight: normal;
+    font-size: 14px;
+    color: #585252;
+    font-weight: normal;
 }
 
 #footer p{
@@ -159,16 +159,16 @@ a{
 }
 
 a:hover {
-	color: #3B97ED;
-	text-decoration: underline;
+    color: #3B97ED;
+    text-decoration: underline;
 }
 
 #footer{
     font-size: 14px;
-/*	width: 1024px;
-	margin: auto;*/
-	background-color: #091745;
-	height: 242px;
+/*  width: 1024px;
+    margin: auto;*/
+    background-color: #091745;
+    height: 242px;
 }
 
 .nav a{
@@ -213,25 +213,25 @@ h1{
 }
 
 .welcome-message h1 {
-	width: 121px;
-	color: #0055A5;
-	font-family: Roboto;
-	font-size: 28px;
-	font-weight: bold;
-	margin: auto;
-	margin-bottom: 24px;
+    width: 121px;
+    color: #0055A5;
+    font-family: Roboto;
+    font-size: 28px;
+    font-weight: bold;
+    margin: auto;
+    margin-bottom: 24px;
 }
 
 .welcome-message p {
-	text-align: center;
-	width: 755px;
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 16px;
-	color: #585252;
-	font-weight: normal;
-	font-family: Roboto, sans-serif;
-	line-height: 22px;
+    text-align: center;
+    width: 755px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    color: #585252;
+    font-weight: normal;
+    font-family: Roboto, sans-serif;
+    line-height: 22px;
 }
 
 #pageHome a:hover{
@@ -252,9 +252,9 @@ h2{
     color:#424242;
     margin-bottom: 15px;*/
 
-	font-weight:normal;
-    height: 20px;	
-    color: #A9140D;	
+    font-weight:normal;
+    height: 20px;   
+    color: #A9140D; 
     font-family: Roboto, sans-serif;
     font-size: 21px;
     line-height: 0;
@@ -266,8 +266,8 @@ h5{ }
 h6{ }
 
 .bCrumbs, .bCrumbs a{
-	font-size: 14px;
-	color: #585252;
+    font-size: 14px;
+    color: #585252;
 }
 
 .image .price-box{
@@ -310,7 +310,7 @@ label, .label {
 }
 
 #recentlyViewed {
-	display: none!important;
+    display: none!important;
 }
 
 #recentlyViewed li {
@@ -366,16 +366,16 @@ body{
 }
 
 #pageHome #content {
-	min-height: 430px;
-	padding-top: 32px;
+    min-height: 430px;
+    padding-top: 32px;
 }
 
 #header{
     height: 143px;
-	display: flex;
-	flex-flow: column;
-	border-top: 8px solid #091745;
-	border-bottom: 1px solid #f2f2f2;
+    display: flex;
+    flex-flow: column;
+    border-top: 8px solid #091745;
+    border-bottom: 1px solid #f2f2f2;
 }
 
 #header .wrapper{
@@ -384,35 +384,35 @@ body{
 /*    text-align: right;
     margin-top: 15px;*/
     width: 1024px;
-	display: inline-flex;
-	margin: auto;
-	align-items: center;
+    display: inline-flex;
+    margin: auto;
+    align-items: center;
 }
 
 #header .wrapper .logo {
-	margin-left: 0;
+    margin-left: 0;
     margin-right: auto;
 }
 
 #footer .wrapper{
-	height: auto;
-	padding: 15px 0px;
-	color: #ffffff;
-	width: 1024px;
-	margin: auto;
-	position: relative;
+    height: auto;
+    padding: 15px 0px;
+    color: #ffffff;
+    width: 1024px;
+    margin: auto;
+    position: relative;
 }
 
 #footer .wrapper-top {
-	height: 192px;
-	background-color: #fafafa;
-	display: flex;
-	border-top: 1px solid #f2f2f2;
+    height: 192px;
+    background-color: #fafafa;
+    display: flex;
+    border-top: 1px solid #f2f2f2;
 }
 
 #gpm-logos {
-	background: url("../images/gpm-footer.svg") no-repeat scroll left top transparent;
-	height: 132px;
+    background: url("../images/gpm-footer.svg") no-repeat scroll left top transparent;
+    height: 132px;
     width: 991px;    
     margin: 30px auto;
 }
@@ -451,8 +451,8 @@ body{
 }
 
 #pageCategory .page {
-	margin: auto;
-	float: none;
+    margin: auto;
+    float: none;
 }
 
 .page.noFacet{
@@ -525,20 +525,20 @@ body{
 /****Main Navigation****/
 
 #menu{
-	background-color: #FAFAFA;
-	border-top: 1px solid #f2f2f2;
+    background-color: #FAFAFA;
+    border-top: 1px solid #f2f2f2;
 }
 
 #menu .nav li a {
-	color: #0055A5;
-	text-decoration: none;
-	font-size: 18px;
-	text-transform: uppercase;
-	font-weight: 700;
+    color: #0055A5;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 #faq a {
-	text-transform: none!important;
+    text-transform: none!important;
 }
 
 #menu .nav li a:hover{
@@ -618,32 +618,32 @@ div#DDmenu li a:hover{
 
 
 .utilNav{
-	margin-top: auto;
-	margin-bottom: auto;
-	justify-content: center;
-	color: #585252;
-	font-size: 16px;
-	font-weight: bold;
+    margin-top: auto;
+    margin-bottom: auto;
+    justify-content: center;
+    color: #585252;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 
 .utilNav p {
-	margin-bottom: 0;
-	font-weight: bold!important;
-	font-size: 16px!important;
+    margin-bottom: 0;
+    font-weight: bold!important;
+    font-size: 16px!important;
 }
 
 .utilNav a {
-	color: #585252;
-	text-decoration: none;
+    color: #585252;
+    text-decoration: none;
 }
 
 .utilNav a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 .welcomemsg {
-	margin-right: 32px;
+    margin-right: 32px;
 }
 
 /****footer nav****/
@@ -666,7 +666,7 @@ div#DDmenu li a:hover{
 }
 
 #footer ul p {
-	color: #98A3C6;
+    color: #98A3C6;
 }
 
 /****Mini Cart****/
@@ -686,14 +686,14 @@ div#DDmenu li a:hover{
 /**** search ****/
 
 .search {
-	margin-left: 32px;
+    margin-left: 32px;
     margin-top: auto;
-	margin-bottom: auto;
-	justify-content: center;
+    margin-bottom: auto;
+    justify-content: center;
 
-	display: inline-flex;
-/*	margin-top: 31.5px;
-	margin-bottom: 31.5px;*/
+    display: inline-flex;
+/*  margin-top: 31.5px;
+    margin-bottom: 31.5px;*/
 }
 
 #searchForm div{
@@ -705,18 +705,18 @@ div#DDmenu li a:hover{
     margin-right: 80px;*/
 
     border: 1px solid #e6e6e6;
-	background-color: #fff;
-	width: 198px;
-	height: 33px;
-	display: flex;
-	position: relative;
-	border: 1px solid #F2F2F2;
-	background-color: #FFFFFF;
+    background-color: #fff;
+    width: 198px;
+    height: 33px;
+    display: flex;
+    position: relative;
+    border: 1px solid #F2F2F2;
+    background-color: #FFFFFF;
 }
 
 #searchForm input#key{
-	border: none;
-	color: #808080;
+    border: none;
+    color: #808080;
 /*    border: none;
     width: 148px;
     float: left;*/
@@ -744,14 +744,14 @@ div#DDmenu li a:hover{
 }
 
 .searchGlass {
-	position: relative;
-	float: left;
-	cursor: pointer;
-	font-size: 24px !important;
-	color: #EE3729;
-	top: 6px;
-	padding-left: 6px;
-	padding-right: 6px;
+    position: relative;
+    float: left;
+    cursor: pointer;
+    font-size: 24px !important;
+    color: #EE3729;
+    top: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
 
@@ -774,7 +774,7 @@ div#DDmenu li a:hover{
 /*********** Global - Reused Basic Elements: tables, HR, etc; *************/
 
 hr{
-	display: none;
+    display: none;
 }
 
 /*example table style from http://www.premiumpixels.com/freebies/simple-little-table-psd/ 
@@ -908,15 +908,15 @@ tfoot tr td{
     cursor: pointer;
     text-transform: uppercase;
     font-size: 16px;
-	font-family: roboto, sans-serif;
-	border: none;
+    font-family: roboto, sans-serif;
+    border: none;
 }
 
 .btn:hover{
     background-color: #DBDBDB;
 } 
 
-.btn-primary{
+.btn-primary {
     background-color: #EE3729;
     color:#FFF;
     font-weight: bold;
@@ -924,8 +924,8 @@ tfoot tr td{
     cursor: pointer;
     text-transform: uppercase;
     font-size: 16px;
-	font-family: roboto, sans-serif;
-	border: none;
+    font-family: roboto, sans-serif;
+    border: none;
 }
 
 .btn-primary:hover{
@@ -934,20 +934,36 @@ tfoot tr td{
 
 
 .gift-btn {
-	border-radius: 0;
-	background: #e6e6e6 !important;
-	color: #585252 !important;
-	font-weight: bold;
-	padding: 8px 20px !important;
-	cursor: pointer;
-	text-transform: uppercase;
-	font-size: 16px;
-	font-family: roboto, sans-serif;
-	border: none !important;
+    border-radius: 0;
+    background: #e6e6e6 !important;
+    color: #585252 !important;
+    font-weight: bold;
+    padding: 8px 20px !important;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: roboto, sans-serif;
+    border: none !important;
 }
 
 .gift-btn:hover{
     background-color: #DBDBDB!important;
+}
+
+.spot-btns {
+    width: 1024px;
+    margin: auto;
+}
+
+button.btn-primary {
+    margin-right: 15px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.25);
+    width: 175px;
+}
+
+button.btn-primary a {
+    color: #fff;
+    text-decoration: none;
 }
 
 /*********** Page Experience Specific Styles *************
@@ -956,7 +972,7 @@ tfoot tr td{
 /****Home****/
 
 .spot-text {
-	width: 1024px;
+    width: 1024px;
     margin: auto;
     text-align: left;
     display: flex;
@@ -964,56 +980,63 @@ tfoot tr td{
 }
 
 .spot-text .btn-primary {
-	width: 175px;
-	text-align: center;
-	padding: 11px 0px;
-	box-shadow: 0 0 8px rgba(0,0,0,0.25);
+    width: 175px;
+    text-align: center;
+    padding: 11px 0px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.25);
 }
 
 .spot-text a, .spot-text a:hover {
-	text-decoration: none;
-	color: #FFFFFF;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.spot-text p {
+    height: 24px;     
+    color: #585252;     
+    font-size: 24px;    
+    line-height: 22px;
 }
 
 #spotlight {
-	height: 425px;
-	width: 100%;
-	background: url("../images/spot-img.png") no-repeat;
-	background-color: #E9F0F6;
-	background-position-x: 70%;
+    height: 425px;
+    width: 100%;
+    background: url("../images/spot-img.png") no-repeat;
+    background-color: #E9F0F6;
+    background-position-x: 70%;
 }
 
 #spotlight h1 {
-	height: 151px;		
-	color: #585252;	
-	font-family: roboto-condensed, sans-serif;
-	font-size: 80px;	
-	font-weight: bold;	
-	line-height: 74px;
-	/*margin: auto;*/
-	text-align: left;
-	padding-top: 106px;
-	margin: 0px 0px 27px 0px;
+    height: 151px;      
+    color: #585252; 
+    font-family: roboto-condensed, sans-serif;
+    font-size: 80px;    
+    font-weight: bold;  
+    line-height: 74px;
+    /*margin: auto;*/
+    text-align: left;
+    padding-top: 106px;
+    margin: 0px 0px 27px 0px;
 }
 
 #authorized-alert {
-	height: 65px;	
-	width: 570px;	
-	border: 1px solid #F2F2F2;	
-	background-color: #FAFAFA;
-	margin: 35px auto auto auto;
-	display: flex;	
-	align-items: center;
+    height: 65px;   
+    width: 570px;   
+    border: 1px solid #F2F2F2;  
+    background-color: #FAFAFA;
+    margin: 35px auto auto auto;
+    display: flex;  
+    align-items: center;
 }
 
 #authorized-alert p {
-	width: 515px;	
-	color: #EE3729;	
-	font-size: 16px;	
-	font-weight: bold;		
-	text-align: center;
-	margin: auto;
-	font-family: Roboto, sans-serif;
+    width: 515px;   
+    color: #EE3729; 
+    font-size: 16px;    
+    font-weight: bold;      
+    text-align: center;
+    margin: auto;
+    font-family: Roboto, sans-serif;
 }
 
 /*Featured Products Carousel*/
@@ -1194,7 +1217,7 @@ a.forgotPassword{
 /****Terms of Service/Privacy Policy****/
 
 #pageTerms p {
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 /**** My Account ****/
@@ -1239,11 +1262,11 @@ a.forgotPassword{
 }
 
 #pageMyAccount h2, #pageMyAccount table {
-	margin-top: 40px;
+    margin-top: 40px;
 }
 
 #pageMyAccount .no-border, #pageMyAccount .p-table {
-	margin-top: 0;
+    margin-top: 0;
 }
 
 
@@ -1273,7 +1296,7 @@ td.ar{
 }
 
 #pageCategory .item a, #pageSearchResults .item a{
-	line-height: 17px;
+    line-height: 17px;
 }
 
 
@@ -1537,17 +1560,17 @@ ul.radios-list li label{
 }
 
 #pageBasket b {
-	font-weight: 400;
+    font-weight: 400;
 }
 
 
 #pageBasket .btn {
-	margin-top: 10px;
+    margin-top: 10px;
 }
 
 
 /*#pageBasket .f-buttons {
-	width: 190px;
+    width: 190px;
 }*/
 
 
@@ -1626,11 +1649,11 @@ ul.radios-list li label{
 }
 
 #pageCheckoutReview .yi {
-	margin-left: 35px;
+    margin-left: 35px;
 }
 
 #pageCheckoutReview .rv {
-	margin-left: 62px;
+    margin-left: 62px;
 }
 
 .address-options {
@@ -1833,11 +1856,11 @@ float: right;
 }
 
 #payment_gift_card label {
-	text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 #payment_gift_card p {
-	line-height: 18px;
+    line-height: 18px;
 }
 
 .tabs {margin:10px 0;}
@@ -1895,10 +1918,10 @@ float: right;
     .tabs .section {line-height:2em;}
     
     .tabs .section label {
-    	line-height:1em;
-    	padding:0 0 1px;
-    	margin:12px 0 0;
-    	font-weight: normal;
+        line-height:1em;
+        padding:0 0 1px;
+        margin:12px 0 0;
+        font-weight: normal;
     }
     
     .tabs .section h4 {font-weight:bold;font-size:14px;border-bottom:1px solid #ADADAD;padding-bottom:1px;line-height:1.3em;margin:10px 0 6px}
@@ -1969,7 +1992,7 @@ input#cvv{
 }
 
 .question select {
-	width: auto;
+    width: auto;
 }
 
 /****Checkout ????????? Review****/
@@ -1994,8 +2017,8 @@ input#cvv{
 }
 
 #pageCheckoutPayment .location {
-	margin-top: 10px;
-	margin-bottom: 40px;
+    margin-top: 10px;
+    margin-bottom: 40px;
 }
 
 .location .items{
@@ -2210,7 +2233,7 @@ input#cvv{
         }
 
         #itemCodeList {
-        	font-size: 15px!important;
+            font-size: 15px!important;
         }
 
 
@@ -2334,8 +2357,8 @@ input#cvv{
 .icon-arrow-left {background-position: -240px -96px;}
 
 .icon-arrow-right {
-	background-position: -264px -96px; 
-	display: none!important;
+    background-position: -264px -96px; 
+    display: none!important;
 }
 
 .icon-arrow-up {background-position: -289px -96px;}
@@ -2393,7 +2416,35 @@ input#cvv{
 }
 
 .ymal h3 {
-	margin-top: 15px;
-	margin-bottom: 5px;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
+img#nonmanager {
+    margin-right: 21px;
+    margin-left: 21px;
+}
+
+.sub-cats {
+    display: flex;
+    justify-content: center;
+}
+
+.sub-cats-main {
+    margin-top: 29px;
+    margin-bottom: 31px;
+    display: flex;
+}
+
+#pageCategoryManager .sub-cats img, #pageCategoryNonManager .sub-cats img {
+    margin-right: 24px;
+}
+
+#pageCategoryApparel #content {
+    padding: 30px 0 50px;
+}
+
+#pageCategoryApparel h1, #pageCategoryManager h1, #pageCategoryNonManager h1 {
+    margin-bottom: 29px;
+    margin-top: 24px;
+}

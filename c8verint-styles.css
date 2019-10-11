@@ -158,7 +158,7 @@ a:hover {
 .nav a{
     color: #ffffff;
     font-family: 'Muli', sans-serif;
-    font-size: 16px;
+    font-size: 16px!important;
     /*text-shadow: rgba(0, 0, 0, 0.498039) 1px 0px 1px;*/
     text-decoration: none;
     line-height: 48px;
@@ -166,6 +166,11 @@ a:hover {
     margin: 0 auto;
     font-weight: bold;
 }
+
+/*.nav li:nth-child(2) > a {
+    padding-top: 13.25px;
+    padding-bottom: 13.25px;
+}*/
 
 div#DDmenu a{
 /*    font-size: 12px;
@@ -282,12 +287,16 @@ html{
     padding-top: 30px;
 }
 
-#content{
+#content {
     background: #fff;
-/*    z-index: 1;
-    clear: both;
-    padding: 15px 20px;
-    margin-bottom: 150px;*/
+}
+
+#pageCheckoutPayment #content {
+    background: #fff;
+/*    z-index: 1;*/
+    /*clear: both;*/
+    /*padding: 15px 20px;*/
+    padding-bottom: 150px;
 }
 
 #header{
@@ -531,6 +540,10 @@ div#DDmenu li a:hover{
     padding: 15px;
 }
 
+#pageMyAccount p.info_needed {
+    margin-bottom: 15px;
+}
+
 /****footer nav****/
 
 #footer ul li{
@@ -744,7 +757,7 @@ tfoot tr td{
 }
 
 #pageLogin .btn {
-    padding: 10px 14px;
+    padding: 10px 65px;
 }
 
 .btn:hover, #pageLogin .btn:hover, #pageCheckoutPayment .btn:hover{
@@ -1044,7 +1057,7 @@ a.forgotPassword{
 }
 
 #pageMyAccount form.myAccountForm .f-buttons{
-    margin-top: 15px;
+    margin-top: 25px;
 }
 
 #pageMyAccount form.myAccountForm .f-row{
@@ -1340,13 +1353,26 @@ ul.radios-list li label{
     vertical-align: middle;
 }
 
+#pageBasket b {
+    font-weight: 400;
+}
+
+.basket-item-desc.f-buttons {
+    display: inline-flex;
+    flex-flow: column;
+}
+
+.basket-item-desc.f-buttons b {
+    margin-bottom: 10px;
+}
+
 /**** Checkout General ****/
 
 .co-breadcrumb{
   background-image: url("../images/bg/checkout_sprite.png");
   background-position: 100% 0;
   background-repeat: no-repeat;
-  margin: 30px 0;
+  margin: 30px 0 50px;
 }
 
 .co-breadcrumb li.active{
@@ -2156,4 +2182,14 @@ li.welcomemsg {
     /*top: 80px;*/
     /*right: 360px;*/
     margin-top: 4px;
+}
+
+.order-type-section h2 {
+    margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 1024px) {
+  #footer, #header-wrapper, #menu {
+    width: 1024px;
+  }
 }
