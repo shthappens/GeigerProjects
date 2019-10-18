@@ -285,17 +285,18 @@ html{
     width: 960px;
     height: 100%;
     padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 #content {
     background: #fff;
 }
 
-#pageCheckoutPayment #content {
+#pageCheckoutPayment #content, #pageBasket #content {
     background: #fff;
-/*    z-index: 1;*/
-    /*clear: both;*/
-    /*padding: 15px 20px;*/
+/*    z-index: 1;
+    clear: both;
+    padding: 15px 20px;*/
     padding-bottom: 150px;
 }
 

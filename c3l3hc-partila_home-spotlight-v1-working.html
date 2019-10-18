@@ -1,0 +1,65 @@
+
+#useComponent('spotlight_slider')
+
+<div class='spotlight'>
+
+	<div class='page-header'>
+
+        #setComponentSetting('category_link', 'source', $configSpotlightCategory)
+        #setComponentSetting('category_link', 'renderPattern', "
+            <button class='btn btn--primary mdl-button mdl-js-button mdl-js-ripple-effect'
+                onclick=""window.location.href='<% category_url %>';''
+            >
+                Start Shopping
+            </button>
+            ")
+
+		#setComponentSetting('spotlight_slider', 'imagesList', [
+				"store/$vendorSettingsDTO.vendorId/assets/images/spot-bg.jpg",
+				"store/$vendorSettingsDTO.vendorId/assets/images/spot-bg.jpg"
+		])
+
+		#setComponentSetting('spotlight_slider', 'contentList', [
+				"<div class='hero-content'>
+					<div class='block'>
+					    <h1>Welcome to the</h1>
+    	                <h1>L3Harris Online Store</h1>
+    	                <p>A collection of L3Harris-branded merchandise</p>
+
+                      #setComponentSetting('category_link', 'source', $configSpotlightCategory)
+                      #setComponentSetting('category_link', 'renderPattern', '
+                          <button class='btn btn--primary mdl-button mdl-js-button mdl-js-ripple-effect'
+                                  onclick=""window.location.href='<% category_url %>';''
+                          >
+                              Start Shopping
+                          </button>
+                      ')
+                      #renderComponent('category_link')
+                        
+    	           </div>
+					<div class='block'>
+						<img src='store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/spot-img.png'/>
+					</div>
+				</div>",
+				"<div class='hero-content'>
+					<div class='block'>
+						<h1>Welcome to the</h1>
+    	                <h1>L3Harris Online Store</h1>
+    	                <p>A collection of L3Harris-branded merchandise 2</p>
+                        #renderComponent('category_link')
+					</div>
+					<div class='block'>
+						<img src='store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/spot-img.png'/>
+					</div>
+				</div>"
+			])
+			
+		#setComponentSetting('spotlight_slider', 'slideClass', "hero-slide")
+		#renderComponent('spotlight_slider')
+			
+            
+        </div>
+        
+    </div>
+
+</div>

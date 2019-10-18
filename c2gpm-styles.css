@@ -1003,7 +1003,7 @@ button.btn-primary a {
     width: 100%;
     background: url("../images/spot-img.png") no-repeat;
     background-color: #E9F0F6;
-    background-position-x: 70%;
+    background-position-x: 75%;
 }
 
 #spotlight h1 {
@@ -1015,7 +1015,7 @@ button.btn-primary a {
     line-height: 74px;
     /*margin: auto;*/
     text-align: left;
-    padding-top: 106px;
+    padding-top: 80px;
     margin: 0px 0px 27px 0px;
 }
 

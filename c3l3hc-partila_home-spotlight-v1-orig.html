@@ -1,0 +1,96 @@
+
+#useComponent('spotlight_slider')
+
+## <div class='spotlight'>
+## 	<div class='page-header'>
+    	
+    ## 	<div class="spot-wrapper">
+    	   ## <div class="spotlight-hero">
+    	       ## <div>#showMessage("home.v1.spotlight.season.title")</div>
+    	       ## <div>#showMessage("home.v1.spotlight.title")</div>
+    	       ## <div id="spot-text">
+    	       ##     <h1>Welcome to the</h1>
+    	       ##     <h1>L3Harris Online Store</h1>
+    	       ##     <p>A collection of L3Harris-branded merchandise</p>
+                
+            ##         <div>
+            ##          #setComponentSetting('category_link', 'source', $configSpotlightCategory)
+            ##     	    #setComponentSetting('category_link', 'renderPattern', "
+            ##     		    <button class='btn btn--primary mdl-button mdl-js-button mdl-js-ripple-effect'
+            ##     		            onclick=""window.location.href='<% category_url %>';""
+            ##     		    >
+            ##     			 ##   #showMessage('home.v1.spotlight.button')
+            ##     			    Start Shopping
+            ##     		    </button>
+            ##     	    ")
+            ##     	    #renderComponent('category_link')
+                    </div>
+    	        </div>
+    	    </div>
+    ## 	</div>
+    	
+## 		#setComponentSetting('spotlight_slider', 'imagesList', [
+## 			"store/$vendorSettingsDTO.vendorId/assets/images/spotlights/spot-img.png"
+## 		])
+## ## 		#setComponentSetting('spotlight_slider', 'breakpointImages', ['HOME'])
+## 		#setComponentSetting('spotlight_slider', ['HOME'])
+## 		#setComponentSetting('spotlight_slider', 'contentList', [
+## 			""
+## 		])
+## 		#setComponentSetting('spotlight_slider', 'slideClass', "hero-slide")
+## 		#renderComponent('spotlight_slider')
+##     </div>
+
+## </div>
+
+<div class='spotlight'>
+
+	<div class='page-header'>
+
+		#setComponentSetting('spotlight_slider', 'imagesList', [
+				"store/$vendorSettingsDTO.vendorId/assets/images/spot-bg.jpg",
+				"store/$vendorSettingsDTO.vendorId/assets/images/spot-bg.jpg"
+		])
+
+		#setComponentSetting('spotlight_slider', 'contentList', [
+				"<div class='hero-content'>
+					<div class='block'>
+					    <h1>Welcome to the</h1>
+    	                <h1>L3Harris Online Store</h1>
+    	                <p>A collection of L3Harris-branded merchandise</p>
+    	           </div>
+					<div class='block'>
+						<img src='store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/spot-img.png'/>
+					</div>
+				</div>",
+				"<div class='hero-content'>
+					<div class='block'>
+						<h1>Welcome to the</h1>
+    	                <h1>L3Harris Online Store</h1>
+    	                <p>A collection of L3Harris-branded merchandise 2</p>
+					</div>
+					<div class='block'>
+						<img src='store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/images/spot-img.png'/>
+					</div>
+				</div>"
+			])
+			
+		#setComponentSetting('spotlight_slider', 'slideClass', "hero-slide")
+		#renderComponent('spotlight_slider')
+			
+			#setComponentSetting('category_link', 'source', $configSpotlightCategory)
+            
+            #setComponentSetting('category_link', 'renderPattern', "
+                <button class='btn btn--primary mdl-button mdl-js-button mdl-js-ripple-effect'
+                onclick=""window.location.href='<% category_url %>';""
+                >
+                    Start Shopping
+                </button>
+            ")
+            #renderComponent('category_link')
+            
+        </div>
+        
+    </div>
+
+</div>
