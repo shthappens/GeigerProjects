@@ -1,0 +1,91 @@
+
+## Macros and configs.
+#parse("lib_macros.vm")
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/macros.vm")
+#parse("lib_configs.vm")
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/configs.vm")
+
+
+## Load in partials, components, and dependencies.
+#useDependency('skeleton-store-base')
+#useDependency('v1')
+#usePartials('header')
+#usePartials('contact-us-content')
+#usePartials('footer')
+
+<!DOCTYPE html>
+<html>
+    
+    <head>
+
+        #parse("lib_head_markup.vm")
+        #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/head_markup.vm")
+
+        #renderDependencies('headMarkup')
+
+	</head>
+
+	<body class="v1 mdl-layout contact-us">
+
+		#renderPartials('header')
+		
+		<div class='page-header'></div>
+
+		<main class="mdl-layout__content">
+			<div class="page-body">
+				<h1>#springMessage("contact.title")</h1>
+
+				#renderPartials('contact-us-content')
+				
+				## <div class="contact-form">
+    ##                 <input name="name">name:</input>
+    ##                 <textarea rows="4" cols="30" name="comment">comment:</textarea>
+    ##                 <input name="comment">comment:</input>
+    ##                 <button class="submit-form-button">Submit</button>
+    ##             </div>
+		</main>
+
+		#renderPartials('footer')
+
+        #renderDependencies('footMarkup')
+
+        #parse("lib_foot_markup.vm")
+    	#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/foot_markup.vm")   
+
+	</body>
+
+</html>
+
+<script>
+    $('.submit-form-button').click(function() {
+         console.log('submit clicked')
+         /* instantiate object which we'll send to php script */
+         var form = {}
+         
+         /* map a 'key' to a value. Here, we map 'comment' to the value of a <input name="comment" /> field */
+         form['name'] = $('input[name="name"]').val()
+         form['comment'] = $('textarea[name="comment"]').val()
+         form['comment'] = $('input[name="comment"]').val()
+         
+         /* use jQuery's ajax method to send POST request to php script */
+         $.ajax({
+             type: 'POST',
+             url: "store/$vendorSettingsDTO.vendorId/assets/contact_form.php",
+             data: {form : JSON.stringify(form)},
+            // contentType: "application/json",
+            dataType: 'json',
+                    
+            complete: function(response) {
+                console.log(JSON.stringify(response))
+                if(response.responseText == "success") {
+                    alert('Your Comment has been submitted!')
+                    /* redirect them home if ya want */
+                    window.location.href = "$seourl.encodeURL("store.html?vid=$vendorSettingsDTO.vendorId")"
+                    } else {
+                        /* let customer know something wacky happened */
+                        alert('An unknown error occured. Please try again soon or contact customer service.')
+                    }
+                }
+             })
+         })
+</script>

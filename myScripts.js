@@ -1,3 +1,16 @@
+    $( document ).ready(function() {
+        
+        $("div.nav-handle.mdl-button.mdl-js-ripple-effect.nav-handle-line-1.nav-handle-line-1-1:hover").hover(
+            function() {
+                $().css("pointer-events", "none");
+            }
+            function() {
+                $().css("pointer-events", "all");
+            }
+        );
+            
+    };
+
     // change a link in drop down menu - 72A/C
 
         jQuery(function() {
