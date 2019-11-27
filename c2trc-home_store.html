@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+<html id="pageHome">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else $!{htmlSiteName} - Welcome #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+
+  </head>
+  <body>
+    #if(${headerPosition} == "OUTSIDE") #displayHeader(${displayCustomHeaderContent}) #end
+    <div id="container">
+        #if(${headerPosition} == "INSIDE") #displayHeader(${displayCustomHeaderContent}) #end
+          <div id="content" role="main">
+              ## commented out line libContentHome1 to bring in customer content
+              ## #parse("libContentHome1.vm")
+              ## beginning libContentHome1
+                
+              <div class="home-content">
+                <div class="welcome-message">
+                    <h1>Welcome to $!{htmlSiteName}</h1>
+                    ## <p><span>$!{htmlSiteName}</span></p>
+                    <p>This online store allows you to order from a unique collection of merchandise chosen exclusively for you.</p>
+                    <p>Simply click Display Items from the menu above to begin shopping.</p>
+                    <p>If you have a question about your order, contact customer service at $!{htmlCSRPhone}. Open Monday through Friday, 8:00 AM - 8:00 PM EST.</p>        
+                </div> <!-- ##//welcome-message -->
+              
+                #if($displaySalesRepInfo == "YES")
+                    <div class="repInfo">
+                        #if(${htmlRepPhotoURL} != '')
+                          <img src="${htmlRepPhotoURL}" alt="$!{htmlRepName}">
+                        #end
+                        <p>
+                          Can't find what you're looking for?<br> Need a special product for your next event?<br>
+                          Contact $!{htmlRepName}, your $!{htmlSiteName} Special Order representative.
+                        </p>
+                        <p>
+                          <strong>$!{htmlRepName}</strong><br>
+                          $!{htmlRepPhone}<br>
+                          <a href="mailto:$!{htmlRepEmail}">$!{htmlRepEmail}</a>
+                        </p>
+                    </div> <!-- ##//repInfo -->
+                #end
+              </div>  <!--#//home-content-->     
+            ##end libContentHome1
+            <div class="clearfix"></div>
+            <div class="clearBoth">&nbsp;</div>
+            ## original location of #parse("libpartFeaturedItems.vm")       
+          </div> <!--//#content -->
+
+      #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end      
+      #if(${footerPosition} == "INSIDE") #displayFooter(${displayCustomFooterContent}) #end
+
+    <div id="featuredItemDiv">
+      <div id="featureContainer">
+        #parse("libpartFeaturedItems.vm")
+      </div> <!-- //#featuredItemDiv-->
+    </div> <!--//#container -->
+
+    </div> <!-- // container -->
+  </div>
+
+    
+#if(${footerPosition} == "OUTSIDE") #displayFooter(${displayCustomFooterContent}) #end  
+
+##    #if(${footerPosition} == "OUTSIDE") #displayFooter(${displayCustomFooterContent}) #end
+    
+    <script src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/js/jquery.jcarousellite.min.js"></script>
+    <script>
+    jQuery(document).ready(function(){
+      jQuery('#featured_carousel_new').jCarouselLite({
+        btnNext: "#featured_carousel_new_right",
+        btnPrev: "#featured_carousel_new_left",
+        visible: 4
+      });
+    });
+    </script>
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+
+  </body>
+</html>

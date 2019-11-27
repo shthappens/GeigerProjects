@@ -1,0 +1,187 @@
+
+
+<!DOCTYPE html>
+#parse('libGlobalConfig.vm')
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+
+
+
+
+## Determines if an item is in a category. Doesn't check sub-categories. 
+## @param   _iiic_itemID                Item ID.
+## @param   _iiic_categoryID            Category ID.
+#macro(isItemInCategory $_iiic_itemID, $_iiic_categoryID)#*
+    *##set($_iiic_intClass = $request.class.forName('java.lang.Integer'))#*
+    *##set($_iiic_return = $request.getAttribute("org.springframework.web.servlet.DispatcherServlet.CONTEXT").getBean("itemCategoryLinksDAO").isItemInCategory($_iiic_intClass.parseInt("$_iiic_itemID"), $_iiic_intClass.parseInt("$_iiic_categoryID")))#*
+    *##if($_iiic_return == false || $_iiic_return == true)#*
+        *#$_iiic_return#*
+    *##end#*
+*##end
+
+
+
+
+#########################################################################
+#set($itemRow = $singleItemDTO.getItem(0))
+#set($item = $pageTile.getItemObject($singleItemDTO, $itemRow , "i"))
+#set($price = $item.itemPrice)
+#set($mainItemPrice = $item.itemPrice)
+#set($printitemid = $pageTile.getItemObject($singleItemDTO, $itemRow , "itemid"))
+
+#if(!$pageTileDictionaryDTO)
+  #if($_commandName)
+    #springBind( "${_commandName}.pageTileDictionaryDTO")
+    #set ($pageTileDictionaryDTO = ${status.value})
+  #end
+#end
+
+#if($pageTileDictionaryDTO)
+  #set($childItemsHomeDTO=$pageTileDictionaryDTO.getPageTile("childItemsHomeDTO"))
+  #set($catDropMenuDTO=$pageTileDictionaryDTO.getPageTile("catDropMenuDTO"))
+#end
+
+#set($metadescription= $item.metadescription)
+#set($keywords= $item.keywords)
+#set($pagetitle= $item.pagetitle)
+#########################################################################
+
+<html id="pageItem">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else $!{item.title} - $!{htmlSiteName} #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+    #parse('libitempgjavascript.vm')
+    
+    
+    #if("#isItemInCategory($item.itemId, 656510)" == "true")
+        <link href="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/plugins/chosen/chosen.min.css" rel="stylesheet">
+        <link href="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/plugins/chosenImage/chosenImage.css" rel="stylesheet">
+        <link href="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/css/ggValidator.css" rel="stylesheet">
+        <style id="customization_hide">
+            .customization {
+                display: none;
+            }
+        </style>
+        <style>
+            #customize, label[for='customize'] {
+                display: none;
+            }
+            .customization p {
+                display: none;
+            }
+            label[for='custom-line-0'] {
+                width: 68px;
+                display: inline-block;
+                text-align: right;
+                padding-right: 21px;
+            }
+        </style>
+    #end
+    
+    
+  </head>
+  <body>
+    #if($!$headerPosition == "OUTSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+    <div id="container">
+        #if($!$headerPosition == "INSIDE") #displayHeader($!$displayCustomHeaderContent) #end
+        
+        <div id="content" role="main">
+            #parse('libpartitempgcontent.vm')
+        </div> <!--//#content -->
+        
+        #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end        
+        #if($!$footerPosition == "INSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    </div> <!--//#container -->
+    #if($!$footerPosition == "OUTSIDE") #displayFooter($!$displayCustomFooterContent) #end
+    #parse("libpartitempgjsbottom.vm")
+
+    #if("#isItemInCategory($item.itemId, 656510)" == "true")
+
+        ## #if(!$customizationInfo)
+        ##  <script>
+        ##      jQuery(document).ready(function() {
+        ##          var itemForm = jQuery("form#itemForm");
+        ##          var newInput = jQuery("<input type='hidden' name='basketItems[0].customized' value='true'/>");
+        ##          #if($basketMap.get($item.itemid))
+        ##              var custInput = jQuery("<input type='text' name='basketItems[0].customizationNote[0]' id='custom-line-0' #if($basketMap.get($item.itemId).customizationNote.size()>0) value='$!basketMap.get($item.itemid).customizationNote.get(${count}) #end style='display:none'/>'")
+        ##          #else
+        ##              var custInput = jQuery("<input type='text' name='basketItems[0].customizationNote[0]' id='custom-line-0' style='display:none' />")
+        ##          #end
+        ##          itemForm.find('.actions').after(newInput);
+        ##          itemForm.find('.actions').after(custInput);
+        ##      });
+        ##  </script>
+        ## #end
+
+        <script src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/plugins/chosen/chosen.jquery.min.js"></script>
+        <script src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/plugins/chosenImage/chosenImage.jquery.js"></script>
+        <script src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/js/ggValidator.js"></script>
+        <script>
+            jQuery(document).ready(function() {
+                setTimeout(function() {
+                    var customizationLine = jQuery("#custom-line-0");
+                    var customizationName = customizationLine.attr("name");
+                
+                    if (customizationLine.length > 0) {
+                        jQuery.ajax("store/$vendorSettingsDTO.vendorId/assets/items/subdir_listing.php").done(function(r) {
+                            var fileRe;
+                            var reResults, resultsOrigVal;
+                            var newSelectVal = customizationLine.val() ? customizationLine.val() : "";
+                            var newSelect = jQuery("<select id='custom-line-0' data-placeholder='Choose a Logo...' name='" + customizationName + "' value='" + newSelectVal + "'></select>");
+                            var newOption;
+                            var selectedFlag;
+                            var foundSelected = false;
+                            for(var i = 0; i < r["./logos"].length; i++) {
+                                fileRe = /(.*)[.]png/gi;
+                                selectedFlag = "";
+                                reResults = fileRe.exec(r["./logos"][i])[1];
+                                resultsOrigVal = r["./logos"][i].replace(/[.]png/gi, "");
+                                reResults = r["./logos"][i].replace(/[.]png/gi, "");
+                                reResults = reResults.replace(/[.]Stacked/gi, " (Stacked)");
+                                reResults = reResults.replace(/[.]Reversed/gi, " (Reversed)");
+                                // reResults = reResults.replace(/Entrepreneurs[.]Organization/gi, "Entrepreneurs' Organization");
+                                if (newSelectVal == resultsOrigVal) {
+                                    selectedFlag = " selected";
+                                    foundSelected = true;
+                                }
+                                newOption = jQuery("<option data-img-src=\"store/$vendorSettingsDTO.vendorId/assets/items/logos/" + r["./logos"][i] + "\" value=\"" + resultsOrigVal + "\" " + selectedFlag + "></option>");
+                                newOption.text(reResults.replace(/[.]/g, " "));
+                                if (resultsOrigVal != "Blank")
+                                    newSelect.append(newOption);
+                                else
+                                    newSelect.prepend(newOption);
+                            }
+                            // newSelect.prepend("<option value='Custom Logo' data-img-src=''>Co-Brand Custom Logo</option>");
+                            if (foundSelected)
+                                newSelect.prepend("<option value='' data-img-src=''>Choose a Logo...</option>");
+                            else
+                                newSelect.prepend("<option value='' data-img-src='' selected>Choose a Logo...</option>");
+
+                            customizationLine.after(newSelect);
+                            customizationLine.remove();
+                            jQuery("label[for='custom-line-0']").text("Logo:");
+                            jQuery("#customize").prop("checked", true);
+                            
+                            // Expose logo library control.
+                            jQuery("#customization_hide").remove();
+                            jQuery(".custom-input").show();
+                            
+                            var validator = new ggValidator("logoValidator");
+                            console.log("[name='"+customizationName+"']");
+                            validator.addRuleset(jQuery("[name='"+customizationName+"']"), "minlen=1", "Please select a logo.").setTooltipSelector("div.chosen-container").toggleIgnoreInvisible(false);
+                            validator.addClickValidation("[id^='js-item-addtocartbtn']");
+                            
+                            newSelect.chosenImage({
+                                width: "400px"
+                            });
+                        });
+                    }
+                }, 1);
+            });
+        </script>
+    #end
+
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+  </body>
+</html>

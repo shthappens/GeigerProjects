@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+#parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteConfig.vm")
+<html id="pageHome">
+  <head>
+    <title>#if($!pagetitle) $pagetitle  #else $!{htmlSiteName} - Welcome #end</title>
+    #parse('libMarkupHead.vm')
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupHead.vm")
+
+  </head>
+  <body>
+    #if(${headerPosition} == "OUTSIDE") #displayHeader(${displayCustomHeaderContent}) #end
+    <div id="container">
+        #if(${headerPosition} == "INSIDE") #displayHeader(${displayCustomHeaderContent}) #end
+          <div id="content" role="main">
+              ## commented out line libContentHome1 to bring in customer content
+              ## #parse("libContentHome1.vm")
+              ## beginning libContentHome1
+                
+              <div class="home-content">
+                <div class="welcome-message">
+                    <h1>Welcome to $!{htmlSiteName}</h1>
+                    ## <p><span>$!{htmlSiteName}</span></p>
+                    <p>This online store allows you to order from a unique collection of merchandise chosen exclusively for you.</p>
+                    <p>Simply click Display Items from the menu above to begin shopping.</p>
+                    <p>If you have a question about your order, contact customer service at $!{htmlCSRPhone}. Open Monday through Friday, 8:00 AM - 8:00 PM EST.</p>        
+                </div> <!-- ##//welcome-message -->
+              
+                #if($displaySalesRepInfo == "YES")
+                    <div class="repInfo">
+                        #if(${htmlRepPhotoURL} != '')
+                          <img src="${htmlRepPhotoURL}" alt="$!{htmlRepName}">
+                        #end
+                        <p>
+                          Can't find what you're looking for?<br> Need a special product for your next event?<br>
+                          Contact $!{htmlRepName}, your $!{htmlSiteName} Special Order representative.
+                        </p>
+                        <p>
+                          <strong>$!{htmlRepName}</strong><br>
+                          $!{htmlRepPhone}<br>
+                          <a href="mailto:$!{htmlRepEmail}">$!{htmlRepEmail}</a>
+                        </p>
+                    </div> <!-- ##//repInfo -->
+                #end
+              </div>  <!--#//home-content-->     
+            ##end libContentHome1
+            <div class="clearfix"></div>
+            <div class="clearBoth">&nbsp;</div>
+            ## original location of #parse("libpartFeaturedItems.vm")       
+          </div> <!--//#content -->
+
+      #if(${displayStickyFooter} == "TRUE") #displayStickyFooterPush() #end      
+      #if(${footerPosition} == "INSIDE") #displayFooter(${displayCustomFooterContent}) #end
+    </div> <!-- // container -->
+    </div>
+    <div id="featuredItemDiv">
+    <div id="featureContainer">
+        #parse("libpartFeaturedItems.vm")
+        <div id="myAccount">
+            <h2>My Account</h2>
+            <div class="myAccountMid">
+                <ul>
+                    #if($welcomeMatDTO)
+                        #if(${welcomeMatDTO.loggedIn}) 
+                            ## <li class="welcomemsg">
+                            ##    <strong>Welcome ${welcomeMatDTO.firstName}!</strong>
+                            ## </li>
+                            #if($pageTileDictionaryDTO.templateName == "checkout_completed.vm")
+                                <li>
+                                    <a href='https://${appSettingsDTO.getDomainAlias($vendorSettingsDTO.vendorId)}/${appSettingsDTO.AppName}/signout.html?vid=${vendorSettingsDTO.vendorId}'>
+                                        #springMessage("log_out")
+                                    </a>
+                                </li>
+                            #else 
+                                <li>
+                                    <a href='https://${appSettingsDTO.getDomainAlias($vendorSettingsDTO.vendorId)}/${appSettingsDTO.AppName}/signout.html?vid=${vendorSettingsDTO.vendorId}&mt=1&redirecturl=${welcomeMatDTO.currentEncodePage}'> #springMessage("log_out") </a>
+                            #end
+                           </li>
+                           <li class="welcomemsg">
+                                <strong>Welcome ${welcomeMatDTO.firstName}!</strong>
+                           </li>
+                        #else
+                            <li> 
+                                <a href='https://${appSettingsDTO.getDomainAlias($vendorSettingsDTO.vendorId)}/${appSettingsDTO.AppName}/signin.html?vid=${vendorSettingsDTO.vendorId}&mt=1&redirecturl=${welcomeMatDTO.currentEncodePage}'>
+                                    #springMessage("log_in")
+                                </a>
+                            </li> 
+                        #end
+                    #end
+                    <li>
+                        <a href="$seourl.encodeURL("myaccount.html?mode=billingaddress&vid=$vendorSettingsDTO.vendorId")">$!MyAccountNavName</a>
+                        |    
+                        <a href="$seourl.encodeURL("myaccount.html?mode=vieworder&vid=$vendorSettingsDTO.vendorId")">Order History</a>
+                    </li>
+                    #if($!{displayWishlist} == "YES")
+                        <li>
+                            <a href="wishlist.html?action=add&vid=$vendorSettingsDTO.vendorId">Wish List</a>
+                        </li>
+                    #end
+                    #if(${welcomeMatDTO.loggedIn} && $BrowserFromPost)
+                        <li>
+                            <form method="POST" action="$BrowserFromPost">
+                                  <INPUT TYPE="HIDDEN" NAME="cXML-urlencoded" VALUE="$esc.html("$EmptyPunchoutOrderMessage")">
+                                 <INPUT TYPE="SUBMIT" VALUE="Back To Procurement Site">
+                            </form>
+                        </li>    
+                    #end
+              </ul>
+            </div> <!--#//myAccountMid -->
+            <div class="myAccountFoot"></div> <!--#//myAccountFoot -->
+        </div><!-- myAccount-->
+     
+        <div id="mySearch">
+            <h2>Search</h2>
+            <div class="myAccountMid">
+                <ul>
+                    <li>
+                        <div class="search">
+                            <form action="asearch.html" onsubmit="checkKey();" id="searchForm">
+                              #set($key="") 
+                              #set($brand_param="")
+                              #set($cname="")
+                              #if($advancedSolrSearchCommand)
+                                #if($advancedSolrSearchCommand.searchParameters.key)
+                                  #set($key=$advancedSolrSearchCommand.searchParameters.key)
+                                #end
+                                #if($advancedSolrSearchCommand.searchParameters.brand)
+                                  #set($brand_param=$advancedSolrSearchCommand.searchParameters.brand)
+                                #end
+                                #if($advancedSolrSearchCommand.searchParameters.cname) 
+                                  #set($cname=$advancedSolrSearchCommand.searchParameters.cname)
+                                #end 
+                                #if($brand_param && $brand_param.length() > 2) 
+                                  #set($brand_length = $math.sub($brand_param.length(),1))
+                                  #set($brand_param = $brand_param.substring(1,$brand_length))
+                                #end
+                               #end 
+                               <input type="hidden" name="vid" value="$vendorSettingsDTO.vendorId">
+                               <div> <!-- input div -->
+                    
+                              <!--<input type="text" name="key" value="$key" id="key" placeholder="Product Search...">-->
+                      
+                                <input type="text" name="keyword" id="key" placeholder="Product Search...">
+                                <input type="button" id="searchBtn" class="btn small" value="" onclick="checkKey(); jQuery('#key').val(jQuery('#key').val().toUpperCase()); document.forms['searchForm'].submit();">
+                              </div> <!--//# input div -->
+                          </form>
+                        </div> <!--//#search -->
+                    </li>
+                </ul>                
+            </div><!-- //#myAccountMid -->
+            <div class="myAccountFoot"></div><!-- //#myAccountFoot -->
+        </div> <!-- //#mySearch-->
+        </div>
+#if(${footerPosition} == "OUTSIDE") #displayFooter(${displayCustomFooterContent}) #end  
+       </div> <!-- //#featuredItemDiv-->
+    </div> <!--//#container -->
+##    #if(${footerPosition} == "OUTSIDE") #displayFooter(${displayCustomFooterContent}) #end
+    
+    <script src="store/$vendorSettingsDTO.vendorId/assets/themes/$vendorSettingsDTO.skinname/js/jquery.jcarousellite.min.js"></script>
+    <script>
+    jQuery(document).ready(function(){
+      jQuery('#featured_carousel_new').jCarouselLite({
+        btnNext: "#featured_carousel_new_right",
+        btnPrev: "#featured_carousel_new_left",
+        visible: 4
+      });
+    });
+    </script>
+    #parse("/$vendorSettingsDTO.vendorId/$vendorSettingsDTO.themeId/siteMarkupFoot.vm")
+    #parse("libMarkupFoot.vm")
+
+  </body>
+</html>

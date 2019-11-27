@@ -10,7 +10,7 @@
         $obj = json_decode($_POST['form']);
         if($obj->location == 'Alaska'|| $obj->location == 'Alabama'|| $obj->location == 'Arixona'|| $obj->location == 'California'|| $obj->location == 'Florida'|| $obj->location == 'Georgia'|| $obj->location == 'Louisiana'|| $obj->location == 'North Carolina'|| $obj->location == 'Nevada'|| $obj->location == 'Oklahoma'|| $obj->location == 'Oregon'|| $obj->location == 'South Carolina'|| $obj->location == 'Texas'||'Utah') {
             $emailto = 'cpweb@geiger.com'
-        } else {
+        } else (){
             $emailto = 'sthompson@geiger.com')
         }
 
