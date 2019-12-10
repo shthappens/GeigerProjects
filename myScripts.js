@@ -1,3 +1,20 @@
+ //Display hamburg menu in Flex at all times
+// #if($mainMenuNavEntryType == 'list')
+        ...
+        <div class='nav-handle mdl-button mdl-js-button mdl-js-ripple-effect nav-handle-line-${mainMenuNavLine} nav-handle-line-${mainMenuNavLine}-$velocityCount'
+            #if ($mainMenuNavEntry.get('source') != 'Products')
+                onclick='document.location = jQuery(this).find("a").eq(0).attr("href");'
+            #end
+            #if ($mainMenuNavEntry.get('source') == 'Products')
+                onclick="jQuery('.mobile-drawer-nav i').click();"
+            #end
+            >
+            #renderComponent('category_link')
+        </div>
+//        ...
+
+ // remove click function from Porduct categories
+
     $( document ).ready(function() {
         
         $("div.nav-handle.mdl-button.mdl-js-ripple-effect.nav-handle-line-1.nav-handle-line-1-1:hover").hover(

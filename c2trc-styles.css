@@ -716,7 +716,7 @@ body{
 }
 
 .nav li a:hover{
-    color:#00b5e2;
+    color: #0041A5;
 }
 
 div#DDmenu{
@@ -839,7 +839,7 @@ div#DDmenu li a:hover{
 }
 
 #searchForm div{
-    width: 200px;
+    width: 175px;
     height: 24px;
     border-bottom: 1px solid #002D72;
 }
@@ -1026,28 +1026,30 @@ tfoot tr td{
 }
 
 .btn {
-    background-color: #6CC24A; /* changed from E7E7E7 to 6CC24A */
-    border:1px solid #777;
-    color:#FFF;
-    padding: 5px 10px;
+    background-color: #fff; /* changed from E7E7E7 to 6CC24A */
+    border:1px solid #002D72;
+    color: #002D72;;
+    /*padding: 5px 10px;*/
     cursor: pointer;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    border-radius:3px;
+    -moz-border-radius:25px;
+    -webkit-border-radius:25px;
+    border-radius:25px;
     text-transform: uppercase;
     font-weight: bold;
+    height: 47px;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 32px;
+    padding-right: 32px;
 }
 
 .btn:hover{
-    background-color: #00b5e2; /* changed from fff to 00b5e2 */
+    background-color: #ECECEC; /* changed from fff to 00b5e2 */
     text-decoration: none;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    border-radius:3px;
 } 
 
 .btn-primary{
-    background-color: #6CC24A; /* changed from 84010F to 6CC24A */
+/*    background-color: #6CC24A; 
     border:1px solid #777;
     color:#FFF;
     font-weight: bold;
@@ -1056,15 +1058,26 @@ tfoot tr td{
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
     border-radius:3px;
+    text-transform: uppercase;*/
+
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+    -moz-border-radius: 25px;    
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
     text-transform: uppercase;
+    height: 47px;
+    background: linear-gradient(180deg,#75C39F 0%,#12BABE 100%);
+    border: none !important;
+    padding-left: 32px;
+    padding-right: 32px;
+    font-size: 16px;
 }
 
 .btn-primary:hover{
-    background-color: #00b5e2; /* changed from CCCCCC to 00b5e2 */
+    background: #4BA5A3;
     text-decoration: none;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    border-radius:3px;
 }
 
 .gift-btn {
@@ -1073,6 +1086,11 @@ tfoot tr td{
     -webkit-border-radius: 3px 3px 3px 3px;
     border: 1px solid !important;
     background: #ededed;
+}
+
+.addToCartBtn_removed {
+    align-items: center;
+    display: flex;
 }
 
 /*********** Page Experience Specific Styles *************
@@ -1723,8 +1741,12 @@ ul.radios-list li label{
 
 .address-options {
 text-align: right;
-margin: -5px 0 8px;
+margin: -15px 0 8px;
 float: right;
+}
+
+.address-title.autoclear h2 {
+    margin-bottom: 25px;
 }
 
 /****Checkout - Your Information Edit/New Shipping Address****/

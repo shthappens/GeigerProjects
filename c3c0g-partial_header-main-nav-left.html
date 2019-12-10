@@ -1,0 +1,113 @@
+
+#useComponent('category_link')
+#useComponent('sub_category_list')
+
+
+<div class='nav-left main-nav__left'>
+	#setComponentSetting('category_link', 'source', 'Home')
+	#setComponentSetting('category_link', 'renderPattern', "
+		<a href=""<% category_url %>"">
+			<img class='logo logo--desktop' src='store/$vendorSettingsDTO.vendorId/assets/themes/blaze_en/images/cognia-logo.svg' alt=""$configCompanyName"" />
+		</a>
+		<strong>PROMO SHOP</strong>
+	")
+	#renderComponent('category_link')
+
+	<nav class='desktop-nav'>
+		#set($mainMenuNavLine = 1)
+		#foreach($mainMenuNavGroup in $configMainMenuNav)
+			<ul>
+				#foreach($mainMenuNavEntry in $mainMenuNavGroup)
+
+					#set($mainMenuNavEntryType = 'link')
+					#if($mainMenuNavEntry.containsKey('type'))
+						#set($mainMenuNavEntryType = "$mainMenuNavEntry.get('type')")
+					#end
+					
+					#if($mainMenuNavEntryType == 'link')
+						#setComponentSetting('category_link', 'source', $mainMenuNavEntry.get('source'))
+						<li>
+							<div class='nav-handle mdl-button mdl-js-button mdl-js-ripple-effect nav-handle-line-${mainMenuNavLine} nav-handle-line-${mainMenuNavLine}-$velocityCount'
+							     onclick='document.location = jQuery(this).find("a").eq(0).attr("href");'
+							>
+								#renderComponent('category_link')
+							</div>
+						</li>
+					#end
+
+					#if($mainMenuNavEntryType == 'expand')
+						#setComponentSetting('sub_category_list', 'source', $mainMenuNavEntry.get('source'))
+						#setComponentSetting('sub_category_list', 'listRenderPattern', '<% list %>')
+						#setComponentSetting('sub_category_list', 'subCategoryDepth', 1)
+						#setComponentSetting('sub_category_list', 'categoryWithNoSubListRenderPattern', "
+						<li>
+							<div class=""nav-handle mdl-button mdl-js-button mdl-js-ripple-effect nav-handle-line-${mainMenuNavLine} nav-handle-line-${mainMenuNavLine}-$velocityCount""
+							     onclick='document.location = jQuery(this).find(""a"").eq(0).attr(""href"");'
+							>
+								<a href=""<% category_url %>"" <% analytics_tracker %>>
+									<% category_name %>
+								</a>
+							</div>
+						</li>
+						")
+						#renderComponent('sub_category_list')
+					#end
+
+					#if($mainMenuNavEntryType == 'list')
+						<li data-subnav='[]' data-nav-type='dropdown-nav'>
+							#setComponentSetting('category_link', 'source', $mainMenuNavEntry.get('source'))
+							<div class='nav-handle mdl-button mdl-js-button mdl-js-ripple-effect nav-handle-line-${mainMenuNavLine} nav-handle-line-${mainMenuNavLine}-$velocityCount'
+							#if ($mainMenuNavEntry.get('source') != 'Institutions')
+							     onclick='document.location = jQuery(this).find("a").eq(0).attr("href");'
+							#end
+							>
+								#renderComponent('category_link')
+							</div>
+							<div class='subSubNavContainer'></div>
+							#setComponentSetting('sub_category_list', 'source', $mainMenuNavEntry.get('source'))
+							#setComponentSetting('sub_category_list', 'subCategoryDepth', 2)
+							#setComponentSetting('sub_category_list', 'loginCaching', true)
+							#setComponentSetting('sub_category_list', 'categoryWithNoSubListRenderPattern', "
+							<li <% class %>>
+								<div class=""nav-handle mdl-button mdl-js-button mdl-js-ripple-effect"" onclick='document.location=""<% category_url %>"";'>
+									<a href=""<% category_url %>"" <% analytics_tracker %>>
+										<% category_name %>
+									</a>
+								</div>
+								<div class=""subSubNavContainer""></div>
+							</li>
+							")
+							#setComponentSetting('sub_category_list', 'categoryWithSubListRenderPattern', "
+							<li <% class %> data-subnav=""[]"">
+								<div class=""nav-handle mdl-button mdl-js-button mdl-js-ripple-effect"" onclick='if (!ss.isMobile()) document.location=""<% category_url %>"";'>
+									<a href=""<% category_url %>"" <% analytics_tracker %>>
+										<% category_name %>
+									</a>
+								</div>
+								<div class=""subSubNavContainer""><% sub_list %></div>
+							</li>
+							")
+							#renderComponent('sub_category_list')
+						</li>
+					#end
+
+					#if($mainMenuNavEntryType == 'drawer')
+						#setComponentSetting('category_link', 'source', $mainMenuNavEntry.get('source'))
+						#setComponentSetting('category_link', 'renderPattern', "<% category_id %>")
+						#set($mainMenuNavEntryID = "desktop-drawer-nav-#renderComponent('category_link')")
+						#set($temp = $mainMenuNavEntry.put('_drawer_id', $mainMenuNavEntryID))
+						#set($temp = $mainMenuNavDrawers.add($mainMenuNavEntry))
+
+						#setComponentSetting('category_link', 'source', $mainMenuNavEntry.get('source'))
+						<li data-subnav='[]' data-nav-type='desktop-drawer-nav' data-toggles-drawer-nav='$mainMenuNavEntryID'>
+							<div class='nav-handle mdl-button mdl-js-button mdl-js-ripple-effect nav-handle-line-$mainMenuNavLine nav-handle-line-$mainMenuNavLine-$velocityCount'>
+								#renderComponent('category_link')
+							</div>
+						</li>
+					#end
+				#end
+			</ul>
+			#set($mainMenuNavLine = $mainMenuNavLine + 1)
+		#end
+	</nav>
+</div>
