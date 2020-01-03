@@ -1028,11 +1028,16 @@ input.btn.pointBtn {
     display:table-cell;
     vertical-align:middle;
     /*margin-right:5px;*/
+    margin-bottom: 31px;
 }
 
 .featured-product-carousel .item:nth-child(6) {
     margin-right: 31px;
     margin-left: 31px;
+}
+
+.featured-product-carousel .item:nth-child(7) {
+    margin-right: 31px;
 }
 
 .featured-product-carousel .item img{
@@ -2491,4 +2496,8 @@ div#DDmenu a::after{
     text-transform: uppercase;
     font-weight: normal;
     color: #B50000;
+}
+
+.fsBody {
+    padding: 0!important;
 }

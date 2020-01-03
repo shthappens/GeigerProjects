@@ -1,0 +1,1 @@
+$(".item-thumb img").each(function() {   ... })     ,  look for the the sku in the img src:  if ( $(this).attr('src').indexOf('SKU') != -1 ) { $(this).hide() }

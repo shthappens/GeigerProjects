@@ -1,3 +1,17 @@
+ //Hide image on basket.vm 37C c2TRC
+
+ <script>
+    $(document).ready(function(){
+        $(".item-thumb img").each(
+            function() {
+                if ( $(this).attr('src').indexOf('BZ237C001') != -1 ) { 
+                    $(this).css("visibility", "hidden")
+                }
+            }
+        );
+    });
+</script>
+// 
  //Display hamburg menu in Flex at all times
 // #if($mainMenuNavEntryType == 'list')
         ...
@@ -13,7 +27,7 @@
         </div>
 //        ...
 
- // remove click function from Porduct categories
+ // remove click function from Product categories
 
     $( document ).ready(function() {
         
@@ -54,7 +68,7 @@
             });
         // </script>
 
-    // <script> 72A/72C to change Order Quesiton title and add second line of text
+    // <script> 72A/72C to change Order Question title and add second line of text
         
         jQuery( document ).ready(function() {
             jQuery("h2:last").html("<h2>Expense Coding</h2></n><p id='script-notice'>*All fields must be selected before proceeding</p>");

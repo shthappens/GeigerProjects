@@ -1040,11 +1040,16 @@ tfoot tr td{
     display:table-cell;
     vertical-align:middle;
     /*margin-right:5px;*/
+    margin-bottom: 31px;
 }
 
 .featured-product-carousel .item:nth-child(6) {
     margin-right: 31px;
     margin-left: 31px;
+}
+
+.featured-product-carousel .item:nth-child(7) {
+    margin-right: 31px;
 }
 
 .featured-product-carousel .item img{
@@ -2563,4 +2568,12 @@ div#DDmenu a::after{
     width: inherit !important;
     padding-bottom: 40px;
     padding-top: 34px;
+}
+
+.chosen-single span {
+    padding-left: 40px!important;
+}
+
+.chosen-results li.active-result {
+    padding-left: 40px!important;
 }

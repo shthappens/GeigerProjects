@@ -226,7 +226,8 @@ div#DDmenu a{
 
 .utilNav .mini-cart, .utilNav .mini-cart a, .utilNav a{
     color: #002D72;
-    font-weight: bold;
+    /*font-weight: bold;*/
+    font-family: 'HCo Gotham Bold';
 }
 
 .utilNav #logout, .utilNav strong {
@@ -235,6 +236,7 @@ div#DDmenu a{
 
 .utilNav a:hover{
     text-decoration: none;
+    color: #0041A5;
 }
 
 .welcomemsg strong{
@@ -261,6 +263,11 @@ h1{
     margin-bottom: 15px;
     font-style: normal;
 
+}
+
+#pageItem h1 {
+    font-family: 'HCo Gotham Light';
+    font-size: 24px;
 }
 
 #pageHome h1{
@@ -382,7 +389,7 @@ h6{ }
 
 .bCrumbs, .bCrumbs a{
     font-size: 12px;
-    color: #0a1faa;
+    color: #0A1F44;
 }
 
 .image .price-box{
@@ -534,7 +541,8 @@ body{
     text-decoration: none;
     font-size: 14px;
     margin-top: 20px;
-    font-weight: bold;
+    /*font-weight: bold;*/
+    font-family: 'HCo Gotham Bold';
 }
 
 #footer .wrapper a:hover {
@@ -658,7 +666,7 @@ body{
     background: url("../images/transitions-logo.svg") no-repeat scroll left top transparent;
     display: block;
     height: 93px;
-    width: 259px;
+    width: 225px;
     float: left;
     margin: 7px 0px 0px 0px;
 }
@@ -856,13 +864,20 @@ div#DDmenu li a:hover{
 }
 
 .under-budget p, .mini-cart p{
-    color: #002D72;
     font-size: 12px;
     text-transform: none;
     margin-bottom: 0px;
     font-weight: bold;
     padding-top: 8px;
     line-height: 15px;
+}
+
+.under-budget p {
+    color: darkred;
+}
+
+.mini-cart p {
+    color: #002D72;
 }
 
 /**** search ****/
@@ -1074,7 +1089,7 @@ tfoot tr td{
     font-weight: bold;
     height: 47px;
     font-size: 16px;
-    font-weight: bold;
+    font-family: 'HCo Gotham Bold';
     padding-left: 32px;
     padding-right: 32px;
 }
@@ -1097,7 +1112,7 @@ tfoot tr td{
     text-transform: uppercase;*/
 
     color: #FFF;
-    font-weight: bold;
+    font-family: 'HCo Gotham Bold';
     cursor: pointer;
     -moz-border-radius: 25px;    
     -webkit-border-radius: 25px;
@@ -1122,17 +1137,20 @@ tfoot tr td{
     -webkit-border-radius: 3px 3px 3px 3px;
     border: 1px solid !important;
     background: #ededed;
+    font-family: 'HCo Gotham Bold';
 }
 
 .addToCartBtn_removed {
     align-items: center;
     display: flex;
+    font-family: 'HCo Gotham Bold';
 }
 
 a#singleAddy.btn {
     padding-top: 13px;
     padding-bottom: 13px;
     text-decoration: none;
+    font-family: 'HCo Gotham Bold';
 }
 
 .basket-item-desc #continueShopBtn {
@@ -1534,7 +1552,7 @@ td.ar{
     right: 0;
     bottom: 5px;
     padding: 5px 6px;
-
+    font-family: 'HCo Gotham Bold';
 }
 
 .pagination-new {
@@ -1595,6 +1613,7 @@ a.view-all{
 #pageItem .price {
     margin: 10px;
     color: #002D72;
+    font-family: 'HCo Gotham Bold';
 }
 
 #pageItem .actions{
