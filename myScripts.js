@@ -1,3 +1,18 @@
+//SCRIPT QS by payment gateway
+
+#foreach($paymentGateway in $checkoutViewDTO.ccPreferencesDTO.paymentgateways)
+    #if($paymentGateway.code == "NCC-ACCOUNT")
+        <script></script>
+    #else
+        <script></script>
+    #end
+#end
+
+//53A/B 3pb validator - 0 to 9 only 
+
+validator.addRuleset("[name='freightAccountNumberMap[SHIPGROUP0]']", "regex=^\\d{9,9}$", "Please enter your 9 digit 3rd party freight account number.");
+
+
  //Hide image on basket.vm 37C c2TRC
 
  <script>
